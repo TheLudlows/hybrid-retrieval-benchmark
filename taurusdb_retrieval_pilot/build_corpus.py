@@ -146,7 +146,7 @@ def extract_article(payload, source):
     return "\n\n".join(blocks) + "\n"
 
 
-def fetch_source(source, html_dir):
+def fetch_source(source, html_dir, cache_html=None):
     try:
         if html_dir is None:
             request = Request(source["url"], headers={"User-Agent": "Mozilla/5.0 TaurusDB-retrieval-pilot"})
@@ -156,7 +156,10 @@ def fetch_source(source, html_dir):
                 raw = response.read()
         else:
             raw = (html_dir / f"{source['document_id']}.html").read_bytes()
-        return extract_article(raw, source), hashlib.sha256(raw).hexdigest()
+        article = extract_article(raw, source)
+        if cache_html is not None:
+            (cache_html / f"{source['document_id']}.html").write_bytes(raw)
+        return article, hashlib.sha256(raw).hexdigest()
     except (OSError, ValueError) as error:
         raise ValueError(f"{source['document_id']}: {error}") from error
 
@@ -165,18 +168,23 @@ def write_jsonl(path, rows):
     path.write_text("".join(json.dumps(row, ensure_ascii=False) + "\n" for row in rows), encoding="utf-8")
 
 
-def build(output, html_dir, sources, questions, updates):
+def build(output, html_dir, sources, questions, updates, cache_html=None):
     if output.exists():
         raise ValueError(f"choose a new output directory: {output}")
+    if cache_html is not None:
+        cache_html.mkdir(parents=True, exist_ok=True)
     with ThreadPoolExecutor(max_workers=5) as executor:
-        payloads = list(executor.map(lambda source: fetch_source(source, html_dir), sources))
+        payloads = list(executor.map(lambda source: fetch_source(source, html_dir, cache_html), sources))
     articles = {source["document_id"]: data[0] for source, data in zip(sources, payloads, strict=True)}
+    missing = []
     for question in questions:
         for evidence in question["evidence"]:
             try:
                 evidence["quote"] = evidence_quote(articles[evidence["document_id"]], evidence["quote"])
             except ValueError as error:
-                raise ValueError(f"{question['id']} / {evidence['document_id']}: {error}") from error
+                missing.append(f"{question['id']} / {evidence['document_id']}: {error}")
+    if missing:
+        raise ValueError("\n".join(missing))
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(dir=output.parent) as directory:
         stage = Path(directory) / "dataset"
@@ -202,6 +210,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=Path("taurusdb-pilot-corpus"))
     parser.add_argument("--html-dir", type=Path, help="Read saved HTML named <document_id>.html")
+    parser.add_argument("--cache-html", type=Path, help="Save the fetched official HTML snapshots for repeat builds")
     parser.add_argument("--check-labels", action="store_true", help="Validate the fixture files without fetching HTML")
     args = parser.parse_args()
     try:
@@ -209,7 +218,7 @@ def main():
         if args.check_labels:
             print(f"Validated {len(sources)} source records, {len(questions)} questions and {len(updates)} update fixtures")
         else:
-            build(args.output, args.html_dir, sources, questions, updates)
+            build(args.output, args.html_dir, sources, questions, updates, args.cache_html)
     except (OSError, ValueError) as error:
         parser.exit(1, str(error) + "\n")
 

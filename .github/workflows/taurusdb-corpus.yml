@@ -20,8 +20,16 @@ jobs:
         with:
           python-version: "3.12"
       - run: python -m pip install lxml==5.4.0
-      - run: python taurusdb_retrieval_pilot/build_corpus.py --output taurusdb-pilot-corpus
+      - run: python taurusdb_retrieval_pilot/build_corpus.py --cache-html saved-html --output taurusdb-pilot-corpus
       - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: official-page-snapshots
+          path: saved-html/
+          if-no-files-found: ignore
+          retention-days: 3
+      - uses: actions/upload-artifact@v4
+        if: success()
         with:
           name: taurusdb-pilot-corpus
           path: taurusdb-pilot-corpus/
