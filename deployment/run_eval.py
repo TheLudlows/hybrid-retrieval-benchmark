@@ -151,7 +151,8 @@ def model_totals(run_dir, product, run_id):
     groups = defaultdict(list)
     for row in rows:
         if row['phase'] in ('ingest','retrieve') and row['id'] != 'warmup':
-            groups[(row['phase'],row['id'])].append(row)
+            identifier = 'run' if row['phase'] == 'ingest' else row['id']
+            groups[(row['phase'],identifier)].append(row)
     with (run_dir / f'{product}-model-calls.jsonl').open('w',encoding='utf-8') as output:
         for row in rows:
             bench.write_row(output,row)

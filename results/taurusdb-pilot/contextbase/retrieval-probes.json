@@ -1,0 +1,106 @@
+{
+  "exact-04": [
+    {
+      "method": "semantic",
+      "candidates": 238
+    },
+    {
+      "method": "bm25",
+      "candidates": 219
+    },
+    {
+      "method": "graph",
+      "candidates": 102
+    },
+    {
+      "method": "semantic",
+      "candidates": 0
+    },
+    {
+      "method": "bm25",
+      "candidates": 0
+    },
+    {
+      "method": "graph",
+      "candidates": 0
+    }
+  ],
+  "exact-03": [
+    {
+      "method": "semantic",
+      "candidates": 238
+    },
+    {
+      "method": "bm25",
+      "candidates": 219
+    },
+    {
+      "method": "graph",
+      "candidates": 103
+    },
+    {
+      "method": "semantic",
+      "candidates": 0
+    },
+    {
+      "method": "bm25",
+      "candidates": 0
+    },
+    {
+      "method": "graph",
+      "candidates": 0
+    }
+  ],
+  "exact-02": [
+    {
+      "method": "semantic",
+      "candidates": 239
+    },
+    {
+      "method": "bm25",
+      "candidates": 221
+    },
+    {
+      "method": "graph",
+      "candidates": 108
+    },
+    {
+      "method": "semantic",
+      "candidates": 0
+    },
+    {
+      "method": "bm25",
+      "candidates": 0
+    },
+    {
+      "method": "graph",
+      "candidates": 0
+    }
+  ],
+  "exact-01": [
+    {
+      "method": "semantic",
+      "candidates": 239
+    },
+    {
+      "method": "bm25",
+      "candidates": 220
+    },
+    {
+      "method": "graph",
+      "candidates": 102
+    },
+    {
+      "method": "semantic",
+      "candidates": 0
+    },
+    {
+      "method": "bm25",
+      "candidates": 0
+    },
+    {
+      "method": "graph",
+      "candidates": 0
+    }
+  ]
+}

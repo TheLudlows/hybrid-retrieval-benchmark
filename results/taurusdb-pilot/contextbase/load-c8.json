@@ -1,0 +1,170 @@
+{
+  "concurrency": 8,
+  "elapsed_s": 491.852986332,
+  "requests": 40,
+  "errors": 0,
+  "timeouts": 0,
+  "p95_ms": 148285.25257,
+  "rows": [
+    {
+      "id": "exact-01",
+      "latency_ms": 72122.09048999922
+    },
+    {
+      "id": "exact-02",
+      "latency_ms": 36547.61751000024
+    },
+    {
+      "id": "exact-03",
+      "latency_ms": 12757.805401000041
+    },
+    {
+      "id": "exact-04",
+      "latency_ms": 84265.7510580002
+    },
+    {
+      "id": "exact-05",
+      "latency_ms": 96262.81683700017
+    },
+    {
+      "id": "exact-06",
+      "latency_ms": 48680.67540299944
+    },
+    {
+      "id": "exact-07",
+      "latency_ms": 25069.5415780001
+    },
+    {
+      "id": "exact-08",
+      "latency_ms": 60504.916046999824
+    },
+    {
+      "id": "paraphrase-01",
+      "latency_ms": 95619.58523199974
+    },
+    {
+      "id": "paraphrase-02",
+      "latency_ms": 94890.68470100028
+    },
+    {
+      "id": "paraphrase-03",
+      "latency_ms": 95008.0971059997
+    },
+    {
+      "id": "paraphrase-04",
+      "latency_ms": 131621.55447999976
+    },
+    {
+      "id": "paraphrase-05",
+      "latency_ms": 106993.0251400001
+    },
+    {
+      "id": "paraphrase-06",
+      "latency_ms": 70912.24928700013
+    },
+    {
+      "id": "paraphrase-07",
+      "latency_ms": 109198.59771600022
+    },
+    {
+      "id": "paraphrase-08",
+      "latency_ms": 58164.99972600013
+    },
+    {
+      "id": "confusable-01",
+      "latency_ms": 98454.19591900008
+    },
+    {
+      "id": "confusable-02",
+      "latency_ms": 98529.26088299954
+    },
+    {
+      "id": "confusable-03",
+      "latency_ms": 148285.25257
+    },
+    {
+      "id": "confusable-04",
+      "latency_ms": 88377.02889499997
+    },
+    {
+      "id": "confusable-05",
+      "latency_ms": 137885.3461030003
+    },
+    {
+      "id": "confusable-06",
+      "latency_ms": 75344.50905999984
+    },
+    {
+      "id": "confusable-07",
+      "latency_ms": 74646.60837500014
+    },
+    {
+      "id": "confusable-08",
+      "latency_ms": 73898.74684499955
+    },
+    {
+      "id": "multi_evidence-01",
+      "latency_ms": 98623.92905999967
+    },
+    {
+      "id": "multi_evidence-02",
+      "latency_ms": 99087.97996900012
+    },
+    {
+      "id": "multi_evidence-03",
+      "latency_ms": 149674.3222389996
+    },
+    {
+      "id": "multi_evidence-04",
+      "latency_ms": 152193.70199999958
+    },
+    {
+      "id": "multi_evidence-05",
+      "latency_ms": 75023.55474500018
+    },
+    {
+      "id": "multi_evidence-06",
+      "latency_ms": 74046.56298400005
+    },
+    {
+      "id": "multi_evidence-07",
+      "latency_ms": 75856.56283000026
+    },
+    {
+      "id": "multi_evidence-08",
+      "latency_ms": 75362.92144800063
+    },
+    {
+      "id": "multi_evidence-09",
+      "latency_ms": 102333.19262799979
+    },
+    {
+      "id": "multi_evidence-10",
+      "latency_ms": 115498.57941199935
+    },
+    {
+      "id": "no_answer-01",
+      "latency_ms": 89796.2570560003
+    },
+    {
+      "id": "no_answer-02",
+      "latency_ms": 104831.16736800002
+    },
+    {
+      "id": "no_answer-03",
+      "latency_ms": 136140.34620799974
+    },
+    {
+      "id": "no_answer-04",
+      "latency_ms": 100543.74280999946
+    },
+    {
+      "id": "no_answer-05",
+      "latency_ms": 76175.5156629997
+    },
+    {
+      "id": "no_answer-06",
+      "latency_ms": 84290.54186599933
+    }
+  ]
+}

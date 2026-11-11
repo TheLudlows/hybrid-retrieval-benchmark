@@ -11,6 +11,7 @@ def fetch(args):
     target, repo, revision, name=args
     path=root/target/Path(name).name
     if path.exists():return
+    path.parent.mkdir(parents=True, exist_ok=True)
     temp=path.with_suffix(path.suffix+'.part')
     subprocess.run(['curl','-fsSL','--retry','2','--connect-timeout','15','--max-time','900',
         f'https://huggingface.co/{repo}/resolve/{revision}/{name}','-o',str(temp)],check=True)

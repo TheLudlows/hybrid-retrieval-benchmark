@@ -1,0 +1,429 @@
+{
+  "questions": 40,
+  "errors": 0,
+  "answerable": 34,
+  "cross_document": 10,
+  "no_answer": 6,
+  "evidence_hit_at_5": 0.9705882352941176,
+  "no_answer_with_candidates": 6,
+  "budgets": {
+    "256": {
+      "evidence_recall": 0.46078431372549017,
+      "cross_document_complete": 0
+    },
+    "512": {
+      "evidence_recall": 0.5294117647058824,
+      "cross_document_complete": 0
+    },
+    "2000": {
+      "evidence_recall": 0.7598039215686274,
+      "cross_document_complete": 3
+    }
+  },
+  "usage": {
+    "ingest": {
+      "audit": {
+        "calls": 2,
+        "input_tokens": 1960,
+        "output_tokens": 0
+      },
+      "backup_lock": {
+        "calls": 1,
+        "input_tokens": 549,
+        "output_tokens": 0
+      },
+      "backup_policy": {
+        "calls": 2,
+        "input_tokens": 3144,
+        "output_tokens": 0
+      },
+      "backup_principles": {
+        "calls": 1,
+        "input_tokens": 1084,
+        "output_tokens": 0
+      },
+      "backup_space": {
+        "calls": 1,
+        "input_tokens": 1117,
+        "output_tokens": 0
+      },
+      "connections": {
+        "calls": 1,
+        "input_tokens": 525,
+        "output_tokens": 0
+      },
+      "cross_backup": {
+        "calls": 1,
+        "input_tokens": 1047,
+        "output_tokens": 0
+      },
+      "cross_restore": {
+        "calls": 1,
+        "input_tokens": 360,
+        "output_tokens": 0
+      },
+      "delete_replica": {
+        "calls": 1,
+        "input_tokens": 454,
+        "output_tokens": 0
+      },
+      "kernel_upgrade": {
+        "calls": 3,
+        "input_tokens": 3821,
+        "output_tokens": 0
+      },
+      "limits": {
+        "calls": 2,
+        "input_tokens": 2113,
+        "output_tokens": 0
+      },
+      "log_config": {
+        "calls": 1,
+        "input_tokens": 556,
+        "output_tokens": 0
+      },
+      "manual_backup": {
+        "calls": 1,
+        "input_tokens": 889,
+        "output_tokens": 0
+      },
+      "parameter_change": {
+        "calls": 2,
+        "input_tokens": 1505,
+        "output_tokens": 0
+      },
+      "parameter_reset": {
+        "calls": 1,
+        "input_tokens": 184,
+        "output_tokens": 0
+      },
+      "parameter_view": {
+        "calls": 1,
+        "input_tokens": 398,
+        "output_tokens": 0
+      },
+      "promote_replica": {
+        "calls": 1,
+        "input_tokens": 875,
+        "output_tokens": 0
+      },
+      "proxy_consistency": {
+        "calls": 2,
+        "input_tokens": 2150,
+        "output_tokens": 0
+      },
+      "proxy_intro": {
+        "calls": 2,
+        "input_tokens": 1846,
+        "output_tokens": 0
+      },
+      "proxy_open": {
+        "calls": 3,
+        "input_tokens": 3608,
+        "output_tokens": 0
+      },
+      "proxy_pool": {
+        "calls": 1,
+        "input_tokens": 661,
+        "output_tokens": 0
+      },
+      "proxy_transaction": {
+        "calls": 1,
+        "input_tokens": 660,
+        "output_tokens": 0
+      },
+      "proxy_upgrade": {
+        "calls": 1,
+        "input_tokens": 463,
+        "output_tokens": 0
+      },
+      "proxy_weights": {
+        "calls": 1,
+        "input_tokens": 704,
+        "output_tokens": 0
+      },
+      "read_replica": {
+        "calls": 1,
+        "input_tokens": 600,
+        "output_tokens": 0
+      },
+      "release_notes": {
+        "calls": 8,
+        "input_tokens": 11895,
+        "output_tokens": 0
+      },
+      "restart": {
+        "calls": 1,
+        "input_tokens": 1423,
+        "output_tokens": 0
+      },
+      "restore_backup": {
+        "calls": 3,
+        "input_tokens": 3938,
+        "output_tokens": 0
+      },
+      "slow_log": {
+        "calls": 1,
+        "input_tokens": 1534,
+        "output_tokens": 0
+      },
+      "ssl_trouble": {
+        "calls": 1,
+        "input_tokens": 391,
+        "output_tokens": 0
+      },
+      "standard_audit": {
+        "calls": 2,
+        "input_tokens": 1983,
+        "output_tokens": 0
+      },
+      "standard_backup_policy": {
+        "calls": 1,
+        "input_tokens": 1336,
+        "output_tokens": 0
+      },
+      "standard_jdbc": {
+        "calls": 3,
+        "input_tokens": 3400,
+        "output_tokens": 0
+      },
+      "standard_kernel_upgrade": {
+        "calls": 1,
+        "input_tokens": 974,
+        "output_tokens": 0
+      },
+      "standard_parameter_history": {
+        "calls": 1,
+        "input_tokens": 445,
+        "output_tokens": 0
+      },
+      "standard_pitr": {
+        "calls": 1,
+        "input_tokens": 1007,
+        "output_tokens": 0
+      },
+      "standard_slow_log": {
+        "calls": 2,
+        "input_tokens": 1691,
+        "output_tokens": 0
+      },
+      "standard_table_pitr": {
+        "calls": 1,
+        "input_tokens": 1292,
+        "output_tokens": 0
+      },
+      "table_pitr": {
+        "calls": 2,
+        "input_tokens": 1543,
+        "output_tokens": 0
+      },
+      "versions": {
+        "calls": 1,
+        "input_tokens": 239,
+        "output_tokens": 0
+      }
+    },
+    "retrieve": {
+      "paraphrase-01": {
+        "calls": 2,
+        "input_tokens": 18552,
+        "output_tokens": 0
+      },
+      "no_answer-04": {
+        "calls": 2,
+        "input_tokens": 19444,
+        "output_tokens": 0
+      },
+      "paraphrase-06": {
+        "calls": 2,
+        "input_tokens": 19480,
+        "output_tokens": 0
+      },
+      "no_answer-06": {
+        "calls": 2,
+        "input_tokens": 18802,
+        "output_tokens": 0
+      },
+      "paraphrase-02": {
+        "calls": 2,
+        "input_tokens": 18788,
+        "output_tokens": 0
+      },
+      "confusable-01": {
+        "calls": 2,
+        "input_tokens": 19358,
+        "output_tokens": 0
+      },
+      "exact-01": {
+        "calls": 2,
+        "input_tokens": 19028,
+        "output_tokens": 0
+      },
+      "confusable-06": {
+        "calls": 2,
+        "input_tokens": 18733,
+        "output_tokens": 0
+      },
+      "no_answer-02": {
+        "calls": 2,
+        "input_tokens": 19166,
+        "output_tokens": 0
+      },
+      "multi_evidence-06": {
+        "calls": 2,
+        "input_tokens": 19721,
+        "output_tokens": 0
+      },
+      "exact-02": {
+        "calls": 2,
+        "input_tokens": 17799,
+        "output_tokens": 0
+      },
+      "multi_evidence-01": {
+        "calls": 2,
+        "input_tokens": 18973,
+        "output_tokens": 0
+      },
+      "exact-04": {
+        "calls": 2,
+        "input_tokens": 20330,
+        "output_tokens": 0
+      },
+      "multi_evidence-09": {
+        "calls": 2,
+        "input_tokens": 19580,
+        "output_tokens": 0
+      },
+      "exact-03": {
+        "calls": 2,
+        "input_tokens": 19731,
+        "output_tokens": 0
+      },
+      "exact-07": {
+        "calls": 2,
+        "input_tokens": 19269,
+        "output_tokens": 0
+      },
+      "paraphrase-08": {
+        "calls": 2,
+        "input_tokens": 19305,
+        "output_tokens": 0
+      },
+      "exact-06": {
+        "calls": 2,
+        "input_tokens": 18549,
+        "output_tokens": 0
+      },
+      "exact-08": {
+        "calls": 2,
+        "input_tokens": 18639,
+        "output_tokens": 0
+      },
+      "multi_evidence-03": {
+        "calls": 2,
+        "input_tokens": 20538,
+        "output_tokens": 0
+      },
+      "multi_evidence-08": {
+        "calls": 2,
+        "input_tokens": 19888,
+        "output_tokens": 0
+      },
+      "confusable-03": {
+        "calls": 2,
+        "input_tokens": 19805,
+        "output_tokens": 0
+      },
+      "confusable-07": {
+        "calls": 2,
+        "input_tokens": 19594,
+        "output_tokens": 0
+      },
+      "multi_evidence-10": {
+        "calls": 2,
+        "input_tokens": 19283,
+        "output_tokens": 0
+      },
+      "exact-05": {
+        "calls": 2,
+        "input_tokens": 19842,
+        "output_tokens": 0
+      },
+      "multi_evidence-04": {
+        "calls": 2,
+        "input_tokens": 21858,
+        "output_tokens": 0
+      },
+      "paraphrase-05": {
+        "calls": 2,
+        "input_tokens": 20143,
+        "output_tokens": 0
+      },
+      "multi_evidence-05": {
+        "calls": 2,
+        "input_tokens": 20924,
+        "output_tokens": 0
+      },
+      "confusable-02": {
+        "calls": 2,
+        "input_tokens": 19549,
+        "output_tokens": 0
+      },
+      "paraphrase-03": {
+        "calls": 2,
+        "input_tokens": 19369,
+        "output_tokens": 0
+      },
+      "multi_evidence-02": {
+        "calls": 2,
+        "input_tokens": 20275,
+        "output_tokens": 0
+      },
+      "paraphrase-07": {
+        "calls": 2,
+        "input_tokens": 19159,
+        "output_tokens": 0
+      },
+      "no_answer-01": {
+        "calls": 2,
+        "input_tokens": 19360,
+        "output_tokens": 0
+      },
+      "no_answer-05": {
+        "calls": 2,
+        "input_tokens": 19065,
+        "output_tokens": 0
+      },
+      "confusable-05": {
+        "calls": 2,
+        "input_tokens": 20122,
+        "output_tokens": 0
+      },
+      "confusable-08": {
+        "calls": 2,
+        "input_tokens": 18719,
+        "output_tokens": 0
+      },
+      "multi_evidence-07": {
+        "calls": 2,
+        "input_tokens": 19556,
+        "output_tokens": 0
+      },
+      "no_answer-03": {
+        "calls": 2,
+        "input_tokens": 19352,
+        "output_tokens": 0
+      },
+      "paraphrase-04": {
+        "calls": 2,
+        "input_tokens": 20159,
+        "output_tokens": 0
+      },
+      "confusable-04": {
+        "calls": 2,
+        "input_tokens": 19844,
+        "output_tokens": 0
+      }
+    }
+  }
+}

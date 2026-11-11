@@ -71,9 +71,9 @@ class API:
         self.opener = build_opener(NoRedirect())
         self.timeout = float(os.environ.get("BENCH_HTTP_TIMEOUT_SECONDS", "90"))
 
-    def request(self, path, payload=None):
+    def request(self, path, payload=None, *, method=None):
         body = None if payload is None else json.dumps(payload, ensure_ascii=False).encode()
-        req = Request(self.base + self.prefix + path, body, self.headers)
+        req = Request(self.base + self.prefix + path, body, self.headers, method=method)
         with self.opener.open(req, timeout=self.timeout) as response:
             data = json.load(response)
         if not isinstance(data, dict) or data.get("success") is False:
@@ -81,13 +81,15 @@ class API:
         return data
 
 
-def ingest(api, product, mapping_path):
+def ingest(api, product, mapping_path, *, document_context=None):
     """Import only into a dedicated benchmark scope. Resume recorded WeKnora uploads."""
     mapping = json.loads(mapping_path.read_text(encoding="utf-8")) if mapping_path.exists() else {}
     documents = sorted((ROOT / "corpus").glob("*.md"))
     if product == "contextbase":
         for path in documents:
             if path.stem not in mapping:
+                if document_context is not None:
+                    document_context(path.stem)
                 api.request("/memories", {
                     "items": [{"document_id": path.stem, "content": path.read_text(encoding="utf-8"),
                                "update_mode": "replace", "timestamp": "unset"}],
@@ -101,14 +103,22 @@ def ingest(api, product, mapping_path):
         if path.stem in mapping:
             continue
         content = path.read_text(encoding="utf-8")
+        if document_context is not None:
+            document_context(path.stem)
         response = api.request(f"/knowledge-bases/{quote(api.scope, safe='')}/knowledge/manual", {
             "title": content.splitlines()[0].removeprefix("# "), "content": content, "status": "publish",
         })
         mapping[path.stem] = response["data"]["id"]
         write_json(mapping_path, mapping)
+        if document_context is not None:
+            wait_for_weknora_index(api, {mapping[path.stem]})
 
+    if document_context is None:
+        wait_for_weknora_index(api, set(mapping.values()))
+
+
+def wait_for_weknora_index(api, pending):
     deadline = time.monotonic() + 900
-    pending = set(mapping.values())
     while pending:
         for identifier in sorted(pending):
             state = api.request("/knowledge/" + quote(identifier, safe=""))["data"]["parse_status"]
@@ -152,8 +162,8 @@ def normalize(text):
     return re.sub(r"[\s`]+", "", text)
 
 
-def annotate(passages, evidence, encode, decode):
-    remaining = BUDGET
+def annotate(passages, evidence, encode, decode, *, budget=None):
+    remaining = BUDGET if budget is None else budget
     seen = set()
     ranked = []
     for passage in passages:
@@ -201,6 +211,9 @@ def collect(api, product, mapping_path, output_path, questions, encode, decode, 
                 write_row(output, {"id": q["id"], "error": f"HTTP {code}" if code else type(error).__name__})
                 continue
             write_row(output, {"id": q["id"], "latency_ms": latency,
+                               "top_5_evidence_ids": [e["id"] for e in q["evidence"]
+                                   if any(p["document_id"] == e["document_id"] and normalize(e["quote"]) in normalize(p["text"])
+                                          for p in passages[:5])],
                                "candidates": annotate(passages, q["evidence"], encode, decode),
                                "reviewed": not q["evidence"] or not passages})
 

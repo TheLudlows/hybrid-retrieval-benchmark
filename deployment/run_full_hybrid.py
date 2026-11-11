@@ -18,9 +18,12 @@ from run_native import cleanup, ready, start
 
 root = live.ROOT
 bench = live.bench
+pilot_dataset = os.environ.get("BENCH_DATASET_DIR")
+if pilot_dataset:
+    bench.ROOT = Path(pilot_dataset).resolve()
 run_id = datetime.now(timezone.utc).strftime("hybrid_%Y%m%d_%H%M%S")
 run_dir = root / "results" / run_id
-run_dir.mkdir()
+run_dir.mkdir(parents=True)
 print("RUN", run_dir, flush=True)
 questions = bench.read_rows(bench.ROOT / "questions.jsonl")
 gold = {question["id"]: question for question in questions}
@@ -160,18 +163,21 @@ def start_contextbase_hybrid():
 
 
 class HybridAPI(bench.API):
-    def __init__(self, product):
+    def __init__(self, product, *, tracking=True):
         super().__init__(product)
         self.product = product
-        self.probes = {"alder-08", "elm-09", "birch-10", "alder-03"}
+        self.tracking = tracking
+        self.probes = ({q["id"] for q in questions[:4]} if pilot_dataset
+                       else {"alder-08", "elm-09", "birch-10", "alder-03"})
         self.seen_lexical = False
         self.done = 0
 
-    def request(self, path, payload=None):
+    def request(self, path, payload=None, *, method=None):
         if path not in ("/memories/recall", "/knowledge-search"):
-            return super().request(path, payload)
-        query_id = query_ids[payload["query"]]
-        live.model_context(self.product, run_id, "retrieve", query_id)
+            return super().request(path, payload, method=method)
+        query_id = query_ids.get(payload["query"], "supplemental")
+        if self.tracking:
+            live.model_context(self.product, run_id, "retrieve", query_id)
         if self.product == "weknora":
             data = super().request(path, {**payload, "match_count": 60,
                 "disable_vector_match": False, "disable_keywords_match": False,
@@ -180,26 +186,28 @@ class HybridAPI(bench.API):
             meta = data.get("meta", {}).get("rerank") or {}
             if not meta.get("applied"):
                 raise RuntimeError(f"WeKnora model reranking did not run for {query_id}: {meta}")
-            with (run_dir / "weknora-rerank-meta.jsonl").open("a") as out:
-                bench.write_row(out, {"id": query_id, **meta})
+            if self.tracking:
+                with (run_dir / "weknora-rerank-meta.jsonl").open("a") as out:
+                    bench.write_row(out, {"id": query_id, **meta})
         else:
             data = super().request(path, {**payload, "budget": "high", "max_tokens": 8192,
                  "include": {"entities": None, "chunks": {"max_tokens": 16384}},
-                 "trace": query_id in self.probes})
-            if query_id in self.probes:
+                 "trace": self.tracking and query_id in self.probes})
+            if self.tracking and query_id in self.probes:
                 bench.write_json(run_dir / f"contextbase-trace-{query_id}.json", data)
                 trace = data["trace"]
                 arms = [(arm["method_name"], len(arm["results"])) for arm in trace["retrieval_results"]]
                 self.seen_lexical |= any(kind == "bm25" and count > 0 for kind, count in arms)
                 print("PROBE", query_id, arms, flush=True)
-        self.done += 1
-        if self.done % 10 == 0:
-            print("QUERIES", self.product, self.done, flush=True)
+        if self.tracking:
+            self.done += 1
+            if self.done % 10 == 0:
+                print("QUERIES", self.product, self.done, flush=True)
         return data
 
 
 def run_product(product):
-    resume = os.environ.get("BENCH_RESUME_WEKNORA") if product == "weknora" else None
+    resume = os.environ.get("BENCH_RESUME_WEKNORA") if product == "weknora" and not pilot_dataset else None
     completed = []
     mapping = run_dir / f"{product}-documents.json"
     model_log = run_dir / "model-usage.jsonl"
@@ -238,10 +246,17 @@ def run_product(product):
     api = HybridAPI(product)
     if not resume:
         live.model_context(product, run_id, "ingest", "run")
-        bench.ingest(api, product, mapping)
+        document_context = (lambda identifier: live.model_context(product, run_id, "ingest", identifier)) if pilot_dataset else None
+        bench.ingest(api, product, mapping, document_context=document_context)
         print("INDEXED", product, flush=True)
         source_ids = {remote: local for local, remote in json.loads(mapping.read_text()).items()}
-        bench.retrieve(api, product, gold["alder-08"]["query"], source_ids)
+        warmups = [q for q in questions if q["id"] in api.probes] if pilot_dataset and product == "contextbase" else [
+            questions[0] if pilot_dataset else gold["alder-08"]
+        ]
+        for warmup in warmups:
+            bench.retrieve(api, product, warmup["query"], source_ids)
+        if pilot_dataset:
+            api.probes.clear()
         # Keep probe usage outside the measured workload.
         rows = bench.read_rows(model_log)
         with model_log.open("w", encoding="utf-8") as out:
@@ -269,7 +284,7 @@ def run_product(product):
                 for question in order:
                     if question["id"] in by_id:
                         bench.write_row(out, by_id[question["id"]])
-    assert api.done == 120
+    assert api.done == len(questions)
     if product == "contextbase":
         assert api.seen_lexical, "No Chinese lexical hit was observed"
     usage = live.model_totals(run_dir, product, run_id)
@@ -278,11 +293,17 @@ def run_product(product):
         covered = {row["id"] for row in raw_calls if row["phase"] == "retrieve" and row["kind"] == kind}
         assert covered == set(gold), (product, kind, len(covered))
     rows = bench.read_rows(capture)
-    assert len(rows) == 120 and not any("error" in row for row in rows)
+    assert len(rows) == len(questions) and not any("error" in row for row in rows)
     from contextlib import redirect_stdout
     with (run_dir / f"{product}-summary.json").open("w", encoding="utf-8") as out, redirect_stdout(out):
         bench.score(capture, gold, True, usage)
     print("DONE", product, bench.summarize(rows, gold), flush=True)
+    if pilot_dataset:
+        from pilot_metrics import run_supplemental, score_pilot
+        bench.write_json(run_dir / f"{product}-pilot-quality.json",
+                         score_pilot(rows, gold, encoding, raw_calls))
+        run_supplemental(HybridAPI(product, tracking=False), product, run_id, run_dir,
+                         questions, bench.read_rows(bench.ROOT / "updates.jsonl"), source_ids, bench, live)
 
 
 def main():
