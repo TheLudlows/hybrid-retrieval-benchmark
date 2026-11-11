@@ -1,0 +1,12 @@
+--- a/hindsight-api-slim/hindsight_api/engine/memory_engine.py
++++ b/hindsight-api-slim/hindsight_api/engine/memory_engine.py
+@@ -9038,7 +9038,8 @@
+         # Function "fixed" preserves legacy {LOW: 100, MID: 300, HIGH: 1000}; function "adaptive"
+         # derives from max_tokens and clamps to [recall_budget_min, recall_budget_max].
+         _t0 = time.time()
+-        budget_config_dict = await self._config_resolver.get_bank_config(bank_id, request_context)
++        resolved_recall_config = await self._config_resolver.resolve_full_config(bank_id, request_context)
++        budget_config_dict = self._config_resolver._public_fields_of(resolved_recall_config)
+         _d = time.time() - _t0
+         get_metrics_collector().record_recall_phase("bank_config", _d)
+         if _d > 0.100:

@@ -1,0 +1,120 @@
+{"id": "alder-01", "category": "exact", "query": "ALDER-R17 对应什么告警？", "evidence": [{"id": "alder-a_code", "document_id": "alder-prod", "quote": "赤杨生产环境发生归档积压时，告警代码为 ALDER-R17。"}]}
+{"id": "alder-02", "category": "exact", "query": "ALDER-R71 在哪种环境出现，指的是什么？", "evidence": [{"id": "alder-b_code", "document_id": "alder-stage", "quote": "赤杨预发环境发生归档积压时，告警代码为 ALDER-R71。"}]}
+{"id": "alder-03", "category": "paraphrase", "query": "赤杨正式上线的服务遇到失败，系统自己最多能再试几回？", "evidence": [{"id": "alder-a_retry", "document_id": "alder-prod", "quote": "赤杨生产环境最多自动重试 11 次。"}]}
+{"id": "alder-04", "category": "paraphrase", "query": "赤杨正式线上批量重放没成功，未做完的活儿应该先挪到哪里？", "evidence": [{"id": "alder-g_queue", "document_id": "alder-guide", "quote": "赤杨生产环境批量重放失败时，先把待处理任务转到西区备用队列。"}]}
+{"id": "alder-05", "category": "confusable", "query": "赤杨只看生产，job_wait_ms 的默认值是多少？", "evidence": [{"id": "alder-a_wait", "document_id": "alder-prod", "quote": "赤杨生产环境的 job_wait_ms 默认值为 720 毫秒。"}]}
+{"id": "alder-06", "category": "confusable", "query": "赤杨只看预发，job_wait_ms 的默认值是多少？", "evidence": [{"id": "alder-b_wait", "document_id": "alder-stage", "quote": "赤杨预发环境的 job_wait_ms 默认值为 970 毫秒。"}]}
+{"id": "alder-07", "category": "long_doc", "query": "赤杨切换生产环境后，用哪条命令检查订单摘要？", "evidence": [{"id": "alder-g_prod", "document_id": "alder-guide", "quote": "赤杨生产环境切换后必须运行 `archive-verify --digest` 校验订单摘要。"}]}
+{"id": "alder-08", "category": "long_doc", "query": "赤杨切换预发环境做演练后，用哪条命令检查订单摘要？", "evidence": [{"id": "alder-g_stage", "document_id": "alder-guide", "quote": "赤杨预发环境演练切换后运行 `archive-verify --schema` 校验订单摘要。"}]}
+{"id": "alder-09", "category": "multi_evidence", "query": "赤杨生产环境最多自动试几次？批量重放失败后应转到哪个队列？", "evidence": [{"id": "alder-a_retry", "document_id": "alder-prod", "quote": "赤杨生产环境最多自动重试 11 次。"}, {"id": "alder-g_queue", "document_id": "alder-guide", "quote": "赤杨生产环境批量重放失败时，先把待处理任务转到西区备用队列。"}]}
+{"id": "alder-10", "category": "multi_evidence", "query": "赤杨预发环境的默认等待时间是多少？预发切换后用什么命令校验？", "evidence": [{"id": "alder-b_wait", "document_id": "alder-stage", "quote": "赤杨预发环境的 job_wait_ms 默认值为 970 毫秒。"}, {"id": "alder-g_stage", "document_id": "alder-guide", "quote": "赤杨预发环境演练切换后运行 `archive-verify --schema` 校验订单摘要。"}]}
+{"id": "alder-11", "category": "no_answer", "query": "赤杨生产环境的 job_wait_ms 最大可配置值是多少？", "evidence": []}
+{"id": "alder-12", "category": "no_answer", "query": "赤杨预发环境演练后，订单摘要的校验结果保留多少天？", "evidence": []}
+{"id": "birch-01", "category": "exact", "query": "BIRCH-R17 对应什么告警？", "evidence": [{"id": "birch-a_code", "document_id": "birch-prod", "quote": "白桦生产环境发生导出停滞时，告警代码为 BIRCH-R17。"}]}
+{"id": "birch-02", "category": "exact", "query": "BIRCH-R71 在哪种环境出现，指的是什么？", "evidence": [{"id": "birch-b_code", "document_id": "birch-stage", "quote": "白桦预发环境发生导出停滞时，告警代码为 BIRCH-R71。"}]}
+{"id": "birch-03", "category": "paraphrase", "query": "白桦正式上线的服务遇到失败，系统自己最多能再试几回？", "evidence": [{"id": "birch-a_retry", "document_id": "birch-prod", "quote": "白桦生产环境最多自动重试 14 次。"}]}
+{"id": "birch-04", "category": "paraphrase", "query": "白桦正式线上恢复导出没成功，未做完的活儿应该先挪到哪里？", "evidence": [{"id": "birch-g_queue", "document_id": "birch-guide", "quote": "白桦生产环境恢复导出失败时，先把待处理任务转到二号导出队列。"}]}
+{"id": "birch-05", "category": "confusable", "query": "白桦只看生产，job_wait_ms 的默认值是多少？", "evidence": [{"id": "birch-a_wait", "document_id": "birch-prod", "quote": "白桦生产环境的 job_wait_ms 默认值为 540 毫秒。"}]}
+{"id": "birch-06", "category": "confusable", "query": "白桦只看预发，job_wait_ms 的默认值是多少？", "evidence": [{"id": "birch-b_wait", "document_id": "birch-stage", "quote": "白桦预发环境的 job_wait_ms 默认值为 790 毫秒。"}]}
+{"id": "birch-07", "category": "long_doc", "query": "白桦切换生产环境后，用哪条命令检查税务凭证？", "evidence": [{"id": "birch-g_prod", "document_id": "birch-guide", "quote": "白桦生产环境切换后必须运行 `export-verify --digest` 校验税务凭证。"}]}
+{"id": "birch-08", "category": "long_doc", "query": "白桦切换预发环境做演练后，用哪条命令检查税务凭证？", "evidence": [{"id": "birch-g_stage", "document_id": "birch-guide", "quote": "白桦预发环境演练切换后运行 `export-verify --schema` 校验税务凭证。"}]}
+{"id": "birch-09", "category": "multi_evidence", "query": "白桦生产环境最多自动试几次？恢复导出失败后应转到哪个队列？", "evidence": [{"id": "birch-a_retry", "document_id": "birch-prod", "quote": "白桦生产环境最多自动重试 14 次。"}, {"id": "birch-g_queue", "document_id": "birch-guide", "quote": "白桦生产环境恢复导出失败时，先把待处理任务转到二号导出队列。"}]}
+{"id": "birch-10", "category": "multi_evidence", "query": "白桦预发环境的默认等待时间是多少？预发切换后用什么命令校验？", "evidence": [{"id": "birch-b_wait", "document_id": "birch-stage", "quote": "白桦预发环境的 job_wait_ms 默认值为 790 毫秒。"}, {"id": "birch-g_stage", "document_id": "birch-guide", "quote": "白桦预发环境演练切换后运行 `export-verify --schema` 校验税务凭证。"}]}
+{"id": "birch-11", "category": "no_answer", "query": "白桦生产环境的 job_wait_ms 最大可配置值是多少？", "evidence": []}
+{"id": "birch-12", "category": "no_answer", "query": "白桦预发环境演练后，税务凭证的校验结果保留多少天？", "evidence": []}
+{"id": "cedar-01", "category": "exact", "query": "CEDAR-R17 对应什么告警？", "evidence": [{"id": "cedar-a_code", "document_id": "cedar-prod", "quote": "雪松生产环境发生库存偏差时，告警代码为 CEDAR-R17。"}]}
+{"id": "cedar-02", "category": "exact", "query": "CEDAR-R71 在哪种环境出现，指的是什么？", "evidence": [{"id": "cedar-b_code", "document_id": "cedar-stage", "quote": "雪松预发环境发生库存偏差时，告警代码为 CEDAR-R71。"}]}
+{"id": "cedar-03", "category": "paraphrase", "query": "雪松正式上线的服务遇到失败，系统自己最多能再试几回？", "evidence": [{"id": "cedar-a_retry", "document_id": "cedar-prod", "quote": "雪松生产环境最多自动重试 16 次。"}]}
+{"id": "cedar-04", "category": "paraphrase", "query": "雪松正式线上强制对账没成功，未做完的活儿应该先挪到哪里？", "evidence": [{"id": "cedar-g_queue", "document_id": "cedar-guide", "quote": "雪松生产环境强制对账失败时，先把待处理任务转到库存修复队列。"}]}
+{"id": "cedar-05", "category": "confusable", "query": "雪松只看生产，job_wait_ms 的默认值是多少？", "evidence": [{"id": "cedar-a_wait", "document_id": "cedar-prod", "quote": "雪松生产环境的 job_wait_ms 默认值为 840 毫秒。"}]}
+{"id": "cedar-06", "category": "confusable", "query": "雪松只看预发，job_wait_ms 的默认值是多少？", "evidence": [{"id": "cedar-b_wait", "document_id": "cedar-stage", "quote": "雪松预发环境的 job_wait_ms 默认值为 1090 毫秒。"}]}
+{"id": "cedar-07", "category": "long_doc", "query": "雪松切换生产环境后，用哪条命令检查库存快照？", "evidence": [{"id": "cedar-g_prod", "document_id": "cedar-guide", "quote": "雪松生产环境切换后必须运行 `stock-verify --digest` 校验库存快照。"}]}
+{"id": "cedar-08", "category": "long_doc", "query": "雪松切换预发环境做演练后，用哪条命令检查库存快照？", "evidence": [{"id": "cedar-g_stage", "document_id": "cedar-guide", "quote": "雪松预发环境演练切换后运行 `stock-verify --schema` 校验库存快照。"}]}
+{"id": "cedar-09", "category": "multi_evidence", "query": "雪松生产环境最多自动试几次？强制对账失败后应转到哪个队列？", "evidence": [{"id": "cedar-a_retry", "document_id": "cedar-prod", "quote": "雪松生产环境最多自动重试 16 次。"}, {"id": "cedar-g_queue", "document_id": "cedar-guide", "quote": "雪松生产环境强制对账失败时，先把待处理任务转到库存修复队列。"}]}
+{"id": "cedar-10", "category": "multi_evidence", "query": "雪松预发环境的默认等待时间是多少？预发切换后用什么命令校验？", "evidence": [{"id": "cedar-b_wait", "document_id": "cedar-stage", "quote": "雪松预发环境的 job_wait_ms 默认值为 1090 毫秒。"}, {"id": "cedar-g_stage", "document_id": "cedar-guide", "quote": "雪松预发环境演练切换后运行 `stock-verify --schema` 校验库存快照。"}]}
+{"id": "cedar-11", "category": "no_answer", "query": "雪松生产环境的 job_wait_ms 最大可配置值是多少？", "evidence": []}
+{"id": "cedar-12", "category": "no_answer", "query": "雪松预发环境演练后，库存快照的校验结果保留多少天？", "evidence": []}
+{"id": "elm-01", "category": "exact", "query": "ELM-R17 对应什么告警？", "evidence": [{"id": "elm-a_code", "document_id": "elm-prod", "quote": "青榆生产环境发生通知延迟时，告警代码为 ELM-R17。"}]}
+{"id": "elm-02", "category": "exact", "query": "ELM-R71 在哪种环境出现，指的是什么？", "evidence": [{"id": "elm-b_code", "document_id": "elm-stage", "quote": "青榆预发环境发生通知延迟时，告警代码为 ELM-R71。"}]}
+{"id": "elm-03", "category": "paraphrase", "query": "青榆正式上线的服务遇到失败，系统自己最多能再试几回？", "evidence": [{"id": "elm-a_retry", "document_id": "elm-prod", "quote": "青榆生产环境最多自动重试 18 次。"}]}
+{"id": "elm-04", "category": "paraphrase", "query": "青榆正式线上重新投递没成功，未做完的活儿应该先挪到哪里？", "evidence": [{"id": "elm-g_queue", "document_id": "elm-guide", "quote": "青榆生产环境重新投递失败时，先把待处理任务转到通知缓冲队列。"}]}
+{"id": "elm-05", "category": "confusable", "query": "青榆只看生产，job_wait_ms 的默认值是多少？", "evidence": [{"id": "elm-a_wait", "document_id": "elm-prod", "quote": "青榆生产环境的 job_wait_ms 默认值为 660 毫秒。"}]}
+{"id": "elm-06", "category": "confusable", "query": "青榆只看预发，job_wait_ms 的默认值是多少？", "evidence": [{"id": "elm-b_wait", "document_id": "elm-stage", "quote": "青榆预发环境的 job_wait_ms 默认值为 910 毫秒。"}]}
+{"id": "elm-07", "category": "long_doc", "query": "青榆切换生产环境后，用哪条命令检查消息回执？", "evidence": [{"id": "elm-g_prod", "document_id": "elm-guide", "quote": "青榆生产环境切换后必须运行 `notify-verify --digest` 校验消息回执。"}]}
+{"id": "elm-08", "category": "long_doc", "query": "青榆切换预发环境做演练后，用哪条命令检查消息回执？", "evidence": [{"id": "elm-g_stage", "document_id": "elm-guide", "quote": "青榆预发环境演练切换后运行 `notify-verify --schema` 校验消息回执。"}]}
+{"id": "elm-09", "category": "multi_evidence", "query": "青榆生产环境最多自动试几次？重新投递失败后应转到哪个队列？", "evidence": [{"id": "elm-a_retry", "document_id": "elm-prod", "quote": "青榆生产环境最多自动重试 18 次。"}, {"id": "elm-g_queue", "document_id": "elm-guide", "quote": "青榆生产环境重新投递失败时，先把待处理任务转到通知缓冲队列。"}]}
+{"id": "elm-10", "category": "multi_evidence", "query": "青榆预发环境的默认等待时间是多少？预发切换后用什么命令校验？", "evidence": [{"id": "elm-b_wait", "document_id": "elm-stage", "quote": "青榆预发环境的 job_wait_ms 默认值为 910 毫秒。"}, {"id": "elm-g_stage", "document_id": "elm-guide", "quote": "青榆预发环境演练切换后运行 `notify-verify --schema` 校验消息回执。"}]}
+{"id": "elm-11", "category": "no_answer", "query": "青榆生产环境的 job_wait_ms 最大可配置值是多少？", "evidence": []}
+{"id": "elm-12", "category": "no_answer", "query": "青榆预发环境演练后，消息回执的校验结果保留多少天？", "evidence": []}
+{"id": "fir-01", "category": "exact", "query": "FIR-R17 对应什么告警？", "evidence": [{"id": "fir-a_code", "document_id": "fir-prod", "quote": "银杉生产环境发生账单缺项时，告警代码为 FIR-R17。"}]}
+{"id": "fir-02", "category": "exact", "query": "FIR-R71 在哪种环境出现，指的是什么？", "evidence": [{"id": "fir-b_code", "document_id": "fir-stage", "quote": "银杉预发环境发生账单缺项时，告警代码为 FIR-R71。"}]}
+{"id": "fir-03", "category": "paraphrase", "query": "银杉正式上线的服务遇到失败，系统自己最多能再试几回？", "evidence": [{"id": "fir-a_retry", "document_id": "fir-prod", "quote": "银杉生产环境最多自动重试 21 次。"}]}
+{"id": "fir-04", "category": "paraphrase", "query": "银杉正式线上重跑月结没成功，未做完的活儿应该先挪到哪里？", "evidence": [{"id": "fir-g_queue", "document_id": "fir-guide", "quote": "银杉生产环境重跑月结失败时，先把待处理任务转到月结修复队列。"}]}
+{"id": "fir-05", "category": "confusable", "query": "银杉只看生产，job_wait_ms 的默认值是多少？", "evidence": [{"id": "fir-a_wait", "document_id": "fir-prod", "quote": "银杉生产环境的 job_wait_ms 默认值为 960 毫秒。"}]}
+{"id": "fir-06", "category": "confusable", "query": "银杉只看预发，job_wait_ms 的默认值是多少？", "evidence": [{"id": "fir-b_wait", "document_id": "fir-stage", "quote": "银杉预发环境的 job_wait_ms 默认值为 1210 毫秒。"}]}
+{"id": "fir-07", "category": "long_doc", "query": "银杉切换生产环境后，用哪条命令检查账期索引？", "evidence": [{"id": "fir-g_prod", "document_id": "fir-guide", "quote": "银杉生产环境切换后必须运行 `billing-verify --digest` 校验账期索引。"}]}
+{"id": "fir-08", "category": "long_doc", "query": "银杉切换预发环境做演练后，用哪条命令检查账期索引？", "evidence": [{"id": "fir-g_stage", "document_id": "fir-guide", "quote": "银杉预发环境演练切换后运行 `billing-verify --schema` 校验账期索引。"}]}
+{"id": "fir-09", "category": "multi_evidence", "query": "银杉生产环境最多自动试几次？重跑月结失败后应转到哪个队列？", "evidence": [{"id": "fir-a_retry", "document_id": "fir-prod", "quote": "银杉生产环境最多自动重试 21 次。"}, {"id": "fir-g_queue", "document_id": "fir-guide", "quote": "银杉生产环境重跑月结失败时，先把待处理任务转到月结修复队列。"}]}
+{"id": "fir-10", "category": "multi_evidence", "query": "银杉预发环境的默认等待时间是多少？预发切换后用什么命令校验？", "evidence": [{"id": "fir-b_wait", "document_id": "fir-stage", "quote": "银杉预发环境的 job_wait_ms 默认值为 1210 毫秒。"}, {"id": "fir-g_stage", "document_id": "fir-guide", "quote": "银杉预发环境演练切换后运行 `billing-verify --schema` 校验账期索引。"}]}
+{"id": "fir-11", "category": "no_answer", "query": "银杉生产环境的 job_wait_ms 最大可配置值是多少？", "evidence": []}
+{"id": "fir-12", "category": "no_answer", "query": "银杉预发环境演练后，账期索引的校验结果保留多少天？", "evidence": []}
+{"id": "ginkgo-01", "category": "exact", "query": "GINKGO-R17 对应什么告警？", "evidence": [{"id": "ginkgo-a_code", "document_id": "ginkgo-prod", "quote": "银杏生产环境发生授权不一致时，告警代码为 GINKGO-R17。"}]}
+{"id": "ginkgo-02", "category": "exact", "query": "GINKGO-R71 在哪种环境出现，指的是什么？", "evidence": [{"id": "ginkgo-b_code", "document_id": "ginkgo-stage", "quote": "银杏预发环境发生授权不一致时，告警代码为 GINKGO-R71。"}]}
+{"id": "ginkgo-03", "category": "paraphrase", "query": "银杏正式上线的服务遇到失败，系统自己最多能再试几回？", "evidence": [{"id": "ginkgo-a_retry", "document_id": "ginkgo-prod", "quote": "银杏生产环境最多自动重试 23 次。"}]}
+{"id": "ginkgo-04", "category": "paraphrase", "query": "银杏正式线上重建权限没成功，未做完的活儿应该先挪到哪里？", "evidence": [{"id": "ginkgo-g_queue", "document_id": "ginkgo-guide", "quote": "银杏生产环境重建权限失败时，先把待处理任务转到权限刷新队列。"}]}
+{"id": "ginkgo-05", "category": "confusable", "query": "银杏只看生产，job_wait_ms 的默认值是多少？", "evidence": [{"id": "ginkgo-a_wait", "document_id": "ginkgo-prod", "quote": "银杏生产环境的 job_wait_ms 默认值为 780 毫秒。"}]}
+{"id": "ginkgo-06", "category": "confusable", "query": "银杏只看预发，job_wait_ms 的默认值是多少？", "evidence": [{"id": "ginkgo-b_wait", "document_id": "ginkgo-stage", "quote": "银杏预发环境的 job_wait_ms 默认值为 1030 毫秒。"}]}
+{"id": "ginkgo-07", "category": "long_doc", "query": "银杏切换生产环境后，用哪条命令检查授权缓存？", "evidence": [{"id": "ginkgo-g_prod", "document_id": "ginkgo-guide", "quote": "银杏生产环境切换后必须运行 `access-verify --digest` 校验授权缓存。"}]}
+{"id": "ginkgo-08", "category": "long_doc", "query": "银杏切换预发环境做演练后，用哪条命令检查授权缓存？", "evidence": [{"id": "ginkgo-g_stage", "document_id": "ginkgo-guide", "quote": "银杏预发环境演练切换后运行 `access-verify --schema` 校验授权缓存。"}]}
+{"id": "ginkgo-09", "category": "multi_evidence", "query": "银杏生产环境最多自动试几次？重建权限失败后应转到哪个队列？", "evidence": [{"id": "ginkgo-a_retry", "document_id": "ginkgo-prod", "quote": "银杏生产环境最多自动重试 23 次。"}, {"id": "ginkgo-g_queue", "document_id": "ginkgo-guide", "quote": "银杏生产环境重建权限失败时，先把待处理任务转到权限刷新队列。"}]}
+{"id": "ginkgo-10", "category": "multi_evidence", "query": "银杏预发环境的默认等待时间是多少？预发切换后用什么命令校验？", "evidence": [{"id": "ginkgo-b_wait", "document_id": "ginkgo-stage", "quote": "银杏预发环境的 job_wait_ms 默认值为 1030 毫秒。"}, {"id": "ginkgo-g_stage", "document_id": "ginkgo-guide", "quote": "银杏预发环境演练切换后运行 `access-verify --schema` 校验授权缓存。"}]}
+{"id": "ginkgo-11", "category": "no_answer", "query": "银杏生产环境的 job_wait_ms 最大可配置值是多少？", "evidence": []}
+{"id": "ginkgo-12", "category": "no_answer", "query": "银杏预发环境演练后，授权缓存的校验结果保留多少天？", "evidence": []}
+{"id": "larch-01", "category": "exact", "query": "LARCH-R17 对应什么告警？", "evidence": [{"id": "larch-a_code", "document_id": "larch-prod", "quote": "落叶松生产环境发生索引滞后时，告警代码为 LARCH-R17。"}]}
+{"id": "larch-02", "category": "exact", "query": "LARCH-R71 在哪种环境出现，指的是什么？", "evidence": [{"id": "larch-b_code", "document_id": "larch-stage", "quote": "落叶松预发环境发生索引滞后时，告警代码为 LARCH-R71。"}]}
+{"id": "larch-03", "category": "paraphrase", "query": "落叶松正式上线的服务遇到失败，系统自己最多能再试几回？", "evidence": [{"id": "larch-a_retry", "document_id": "larch-prod", "quote": "落叶松生产环境最多自动重试 26 次。"}]}
+{"id": "larch-04", "category": "paraphrase", "query": "落叶松正式线上补建索引没成功，未做完的活儿应该先挪到哪里？", "evidence": [{"id": "larch-g_queue", "document_id": "larch-guide", "quote": "落叶松生产环境补建索引失败时，先把待处理任务转到索引补偿队列。"}]}
+{"id": "larch-05", "category": "confusable", "query": "落叶松只看生产，job_wait_ms 的默认值是多少？", "evidence": [{"id": "larch-a_wait", "document_id": "larch-prod", "quote": "落叶松生产环境的 job_wait_ms 默认值为 1020 毫秒。"}]}
+{"id": "larch-06", "category": "confusable", "query": "落叶松只看预发，job_wait_ms 的默认值是多少？", "evidence": [{"id": "larch-b_wait", "document_id": "larch-stage", "quote": "落叶松预发环境的 job_wait_ms 默认值为 1270 毫秒。"}]}
+{"id": "larch-07", "category": "long_doc", "query": "落叶松切换生产环境后，用哪条命令检查查询字典？", "evidence": [{"id": "larch-g_prod", "document_id": "larch-guide", "quote": "落叶松生产环境切换后必须运行 `index-verify --digest` 校验查询字典。"}]}
+{"id": "larch-08", "category": "long_doc", "query": "落叶松切换预发环境做演练后，用哪条命令检查查询字典？", "evidence": [{"id": "larch-g_stage", "document_id": "larch-guide", "quote": "落叶松预发环境演练切换后运行 `index-verify --schema` 校验查询字典。"}]}
+{"id": "larch-09", "category": "multi_evidence", "query": "落叶松生产环境最多自动试几次？补建索引失败后应转到哪个队列？", "evidence": [{"id": "larch-a_retry", "document_id": "larch-prod", "quote": "落叶松生产环境最多自动重试 26 次。"}, {"id": "larch-g_queue", "document_id": "larch-guide", "quote": "落叶松生产环境补建索引失败时，先把待处理任务转到索引补偿队列。"}]}
+{"id": "larch-10", "category": "multi_evidence", "query": "落叶松预发环境的默认等待时间是多少？预发切换后用什么命令校验？", "evidence": [{"id": "larch-b_wait", "document_id": "larch-stage", "quote": "落叶松预发环境的 job_wait_ms 默认值为 1270 毫秒。"}, {"id": "larch-g_stage", "document_id": "larch-guide", "quote": "落叶松预发环境演练切换后运行 `index-verify --schema` 校验查询字典。"}]}
+{"id": "larch-11", "category": "no_answer", "query": "落叶松生产环境的 job_wait_ms 最大可配置值是多少？", "evidence": []}
+{"id": "larch-12", "category": "no_answer", "query": "落叶松预发环境演练后，查询字典的校验结果保留多少天？", "evidence": []}
+{"id": "maple-01", "category": "exact", "query": "MAPLE-R17 对应什么告警？", "evidence": [{"id": "maple-a_code", "document_id": "maple-prod", "quote": "红枫生产环境发生扫描积压时，告警代码为 MAPLE-R17。"}]}
+{"id": "maple-02", "category": "exact", "query": "MAPLE-R71 在哪种环境出现，指的是什么？", "evidence": [{"id": "maple-b_code", "document_id": "maple-stage", "quote": "红枫预发环境发生扫描积压时，告警代码为 MAPLE-R71。"}]}
+{"id": "maple-03", "category": "paraphrase", "query": "红枫正式上线的服务遇到失败，系统自己最多能再试几回？", "evidence": [{"id": "maple-a_retry", "document_id": "maple-prod", "quote": "红枫生产环境最多自动重试 28 次。"}]}
+{"id": "maple-04", "category": "paraphrase", "query": "红枫正式线上补扫文件没成功，未做完的活儿应该先挪到哪里？", "evidence": [{"id": "maple-g_queue", "document_id": "maple-guide", "quote": "红枫生产环境补扫文件失败时，先把待处理任务转到离线扫描队列。"}]}
+{"id": "maple-05", "category": "confusable", "query": "红枫只看生产，job_wait_ms 的默认值是多少？", "evidence": [{"id": "maple-a_wait", "document_id": "maple-prod", "quote": "红枫生产环境的 job_wait_ms 默认值为 900 毫秒。"}]}
+{"id": "maple-06", "category": "confusable", "query": "红枫只看预发，job_wait_ms 的默认值是多少？", "evidence": [{"id": "maple-b_wait", "document_id": "maple-stage", "quote": "红枫预发环境的 job_wait_ms 默认值为 1150 毫秒。"}]}
+{"id": "maple-07", "category": "long_doc", "query": "红枫切换生产环境后，用哪条命令检查风险样本？", "evidence": [{"id": "maple-g_prod", "document_id": "maple-guide", "quote": "红枫生产环境切换后必须运行 `scan-verify --digest` 校验风险样本。"}]}
+{"id": "maple-08", "category": "long_doc", "query": "红枫切换预发环境做演练后，用哪条命令检查风险样本？", "evidence": [{"id": "maple-g_stage", "document_id": "maple-guide", "quote": "红枫预发环境演练切换后运行 `scan-verify --schema` 校验风险样本。"}]}
+{"id": "maple-09", "category": "multi_evidence", "query": "红枫生产环境最多自动试几次？补扫文件失败后应转到哪个队列？", "evidence": [{"id": "maple-a_retry", "document_id": "maple-prod", "quote": "红枫生产环境最多自动重试 28 次。"}, {"id": "maple-g_queue", "document_id": "maple-guide", "quote": "红枫生产环境补扫文件失败时，先把待处理任务转到离线扫描队列。"}]}
+{"id": "maple-10", "category": "multi_evidence", "query": "红枫预发环境的默认等待时间是多少？预发切换后用什么命令校验？", "evidence": [{"id": "maple-b_wait", "document_id": "maple-stage", "quote": "红枫预发环境的 job_wait_ms 默认值为 1150 毫秒。"}, {"id": "maple-g_stage", "document_id": "maple-guide", "quote": "红枫预发环境演练切换后运行 `scan-verify --schema` 校验风险样本。"}]}
+{"id": "maple-11", "category": "no_answer", "query": "红枫生产环境的 job_wait_ms 最大可配置值是多少？", "evidence": []}
+{"id": "maple-12", "category": "no_answer", "query": "红枫预发环境演练后，风险样本的校验结果保留多少天？", "evidence": []}
+{"id": "pine-01", "category": "exact", "query": "PINE-R17 对应什么告警？", "evidence": [{"id": "pine-a_code", "document_id": "pine-prod", "quote": "青松生产环境发生会话残留时，告警代码为 PINE-R17。"}]}
+{"id": "pine-02", "category": "exact", "query": "PINE-R71 在哪种环境出现，指的是什么？", "evidence": [{"id": "pine-b_code", "document_id": "pine-stage", "quote": "青松预发环境发生会话残留时，告警代码为 PINE-R71。"}]}
+{"id": "pine-03", "category": "paraphrase", "query": "青松正式上线的服务遇到失败，系统自己最多能再试几回？", "evidence": [{"id": "pine-a_retry", "document_id": "pine-prod", "quote": "青松生产环境最多自动重试 31 次。"}]}
+{"id": "pine-04", "category": "paraphrase", "query": "青松正式线上重新清理没成功，未做完的活儿应该先挪到哪里？", "evidence": [{"id": "pine-g_queue", "document_id": "pine-guide", "quote": "青松生产环境重新清理失败时，先把待处理任务转到清理缓冲队列。"}]}
+{"id": "pine-05", "category": "confusable", "query": "青松只看生产，job_wait_ms 的默认值是多少？", "evidence": [{"id": "pine-a_wait", "document_id": "pine-prod", "quote": "青松生产环境的 job_wait_ms 默认值为 1140 毫秒。"}]}
+{"id": "pine-06", "category": "confusable", "query": "青松只看预发，job_wait_ms 的默认值是多少？", "evidence": [{"id": "pine-b_wait", "document_id": "pine-stage", "quote": "青松预发环境的 job_wait_ms 默认值为 1390 毫秒。"}]}
+{"id": "pine-07", "category": "long_doc", "query": "青松切换生产环境后，用哪条命令检查访问记录？", "evidence": [{"id": "pine-g_prod", "document_id": "pine-guide", "quote": "青松生产环境切换后必须运行 `purge-verify --digest` 校验访问记录。"}]}
+{"id": "pine-08", "category": "long_doc", "query": "青松切换预发环境做演练后，用哪条命令检查访问记录？", "evidence": [{"id": "pine-g_stage", "document_id": "pine-guide", "quote": "青松预发环境演练切换后运行 `purge-verify --schema` 校验访问记录。"}]}
+{"id": "pine-09", "category": "multi_evidence", "query": "青松生产环境最多自动试几次？重新清理失败后应转到哪个队列？", "evidence": [{"id": "pine-a_retry", "document_id": "pine-prod", "quote": "青松生产环境最多自动重试 31 次。"}, {"id": "pine-g_queue", "document_id": "pine-guide", "quote": "青松生产环境重新清理失败时，先把待处理任务转到清理缓冲队列。"}]}
+{"id": "pine-10", "category": "multi_evidence", "query": "青松预发环境的默认等待时间是多少？预发切换后用什么命令校验？", "evidence": [{"id": "pine-b_wait", "document_id": "pine-stage", "quote": "青松预发环境的 job_wait_ms 默认值为 1390 毫秒。"}, {"id": "pine-g_stage", "document_id": "pine-guide", "quote": "青松预发环境演练切换后运行 `purge-verify --schema` 校验访问记录。"}]}
+{"id": "pine-11", "category": "no_answer", "query": "青松生产环境的 job_wait_ms 最大可配置值是多少？", "evidence": []}
+{"id": "pine-12", "category": "no_answer", "query": "青松预发环境演练后，访问记录的校验结果保留多少天？", "evidence": []}
+{"id": "willow-01", "category": "exact", "query": "WILLOW-R17 对应什么告警？", "evidence": [{"id": "willow-a_code", "document_id": "willow-prod", "quote": "垂柳生产环境发生聚合缺点时，告警代码为 WILLOW-R17。"}]}
+{"id": "willow-02", "category": "exact", "query": "WILLOW-R71 在哪种环境出现，指的是什么？", "evidence": [{"id": "willow-b_code", "document_id": "willow-stage", "quote": "垂柳预发环境发生聚合缺点时，告警代码为 WILLOW-R71。"}]}
+{"id": "willow-03", "category": "paraphrase", "query": "垂柳正式上线的服务遇到失败，系统自己最多能再试几回？", "evidence": [{"id": "willow-a_retry", "document_id": "willow-prod", "quote": "垂柳生产环境最多自动重试 33 次。"}]}
+{"id": "willow-04", "category": "paraphrase", "query": "垂柳正式线上补算指标没成功，未做完的活儿应该先挪到哪里？", "evidence": [{"id": "willow-g_queue", "document_id": "willow-guide", "quote": "垂柳生产环境补算指标失败时，先把待处理任务转到指标回填队列。"}]}
+{"id": "willow-05", "category": "confusable", "query": "垂柳只看生产，job_wait_ms 的默认值是多少？", "evidence": [{"id": "willow-a_wait", "document_id": "willow-prod", "quote": "垂柳生产环境的 job_wait_ms 默认值为 1080 毫秒。"}]}
+{"id": "willow-06", "category": "confusable", "query": "垂柳只看预发，job_wait_ms 的默认值是多少？", "evidence": [{"id": "willow-b_wait", "document_id": "willow-stage", "quote": "垂柳预发环境的 job_wait_ms 默认值为 1330 毫秒。"}]}
+{"id": "willow-07", "category": "long_doc", "query": "垂柳切换生产环境后，用哪条命令检查采样窗口？", "evidence": [{"id": "willow-g_prod", "document_id": "willow-guide", "quote": "垂柳生产环境切换后必须运行 `metric-verify --digest` 校验采样窗口。"}]}
+{"id": "willow-08", "category": "long_doc", "query": "垂柳切换预发环境做演练后，用哪条命令检查采样窗口？", "evidence": [{"id": "willow-g_stage", "document_id": "willow-guide", "quote": "垂柳预发环境演练切换后运行 `metric-verify --schema` 校验采样窗口。"}]}
+{"id": "willow-09", "category": "multi_evidence", "query": "垂柳生产环境最多自动试几次？补算指标失败后应转到哪个队列？", "evidence": [{"id": "willow-a_retry", "document_id": "willow-prod", "quote": "垂柳生产环境最多自动重试 33 次。"}, {"id": "willow-g_queue", "document_id": "willow-guide", "quote": "垂柳生产环境补算指标失败时，先把待处理任务转到指标回填队列。"}]}
+{"id": "willow-10", "category": "multi_evidence", "query": "垂柳预发环境的默认等待时间是多少？预发切换后用什么命令校验？", "evidence": [{"id": "willow-b_wait", "document_id": "willow-stage", "quote": "垂柳预发环境的 job_wait_ms 默认值为 1330 毫秒。"}, {"id": "willow-g_stage", "document_id": "willow-guide", "quote": "垂柳预发环境演练切换后运行 `metric-verify --schema` 校验采样窗口。"}]}
+{"id": "willow-11", "category": "no_answer", "query": "垂柳生产环境的 job_wait_ms 最大可配置值是多少？", "evidence": []}
+{"id": "willow-12", "category": "no_answer", "query": "垂柳预发环境演练后，采样窗口的校验结果保留多少天？", "evidence": []}

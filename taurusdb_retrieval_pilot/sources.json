@@ -1,0 +1,283 @@
+[
+  {
+    "document_id": "connections",
+    "title": "TaurusDB数据库实例支持的最大数据连接数是多少",
+    "url": "https://support.huaweicloud.com/taurusdb_faq/taurusdb_faq_0059.html",
+    "edition": "taurusdb",
+    "site": "cn"
+  },
+  {
+    "document_id": "limits",
+    "title": "TaurusDB约束与限制",
+    "url": "https://support.huaweicloud.com/productdesc-taurusdb/taurusdb_01_0008.html",
+    "edition": "taurusdb",
+    "site": "cn"
+  },
+  {
+    "document_id": "versions",
+    "title": "TaurusDB引擎和版本",
+    "url": "https://support.huaweicloud.com/productdesc-taurusDB/taurusdb_01_0005.html",
+    "edition": "taurusdb",
+    "site": "cn"
+  },
+  {
+    "document_id": "release_notes",
+    "title": "TaurusDB最新动态",
+    "url": "https://support.huaweicloud.com/wtsnew-taurusdb/index.html",
+    "edition": "taurusdb",
+    "site": "cn",
+    "heading": "最新动态"
+  },
+  {
+    "document_id": "parameter_view",
+    "title": "查看TaurusDB实例参数",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb/taurusdb_03_0191.html",
+    "edition": "taurusdb",
+    "site": "cn"
+  },
+  {
+    "document_id": "parameter_change",
+    "title": "修改TaurusDB实例参数",
+    "url": "https://support.huaweicloud.com/intl/zh-cn/usermanual-taurusdb/taurusdb_configuration.html",
+    "edition": "taurusdb",
+    "site": "intl_zh_cn"
+  },
+  {
+    "document_id": "restart",
+    "title": "重启TaurusDB实例或节点",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb/taurusdb_03_0040.html",
+    "edition": "taurusdb",
+    "site": "cn"
+  },
+  {
+    "document_id": "parameter_reset",
+    "title": "重置TaurusDB参数模板",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb/taurusdb_08_0015.html",
+    "edition": "taurusdb",
+    "site": "cn"
+  },
+  {
+    "document_id": "standard_parameter_history",
+    "title": "查看TaurusDB标准版参数修改历史",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb-std/taurusdb_01_0144.html",
+    "edition": "standard",
+    "site": "cn"
+  },
+  {
+    "document_id": "backup_principles",
+    "title": "TaurusDB备份原理",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb/taurusdb_03_0052.html",
+    "edition": "taurusdb",
+    "site": "cn"
+  },
+  {
+    "document_id": "backup_policy",
+    "title": "同区域备份TaurusDB",
+    "url": "https://support.huaweicloud.com/intl/zh-cn/usermanual-taurusdb/taurusdb_03_0057.html",
+    "edition": "taurusdb",
+    "site": "intl_zh_cn"
+  },
+  {
+    "document_id": "manual_backup",
+    "title": "手动备份TaurusDB",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb/taurusdb_03_0058.html",
+    "edition": "taurusdb",
+    "site": "cn"
+  },
+  {
+    "document_id": "backup_space",
+    "title": "TaurusDB全量备份的计费空间",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb/taurusdb_03_0069.html",
+    "edition": "taurusdb",
+    "site": "cn"
+  },
+  {
+    "document_id": "backup_lock",
+    "title": "设置TaurusDB合规锁",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb/taurusdb_03_0042.html",
+    "edition": "taurusdb",
+    "site": "cn"
+  },
+  {
+    "document_id": "restore_backup",
+    "title": "TaurusDB全量数据恢复：按备份文件恢复",
+    "url": "https://support.huaweicloud.com/intl/zh-cn/usermanual-taurusdb/taurusdb_03_0063.html",
+    "edition": "taurusdb",
+    "site": "intl_zh_cn"
+  },
+  {
+    "document_id": "table_pitr",
+    "title": "TaurusDB库表数据恢复：恢复到指定时间点（PITR）",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb/taurusdb_03_0064.html",
+    "edition": "taurusdb",
+    "site": "cn"
+  },
+  {
+    "document_id": "cross_backup",
+    "title": "跨区域备份TaurusDB",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb/taurusdb_03_0150.html",
+    "edition": "taurusdb",
+    "site": "cn"
+  },
+  {
+    "document_id": "cross_restore",
+    "title": "TaurusDB跨区域数据恢复",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb/taurusdb_03_2002.html",
+    "edition": "taurusdb",
+    "site": "cn"
+  },
+  {
+    "document_id": "standard_pitr",
+    "title": "全量数据恢复：恢复到指定时间点",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb-std/taurusdb_01_0112.html",
+    "edition": "standard",
+    "site": "cn"
+  },
+  {
+    "document_id": "standard_table_pitr",
+    "title": "库表数据恢复：恢复到指定时间点",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb-std/taurusdb_01_0113.html",
+    "edition": "standard",
+    "site": "cn"
+  },
+  {
+    "document_id": "standard_backup_policy",
+    "title": "设置TaurusDB标准版同区域备份策略",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb-std/taurusdb_01_0097.html",
+    "edition": "standard",
+    "site": "cn"
+  },
+  {
+    "document_id": "proxy_intro",
+    "title": "TaurusDB数据库代理简介",
+    "url": "https://support.huaweicloud.com/intl/zh-cn/usermanual-taurusdb/taurusdb_11_0016.html",
+    "edition": "taurusdb",
+    "site": "intl_zh_cn"
+  },
+  {
+    "document_id": "proxy_open",
+    "title": "开通数据库代理实现读写分离",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb/taurusdb_11_0017.html",
+    "edition": "taurusdb",
+    "site": "cn"
+  },
+  {
+    "document_id": "proxy_consistency",
+    "title": "修改TaurusDB代理的一致性级别",
+    "url": "https://support.huaweicloud.com/intl/zh-cn/usermanual-taurusdb/taurusdb_11_0041.html",
+    "edition": "taurusdb",
+    "site": "intl_zh_cn"
+  },
+  {
+    "document_id": "proxy_weights",
+    "title": "修改TaurusDB读写分离权重",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb/taurusdb_11_0018.html",
+    "edition": "taurusdb",
+    "site": "cn"
+  },
+  {
+    "document_id": "proxy_pool",
+    "title": "开启TaurusDB代理的连接池功能",
+    "url": "https://support.huaweicloud.com/intl/zh-cn/usermanual-taurusdb/taurusdb_11_0048.html",
+    "edition": "taurusdb",
+    "site": "intl_zh_cn"
+  },
+  {
+    "document_id": "proxy_transaction",
+    "title": "开启TaurusDB代理的事务拆分功能",
+    "url": "https://support.huaweicloud.com/intl/zh-cn/usermanual-taurusdb/taurusdb_11_0030.html",
+    "edition": "taurusdb",
+    "site": "intl_zh_cn"
+  },
+  {
+    "document_id": "proxy_upgrade",
+    "title": "升级TaurusDB代理内核版本",
+    "url": "https://support.huaweicloud.com/intl/zh-cn/usermanual-taurusdb/taurusdb_11_0044.html",
+    "edition": "taurusdb",
+    "site": "intl_zh_cn"
+  },
+  {
+    "document_id": "read_replica",
+    "title": "TaurusDB只读节点简介",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb/taurusdb_03_0110.html",
+    "edition": "taurusdb",
+    "site": "cn"
+  },
+  {
+    "document_id": "promote_replica",
+    "title": "TaurusDB只读节点升主节点",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb/taurusdb_03_0113.html",
+    "edition": "taurusdb",
+    "site": "cn"
+  },
+  {
+    "document_id": "delete_replica",
+    "title": "删除TaurusDB只读节点",
+    "url": "https://support.huaweicloud.com/intl/zh-cn/usermanual-taurusdb/taurusdb_03_0114.html",
+    "edition": "taurusdb",
+    "site": "intl_zh_cn"
+  },
+  {
+    "document_id": "slow_log",
+    "title": "管理TaurusDB慢日志",
+    "url": "https://support.huaweicloud.com/intl/zh-cn/usermanual-taurusdb/taurusdb_03_0019.html",
+    "edition": "taurusdb",
+    "site": "intl_zh_cn"
+  },
+  {
+    "document_id": "standard_slow_log",
+    "title": "查看或下载TaurusDB标准版慢日志",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb-std/taurusdb_01_0154.html",
+    "edition": "standard",
+    "site": "cn"
+  },
+  {
+    "document_id": "audit",
+    "title": "开启TaurusDB SQL审计日志",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb/taurusdb_03_0717.html",
+    "edition": "taurusdb",
+    "site": "cn"
+  },
+  {
+    "document_id": "standard_audit",
+    "title": "开启TaurusDB标准版SQL审计日志",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb-std/taurusdb_01_0156.html",
+    "edition": "standard",
+    "site": "cn"
+  },
+  {
+    "document_id": "log_config",
+    "title": "TaurusDB日志配置管理",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb/taurusdb_03_0153.html",
+    "edition": "taurusdb",
+    "site": "cn"
+  },
+  {
+    "document_id": "ssl_trouble",
+    "title": "SSL使用与介绍",
+    "url": "https://support.huaweicloud.com/intl/zh-cn/trouble-taurusdb/taurusdb_trouble_0102.html",
+    "edition": "taurusdb",
+    "site": "intl_zh_cn"
+  },
+  {
+    "document_id": "standard_jdbc",
+    "title": "通过JDBC连接TaurusDB标准版实例",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb-std/taurusdb_01_0040.html",
+    "edition": "standard",
+    "site": "cn"
+  },
+  {
+    "document_id": "kernel_upgrade",
+    "title": "升级TaurusDB实例内核小版本",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb/taurusdb_05_2265.html",
+    "edition": "taurusdb",
+    "site": "cn"
+  },
+  {
+    "document_id": "standard_kernel_upgrade",
+    "title": "升级TaurusDB标准版实例内核小版本",
+    "url": "https://support.huaweicloud.com/usermanual-taurusdb-std/taurusdb_01_0080.html",
+    "edition": "standard",
+    "site": "cn"
+  }
+]
