@@ -1,0 +1,150 @@
+[
+  {
+    "id": "exact-01",
+    "arms": [
+      {
+        "method": "semantic",
+        "type": "world",
+        "candidates": 239
+      },
+      {
+        "method": "bm25",
+        "type": "world",
+        "candidates": 220
+      },
+      {
+        "method": "graph",
+        "type": "world",
+        "candidates": 102
+      },
+      {
+        "method": "semantic",
+        "type": "experience",
+        "candidates": 0
+      },
+      {
+        "method": "bm25",
+        "type": "experience",
+        "candidates": 0
+      },
+      {
+        "method": "graph",
+        "type": "experience",
+        "candidates": 0
+      }
+    ],
+    "after_rrf": 239,
+    "reranked": 30
+  },
+  {
+    "id": "exact-02",
+    "arms": [
+      {
+        "method": "semantic",
+        "type": "world",
+        "candidates": 239
+      },
+      {
+        "method": "bm25",
+        "type": "world",
+        "candidates": 221
+      },
+      {
+        "method": "graph",
+        "type": "world",
+        "candidates": 108
+      },
+      {
+        "method": "semantic",
+        "type": "experience",
+        "candidates": 0
+      },
+      {
+        "method": "bm25",
+        "type": "experience",
+        "candidates": 0
+      },
+      {
+        "method": "graph",
+        "type": "experience",
+        "candidates": 0
+      }
+    ],
+    "after_rrf": 239,
+    "reranked": 30
+  },
+  {
+    "id": "exact-03",
+    "arms": [
+      {
+        "method": "semantic",
+        "type": "world",
+        "candidates": 238
+      },
+      {
+        "method": "bm25",
+        "type": "world",
+        "candidates": 219
+      },
+      {
+        "method": "graph",
+        "type": "world",
+        "candidates": 103
+      },
+      {
+        "method": "semantic",
+        "type": "experience",
+        "candidates": 0
+      },
+      {
+        "method": "bm25",
+        "type": "experience",
+        "candidates": 0
+      },
+      {
+        "method": "graph",
+        "type": "experience",
+        "candidates": 0
+      }
+    ],
+    "after_rrf": 239,
+    "reranked": 30
+  },
+  {
+    "id": "exact-04",
+    "arms": [
+      {
+        "method": "semantic",
+        "type": "world",
+        "candidates": 238
+      },
+      {
+        "method": "bm25",
+        "type": "world",
+        "candidates": 219
+      },
+      {
+        "method": "graph",
+        "type": "world",
+        "candidates": 102
+      },
+      {
+        "method": "semantic",
+        "type": "experience",
+        "candidates": 0
+      },
+      {
+        "method": "bm25",
+        "type": "experience",
+        "candidates": 0
+      },
+      {
+        "method": "graph",
+        "type": "experience",
+        "candidates": 0
+      }
+    ],
+    "after_rrf": 239,
+    "reranked": 30
+  }
+]

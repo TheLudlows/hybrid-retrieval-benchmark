@@ -1,0 +1,14 @@
+{
+  "keywordsRetrieve": {
+    "requests_including_warmups": 44,
+    "nonempty": 44,
+    "minimum": 93,
+    "maximum": 226
+  },
+  "vectorRetrieve": {
+    "requests_including_warmups": 44,
+    "nonempty": 44,
+    "minimum": 226,
+    "maximum": 226
+  }
+}

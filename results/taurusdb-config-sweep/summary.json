@@ -1,0 +1,207 @@
+{
+  "quality_preserving_case": "contextbase-60",
+  "low_latency_case": "contextbase-40",
+  "dataset": {
+    "documents": 40,
+    "questions_sha256": "9209b3d1198a3dc4d841cbee22d057d6c186c05750c0afb1d9b39ee5dfd7895c",
+    "updates_sha256": "fb996844a382133e049ffbd7582fb80d95a5c977660d883f7dadb4f6e6a50198",
+    "source_artifact": 13835333862,
+    "source_artifact_sha256": "27b96429ba374030dd338d7595d3ef1008aa64b124862ad8a6149db3a24f3908",
+    "document_hashes_match_previous_pilot": true
+  },
+  "cases": {
+    "contextbase-60": {
+      "run": "hybrid_20261112_015058",
+      "requests": 40,
+      "failures": 0,
+      "answerable": 34,
+      "hit_at_5_count": 30,
+      "cross_document_questions": 10,
+      "evidence_recall": {
+        "256": 0.4117647058823529,
+        "512": 0.6421568627450981,
+        "2000": 0.8921568627450981
+      },
+      "cross_complete_2000": 5,
+      "p50_c1_ms": 13076.896614999896,
+      "p95_c1_ms": 14798.235575000035,
+      "latency_sum_c1_s": 521.718893037001,
+      "query_input_tokens_mean": 19606.475,
+      "query_output_tokens_total": 0,
+      "ingest_input_tokens_mean": 1560.9,
+      "ingest_output_tokens_total": 0,
+      "documents_with_ingest_model_usage": 40,
+      "rerank_pairs_mean": 60,
+      "rerank_pairs_min": 60,
+      "rerank_pairs_max": 60,
+      "rerank_input_tokens_mean": 19574.575,
+      "rerank_ms_total": 514568.9892519977,
+      "no_answer_candidates": 6,
+      "no_answer_questions": 6,
+      "unmapped_candidates": 0,
+      "missing_source_passages": 2
+    },
+    "contextbase-40": {
+      "run": "hybrid_20261112_020158",
+      "requests": 40,
+      "failures": 0,
+      "answerable": 34,
+      "hit_at_5_count": 32,
+      "cross_document_questions": 10,
+      "evidence_recall": {
+        "256": 0.4117647058823529,
+        "512": 0.6323529411764706,
+        "2000": 0.8823529411764706
+      },
+      "cross_complete_2000": 5,
+      "p50_c1_ms": 9070.848207999916,
+      "p95_c1_ms": 10779.074250999656,
+      "latency_sum_c1_s": 365.6278327840005,
+      "query_input_tokens_mean": 13138.45,
+      "query_output_tokens_total": 0,
+      "ingest_input_tokens_mean": 1560.9,
+      "ingest_output_tokens_total": 0,
+      "documents_with_ingest_model_usage": 40,
+      "rerank_pairs_mean": 40,
+      "rerank_pairs_min": 40,
+      "rerank_pairs_max": 40,
+      "rerank_input_tokens_mean": 13106.55,
+      "rerank_ms_total": 358762.03591299965,
+      "no_answer_candidates": 6,
+      "no_answer_questions": 6,
+      "unmapped_candidates": 0,
+      "missing_source_passages": 0
+    },
+    "contextbase-30": {
+      "run": "hybrid_20261112_021014",
+      "requests": 40,
+      "failures": 0,
+      "answerable": 34,
+      "hit_at_5_count": 29,
+      "cross_document_questions": 10,
+      "evidence_recall": {
+        "256": 0.4117647058823529,
+        "512": 0.6617647058823529,
+        "2000": 0.8529411764705882
+      },
+      "cross_complete_2000": 4,
+      "p50_c1_ms": 6592.372069000248,
+      "p95_c1_ms": 7753.9903279998725,
+      "latency_sum_c1_s": 268.6588217410017,
+      "query_input_tokens_mean": 9920.125,
+      "query_output_tokens_total": 0,
+      "ingest_input_tokens_mean": 1560.9,
+      "ingest_output_tokens_total": 0,
+      "documents_with_ingest_model_usage": 40,
+      "rerank_pairs_mean": 30,
+      "rerank_pairs_min": 30,
+      "rerank_pairs_max": 30,
+      "rerank_input_tokens_mean": 9888.225,
+      "rerank_ms_total": 261502.8742939994,
+      "no_answer_candidates": 6,
+      "no_answer_questions": 6,
+      "unmapped_candidates": 0,
+      "missing_source_passages": 0
+    },
+    "contextbase-50": {
+      "run": "hybrid_20261112_021636",
+      "requests": 40,
+      "failures": 0,
+      "answerable": 34,
+      "hit_at_5_count": 31,
+      "cross_document_questions": 10,
+      "evidence_recall": {
+        "256": 0.4117647058823529,
+        "512": 0.6323529411764706,
+        "2000": 0.8823529411764706
+      },
+      "cross_complete_2000": 5,
+      "p50_c1_ms": 10813.872320999963,
+      "p95_c1_ms": 12328.321632000097,
+      "latency_sum_c1_s": 433.701303278001,
+      "query_input_tokens_mean": 16386.1,
+      "query_output_tokens_total": 0,
+      "ingest_input_tokens_mean": 1560.9,
+      "ingest_output_tokens_total": 0,
+      "documents_with_ingest_model_usage": 40,
+      "rerank_pairs_mean": 50,
+      "rerank_pairs_min": 50,
+      "rerank_pairs_max": 50,
+      "rerank_input_tokens_mean": 16354.2,
+      "rerank_ms_total": 426627.3183589983,
+      "no_answer_candidates": 6,
+      "no_answer_questions": 6,
+      "unmapped_candidates": 0,
+      "missing_source_passages": 0
+    },
+    "weknora": {
+      "run": "hybrid_20261112_022607",
+      "requests": 40,
+      "failures": 0,
+      "answerable": 34,
+      "hit_at_5_count": 33,
+      "cross_document_questions": 10,
+      "evidence_recall": {
+        "256": 0.46078431372549017,
+        "512": 0.5294117647058824,
+        "2000": 0.7696078431372549
+      },
+      "cross_complete_2000": 3,
+      "p50_c1_ms": 13070.88343400028,
+      "p95_c1_ms": 14779.010019999987,
+      "latency_sum_c1_s": 526.0546597330022,
+      "query_input_tokens_mean": 19495.35,
+      "query_output_tokens_total": 0,
+      "ingest_input_tokens_mean": 1609.1,
+      "ingest_output_tokens_total": 0,
+      "documents_with_ingest_model_usage": 40,
+      "rerank_pairs_mean": 60,
+      "rerank_pairs_min": 60,
+      "rerank_pairs_max": 60,
+      "rerank_input_tokens_mean": 19463.45,
+      "rerank_ms_total": 520756.3181860014,
+      "no_answer_candidates": 6,
+      "no_answer_questions": 6,
+      "unmapped_candidates": 0,
+      "missing_source_passages": 0
+    }
+  },
+  "updates": {
+    "contextbase-60": {
+      "fixtures": 5,
+      "confirmed": 5,
+      "new_first_seen": {
+        "count": 5,
+        "median_s": 24.57230592399992
+      },
+      "old_first_absent": {
+        "count": 5,
+        "median_s": 24.57230592399992
+      }
+    },
+    "contextbase-40": {
+      "fixtures": 5,
+      "confirmed": 5,
+      "new_first_seen": {
+        "count": 5,
+        "median_s": 18.640098092999324
+      },
+      "old_first_absent": {
+        "count": 5,
+        "median_s": 18.640098092999324
+      }
+    },
+    "weknora": {
+      "fixtures": 5,
+      "confirmed": 5,
+      "new_first_seen": {
+        "count": 5,
+        "median_s": 24.670977849999872
+      },
+      "old_first_absent": {
+        "count": 5,
+        "median_s": 11.38703193299989
+      }
+    }
+  }
+}

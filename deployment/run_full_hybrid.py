@@ -56,6 +56,7 @@ def start_configured(name, command, cwd, env):
             "RERANKER_PROVIDER": "tei",
             "RERANKER_TEI_URL": live.MODEL_URL + "/contextbase/tei",
             "RERANKER_TEI_HTTP_TIMEOUT": "240", "RERANKER_MAX_CANDIDATES": "60",
+            "RERANKER_MAX_CANDIDATES_HIGH": os.environ.get("BENCH_RERANK_HIGH", "0"),
         }
         for prefix in ("CONTEXTBASE_API_", "HINDSIGHT_API_"):
             env.update({prefix + key: value for key, value in values.items()})
@@ -99,7 +100,7 @@ def start_postgres():
         share = bundle / "postgres/share/postgresql/18/extension"
         for extension in (bundle / "extensions/share/extension").glob("pg_search*"):
             shutil.copy2(extension, share)
-    state = root / "state/contextbase-hybrid"
+    state = Path(os.environ.get("BENCH_CONTEXTBASE_STATE", root / "state/contextbase-hybrid")).resolve()
     state.mkdir(mode=0o700, parents=True, exist_ok=True)
     data = state / "pgdata"
     password_file = state / "postgres-password"
@@ -141,7 +142,7 @@ def start_postgres():
     return state, db_url
 
 
-def start_contextbase_hybrid():
+def start_contextbase_hybrid(existing_bank=None):
     state, db_url = start_postgres()
     env = live.contextbase_environment()
     env.update(CONTEXTDB_DEPLOY_DIR=str(state), CONTEXTBASE_API_DATABASE_URL=db_url,
@@ -152,8 +153,9 @@ def start_contextbase_hybrid():
     url = live.CONTEXTBASE_URL
     ready("contextbase", process, url + "/health/ready", timeout=600)
     admin = json.loads((state / "admin-key.json").read_text())["secret"]
-    bank = "recall_" + run_id
-    request(url + "/v1/default/banks/" + bank, {"name": bank}, admin, method="PUT")
+    bank = existing_bank or "recall_" + run_id
+    if existing_bank is None:
+        request(url + "/v1/default/banks/" + bank, {"name": bank}, admin, method="PUT")
     users = url + "/ext/contextdb/v1/users"
     user = request(users, {"name": "bench-" + run_id}, admin)["user_id"]
     key = request(f"{users}/{user}/keys", {"name": "document-hybrid-recall", "authorization": {
@@ -250,9 +252,7 @@ def run_product(product):
         bench.ingest(api, product, mapping, document_context=document_context)
         print("INDEXED", product, flush=True)
         source_ids = {remote: local for local, remote in json.loads(mapping.read_text()).items()}
-        warmups = [q for q in questions if q["id"] in api.probes] if pilot_dataset and product == "contextbase" else [
-            questions[0] if pilot_dataset else gold["alder-08"]
-        ]
+        warmups = [q for q in questions if q["id"] in api.probes] if pilot_dataset else [gold["alder-08"]]
         for warmup in warmups:
             bench.retrieve(api, product, warmup["query"], source_ids)
         if pilot_dataset:
@@ -302,16 +302,22 @@ def run_product(product):
         from pilot_metrics import run_supplemental, score_pilot
         bench.write_json(run_dir / f"{product}-pilot-quality.json",
                          score_pilot(rows, gold, encoding, raw_calls))
-        run_supplemental(HybridAPI(product, tracking=False), product, run_id, run_dir,
-                         questions, bench.read_rows(bench.ROOT / "updates.jsonl"), source_ids, bench, live)
+        if os.environ.get("BENCH_SKIP_SUPPLEMENTAL") != "1":
+            run_supplemental(HybridAPI(product, tracking=False), product, run_id, run_dir,
+                             questions, bench.read_rows(bench.ROOT / "updates.jsonl"), source_ids, bench, live)
+
+
+def start_models():
+    env = dict(os.environ, HF_HUB_DISABLE_XET="1", OPENBLAS_NUM_THREADS="1", OMP_NUM_THREADS="2")
+    command = [str(root / "model-venv/bin/python"), "-m", "uvicorn", "model_server_hybrid:app",
+               "--host", "127.0.0.1", "--port", "18090"]
+    model = start("models", command, root, env)
+    ready("models", model, live.MODEL_URL + "/health", timeout=600)
 
 
 def main():
     try:
-        env = dict(os.environ, HF_HUB_DISABLE_XET="1", OPENBLAS_NUM_THREADS="1", OMP_NUM_THREADS="2")
-        model = start("models", [str(root / "model-venv/bin/python"), "-m", "uvicorn", "model_server_hybrid:app",
-                                 "--host", "127.0.0.1", "--port", "18090"], root, env)
-        ready("models", model, live.MODEL_URL + "/health", timeout=600)
+        start_models()
         for product in sys.argv[1:] or ("contextbase", "weknora"):
             run_product(product)
     finally:
