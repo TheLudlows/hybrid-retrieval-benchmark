@@ -105,6 +105,19 @@ if batch_window_ms > 0:
     base.embed_async = embed_batched
 
 
+@app.get("/hybrid/info")
+def hybrid_info():
+    return {"onnxruntime": ort.__version__,
+            "embedding_intra_op_threads": base.embedder.model.session.get_session_options().intra_op_num_threads,
+            "reranker_intra_op_threads": reranker.session.get_session_options().intra_op_num_threads,
+            "inter_op_threads": reranker.session.get_session_options().inter_op_num_threads,
+            "embedding_providers": base.embedder.model.session.get_providers(),
+            "reranker_providers": reranker.session.get_providers(),
+            "embedding_batch_window_ms": batch_window_ms,
+            "embedding_truncation": base.embedder.model.tokenizer.truncation,
+            "reranker_truncation": reranker.tokenizer.truncation}
+
+
 @app.get("/contextbase/tei/info")
 def tei_info():
     return {"model_id": "BAAI/bge-reranker-v2-m3"}

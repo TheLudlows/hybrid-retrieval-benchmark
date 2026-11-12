@@ -30,6 +30,8 @@ python miracl_zh/bench.py --data "$DATA" verify
 
 本次 10,000 段设置为 `--unit passages --count 10000 --seed 20261112`。生成后执行同一个 `verify`，保留 `subset.json` 中的 gzip SHA-256；不能仅凭段落数量复用其他索引。
 
+扩容需要保留原候选池时，使用 `--include-subset /path/to/parent`；不能假定相同 seed 下不同 count 的独立抽样天然包含。可另传 `--extra-passages /path/to/ids.txt` 保留其他查询集的全部标注段落。这两个选项仅支持段落模式，生成器验证所有必选 ID 均存在。新的嵌套语料、查询分组及预注册实验见[扩容实验](../results/miracl-zh-scale-20261112/README.md)。原有不带这两个选项的抽样规则不变。
+
 默认种子 20261112 的实际生成规模如下。
 
 | 抽样单位 | 入库段落数 | gzip 文件大小 |

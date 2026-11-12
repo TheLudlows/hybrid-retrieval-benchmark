@@ -153,10 +153,10 @@ def validate_index_checkpoint(db, api, product, source, smoke=False):
         raise ValueError("The checkpoint must match this endpoint and scope and contain a completed dataset import")
 
 
-def fetch_ranked(api, product, query, limit, reranker):
+def fetch_ranked(api, product, query, limit, reranker, max_tokens=8192):
     if product == "contextbase":
         data = api.request("/memories/recall", {
-            "query": query, "budget": "high", "types": ["world", "experience"], "max_tokens": 8192,
+            "query": query, "budget": "high", "types": ["world", "experience"], "max_tokens": max_tokens,
             "include": {"entities": None, "chunks": {"max_tokens": 16384}},
         })
         return [row["document_id"] for row in data["results"]]
@@ -190,6 +190,8 @@ def capture(args, topics, source):
         binding = {"index": index_binding(api, args.product, source), "limit": args.limit,
                    "reranker": args.reranker, "budget": "high", "config_sha256": args.config_sha256,
                    "smoke_index": args.smoke_index}
+        if getattr(args, "max_tokens", 8192) != 8192:
+            binding["max_tokens"] = args.max_tokens
         meta = args.run.with_suffix(args.run.suffix + ".config.json")
         completed = set()
         if args.resume and args.run.exists():
@@ -210,11 +212,14 @@ def capture(args, topics, source):
             if args.measurement_dir:
                 target = args.measurement_dir / "measurement-context.json"
                 temporary = target.with_suffix(".tmp")
-                temporary.write_text(json.dumps({args.product: {"phase": phase, "id": qid}}))
+                entry = {"phase": phase, "id": qid}
+                if getattr(args, "run_id", None):
+                    entry["run_id"] = args.run_id
+                temporary.write_text(json.dumps({args.product: entry}))
                 temporary.replace(target)
         for i in range(args.warmup):
             context("warmup", str(i))
-            fetch_ranked(api, args.product, f"检索预热：第{i + 1}次中文文档检索", args.limit, args.reranker)
+            fetch_ranked(api, args.product, f"检索预热：第{i + 1}次中文文档检索", args.limit, args.reranker, getattr(args, "max_tokens", 8192))
         with args.run.open("a" if args.resume else "x", encoding="utf-8") as output:
             for qid, query in topics.items():
                 if qid in completed:
@@ -223,7 +228,7 @@ def capture(args, topics, source):
                     break
                 context("smoke_query" if args.smoke_index else "query", qid)
                 start = time.perf_counter()
-                ranked = fetch_ranked(api, args.product, query, args.limit, args.reranker)
+                ranked = fetch_ranked(api, args.product, query, args.limit, args.reranker, getattr(args, "max_tokens", 8192))
                 latency = 1000 * (time.perf_counter() - start)
                 passages = []
                 for remote in dict.fromkeys(ranked):
@@ -307,6 +312,8 @@ def main():
     collect.add_argument("--max-queries", type=int)
     collect.add_argument("--config-sha256", help="SHA-256 of the frozen product/model/hardware configuration")
     collect.add_argument("--measurement-dir", type=Path)
+    collect.add_argument("--run-id", help="Attribute model calls to an experiment stage")
+    collect.add_argument("--max-tokens", type=int, default=8192, help="ContextBase native returned-result token budget")
     evaluate = commands.add_parser("score")
     evaluate.add_argument("run", type=Path)
     evaluate.add_argument("--trec-output", type=Path)

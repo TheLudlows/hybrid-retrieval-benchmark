@@ -1,0 +1,506 @@
+[
+  {
+    "qid": "634280#0",
+    "query": "香港最大的酒店是哪个？",
+    "positive_evidence": [
+      {
+        "passage_id": "433917#0",
+        "arm_ranks": {
+          "semantic": 4,
+          "bm25": 4
+        },
+        "sent_to_model": true,
+        "final_rank": 1,
+        "classification": "returned"
+      }
+    ],
+    "recency_values": [
+      0.5
+    ],
+    "temporal_values": [
+      0.5
+    ],
+    "model_candidate_chunks": 60,
+    "returned_official_depth": 57
+  },
+  {
+    "qid": "741921#0",
+    "query": "香港警察有哪些职能？",
+    "positive_evidence": [
+      {
+        "passage_id": "131056#1",
+        "arm_ranks": {
+          "semantic": 3,
+          "bm25": 133
+        },
+        "sent_to_model": true,
+        "final_rank": 1,
+        "classification": "returned"
+      }
+    ],
+    "recency_values": [
+      0.5
+    ],
+    "temporal_values": [
+      0.5
+    ],
+    "model_candidate_chunks": 60,
+    "returned_official_depth": 53
+  },
+  {
+    "qid": "7312734#0",
+    "query": "河北省有哪些农作物？",
+    "positive_evidence": [
+      {
+        "passage_id": "423#31",
+        "arm_ranks": {
+          "semantic": 2,
+          "bm25": 7
+        },
+        "sent_to_model": true,
+        "final_rank": 1,
+        "classification": "returned"
+      },
+      {
+        "passage_id": "5359336#9",
+        "arm_ranks": {
+          "semantic": 3,
+          "bm25": 8
+        },
+        "sent_to_model": true,
+        "final_rank": 3,
+        "classification": "ordering"
+      }
+    ],
+    "recency_values": [
+      0.5
+    ],
+    "temporal_values": [
+      0.5
+    ],
+    "model_candidate_chunks": 60,
+    "returned_official_depth": 52
+  },
+  {
+    "qid": "3298087#0",
+    "query": "古希腊有哪些雕刻家？",
+    "positive_evidence": [
+      {
+        "passage_id": "7665#52",
+        "arm_ranks": {
+          "semantic": 6,
+          "bm25": 8
+        },
+        "sent_to_model": true,
+        "final_rank": 1,
+        "classification": "returned"
+      }
+    ],
+    "recency_values": [
+      0.5
+    ],
+    "temporal_values": [
+      0.5
+    ],
+    "model_candidate_chunks": 60,
+    "returned_official_depth": 43
+  },
+  {
+    "qid": "7335325#0",
+    "query": "西班牙足球获得过几次欧洲杯冠军？",
+    "positive_evidence": [
+      {
+        "passage_id": "971#47",
+        "arm_ranks": {
+          "semantic": 1,
+          "bm25": 2
+        },
+        "sent_to_model": true,
+        "final_rank": 1,
+        "classification": "returned"
+      },
+      {
+        "passage_id": "150590#1",
+        "arm_ranks": {
+          "semantic": 5,
+          "bm25": 5
+        },
+        "sent_to_model": true,
+        "final_rank": 3,
+        "classification": "ordering"
+      },
+      {
+        "passage_id": "4811584#17",
+        "arm_ranks": {
+          "semantic": 10,
+          "bm25": 501
+        },
+        "sent_to_model": false,
+        "final_rank": null,
+        "classification": "outside_model_candidate60"
+      }
+    ],
+    "recency_values": [
+      0.5
+    ],
+    "temporal_values": [
+      0.5
+    ],
+    "model_candidate_chunks": 60,
+    "returned_official_depth": 48
+  },
+  {
+    "qid": "7107849#0",
+    "query": "清朝有哪些海关？",
+    "positive_evidence": [
+      {
+        "passage_id": "608687#16",
+        "arm_ranks": {
+          "semantic": 4,
+          "bm25": 2
+        },
+        "sent_to_model": true,
+        "final_rank": 5,
+        "classification": "ordering"
+      },
+      {
+        "passage_id": "226070#1",
+        "arm_ranks": {
+          "semantic": 10,
+          "bm25": 6
+        },
+        "sent_to_model": true,
+        "final_rank": 9,
+        "classification": "ordering"
+      },
+      {
+        "passage_id": "226068#6",
+        "arm_ranks": {
+          "semantic": 3,
+          "bm25": 10
+        },
+        "sent_to_model": true,
+        "final_rank": 4,
+        "classification": "ordering"
+      },
+      {
+        "passage_id": "2090#178",
+        "arm_ranks": {
+          "semantic": 6,
+          "bm25": 3
+        },
+        "sent_to_model": true,
+        "final_rank": 2,
+        "classification": "ordering"
+      },
+      {
+        "passage_id": "226068#1",
+        "arm_ranks": {
+          "semantic": 1,
+          "bm25": 9
+        },
+        "sent_to_model": true,
+        "final_rank": 3,
+        "classification": "ordering"
+      },
+      {
+        "passage_id": "1060719#2",
+        "arm_ranks": {
+          "semantic": 11,
+          "bm25": 8
+        },
+        "sent_to_model": true,
+        "final_rank": 8,
+        "classification": "ordering"
+      },
+      {
+        "passage_id": "2090#134",
+        "arm_ranks": {
+          "semantic": 2,
+          "bm25": 4
+        },
+        "sent_to_model": true,
+        "final_rank": 1,
+        "classification": "returned"
+      }
+    ],
+    "recency_values": [
+      0.5
+    ],
+    "temporal_values": [
+      0.5
+    ],
+    "model_candidate_chunks": 60,
+    "returned_official_depth": 47
+  },
+  {
+    "qid": "5606079#0",
+    "query": "耶路撒冷位于哪个国家？",
+    "positive_evidence": [
+      {
+        "passage_id": "19997#55",
+        "arm_ranks": {
+          "semantic": 2,
+          "bm25": 2
+        },
+        "sent_to_model": true,
+        "final_rank": 2,
+        "classification": "ordering"
+      },
+      {
+        "passage_id": "19997#0",
+        "arm_ranks": {
+          "semantic": 1,
+          "bm25": 11
+        },
+        "sent_to_model": true,
+        "final_rank": 1,
+        "classification": "returned"
+      },
+      {
+        "passage_id": "19997#67",
+        "arm_ranks": {
+          "semantic": 4,
+          "bm25": 5
+        },
+        "sent_to_model": true,
+        "final_rank": 5,
+        "classification": "ordering"
+      },
+      {
+        "passage_id": "718622#1",
+        "arm_ranks": {
+          "semantic": 7,
+          "bm25": 9
+        },
+        "sent_to_model": true,
+        "final_rank": 4,
+        "classification": "ordering"
+      },
+      {
+        "passage_id": "718589#0",
+        "arm_ranks": {
+          "semantic": 3,
+          "bm25": 8
+        },
+        "sent_to_model": true,
+        "final_rank": 3,
+        "classification": "ordering"
+      }
+    ],
+    "recency_values": [
+      0.5
+    ],
+    "temporal_values": [
+      0.5
+    ],
+    "model_candidate_chunks": 60,
+    "returned_official_depth": 50
+  },
+  {
+    "qid": "7019032#0",
+    "query": "中国第一家游戏公司是哪家？",
+    "positive_evidence": [
+      {
+        "passage_id": "1095590#29",
+        "arm_ranks": {
+          "semantic": 1,
+          "bm25": 22
+        },
+        "sent_to_model": true,
+        "final_rank": 2,
+        "classification": "ordering"
+      },
+      {
+        "passage_id": "1105906#4",
+        "arm_ranks": {
+          "semantic": 2,
+          "bm25": 27
+        },
+        "sent_to_model": true,
+        "final_rank": 3,
+        "classification": "ordering"
+      }
+    ],
+    "recency_values": [
+      0.5
+    ],
+    "temporal_values": [
+      0.5
+    ],
+    "model_candidate_chunks": 60,
+    "returned_official_depth": 43
+  },
+  {
+    "qid": "202102#0",
+    "query": "党的中央委员会每届任期多久？",
+    "positive_evidence": [
+      {
+        "passage_id": "7658#5",
+        "arm_ranks": {
+          "semantic": 2,
+          "bm25": 1
+        },
+        "sent_to_model": true,
+        "final_rank": 2,
+        "classification": "ordering"
+      },
+      {
+        "passage_id": "7658#6",
+        "arm_ranks": {
+          "semantic": 4,
+          "bm25": 2
+        },
+        "sent_to_model": true,
+        "final_rank": 3,
+        "classification": "ordering"
+      },
+      {
+        "passage_id": "10709#5",
+        "arm_ranks": {
+          "semantic": 7,
+          "bm25": 5
+        },
+        "sent_to_model": true,
+        "final_rank": 7,
+        "classification": "ordering"
+      },
+      {
+        "passage_id": "10312#12",
+        "arm_ranks": {
+          "semantic": 3,
+          "bm25": 28
+        },
+        "sent_to_model": true,
+        "final_rank": 1,
+        "classification": "returned"
+      },
+      {
+        "passage_id": "1056980#6",
+        "arm_ranks": {
+          "semantic": 15,
+          "bm25": 6
+        },
+        "sent_to_model": true,
+        "final_rank": 8,
+        "classification": "ordering"
+      }
+    ],
+    "recency_values": [
+      0.5
+    ],
+    "temporal_values": [
+      0.5
+    ],
+    "model_candidate_chunks": 60,
+    "returned_official_depth": 55
+  },
+  {
+    "qid": "5068417#0",
+    "query": "日本有哪些动画？",
+    "positive_evidence": [
+      {
+        "passage_id": "517133#56",
+        "arm_ranks": {
+          "semantic": 5,
+          "bm25": 9
+        },
+        "sent_to_model": true,
+        "final_rank": 5,
+        "classification": "ordering"
+      },
+      {
+        "passage_id": "247418#103",
+        "arm_ranks": {
+          "semantic": 6,
+          "bm25": 15
+        },
+        "sent_to_model": true,
+        "final_rank": 3,
+        "classification": "ordering"
+      },
+      {
+        "passage_id": "167459#31",
+        "arm_ranks": {
+          "semantic": 2,
+          "bm25": 233
+        },
+        "sent_to_model": true,
+        "final_rank": 4,
+        "classification": "ordering"
+      },
+      {
+        "passage_id": "688152#39",
+        "arm_ranks": {
+          "semantic": 9,
+          "bm25": 5
+        },
+        "sent_to_model": true,
+        "final_rank": 8,
+        "classification": "ordering"
+      }
+    ],
+    "recency_values": [
+      0.5
+    ],
+    "temporal_values": [
+      0.5
+    ],
+    "model_candidate_chunks": 60,
+    "returned_official_depth": 49
+  },
+  {
+    "qid": "5459159#0",
+    "query": "立陶宛在哪一大洲？",
+    "positive_evidence": [
+      {
+        "passage_id": "5476290#5",
+        "arm_ranks": {
+          "semantic": 26,
+          "bm25": 2
+        },
+        "sent_to_model": true,
+        "final_rank": null,
+        "classification": "filtered_after_rerank"
+      },
+      {
+        "passage_id": "5433#0",
+        "arm_ranks": {
+          "semantic": 1,
+          "bm25": 15
+        },
+        "sent_to_model": true,
+        "final_rank": 1,
+        "classification": "returned"
+      },
+      {
+        "passage_id": "5245286#10",
+        "arm_ranks": {
+          "semantic": 9,
+          "bm25": 5
+        },
+        "sent_to_model": true,
+        "final_rank": 6,
+        "classification": "ordering"
+      },
+      {
+        "passage_id": "4451719#0",
+        "arm_ranks": {
+          "semantic": 7,
+          "bm25": 6
+        },
+        "sent_to_model": true,
+        "final_rank": 5,
+        "classification": "ordering"
+      }
+    ],
+    "recency_values": [
+      0.5
+    ],
+    "temporal_values": [
+      0.5
+    ],
+    "model_candidate_chunks": 60,
+    "returned_official_depth": 44
+  }
+]

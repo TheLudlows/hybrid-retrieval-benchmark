@@ -1,0 +1,32 @@
+{
+  "model_runtime_readback": {
+    "onnxruntime": "1.31.1",
+    "embedding_intra_op_threads": 3,
+    "reranker_intra_op_threads": 3,
+    "inter_op_threads": 1,
+    "embedding_providers": [
+      "CPUExecutionProvider"
+    ],
+    "reranker_providers": [
+      "CPUExecutionProvider"
+    ],
+    "embedding_batch_window_ms": 10.0,
+    "embedding_truncation": {
+      "max_length": 512,
+      "stride": 0,
+      "strategy": "longest_first",
+      "direction": "right"
+    },
+    "reranker_truncation": {
+      "max_length": 512,
+      "stride": 0,
+      "strategy": "longest_first",
+      "direction": "right"
+    }
+  },
+  "nested_source_validation": true,
+  "small_native_ingest_preflight_each": 16,
+  "native_weknora_all_six_rrf_config_readbacks_passed": true,
+  "fresh_normalized_text_overlap_dev": 0,
+  "preflight_initial_corpus_superseded_before_scale_quality_results": true
+}
