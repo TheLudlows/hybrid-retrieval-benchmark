@@ -99,6 +99,18 @@ def prior_api(product):
     return module.API(product)
 
 
+def index_binding(api, product):
+    corpus = {name: entry["sha256"] for name, entry in SOURCE["files"].items() if name.startswith("corpus/")}
+    return json.dumps([product, api.base, api.scope, corpus], sort_keys=True)
+
+
+def validate_index_checkpoint(db, api, product):
+    if not db.execute("SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = 'miracl_ingest_run'").fetchone():
+        return
+    if db.execute("SELECT binding, complete FROM miracl_ingest_run WHERE id = 1").fetchone() != (index_binding(api, product), 1):
+        raise ValueError("The checkpoint must match this endpoint and scope and contain a completed full-corpus import")
+
+
 def fetch_ranked(api, product, query, limit, reranker):
     if product == "contextbase":
         data = api.request("/memories/recall", {
@@ -123,9 +135,10 @@ def capture(args, topics):
         raise ValueError("WeKnora requires its knowledge-ID to MIRACL passage-ID map")
     db = None
     try:
+        api = prior_api(args.product)
         if args.passage_map:
             db = sqlite3.connect(args.passage_map.resolve().as_uri() + "?mode=ro", uri=True)
-        api = prior_api(args.product)
+            validate_index_checkpoint(db, api, args.product)
         with args.run.open("x", encoding="utf-8") as output:
             for qid, query in topics.items():
                 start = time.perf_counter()
