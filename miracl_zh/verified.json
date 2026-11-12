@@ -1,0 +1,20 @@
+{
+  "dataset": "miracl/zh/dev",
+  "queries": 393,
+  "judgments": 3928,
+  "positive_judgments": 994,
+  "distinct_judged_passages": 3786,
+  "passages": 4934368,
+  "shards": {
+    "corpus/docs-0.jsonl.gz": 500000,
+    "corpus/docs-1.jsonl.gz": 500000,
+    "corpus/docs-2.jsonl.gz": 500000,
+    "corpus/docs-3.jsonl.gz": 500000,
+    "corpus/docs-4.jsonl.gz": 500000,
+    "corpus/docs-5.jsonl.gz": 500000,
+    "corpus/docs-6.jsonl.gz": 500000,
+    "corpus/docs-7.jsonl.gz": 500000,
+    "corpus/docs-8.jsonl.gz": 500000,
+    "corpus/docs-9.jsonl.gz": 434368
+  }
+}

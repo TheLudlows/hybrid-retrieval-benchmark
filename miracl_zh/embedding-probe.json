@@ -1,0 +1,15 @@
+{
+  "scope": "standalone embedding only, before product ingestion or indexing",
+  "seed": 555,
+  "passages": 640,
+  "passages_per_shard": 64,
+  "elapsed_s": 37.10842969400005,
+  "passages_per_s": 17.246755124846462,
+  "projected_hours_per_full_embedding_pass": 79.47337153312658,
+  "input_tokens_median": 68.0,
+  "vector_dimension": 1024,
+  "cpu_threads": 6,
+  "inference_batch_size": 8,
+  "model": "onnx-community/bge-m3-ONNX@25b9af8e87a38eb120cfe87125383677b9cd309e",
+  "onnxruntime": "1.31.1"
+}
