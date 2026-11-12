@@ -1,0 +1,11 @@
+{
+  "recorded_unix": 1794489733.0318696,
+  "state": "ingesting",
+  "scale": "100k",
+  "product": "contextbase",
+  "case": "default",
+  "verified_checkpoint_indexed": 64,
+  "target_passages": 100000,
+  "worker_alive": true,
+  "note": "Startup snapshot; live progress continues in the persistent workspace. No completed scale-quality result is claimed."
+}
