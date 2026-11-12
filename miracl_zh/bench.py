@@ -7,6 +7,7 @@ import hashlib
 import importlib.util
 import json
 import math
+import os
 from pathlib import Path
 import re
 import sqlite3
@@ -142,12 +143,13 @@ def index_binding(api, product, source):
     return json.dumps([product, api.base, api.scope, corpus], sort_keys=True)
 
 
-def validate_index_checkpoint(db, api, product, source):
+def validate_index_checkpoint(db, api, product, source, smoke=False):
     if not db.execute("SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = 'miracl_ingest_run'").fetchone():
         if source.get("subset"):
             raise ValueError("Use the subset checkpoint created by ingest.py")
         return
-    if db.execute("SELECT binding, complete FROM miracl_ingest_run WHERE id = 1").fetchone() != (index_binding(api, product, source), 1):
+    record = db.execute("SELECT binding, complete FROM miracl_ingest_run WHERE id = 1").fetchone()
+    if not record or record[0] != index_binding(api, product, source) or (not smoke and record[1] != 1):
         raise ValueError("The checkpoint must match this endpoint and scope and contain a completed dataset import")
 
 
@@ -165,8 +167,12 @@ def fetch_ranked(api, product, query, limit, reranker):
         "rerank": {"enabled": True, "model_id": reranker, "top_k": limit, "threshold": 0.0},
     })
     results = data["data"] or []
-    if results and not (data.get("meta", {}).get("rerank") or {}).get("applied"):
+    rerank_meta = data.get("meta", {}).get("rerank") or {}
+    if results and not rerank_meta.get("applied"):
         raise ValueError("Native WeKnora reranking did not run")
+    if rerank_meta.get("candidate_count", 0) > limit:
+        raise ValueError("Native WeKnora rerank input exceeded the requested candidate ceiling")
+    api.last_native_meta = data.get("meta", {})
     return [row["knowledge_id"] for row in results]
 
 
@@ -178,9 +184,44 @@ def capture(args, topics, source):
         api = prior_api(args.product)
         if args.passage_map:
             db = sqlite3.connect(args.passage_map.resolve().as_uri() + "?mode=ro", uri=True)
-            validate_index_checkpoint(db, api, args.product, source)
-        with args.run.open("x", encoding="utf-8") as output:
+            if args.smoke_index and (args.max_queries is None or args.max_queries > 4):
+                raise ValueError("Incomplete-index smoke capture is limited to four queries")
+            validate_index_checkpoint(db, api, args.product, source, args.smoke_index)
+        binding = {"index": index_binding(api, args.product, source), "limit": args.limit,
+                   "reranker": args.reranker, "budget": "high", "config_sha256": args.config_sha256,
+                   "smoke_index": args.smoke_index}
+        meta = args.run.with_suffix(args.run.suffix + ".config.json")
+        completed = set()
+        if args.resume and args.run.exists():
+            if json.loads(meta.read_text()) != binding:
+                raise ValueError("Resume configuration differs from the original run")
+            for line in args.run.read_text().splitlines():
+                row = json.loads(line)
+                if row["dataset"] != source["dataset"] or row["qid"] not in topics or row["qid"] in completed:
+                    raise ValueError("Invalid completed query in resume file")
+                completed.add(row["qid"])
+        else:
+            with meta.open("x") as stream:
+                json.dump(binding, stream, indent=2)
+        if len(completed) == len(topics):
+            print(f"Already complete: {len(completed)}/{len(topics)}; no requests sent", flush=True)
+            return
+        def context(phase, qid):
+            if args.measurement_dir:
+                target = args.measurement_dir / "measurement-context.json"
+                temporary = target.with_suffix(".tmp")
+                temporary.write_text(json.dumps({args.product: {"phase": phase, "id": qid}}))
+                temporary.replace(target)
+        for i in range(args.warmup):
+            context("warmup", str(i))
+            fetch_ranked(api, args.product, f"检索预热：第{i + 1}次中文文档检索", args.limit, args.reranker)
+        with args.run.open("a" if args.resume else "x", encoding="utf-8") as output:
             for qid, query in topics.items():
+                if qid in completed:
+                    continue
+                if args.max_queries is not None and len(completed) >= args.max_queries:
+                    break
+                context("smoke_query" if args.smoke_index else "query", qid)
                 start = time.perf_counter()
                 ranked = fetch_ranked(api, args.product, query, args.limit, args.reranker)
                 latency = 1000 * (time.perf_counter() - start)
@@ -193,8 +234,15 @@ def capture(args, topics, source):
                     if not isinstance(passage, str) or not PASSAGE_ID(passage):
                         raise ValueError(f"Result without a valid source passage ID for query {qid}")
                     passages.append(passage)
-                output.write(json.dumps({"dataset": source["dataset"], "qid": qid, "passages": list(dict.fromkeys(passages)), "latency_ms": latency}) + "\n")
+                output.write(json.dumps({"dataset": source["dataset"], "qid": qid,
+                                         "passages": list(dict.fromkeys(passages)), "latency_ms": latency,
+                                         "remote_ids": list(dict.fromkeys(ranked)),
+                                         "native_meta": getattr(api, "last_native_meta", {}),
+                                         "completed_unix": time.time()}) + "\n")
                 output.flush()
+                os.fsync(output.fileno())
+                completed.add(qid)
+                print(f"Completed {len(completed)}/{len(topics)}: {qid}", flush=True)
     finally:
         if db is not None:
             db.close()
@@ -217,7 +265,8 @@ def score(run, qrels, trec_output, source=SOURCE):
         labels = qrels[qid]
         relevant = sum(labels.values())
         matches = [labels.get(p, 0) for p in ranked[:100]]
-        per_topic[qid] = {"hit_at_5": int(any(matches[:5])),
+        per_topic[qid] = {"hit_at_1": int(any(matches[:1])), "hit_at_10": int(any(matches[:10])),
+                          "hit_at_5": int(any(matches[:5])),
                           "ndcg_at_10": dcg(matches[:10]) / dcg([1] * min(relevant, 10)),
                           "recall_at_100": sum(matches) / relevant, "depth": len(ranked), "latency_ms": latency}
     if per_topic.keys() != qrels.keys():
@@ -232,11 +281,12 @@ def score(run, qrels, trec_output, source=SOURCE):
     latencies = sorted(r["latency_ms"] for r in rows)
     return {"dataset": source["dataset"], "queries": len(rows),
             **{metric: statistics.mean(r[metric] for r in rows)
-               for metric in ("hit_at_5", "ndcg_at_10", "recall_at_100")},
+               for metric in ("hit_at_1", "hit_at_5", "hit_at_10", "ndcg_at_10", "recall_at_100")},
             "returned_depth": {"mean": statistics.mean(r["depth"] for r in rows),
                                "min": min(r["depth"] for r in rows), "max": max(r["depth"] for r in rows),
                                "queries_at_least_100": sum(r["depth"] >= 100 for r in rows)},
-            "serial_p95_ms": latencies[math.ceil(0.95 * len(rows)) - 1], "per_topic": per_topic}
+            **{f"serial_p{p}_ms": latencies[math.ceil(p / 100 * len(rows)) - 1] for p in (50, 95, 99)},
+            "per_topic": per_topic}
 
 
 def main():
@@ -251,6 +301,12 @@ def main():
     collect.add_argument("--passage-map", type=Path)
     collect.add_argument("--limit", type=int, choices=(40, 60, 100), default=60, help="WeKnora requested depth")
     collect.add_argument("--reranker", default="benchmark-bge-reranker")
+    collect.add_argument("--resume", action="store_true")
+    collect.add_argument("--smoke-index", action="store_true", help="Restart test only; at most four queries")
+    collect.add_argument("--warmup", type=int, default=4)
+    collect.add_argument("--max-queries", type=int)
+    collect.add_argument("--config-sha256", help="SHA-256 of the frozen product/model/hardware configuration")
+    collect.add_argument("--measurement-dir", type=Path)
     evaluate = commands.add_parser("score")
     evaluate.add_argument("run", type=Path)
     evaluate.add_argument("--trec-output", type=Path)

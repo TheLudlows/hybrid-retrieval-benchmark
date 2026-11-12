@@ -1,0 +1,17 @@
+[
+  {
+    "threads": 3,
+    "seconds": 6.5224671560000616,
+    "passages": 32
+  },
+  {
+    "threads": 6,
+    "seconds": 10.056488388000048,
+    "passages": 32
+  },
+  {
+    "threads": 1,
+    "seconds": 17.691616219000025,
+    "passages": 32
+  }
+]

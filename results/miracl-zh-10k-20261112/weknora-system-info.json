@@ -1,0 +1,18 @@
+{
+  "code": 0,
+  "data": {
+    "version": "0.9.0",
+    "edition": "lite",
+    "commit_id": "cbdcebabf48c5ee2d6868b370326aa8341703f62",
+    "build_time": "unknown",
+    "go_version": "unknown",
+    "keyword_index_engine": "sqlite",
+    "vector_store_engine": "sqlite",
+    "graph_database_engine": "Not Enabled",
+    "db_version": "52",
+    "db_migration_failed": false,
+    "started_at": "2026-11-12T09:27:36Z",
+    "uptime_seconds": 12
+  },
+  "msg": "success"
+}

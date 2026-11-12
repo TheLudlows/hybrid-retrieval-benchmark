@@ -1,0 +1,25 @@
+{
+  "unit": "passages",
+  "count": 10000,
+  "seed": 20261112,
+  "passages": 10000,
+  "judged_passages": 3786,
+  "file": {
+    "size": 2079547,
+    "sha256": "3554a10e8b02519462efcdcfb632f9d7de1ee2388c3f9c9cd8c963a8efa93061"
+  },
+  "source": {
+    "topics.tsv": "5b284a9aabf08bb2d1c88ed7ea276025c9d23846457c5350dc8d391b5e0d0a13",
+    "qrels.tsv": "5546474d3dc8139014e6571e9f4041848bb0a314ca6d2d4bac708174d71c59eb",
+    "corpus/docs-0.jsonl.gz": "b036ba6a927a4598b314de55a1de200d2a619b28b4327f49e97ec4233d324827",
+    "corpus/docs-1.jsonl.gz": "d6db9e242bdebeac76f586c0ec9a6301a9ec4a52c64c71949945ba5983467506",
+    "corpus/docs-2.jsonl.gz": "29f1b1e3bec59770367be71d1698a7afaf7efb8006d168d40a2815025c8d1b43",
+    "corpus/docs-3.jsonl.gz": "9cfc76c7f9ec9edc12d351913ba0f33a96d496a7449b46a6488f77668acf178d",
+    "corpus/docs-4.jsonl.gz": "d47cef57928c3452d95cc8499dea37ce6e589808a9315ab2cf9809a23fe349b5",
+    "corpus/docs-5.jsonl.gz": "17e1d4bf36d3992ccf5c519522ed1dcf896cb72772907e973bfcf1b2dd993e28",
+    "corpus/docs-6.jsonl.gz": "4b3cdc7aeefc01ca4c2f55ba16ac80d773393068b78d4f971fc3c25c6fb9a859",
+    "corpus/docs-7.jsonl.gz": "e7541af8c2fb7a96cff271e06047f0b4f00372b205735fabeed6217f9a7bb334",
+    "corpus/docs-8.jsonl.gz": "f456671170b8286ede8f81feb9d365750af5027465399f63445a441fc96c41a7",
+    "corpus/docs-9.jsonl.gz": "6c8193e14aafd93fb1ee57eac4f1171a44a0c975ebdefd6e9df1903c1b2fd7ca"
+  }
+}

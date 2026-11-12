@@ -1,0 +1,28 @@
+{
+  "queries_each": 393,
+  "same_official_query_order": true,
+  "same_dataset_fingerprint": true,
+  "official_ids_each": 10000,
+  "unknown_source_ids": 0,
+  "model_embedding_calls_each_query": 1,
+  "model_rerank_calls_each_query": 1,
+  "rerank_pairs_each_query": 60,
+  "weknora_native_rerank_applied_all": true,
+  "restart_smoke_each": {
+    "indexed_passages": 16,
+    "first_capture_completed": 1,
+    "after_restart_capture_completed": 2,
+    "first_completed_qid_skipped": true
+  },
+  "scorer_checks": "393-query perfect/empty fixtures: five quality metrics 1/0, p50/p95/p99=197/374/390 ms; complete real runs independently rescored",
+  "formal_retrieval_failures_each": 0,
+  "prior_assets_user_confirmed_absent": true,
+  "all_ranked_ids_in_verified_subset": true,
+  "independent_rescore_tolerance": 1e-12,
+  "saved_vs_recomputed_max_abs_error": 2.220446049250313e-16,
+  "complete_resume_no_model_calls": true,
+  "complete_resume_messages": [
+    "Already complete: 393/393; no requests sent",
+    "Already complete: 393/393; no requests sent"
+  ]
+}

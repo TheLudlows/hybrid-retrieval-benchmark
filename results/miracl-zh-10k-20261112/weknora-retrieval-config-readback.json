@@ -1,0 +1,10 @@
+{
+  "stored_tenant_retrieval_config": null,
+  "request_match_count": 60,
+  "request_rerank_top_k": 60,
+  "effective_embedding_top_k": 60,
+  "single_knowledge_base": true,
+  "skip_context_enrichment_before_rerank": true,
+  "query_expansion": false,
+  "validation": "Native meta.candidate_count must not exceed 60; corroborated with model service pair counts"
+}

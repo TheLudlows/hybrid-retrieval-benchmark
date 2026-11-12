@@ -1,0 +1,16 @@
+{
+  "dataset": "miracl/zh/dev/subset-3554a10e8b025194",
+  "queries": 393,
+  "judgments": 3928,
+  "positive_judgments": 994,
+  "distinct_judged_passages": 3786,
+  "passages": 10000,
+  "shards": {
+    "corpus/subset.jsonl.gz": 10000
+  },
+  "subset": {
+    "unit": "passages",
+    "count": 10000,
+    "seed": 20261112
+  }
+}

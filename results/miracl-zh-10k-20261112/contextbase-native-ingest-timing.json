@@ -1,0 +1,1886 @@
+[
+  {
+    "timestamp_utc": "2026-11-12 08:58:14",
+    "documents": 16,
+    "wall_s": 9.842,
+    "raw": "2026-11-12 08:58:14,968 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=16 wall=9.842s 0.3KB/s | embed=79.886s/16c/812% pg.acquire=1.878s/115c/19%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:01:07",
+    "documents": 16,
+    "wall_s": 17.259,
+    "raw": "2026-11-12 09:01:07,161 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=16 wall=17.259s 0.3KB/s | embed=168.522s/18c/976% pg.acquire=1.747s/115c/10%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:01:20",
+    "documents": 32,
+    "wall_s": 13.154,
+    "raw": "2026-11-12 09:01:20,330 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=13.154s 0.5KB/s | embed=191.326s/32c/1455% pg.acquire=11.883s/228c/90%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:01:37",
+    "documents": 32,
+    "wall_s": 17.399,
+    "raw": "2026-11-12 09:01:37,743 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=17.399s 0.4KB/s | embed=285.222s/34c/1639% pg.acquire=1.653s/227c/9%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:01:53",
+    "documents": 32,
+    "wall_s": 15.748,
+    "raw": "2026-11-12 09:01:53,502 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=15.748s 0.4KB/s | embed=324.779s/36c/2062% pg.acquire=1.337s/228c/8%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:02:16",
+    "documents": 32,
+    "wall_s": 23.402,
+    "raw": "2026-11-12 09:02:16,916 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=23.402s 0.3KB/s | embed=574.99s/40c/2457% pg.acquire=1.417s/227c/6%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:02:26",
+    "documents": 32,
+    "wall_s": 9.653,
+    "raw": "2026-11-12 09:02:26,586 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=9.653s 0.7KB/s | embed=152.688s/32c/1582% pg.acquire=1.181s/228c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:02:40",
+    "documents": 32,
+    "wall_s": 13.461,
+    "raw": "2026-11-12 09:02:40,069 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=13.461s 0.5KB/s | embed=254.096s/38c/1888% pg.acquire=1.368s/227c/10%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:02:51",
+    "documents": 32,
+    "wall_s": 11.765,
+    "raw": "2026-11-12 09:02:51,846 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=11.765s 0.6KB/s | embed=214.545s/37c/1824% pg.acquire=1.157s/227c/10%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:03:02",
+    "documents": 32,
+    "wall_s": 10.325,
+    "raw": "2026-11-12 09:03:02,179 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=10.325s 0.6KB/s | embed=169.799s/36c/1645% pg.acquire=1.319s/228c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:03:10",
+    "documents": 32,
+    "wall_s": 8.337,
+    "raw": "2026-11-12 09:03:10,526 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.337s 0.5KB/s | embed=134.212s/32c/1610% pg.acquire=0.934s/227c/11%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:03:21",
+    "documents": 32,
+    "wall_s": 11.038,
+    "raw": "2026-11-12 09:03:21,577 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=11.038s 0.6KB/s | embed=158.585s/32c/1437% pg.acquire=1.276s/227c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:03:33",
+    "documents": 32,
+    "wall_s": 11.664,
+    "raw": "2026-11-12 09:03:33,252 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=11.664s 0.6KB/s | embed=203.773s/34c/1747% pg.acquire=0.98s/228c/8%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:04:35",
+    "documents": 32,
+    "wall_s": 13.786,
+    "raw": "2026-11-12 09:04:35,387 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=13.786s 0.4KB/s | embed=295.782s/32c/2146% pg.acquire=1.48s/227c/11%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:04:52",
+    "documents": 32,
+    "wall_s": 16.647,
+    "raw": "2026-11-12 09:04:52,045 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=16.647s 0.4KB/s | embed=336.597s/36c/2022% pg.acquire=3.784s/228c/23%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:05:06",
+    "documents": 32,
+    "wall_s": 14.918,
+    "raw": "2026-11-12 09:05:06,977 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=14.918s 0.5KB/s | embed=305.664s/36c/2049% pg.acquire=1.268s/227c/9%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:05:24",
+    "documents": 32,
+    "wall_s": 17.197,
+    "raw": "2026-11-12 09:05:24,184 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=17.197s 0.3KB/s | embed=363.209s/36c/2112% pg.acquire=1.441s/228c/8%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:05:36",
+    "documents": 32,
+    "wall_s": 12.018,
+    "raw": "2026-11-12 09:05:36,213 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=12.018s 0.5KB/s | embed=236.781s/34c/1970% pg.acquire=1.397s/227c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:07:05",
+    "documents": 32,
+    "wall_s": 6.37,
+    "raw": "2026-11-12 09:07:05,115 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.37s 0.8KB/s | embed=121.451s/32c/1907% pg.acquire=1.147s/228c/18%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:07:10",
+    "documents": 32,
+    "wall_s": 5.459,
+    "raw": "2026-11-12 09:07:10,582 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.459s 0.8KB/s | embed=102.483s/32c/1877% pg.acquire=0.81s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:07:18",
+    "documents": 32,
+    "wall_s": 8.073,
+    "raw": "2026-11-12 09:07:18,666 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.073s 0.8KB/s | embed=161.348s/32c/1999% pg.acquire=0.876s/227c/11%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:07:26",
+    "documents": 32,
+    "wall_s": 7.679,
+    "raw": "2026-11-12 09:07:26,356 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.679s 0.7KB/s | embed=154.52s/34c/2012% pg.acquire=1.039s/227c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:07:33",
+    "documents": 32,
+    "wall_s": 6.775,
+    "raw": "2026-11-12 09:07:33,141 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.775s 0.8KB/s | embed=140.029s/32c/2067% pg.acquire=0.947s/227c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:07:39",
+    "documents": 32,
+    "wall_s": 6.638,
+    "raw": "2026-11-12 09:07:39,789 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.638s 0.7KB/s | embed=115.023s/32c/1733% pg.acquire=0.803s/228c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:07:47",
+    "documents": 32,
+    "wall_s": 7.768,
+    "raw": "2026-11-12 09:07:47,566 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.768s 0.7KB/s | embed=137.274s/32c/1767% pg.acquire=0.77s/227c/10%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:07:57",
+    "documents": 32,
+    "wall_s": 10.191,
+    "raw": "2026-11-12 09:07:57,767 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=10.191s 0.7KB/s | embed=216.431s/35c/2124% pg.acquire=1.004s/227c/10%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:08:04",
+    "documents": 32,
+    "wall_s": 6.54,
+    "raw": "2026-11-12 09:08:04,317 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.54s 0.8KB/s | embed=134.948s/32c/2063% pg.acquire=0.989s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:08:09",
+    "documents": 32,
+    "wall_s": 4.716,
+    "raw": "2026-11-12 09:08:09,044 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.716s 0.9KB/s | embed=94.387s/32c/2001% pg.acquire=0.932s/227c/20%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:08:17",
+    "documents": 32,
+    "wall_s": 8.937,
+    "raw": "2026-11-12 09:08:17,992 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.937s 0.9KB/s | embed=236.366s/40c/2645% pg.acquire=0.953s/228c/11%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:08:24",
+    "documents": 32,
+    "wall_s": 6.834,
+    "raw": "2026-11-12 09:08:24,835 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.834s 0.7KB/s | embed=129.945s/32c/1901% pg.acquire=1.558s/227c/23%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:08:30",
+    "documents": 32,
+    "wall_s": 5.529,
+    "raw": "2026-11-12 09:08:30,373 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.529s 0.9KB/s | embed=103.085s/32c/1864% pg.acquire=1.116s/227c/20%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:08:38",
+    "documents": 32,
+    "wall_s": 8.599,
+    "raw": "2026-11-12 09:08:38,982 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.599s 0.7KB/s | embed=173.712s/36c/2020% pg.acquire=0.764s/227c/9%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:08:45",
+    "documents": 32,
+    "wall_s": 6.707,
+    "raw": "2026-11-12 09:08:45,702 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.707s 0.7KB/s | embed=127.624s/32c/1903% pg.acquire=1.013s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:08:51",
+    "documents": 32,
+    "wall_s": 6.174,
+    "raw": "2026-11-12 09:08:51,890 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.174s 0.8KB/s | embed=114.75s/32c/1859% pg.acquire=0.985s/228c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:08:58",
+    "documents": 32,
+    "wall_s": 6.946,
+    "raw": "2026-11-12 09:08:58,845 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.946s 0.8KB/s | embed=147.299s/34c/2121% pg.acquire=0.823s/227c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:09:05",
+    "documents": 32,
+    "wall_s": 6.199,
+    "raw": "2026-11-12 09:09:05,052 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.199s 0.9KB/s | embed=125.076s/34c/2018% pg.acquire=0.774s/227c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:09:11",
+    "documents": 32,
+    "wall_s": 6.551,
+    "raw": "2026-11-12 09:09:11,613 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.551s 0.7KB/s | embed=122.674s/34c/1873% pg.acquire=1.085s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:09:17",
+    "documents": 32,
+    "wall_s": 5.802,
+    "raw": "2026-11-12 09:09:17,427 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.802s 0.9KB/s | embed=135.053s/34c/2328% pg.acquire=0.735s/227c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:09:24",
+    "documents": 32,
+    "wall_s": 6.996,
+    "raw": "2026-11-12 09:09:24,430 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.996s 0.7KB/s | embed=152.951s/35c/2186% pg.acquire=0.926s/228c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:09:32",
+    "documents": 32,
+    "wall_s": 7.946,
+    "raw": "2026-11-12 09:09:32,384 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.946s 0.7KB/s | embed=166.142s/37c/2091% pg.acquire=0.872s/227c/11%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:09:38",
+    "documents": 32,
+    "wall_s": 6.221,
+    "raw": "2026-11-12 09:09:38,613 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.221s 0.8KB/s | embed=109.148s/34c/1755% pg.acquire=1.022s/227c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:09:47",
+    "documents": 32,
+    "wall_s": 9.212,
+    "raw": "2026-11-12 09:09:47,833 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=9.212s 0.7KB/s | embed=210.101s/34c/2281% pg.acquire=0.835s/227c/9%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:09:55",
+    "documents": 32,
+    "wall_s": 7.889,
+    "raw": "2026-11-12 09:09:55,733 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.889s 0.7KB/s | embed=150.461s/32c/1907% pg.acquire=0.9s/228c/11%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:10:00",
+    "documents": 32,
+    "wall_s": 4.973,
+    "raw": "2026-11-12 09:10:00,713 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.973s 0.8KB/s | embed=95.07s/32c/1912% pg.acquire=1.116s/227c/22%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:10:10",
+    "documents": 32,
+    "wall_s": 9.637,
+    "raw": "2026-11-12 09:10:10,360 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=9.637s 0.6KB/s | embed=213.772s/38c/2218% pg.acquire=0.944s/227c/10%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:10:17",
+    "documents": 32,
+    "wall_s": 6.968,
+    "raw": "2026-11-12 09:10:17,337 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.968s 0.7KB/s | embed=137.369s/32c/1971% pg.acquire=1.023s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:10:28",
+    "documents": 32,
+    "wall_s": 11.122,
+    "raw": "2026-11-12 09:10:28,468 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=11.122s 0.5KB/s | embed=246.77s/35c/2219% pg.acquire=1.279s/228c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:10:34",
+    "documents": 32,
+    "wall_s": 6.498,
+    "raw": "2026-11-12 09:10:34,977 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.498s 0.7KB/s | embed=120.635s/32c/1857% pg.acquire=1.14s/227c/18%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:10:43",
+    "documents": 32,
+    "wall_s": 8.702,
+    "raw": "2026-11-12 09:10:43,692 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.702s 0.5KB/s | embed=146.813s/32c/1687% pg.acquire=0.909s/227c/10%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:10:55",
+    "documents": 32,
+    "wall_s": 11.617,
+    "raw": "2026-11-12 09:10:55,322 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=11.617s 0.4KB/s | embed=261.107s/34c/2248% pg.acquire=1.333s/227c/11%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:11:02",
+    "documents": 32,
+    "wall_s": 6.725,
+    "raw": "2026-11-12 09:11:02,064 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.725s 0.7KB/s | embed=100.591s/32c/1496% pg.acquire=1.569s/228c/23%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:11:10",
+    "documents": 32,
+    "wall_s": 8.53,
+    "raw": "2026-11-12 09:11:10,606 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.53s 0.8KB/s | embed=189.71s/34c/2224% pg.acquire=1.129s/227c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:11:21",
+    "documents": 32,
+    "wall_s": 10.795,
+    "raw": "2026-11-12 09:11:21,419 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=10.795s 0.6KB/s | embed=207.201s/32c/1919% pg.acquire=1.256s/227c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:11:28",
+    "documents": 32,
+    "wall_s": 7.14,
+    "raw": "2026-11-12 09:11:28,595 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.14s 0.7KB/s | embed=130.774s/32c/1831% pg.acquire=1.027s/227c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:11:38",
+    "documents": 32,
+    "wall_s": 9.73,
+    "raw": "2026-11-12 09:11:38,334 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=9.73s 0.6KB/s | embed=204.376s/36c/2100% pg.acquire=1.019s/227c/10%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:11:43",
+    "documents": 32,
+    "wall_s": 5.439,
+    "raw": "2026-11-12 09:11:43,783 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.439s 0.9KB/s | embed=100.476s/32c/1847% pg.acquire=1.001s/227c/18%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:11:48",
+    "documents": 32,
+    "wall_s": 4.929,
+    "raw": "2026-11-12 09:11:48,721 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.929s 0.9KB/s | embed=103.756s/32c/2105% pg.acquire=0.712s/227c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:11:56",
+    "documents": 32,
+    "wall_s": 7.867,
+    "raw": "2026-11-12 09:11:56,596 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.867s 0.6KB/s | embed=163.092s/32c/2073% pg.acquire=1.083s/227c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:12:03",
+    "documents": 32,
+    "wall_s": 6.685,
+    "raw": "2026-11-12 09:12:03,295 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.685s 0.7KB/s | embed=117.939s/32c/1764% pg.acquire=0.946s/228c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:12:12",
+    "documents": 32,
+    "wall_s": 9.652,
+    "raw": "2026-11-12 09:12:12,958 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=9.652s 0.7KB/s | embed=180.64s/35c/1872% pg.acquire=1.22s/227c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:12:19",
+    "documents": 32,
+    "wall_s": 6.349,
+    "raw": "2026-11-12 09:12:19,317 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.349s 0.9KB/s | embed=112.333s/32c/1769% pg.acquire=0.892s/227c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:12:27",
+    "documents": 32,
+    "wall_s": 7.893,
+    "raw": "2026-11-12 09:12:27,219 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.893s 0.8KB/s | embed=150.204s/34c/1903% pg.acquire=13.541s/227c/172%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:12:34",
+    "documents": 32,
+    "wall_s": 7.252,
+    "raw": "2026-11-12 09:12:34,485 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.252s 0.8KB/s | embed=138.002s/34c/1903% pg.acquire=1.097s/228c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:12:39",
+    "documents": 32,
+    "wall_s": 4.866,
+    "raw": "2026-11-12 09:12:39,359 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.866s 0.9KB/s | embed=87.08s/32c/1790% pg.acquire=1.001s/227c/21%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:12:44",
+    "documents": 32,
+    "wall_s": 4.949,
+    "raw": "2026-11-12 09:12:44,318 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.949s 0.9KB/s | embed=88.848s/32c/1795% pg.acquire=0.85s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:12:52",
+    "documents": 32,
+    "wall_s": 7.746,
+    "raw": "2026-11-12 09:12:52,074 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.746s 0.7KB/s | embed=131.823s/34c/1702% pg.acquire=1.036s/227c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:12:59",
+    "documents": 32,
+    "wall_s": 7.051,
+    "raw": "2026-11-12 09:12:59,134 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.051s 0.7KB/s | embed=149.208s/34c/2116% pg.acquire=1.203s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:13:07",
+    "documents": 32,
+    "wall_s": 8.281,
+    "raw": "2026-11-12 09:13:07,423 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.281s 0.7KB/s | embed=165.511s/32c/1999% pg.acquire=0.903s/228c/11%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:13:13",
+    "documents": 32,
+    "wall_s": 6.262,
+    "raw": "2026-11-12 09:13:13,693 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.262s 0.8KB/s | embed=117.496s/32c/1876% pg.acquire=0.775s/227c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:13:19",
+    "documents": 32,
+    "wall_s": 5.675,
+    "raw": "2026-11-12 09:13:19,388 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.675s 0.8KB/s | embed=104.332s/32c/1838% pg.acquire=1.141s/227c/20%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:13:27",
+    "documents": 32,
+    "wall_s": 8.107,
+    "raw": "2026-11-12 09:13:27,504 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.107s 0.8KB/s | embed=151.852s/34c/1873% pg.acquire=1.02s/227c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:13:33",
+    "documents": 32,
+    "wall_s": 6.26,
+    "raw": "2026-11-12 09:13:33,778 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.26s 0.9KB/s | embed=114.092s/32c/1822% pg.acquire=1.104s/227c/18%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:13:42",
+    "documents": 32,
+    "wall_s": 8.907,
+    "raw": "2026-11-12 09:13:42,695 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.907s 0.7KB/s | embed=195.957s/34c/2200% pg.acquire=0.948s/228c/11%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:13:47",
+    "documents": 32,
+    "wall_s": 4.332,
+    "raw": "2026-11-12 09:13:47,035 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.332s 0.9KB/s | embed=80.263s/32c/1853% pg.acquire=0.913s/227c/21%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:13:54",
+    "documents": 32,
+    "wall_s": 7.197,
+    "raw": "2026-11-12 09:13:54,240 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.197s 0.7KB/s | embed=160.875s/32c/2235% pg.acquire=0.964s/227c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:14:00",
+    "documents": 32,
+    "wall_s": 6.746,
+    "raw": "2026-11-12 09:14:00,996 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.746s 0.8KB/s | embed=129.048s/32c/1913% pg.acquire=0.767s/227c/11%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:14:06",
+    "documents": 32,
+    "wall_s": 5.876,
+    "raw": "2026-11-12 09:14:06,881 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.876s 0.6KB/s | embed=119.688s/32c/2037% pg.acquire=4.549s/227c/77%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:14:12",
+    "documents": 32,
+    "wall_s": 6.049,
+    "raw": "2026-11-12 09:14:12,939 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.049s 0.8KB/s | embed=114.022s/32c/1885% pg.acquire=1.035s/228c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:14:20",
+    "documents": 32,
+    "wall_s": 7.591,
+    "raw": "2026-11-12 09:14:20,540 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.591s 0.6KB/s | embed=148.582s/32c/1957% pg.acquire=0.866s/227c/11%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:14:27",
+    "documents": 32,
+    "wall_s": 6.953,
+    "raw": "2026-11-12 09:14:27,503 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.953s 0.7KB/s | embed=130.429s/32c/1876% pg.acquire=1.002s/227c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:14:34",
+    "documents": 32,
+    "wall_s": 7.109,
+    "raw": "2026-11-12 09:14:34,623 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.109s 0.6KB/s | embed=151.955s/32c/2138% pg.acquire=0.785s/227c/11%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:14:40",
+    "documents": 32,
+    "wall_s": 6.15,
+    "raw": "2026-11-12 09:14:40,787 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.15s 0.7KB/s | embed=115.347s/32c/1876% pg.acquire=0.885s/227c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:14:47",
+    "documents": 32,
+    "wall_s": 7.18,
+    "raw": "2026-11-12 09:14:47,977 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.18s 0.8KB/s | embed=158.116s/38c/2202% pg.acquire=0.991s/228c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:14:55",
+    "documents": 32,
+    "wall_s": 7.077,
+    "raw": "2026-11-12 09:14:55,062 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.077s 0.8KB/s | embed=131.668s/34c/1860% pg.acquire=0.916s/227c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:15:00",
+    "documents": 32,
+    "wall_s": 5.224,
+    "raw": "2026-11-12 09:15:00,295 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.224s 0.8KB/s | embed=91.202s/32c/1746% pg.acquire=0.798s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:15:05",
+    "documents": 32,
+    "wall_s": 5.108,
+    "raw": "2026-11-12 09:15:05,413 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.108s 0.9KB/s | embed=90.732s/32c/1776% pg.acquire=0.816s/227c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:15:09",
+    "documents": 32,
+    "wall_s": 4.062,
+    "raw": "2026-11-12 09:15:09,484 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.062s 0.8KB/s | embed=75.224s/32c/1852% pg.acquire=0.861s/227c/21%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:15:16",
+    "documents": 32,
+    "wall_s": 6.679,
+    "raw": "2026-11-12 09:15:16,171 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.679s 0.7KB/s | embed=119.335s/32c/1787% pg.acquire=0.832s/227c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:15:21",
+    "documents": 32,
+    "wall_s": 5.768,
+    "raw": "2026-11-12 09:15:21,948 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.768s 0.7KB/s | embed=119.503s/32c/2072% pg.acquire=0.822s/228c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:15:28",
+    "documents": 32,
+    "wall_s": 6.403,
+    "raw": "2026-11-12 09:15:28,360 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.403s 0.8KB/s | embed=127.719s/36c/1995% pg.acquire=0.857s/227c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:15:33",
+    "documents": 32,
+    "wall_s": 4.865,
+    "raw": "2026-11-12 09:15:33,233 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.865s 0.9KB/s | embed=82.178s/32c/1689% pg.acquire=0.806s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:15:38",
+    "documents": 32,
+    "wall_s": 4.904,
+    "raw": "2026-11-12 09:15:38,149 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.904s 0.8KB/s | embed=95.983s/32c/1957% pg.acquire=0.973s/227c/20%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:15:46",
+    "documents": 32,
+    "wall_s": 8.489,
+    "raw": "2026-11-12 09:15:46,647 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.489s 0.7KB/s | embed=166.059s/34c/1956% pg.acquire=0.931s/227c/11%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:15:51",
+    "documents": 32,
+    "wall_s": 5.135,
+    "raw": "2026-11-12 09:15:51,791 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.135s 0.8KB/s | embed=102.878s/32c/2003% pg.acquire=0.932s/227c/18%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:16:01",
+    "documents": 32,
+    "wall_s": 9.33,
+    "raw": "2026-11-12 09:16:01,130 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=9.33s 0.6KB/s | embed=200.679s/37c/2151% pg.acquire=0.954s/228c/10%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:16:07",
+    "documents": 32,
+    "wall_s": 6.218,
+    "raw": "2026-11-12 09:16:07,357 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.218s 0.8KB/s | embed=129.454s/32c/2082% pg.acquire=0.977s/227c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:16:13",
+    "documents": 32,
+    "wall_s": 5.777,
+    "raw": "2026-11-12 09:16:13,144 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.777s 0.8KB/s | embed=106.049s/32c/1836% pg.acquire=0.954s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:16:19",
+    "documents": 32,
+    "wall_s": 6.711,
+    "raw": "2026-11-12 09:16:19,862 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.711s 0.7KB/s | embed=126.143s/32c/1880% pg.acquire=0.814s/227c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:16:24",
+    "documents": 32,
+    "wall_s": 4.678,
+    "raw": "2026-11-12 09:16:24,549 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.678s 0.8KB/s | embed=85.86s/32c/1835% pg.acquire=0.76s/227c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:16:29",
+    "documents": 32,
+    "wall_s": 5.047,
+    "raw": "2026-11-12 09:16:29,605 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.047s 0.8KB/s | embed=89.729s/32c/1778% pg.acquire=1.07s/227c/21%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:16:37",
+    "documents": 32,
+    "wall_s": 8.354,
+    "raw": "2026-11-12 09:16:37,979 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.354s 0.5KB/s | embed=141.265s/34c/1691% pg.acquire=0.796s/227c/10%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:16:46",
+    "documents": 32,
+    "wall_s": 8.051,
+    "raw": "2026-11-12 09:16:46,041 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.051s 0.7KB/s | embed=146.524s/32c/1820% pg.acquire=1.08s/227c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:16:52",
+    "documents": 32,
+    "wall_s": 6.677,
+    "raw": "2026-11-12 09:16:52,727 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.677s 0.6KB/s | embed=117.812s/32c/1764% pg.acquire=1.106s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:17:00",
+    "documents": 32,
+    "wall_s": 7.625,
+    "raw": "2026-11-12 09:17:00,361 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.625s 1.1KB/s | embed=198.651s/41c/2605% pg.acquire=0.899s/227c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:17:07",
+    "documents": 32,
+    "wall_s": 7.038,
+    "raw": "2026-11-12 09:17:07,410 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.038s 0.6KB/s | embed=132.742s/34c/1886% pg.acquire=0.858s/228c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:17:14",
+    "documents": 32,
+    "wall_s": 7.01,
+    "raw": "2026-11-12 09:17:14,427 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.01s 0.7KB/s | embed=117.685s/32c/1679% pg.acquire=3.946s/227c/56%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:17:21",
+    "documents": 32,
+    "wall_s": 7.251,
+    "raw": "2026-11-12 09:17:21,687 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.251s 0.7KB/s | embed=165.378s/36c/2281% pg.acquire=1.265s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:17:27",
+    "documents": 32,
+    "wall_s": 6.082,
+    "raw": "2026-11-12 09:17:27,778 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.082s 0.7KB/s | embed=102.125s/32c/1679% pg.acquire=0.959s/227c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:17:33",
+    "documents": 32,
+    "wall_s": 5.983,
+    "raw": "2026-11-12 09:17:33,770 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.983s 0.7KB/s | embed=117.451s/32c/1963% pg.acquire=0.921s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:17:38",
+    "documents": 32,
+    "wall_s": 5.067,
+    "raw": "2026-11-12 09:17:38,847 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.067s 1.0KB/s | embed=84.282s/32c/1663% pg.acquire=0.873s/228c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:17:47",
+    "documents": 32,
+    "wall_s": 8.219,
+    "raw": "2026-11-12 09:17:47,075 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.219s 0.7KB/s | embed=145.715s/32c/1773% pg.acquire=0.877s/227c/11%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:17:53",
+    "documents": 32,
+    "wall_s": 6.354,
+    "raw": "2026-11-12 09:17:53,439 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.354s 0.7KB/s | embed=138.526s/32c/2180% pg.acquire=1.016s/227c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:17:59",
+    "documents": 32,
+    "wall_s": 5.978,
+    "raw": "2026-11-12 09:17:59,426 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.978s 0.7KB/s | embed=109.46s/32c/1831% pg.acquire=0.993s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:18:05",
+    "documents": 32,
+    "wall_s": 5.948,
+    "raw": "2026-11-12 09:18:05,384 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.948s 0.8KB/s | embed=105.475s/32c/1773% pg.acquire=0.88s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:18:12",
+    "documents": 32,
+    "wall_s": 6.751,
+    "raw": "2026-11-12 09:18:12,144 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.751s 0.8KB/s | embed=114.492s/32c/1696% pg.acquire=1.033s/228c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:18:18",
+    "documents": 32,
+    "wall_s": 6.847,
+    "raw": "2026-11-12 09:18:18,999 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.847s 0.8KB/s | embed=136.311s/34c/1991% pg.acquire=1.128s/227c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:18:27",
+    "documents": 32,
+    "wall_s": 8.228,
+    "raw": "2026-11-12 09:18:27,237 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.228s 0.6KB/s | embed=133.649s/32c/1624% pg.acquire=1.004s/227c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:18:31",
+    "documents": 32,
+    "wall_s": 4.062,
+    "raw": "2026-11-12 09:18:31,308 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.062s 1.0KB/s | embed=82.873s/32c/2040% pg.acquire=0.794s/227c/20%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:18:36",
+    "documents": 32,
+    "wall_s": 5.583,
+    "raw": "2026-11-12 09:18:36,900 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.583s 0.7KB/s | embed=111.964s/32c/2006% pg.acquire=0.789s/227c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:18:42",
+    "documents": 32,
+    "wall_s": 5.927,
+    "raw": "2026-11-12 09:18:42,837 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.927s 0.7KB/s | embed=114.683s/35c/1935% pg.acquire=1.042s/228c/18%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:18:51",
+    "documents": 32,
+    "wall_s": 8.575,
+    "raw": "2026-11-12 09:18:51,420 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.575s 0.7KB/s | embed=197.056s/42c/2298% pg.acquire=8.169s/227c/95%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:18:56",
+    "documents": 32,
+    "wall_s": 4.753,
+    "raw": "2026-11-12 09:18:56,183 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.753s 0.7KB/s | embed=92.616s/32c/1948% pg.acquire=0.906s/227c/19%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:19:01",
+    "documents": 32,
+    "wall_s": 5.375,
+    "raw": "2026-11-12 09:19:01,568 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.375s 0.8KB/s | embed=117.716s/32c/2190% pg.acquire=0.889s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:19:08",
+    "documents": 32,
+    "wall_s": 6.984,
+    "raw": "2026-11-12 09:19:08,561 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.984s 0.8KB/s | embed=128.743s/33c/1843% pg.acquire=1.051s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:19:13",
+    "documents": 32,
+    "wall_s": 5.031,
+    "raw": "2026-11-12 09:19:13,600 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.031s 0.8KB/s | embed=95.31s/32c/1894% pg.acquire=0.982s/228c/20%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:19:20",
+    "documents": 32,
+    "wall_s": 6.683,
+    "raw": "2026-11-12 09:19:20,292 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.683s 0.6KB/s | embed=133.395s/32c/1996% pg.acquire=1.042s/227c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:19:26",
+    "documents": 32,
+    "wall_s": 6.481,
+    "raw": "2026-11-12 09:19:26,782 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.481s 0.6KB/s | embed=112.43s/32c/1735% pg.acquire=0.931s/227c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:19:31",
+    "documents": 32,
+    "wall_s": 4.418,
+    "raw": "2026-11-12 09:19:31,209 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.418s 0.7KB/s | embed=89.048s/32c/2016% pg.acquire=0.81s/227c/18%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:19:38",
+    "documents": 32,
+    "wall_s": 6.794,
+    "raw": "2026-11-12 09:19:38,012 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.794s 0.7KB/s | embed=155.977s/36c/2296% pg.acquire=0.948s/227c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:19:43",
+    "documents": 32,
+    "wall_s": 5.248,
+    "raw": "2026-11-12 09:19:43,269 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.248s 0.7KB/s | embed=96.677s/32c/1842% pg.acquire=0.973s/227c/19%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:19:48",
+    "documents": 32,
+    "wall_s": 5.288,
+    "raw": "2026-11-12 09:19:48,566 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.288s 0.7KB/s | embed=103.299s/32c/1953% pg.acquire=0.897s/228c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:19:55",
+    "documents": 32,
+    "wall_s": 6.917,
+    "raw": "2026-11-12 09:19:55,491 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.917s 0.7KB/s | embed=117.769s/34c/1703% pg.acquire=0.936s/227c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:20:00",
+    "documents": 32,
+    "wall_s": 4.576,
+    "raw": "2026-11-12 09:20:00,082 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.576s 0.8KB/s | embed=90.505s/32c/1978% pg.acquire=0.944s/227c/21%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:20:04",
+    "documents": 32,
+    "wall_s": 4.371,
+    "raw": "2026-11-12 09:20:04,464 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.371s 0.9KB/s | embed=78.659s/32c/1800% pg.acquire=0.969s/227c/22%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:20:11",
+    "documents": 32,
+    "wall_s": 7.233,
+    "raw": "2026-11-12 09:20:11,713 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.233s 0.7KB/s | embed=149.848s/32c/2072% pg.acquire=1.165s/227c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:20:18",
+    "documents": 32,
+    "wall_s": 7.249,
+    "raw": "2026-11-12 09:20:18,974 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.249s 0.6KB/s | embed=139.114s/32c/1919% pg.acquire=0.928s/228c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:20:24",
+    "documents": 32,
+    "wall_s": 5.519,
+    "raw": "2026-11-12 09:20:24,503 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.519s 1.0KB/s | embed=110.603s/35c/2004% pg.acquire=0.922s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:20:31",
+    "documents": 32,
+    "wall_s": 6.816,
+    "raw": "2026-11-12 09:20:31,329 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.816s 0.6KB/s | embed=148.955s/32c/2185% pg.acquire=4.93s/227c/72%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:20:35",
+    "documents": 32,
+    "wall_s": 4.138,
+    "raw": "2026-11-12 09:20:35,476 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.138s 0.9KB/s | embed=76.088s/32c/1839% pg.acquire=0.782s/227c/19%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:20:42",
+    "documents": 32,
+    "wall_s": 7.198,
+    "raw": "2026-11-12 09:20:42,682 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.198s 0.7KB/s | embed=132.074s/32c/1835% pg.acquire=0.919s/227c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:20:49",
+    "documents": 32,
+    "wall_s": 7.215,
+    "raw": "2026-11-12 09:20:49,910 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.215s 0.5KB/s | embed=146.709s/32c/2033% pg.acquire=0.855s/228c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:20:56",
+    "documents": 32,
+    "wall_s": 6.437,
+    "raw": "2026-11-12 09:20:56,365 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.437s 0.8KB/s | embed=131.605s/36c/2044% pg.acquire=1.216s/227c/19%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:21:00",
+    "documents": 32,
+    "wall_s": 4.453,
+    "raw": "2026-11-12 09:21:00,828 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.453s 0.9KB/s | embed=86.42s/32c/1941% pg.acquire=1.04s/227c/23%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:21:06",
+    "documents": 32,
+    "wall_s": 5.929,
+    "raw": "2026-11-12 09:21:06,765 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.929s 0.8KB/s | embed=104.617s/33c/1764% pg.acquire=1.13s/227c/19%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:21:12",
+    "documents": 32,
+    "wall_s": 6.034,
+    "raw": "2026-11-12 09:21:12,809 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.034s 0.7KB/s | embed=118.395s/32c/1962% pg.acquire=1.036s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:21:19",
+    "documents": 32,
+    "wall_s": 6.588,
+    "raw": "2026-11-12 09:21:19,406 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.588s 0.6KB/s | embed=135.87s/32c/2063% pg.acquire=1.054s/227c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:21:25",
+    "documents": 32,
+    "wall_s": 5.929,
+    "raw": "2026-11-12 09:21:25,343 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.929s 0.8KB/s | embed=125.082s/36c/2110% pg.acquire=0.897s/228c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:21:32",
+    "documents": 32,
+    "wall_s": 7.444,
+    "raw": "2026-11-12 09:21:32,800 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.444s 0.6KB/s | embed=147.306s/32c/1979% pg.acquire=0.774s/227c/10%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:21:41",
+    "documents": 32,
+    "wall_s": 8.237,
+    "raw": "2026-11-12 09:21:41,047 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.237s 0.6KB/s | embed=153.459s/32c/1863% pg.acquire=0.773s/227c/9%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:21:45",
+    "documents": 32,
+    "wall_s": 4.075,
+    "raw": "2026-11-12 09:21:45,132 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.075s 0.9KB/s | embed=71.191s/32c/1747% pg.acquire=1.161s/227c/28%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:21:51",
+    "documents": 32,
+    "wall_s": 5.907,
+    "raw": "2026-11-12 09:21:51,048 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.907s 0.8KB/s | embed=95.741s/32c/1621% pg.acquire=0.942s/227c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:21:56",
+    "documents": 32,
+    "wall_s": 5.406,
+    "raw": "2026-11-12 09:21:56,463 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.406s 0.7KB/s | embed=113.167s/32c/2093% pg.acquire=1.055s/228c/20%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:22:02",
+    "documents": 32,
+    "wall_s": 5.553,
+    "raw": "2026-11-12 09:22:02,025 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.553s 0.8KB/s | embed=113.262s/32c/2040% pg.acquire=0.858s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:22:06",
+    "documents": 32,
+    "wall_s": 4.419,
+    "raw": "2026-11-12 09:22:06,454 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.419s 0.8KB/s | embed=85.393s/32c/1932% pg.acquire=1.03s/227c/23%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:22:12",
+    "documents": 32,
+    "wall_s": 6.178,
+    "raw": "2026-11-12 09:22:12,642 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.178s 0.7KB/s | embed=112.486s/36c/1821% pg.acquire=0.985s/227c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:22:22",
+    "documents": 32,
+    "wall_s": 9.431,
+    "raw": "2026-11-12 09:22:22,083 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=9.431s 0.7KB/s | embed=190.858s/37c/2024% pg.acquire=0.952s/227c/10%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:22:29",
+    "documents": 32,
+    "wall_s": 7.394,
+    "raw": "2026-11-12 09:22:29,487 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.394s 0.7KB/s | embed=152.664s/32c/2065% pg.acquire=0.891s/228c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:22:35",
+    "documents": 32,
+    "wall_s": 5.629,
+    "raw": "2026-11-12 09:22:35,125 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.629s 0.8KB/s | embed=112.327s/34c/1996% pg.acquire=1.305s/227c/23%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:22:40",
+    "documents": 32,
+    "wall_s": 5.136,
+    "raw": "2026-11-12 09:22:40,270 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.136s 0.6KB/s | embed=105.801s/32c/2060% pg.acquire=0.871s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:22:49",
+    "documents": 32,
+    "wall_s": 8.764,
+    "raw": "2026-11-12 09:22:49,043 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.764s 0.5KB/s | embed=160.338s/32c/1829% pg.acquire=0.918s/227c/10%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:22:54",
+    "documents": 32,
+    "wall_s": 5.681,
+    "raw": "2026-11-12 09:22:54,735 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.681s 0.7KB/s | embed=98.056s/32c/1726% pg.acquire=0.969s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:23:01",
+    "documents": 32,
+    "wall_s": 6.312,
+    "raw": "2026-11-12 09:23:01,057 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.312s 0.6KB/s | embed=134.886s/32c/2137% pg.acquire=0.915s/228c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:23:06",
+    "documents": 32,
+    "wall_s": 5.642,
+    "raw": "2026-11-12 09:23:06,706 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.642s 0.8KB/s | embed=111.764s/34c/1981% pg.acquire=0.839s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:23:11",
+    "documents": 32,
+    "wall_s": 4.895,
+    "raw": "2026-11-12 09:23:11,610 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.895s 0.7KB/s | embed=100.312s/32c/2049% pg.acquire=0.972s/227c/20%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:23:17",
+    "documents": 32,
+    "wall_s": 5.515,
+    "raw": "2026-11-12 09:23:17,135 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.515s 0.6KB/s | embed=84.15s/32c/1526% pg.acquire=0.987s/227c/18%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:23:26",
+    "documents": 32,
+    "wall_s": 9.124,
+    "raw": "2026-11-12 09:23:26,271 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=9.124s 0.6KB/s | embed=225.659s/38c/2473% pg.acquire=0.828s/227c/9%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:23:33",
+    "documents": 32,
+    "wall_s": 7.106,
+    "raw": "2026-11-12 09:23:33,388 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.106s 0.7KB/s | embed=130.802s/32c/1841% pg.acquire=0.999s/228c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:23:40",
+    "documents": 32,
+    "wall_s": 6.687,
+    "raw": "2026-11-12 09:23:40,087 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.687s 0.7KB/s | embed=139.707s/32c/2089% pg.acquire=1.135s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:23:48",
+    "documents": 32,
+    "wall_s": 8.122,
+    "raw": "2026-11-12 09:23:48,220 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.122s 0.7KB/s | embed=171.572s/35c/2112% pg.acquire=5.54s/227c/68%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:23:55",
+    "documents": 32,
+    "wall_s": 7.152,
+    "raw": "2026-11-12 09:23:55,381 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.152s 0.7KB/s | embed=143.243s/32c/2003% pg.acquire=0.79s/227c/11%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:23:59",
+    "documents": 32,
+    "wall_s": 3.914,
+    "raw": "2026-11-12 09:23:59,305 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=3.914s 0.8KB/s | embed=67.983s/32c/1737% pg.acquire=0.858s/227c/22%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:24:02",
+    "documents": 32,
+    "wall_s": 2.735,
+    "raw": "2026-11-12 09:24:02,050 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=2.735s 0.5KB/s | embed=34.411s/32c/1258% pg.acquire=0.844s/227c/31%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:24:05",
+    "documents": 32,
+    "wall_s": 3.319,
+    "raw": "2026-11-12 09:24:05,378 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=3.319s 0.6KB/s | embed=67.892s/32c/2045% pg.acquire=0.775s/228c/23%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:24:10",
+    "documents": 32,
+    "wall_s": 4.772,
+    "raw": "2026-11-12 09:24:10,159 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.772s 0.6KB/s | embed=96.901s/32c/2031% pg.acquire=0.794s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:24:13",
+    "documents": 32,
+    "wall_s": 3.412,
+    "raw": "2026-11-12 09:24:13,581 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=3.412s 0.5KB/s | embed=68.753s/32c/2015% pg.acquire=0.893s/227c/26%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:24:18",
+    "documents": 32,
+    "wall_s": 4.599,
+    "raw": "2026-11-12 09:24:18,191 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.599s 0.4KB/s | embed=83.1s/32c/1807% pg.acquire=0.875s/227c/19%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:24:23",
+    "documents": 32,
+    "wall_s": 5.5,
+    "raw": "2026-11-12 09:24:23,699 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.5s 0.7KB/s | embed=101.304s/32c/1842% pg.acquire=1.084s/227c/20%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:24:28",
+    "documents": 32,
+    "wall_s": 5.055,
+    "raw": "2026-11-12 09:24:28,763 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.055s 0.8KB/s | embed=96.392s/33c/1907% pg.acquire=0.861s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:24:33",
+    "documents": 32,
+    "wall_s": 4.537,
+    "raw": "2026-11-12 09:24:33,310 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.537s 0.7KB/s | embed=90.795s/32c/2001% pg.acquire=0.932s/227c/21%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:24:39",
+    "documents": 32,
+    "wall_s": 6.139,
+    "raw": "2026-11-12 09:24:39,459 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.139s 0.7KB/s | embed=113.981s/32c/1857% pg.acquire=0.992s/228c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:24:44",
+    "documents": 32,
+    "wall_s": 5.347,
+    "raw": "2026-11-12 09:24:44,817 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.347s 0.7KB/s | embed=103.571s/32c/1937% pg.acquire=1.052s/227c/20%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:24:50",
+    "documents": 32,
+    "wall_s": 5.572,
+    "raw": "2026-11-12 09:24:50,397 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.572s 0.8KB/s | embed=114.262s/34c/2050% pg.acquire=0.925s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:24:56",
+    "documents": 32,
+    "wall_s": 6.38,
+    "raw": "2026-11-12 09:24:56,786 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.38s 0.5KB/s | embed=125.163s/34c/1962% pg.acquire=1.964s/227c/31%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:25:03",
+    "documents": 32,
+    "wall_s": 6.473,
+    "raw": "2026-11-12 09:25:03,270 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.473s 0.6KB/s | embed=106.549s/32c/1646% pg.acquire=0.814s/227c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:25:06",
+    "documents": 32,
+    "wall_s": 2.894,
+    "raw": "2026-11-12 09:25:06,172 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=2.894s 1.1KB/s | embed=50.585s/32c/1748% pg.acquire=0.81s/227c/28%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:25:12",
+    "documents": 32,
+    "wall_s": 5.901,
+    "raw": "2026-11-12 09:25:12,085 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.901s 0.6KB/s | embed=114.998s/32c/1949% pg.acquire=0.608s/228c/10%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:25:14",
+    "documents": 32,
+    "wall_s": 2.526,
+    "raw": "2026-11-12 09:25:14,620 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=2.526s 1.0KB/s | embed=47.883s/32c/1896% pg.acquire=0.973s/227c/39%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:25:18",
+    "documents": 32,
+    "wall_s": 3.88,
+    "raw": "2026-11-12 09:25:18,508 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=3.88s 0.5KB/s | embed=56.676s/32c/1461% pg.acquire=0.814s/227c/21%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:25:23",
+    "documents": 32,
+    "wall_s": 4.773,
+    "raw": "2026-11-12 09:25:23,290 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.773s 0.4KB/s | embed=96.908s/32c/2030% pg.acquire=1.121s/227c/23%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:25:28",
+    "documents": 32,
+    "wall_s": 4.812,
+    "raw": "2026-11-12 09:25:28,110 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.812s 0.6KB/s | embed=90.973s/32c/1891% pg.acquire=0.947s/227c/20%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:25:32",
+    "documents": 32,
+    "wall_s": 4.251,
+    "raw": "2026-11-12 09:25:32,370 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.251s 0.7KB/s | embed=78.894s/34c/1856% pg.acquire=0.917s/227c/22%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:25:38",
+    "documents": 32,
+    "wall_s": 6.16,
+    "raw": "2026-11-12 09:25:38,539 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.16s 0.6KB/s | embed=135.663s/32c/2202% pg.acquire=0.925s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:25:46",
+    "documents": 32,
+    "wall_s": 7.503,
+    "raw": "2026-11-12 09:25:46,053 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.503s 0.5KB/s | embed=150.142s/34c/2001% pg.acquire=1.016s/228c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:25:55",
+    "documents": 32,
+    "wall_s": 9.104,
+    "raw": "2026-11-12 09:25:55,170 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=9.104s 0.4KB/s | embed=166.452s/32c/1828% pg.acquire=1.332s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:26:04",
+    "documents": 32,
+    "wall_s": 9.783,
+    "raw": "2026-11-12 09:26:04,963 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=9.783s 0.4KB/s | embed=183.353s/34c/1874% pg.acquire=1.207s/227c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:26:10",
+    "documents": 32,
+    "wall_s": 5.639,
+    "raw": "2026-11-12 09:26:10,623 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.639s 0.4KB/s | embed=107.305s/32c/1903% pg.acquire=2.311s/227c/41%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:26:15",
+    "documents": 32,
+    "wall_s": 4.9,
+    "raw": "2026-11-12 09:26:15,533 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.9s 0.5KB/s | embed=70.729s/32c/1443% pg.acquire=1.094s/227c/22%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:26:23",
+    "documents": 32,
+    "wall_s": 8.283,
+    "raw": "2026-11-12 09:26:23,825 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.283s 0.5KB/s | embed=131.188s/32c/1584% pg.acquire=4.973s/228c/60%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:26:29",
+    "documents": 32,
+    "wall_s": 5.364,
+    "raw": "2026-11-12 09:26:29,200 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.364s 0.7KB/s | embed=106.041s/32c/1977% pg.acquire=1.008s/227c/19%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:26:34",
+    "documents": 32,
+    "wall_s": 5.233,
+    "raw": "2026-11-12 09:26:34,443 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.233s 0.7KB/s | embed=96.717s/32c/1848% pg.acquire=1.115s/227c/21%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:26:39",
+    "documents": 32,
+    "wall_s": 4.866,
+    "raw": "2026-11-12 09:26:39,318 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.866s 0.7KB/s | embed=92.765s/32c/1906% pg.acquire=1.381s/227c/28%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:26:45",
+    "documents": 32,
+    "wall_s": 6.293,
+    "raw": "2026-11-12 09:26:45,620 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.293s 0.7KB/s | embed=125.207s/34c/1990% pg.acquire=0.963s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:26:51",
+    "documents": 32,
+    "wall_s": 5.609,
+    "raw": "2026-11-12 09:26:51,240 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.609s 0.8KB/s | embed=105.174s/32c/1875% pg.acquire=0.964s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:26:57",
+    "documents": 32,
+    "wall_s": 5.879,
+    "raw": "2026-11-12 09:26:57,128 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.879s 0.7KB/s | embed=131.601s/34c/2238% pg.acquire=1.093s/228c/19%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:27:01",
+    "documents": 32,
+    "wall_s": 4.102,
+    "raw": "2026-11-12 09:27:01,240 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.102s 0.6KB/s | embed=70.071s/32c/1708% pg.acquire=1.103s/227c/27%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:27:06",
+    "documents": 32,
+    "wall_s": 5.412,
+    "raw": "2026-11-12 09:27:06,660 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.412s 0.9KB/s | embed=108.683s/35c/2008% pg.acquire=1.034s/227c/19%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:27:10",
+    "documents": 32,
+    "wall_s": 4.114,
+    "raw": "2026-11-12 09:27:10,784 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.114s 0.9KB/s | embed=72.328s/32c/1758% pg.acquire=0.957s/227c/23%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:27:16",
+    "documents": 32,
+    "wall_s": 6.027,
+    "raw": "2026-11-12 09:27:16,820 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.027s 0.7KB/s | embed=104.264s/32c/1730% pg.acquire=0.86s/227c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:27:21",
+    "documents": 32,
+    "wall_s": 4.314,
+    "raw": "2026-11-12 09:27:21,144 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.314s 0.9KB/s | embed=86.221s/34c/1999% pg.acquire=0.913s/227c/21%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:27:27",
+    "documents": 32,
+    "wall_s": 5.913,
+    "raw": "2026-11-12 09:27:27,065 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.913s 0.6KB/s | embed=133.817s/32c/2263% pg.acquire=1.232s/227c/21%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:27:31",
+    "documents": 32,
+    "wall_s": 4.324,
+    "raw": "2026-11-12 09:27:31,400 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.324s 1.0KB/s | embed=91.331s/35c/2112% pg.acquire=1.136s/228c/26%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:27:35",
+    "documents": 32,
+    "wall_s": 4.391,
+    "raw": "2026-11-12 09:27:35,799 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.391s 0.8KB/s | embed=77.074s/32c/1755% pg.acquire=0.9s/227c/20%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:27:44",
+    "documents": 32,
+    "wall_s": 8.389,
+    "raw": "2026-11-12 09:27:44,199 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.389s 0.6KB/s | embed=166.982s/34c/1990% pg.acquire=0.983s/227c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:27:53",
+    "documents": 32,
+    "wall_s": 8.824,
+    "raw": "2026-11-12 09:27:53,031 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.824s 0.6KB/s | embed=155.618s/32c/1764% pg.acquire=0.879s/227c/10%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:27:57",
+    "documents": 32,
+    "wall_s": 4.654,
+    "raw": "2026-11-12 09:27:57,694 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.654s 0.8KB/s | embed=78.679s/32c/1691% pg.acquire=0.846s/227c/18%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:28:04",
+    "documents": 32,
+    "wall_s": 6.706,
+    "raw": "2026-11-12 09:28:04,409 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.706s 0.7KB/s | embed=128.664s/32c/1919% pg.acquire=1.028s/228c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:28:10",
+    "documents": 32,
+    "wall_s": 5.723,
+    "raw": "2026-11-12 09:28:10,141 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.723s 0.8KB/s | embed=118.022s/34c/2062% pg.acquire=0.818s/227c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:28:17",
+    "documents": 32,
+    "wall_s": 7.677,
+    "raw": "2026-11-12 09:28:17,828 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.677s 0.5KB/s | embed=131.63s/32c/1714% pg.acquire=0.915s/227c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:28:23",
+    "documents": 32,
+    "wall_s": 6.008,
+    "raw": "2026-11-12 09:28:23,845 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.008s 0.8KB/s | embed=105.665s/32c/1759% pg.acquire=0.877s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:28:29",
+    "documents": 32,
+    "wall_s": 5.77,
+    "raw": "2026-11-12 09:28:29,626 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.77s 0.8KB/s | embed=115.555s/34c/2003% pg.acquire=1.032s/227c/18%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:28:36",
+    "documents": 32,
+    "wall_s": 7.331,
+    "raw": "2026-11-12 09:28:36,966 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.331s 0.5KB/s | embed=144.882s/32c/1976% pg.acquire=0.826s/228c/11%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:28:42",
+    "documents": 32,
+    "wall_s": 5.055,
+    "raw": "2026-11-12 09:28:42,029 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.055s 0.8KB/s | embed=102.13s/32c/2020% pg.acquire=0.839s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:28:47",
+    "documents": 32,
+    "wall_s": 5.204,
+    "raw": "2026-11-12 09:28:47,241 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.204s 0.7KB/s | embed=109.094s/32c/2096% pg.acquire=0.892s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:28:51",
+    "documents": 32,
+    "wall_s": 4.576,
+    "raw": "2026-11-12 09:28:51,826 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.576s 0.8KB/s | embed=92.914s/32c/2030% pg.acquire=0.842s/227c/18%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:29:00",
+    "documents": 32,
+    "wall_s": 8.947,
+    "raw": "2026-11-12 09:29:00,782 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.947s 0.6KB/s | embed=172.367s/32c/1927% pg.acquire=0.987s/227c/11%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:29:09",
+    "documents": 32,
+    "wall_s": 8.532,
+    "raw": "2026-11-12 09:29:09,325 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.532s 0.6KB/s | embed=155.668s/36c/1825% pg.acquire=1.024s/228c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:29:14",
+    "documents": 32,
+    "wall_s": 4.704,
+    "raw": "2026-11-12 09:29:14,039 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.704s 0.8KB/s | embed=90.387s/32c/1921% pg.acquire=0.959s/227c/20%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:29:18",
+    "documents": 32,
+    "wall_s": 4.496,
+    "raw": "2026-11-12 09:29:18,545 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.496s 0.7KB/s | embed=84.62s/32c/1882% pg.acquire=0.922s/227c/21%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:29:22",
+    "documents": 32,
+    "wall_s": 4.155,
+    "raw": "2026-11-12 09:29:22,708 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.155s 0.8KB/s | embed=68.92s/32c/1659% pg.acquire=0.804s/227c/19%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:29:28",
+    "documents": 32,
+    "wall_s": 6.265,
+    "raw": "2026-11-12 09:29:28,984 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.265s 0.7KB/s | embed=116.563s/32c/1861% pg.acquire=0.903s/227c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:29:35",
+    "documents": 32,
+    "wall_s": 6.463,
+    "raw": "2026-11-12 09:29:35,456 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.463s 0.7KB/s | embed=139.061s/32c/2152% pg.acquire=0.879s/227c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:29:41",
+    "documents": 32,
+    "wall_s": 5.956,
+    "raw": "2026-11-12 09:29:41,423 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.956s 0.8KB/s | embed=106.84s/32c/1794% pg.acquire=1.0s/228c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:29:49",
+    "documents": 32,
+    "wall_s": 7.613,
+    "raw": "2026-11-12 09:29:49,045 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.613s 0.7KB/s | embed=158.471s/32c/2082% pg.acquire=0.824s/227c/11%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:29:56",
+    "documents": 32,
+    "wall_s": 7.175,
+    "raw": "2026-11-12 09:29:56,230 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.175s 0.6KB/s | embed=156.65s/34c/2183% pg.acquire=0.719s/227c/10%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:30:01",
+    "documents": 32,
+    "wall_s": 5.534,
+    "raw": "2026-11-12 09:30:01,774 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.534s 0.8KB/s | embed=113.113s/32c/2044% pg.acquire=0.925s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:30:07",
+    "documents": 32,
+    "wall_s": 5.81,
+    "raw": "2026-11-12 09:30:07,593 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.81s 0.7KB/s | embed=111.417s/32c/1918% pg.acquire=0.784s/227c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:30:12",
+    "documents": 32,
+    "wall_s": 5.12,
+    "raw": "2026-11-12 09:30:12,726 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.12s 0.8KB/s | embed=104.193s/35c/2035% pg.acquire=0.795s/228c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:30:18",
+    "documents": 32,
+    "wall_s": 5.337,
+    "raw": "2026-11-12 09:30:18,074 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.337s 0.9KB/s | embed=108.905s/34c/2041% pg.acquire=0.869s/227c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:30:23",
+    "documents": 32,
+    "wall_s": 5.203,
+    "raw": "2026-11-12 09:30:23,287 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.203s 0.7KB/s | embed=105.979s/32c/2037% pg.acquire=0.769s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:30:29",
+    "documents": 32,
+    "wall_s": 6.093,
+    "raw": "2026-11-12 09:30:29,388 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.093s 0.7KB/s | embed=139.641s/36c/2292% pg.acquire=0.776s/227c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:30:34",
+    "documents": 32,
+    "wall_s": 5.199,
+    "raw": "2026-11-12 09:30:34,595 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.199s 0.7KB/s | embed=95.89s/32c/1844% pg.acquire=0.701s/227c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:30:39",
+    "documents": 32,
+    "wall_s": 4.961,
+    "raw": "2026-11-12 09:30:39,565 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.961s 0.7KB/s | embed=94.359s/32c/1902% pg.acquire=0.705s/227c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:30:44",
+    "documents": 32,
+    "wall_s": 4.772,
+    "raw": "2026-11-12 09:30:44,348 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.772s 0.8KB/s | embed=92.179s/32c/1932% pg.acquire=0.981s/228c/21%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:30:50",
+    "documents": 32,
+    "wall_s": 5.836,
+    "raw": "2026-11-12 09:30:50,194 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.836s 0.8KB/s | embed=120.977s/34c/2073% pg.acquire=0.753s/227c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:30:54",
+    "documents": 32,
+    "wall_s": 4.508,
+    "raw": "2026-11-12 09:30:54,711 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.508s 0.8KB/s | embed=76.03s/32c/1687% pg.acquire=0.917s/227c/20%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:30:59",
+    "documents": 32,
+    "wall_s": 4.628,
+    "raw": "2026-11-12 09:30:59,362 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.628s 0.8KB/s | embed=83.435s/32c/1803% pg.acquire=0.756s/227c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:31:04",
+    "documents": 32,
+    "wall_s": 5.242,
+    "raw": "2026-11-12 09:31:04,613 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.242s 1.0KB/s | embed=111.232s/34c/2122% pg.acquire=0.914s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:31:10",
+    "documents": 32,
+    "wall_s": 5.732,
+    "raw": "2026-11-12 09:31:10,355 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.732s 0.8KB/s | embed=115.206s/32c/2010% pg.acquire=0.841s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:31:17",
+    "documents": 32,
+    "wall_s": 7.303,
+    "raw": "2026-11-12 09:31:17,670 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.303s 0.8KB/s | embed=129.084s/32c/1767% pg.acquire=0.95s/228c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:31:22",
+    "documents": 32,
+    "wall_s": 4.464,
+    "raw": "2026-11-12 09:31:22,143 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.464s 0.7KB/s | embed=87.566s/32c/1962% pg.acquire=0.844s/227c/19%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:31:28",
+    "documents": 32,
+    "wall_s": 6.662,
+    "raw": "2026-11-12 09:31:28,815 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.662s 0.6KB/s | embed=142.365s/32c/2137% pg.acquire=0.741s/227c/11%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:31:35",
+    "documents": 32,
+    "wall_s": 6.296,
+    "raw": "2026-11-12 09:31:35,119 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.296s 0.7KB/s | embed=119.535s/32c/1899% pg.acquire=0.899s/227c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:31:41",
+    "documents": 32,
+    "wall_s": 6.528,
+    "raw": "2026-11-12 09:31:41,654 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.528s 0.6KB/s | embed=135.786s/32c/2080% pg.acquire=0.764s/227c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:31:46",
+    "documents": 32,
+    "wall_s": 5.118,
+    "raw": "2026-11-12 09:31:46,784 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.118s 0.8KB/s | embed=86.012s/32c/1681% pg.acquire=0.825s/227c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:31:52",
+    "documents": 32,
+    "wall_s": 5.804,
+    "raw": "2026-11-12 09:31:52,599 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.804s 0.6KB/s | embed=121.433s/32c/2092% pg.acquire=1.102s/228c/19%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:31:58",
+    "documents": 32,
+    "wall_s": 5.414,
+    "raw": "2026-11-12 09:31:58,023 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.414s 0.7KB/s | embed=100.87s/32c/1863% pg.acquire=0.99s/227c/18%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:32:03",
+    "documents": 32,
+    "wall_s": 5.55,
+    "raw": "2026-11-12 09:32:03,582 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.55s 0.9KB/s | embed=104.508s/32c/1883% pg.acquire=0.93s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:32:08",
+    "documents": 32,
+    "wall_s": 5.035,
+    "raw": "2026-11-12 09:32:08,626 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.035s 0.6KB/s | embed=107.32s/34c/2131% pg.acquire=0.909s/227c/18%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:32:16",
+    "documents": 32,
+    "wall_s": 7.859,
+    "raw": "2026-11-12 09:32:16,494 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.859s 0.5KB/s | embed=132.969s/34c/1692% pg.acquire=1.011s/227c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:32:26",
+    "documents": 32,
+    "wall_s": 10.075,
+    "raw": "2026-11-12 09:32:26,582 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=10.075s 0.5KB/s | embed=172.384s/32c/1711% pg.acquire=1.087s/228c/11%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:32:32",
+    "documents": 32,
+    "wall_s": 6.054,
+    "raw": "2026-11-12 09:32:32,646 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.054s 0.6KB/s | embed=115.332s/34c/1905% pg.acquire=1.028s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:32:40",
+    "documents": 32,
+    "wall_s": 7.581,
+    "raw": "2026-11-12 09:32:40,239 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.581s 0.6KB/s | embed=119.08s/32c/1571% pg.acquire=1.09s/227c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:32:46",
+    "documents": 32,
+    "wall_s": 5.982,
+    "raw": "2026-11-12 09:32:46,230 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.982s 0.5KB/s | embed=133.41s/32c/2230% pg.acquire=1.097s/227c/18%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:32:52",
+    "documents": 32,
+    "wall_s": 6.065,
+    "raw": "2026-11-12 09:32:52,306 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.065s 0.7KB/s | embed=110.566s/32c/1823% pg.acquire=1.064s/227c/18%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:32:58",
+    "documents": 32,
+    "wall_s": 6.095,
+    "raw": "2026-11-12 09:32:58,411 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.095s 0.7KB/s | embed=134.28s/32c/2203% pg.acquire=0.964s/228c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:33:03",
+    "documents": 32,
+    "wall_s": 4.82,
+    "raw": "2026-11-12 09:33:03,239 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.82s 0.9KB/s | embed=90.406s/32c/1876% pg.acquire=0.93s/227c/19%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:33:10",
+    "documents": 32,
+    "wall_s": 6.772,
+    "raw": "2026-11-12 09:33:10,019 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.772s 0.9KB/s | embed=132.969s/34c/1964% pg.acquire=1.042s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:33:15",
+    "documents": 32,
+    "wall_s": 5.345,
+    "raw": "2026-11-12 09:33:15,373 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.345s 0.7KB/s | embed=85.778s/32c/1605% pg.acquire=0.998s/227c/19%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:33:20",
+    "documents": 32,
+    "wall_s": 5.429,
+    "raw": "2026-11-12 09:33:20,812 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.429s 0.7KB/s | embed=96.548s/32c/1778% pg.acquire=0.981s/227c/18%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:33:28",
+    "documents": 32,
+    "wall_s": 7.61,
+    "raw": "2026-11-12 09:33:28,431 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.61s 0.7KB/s | embed=148.893s/34c/1956% pg.acquire=0.869s/228c/11%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:33:32",
+    "documents": 32,
+    "wall_s": 4.27,
+    "raw": "2026-11-12 09:33:32,711 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.27s 0.7KB/s | embed=74.305s/32c/1740% pg.acquire=0.888s/227c/21%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:33:38",
+    "documents": 32,
+    "wall_s": 5.373,
+    "raw": "2026-11-12 09:33:38,092 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.373s 0.8KB/s | embed=99.194s/32c/1846% pg.acquire=0.827s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:33:42",
+    "documents": 32,
+    "wall_s": 4.363,
+    "raw": "2026-11-12 09:33:42,469 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=4.363s 0.8KB/s | embed=91.876s/32c/2106% pg.acquire=0.877s/227c/20%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:33:47",
+    "documents": 32,
+    "wall_s": 5.299,
+    "raw": "2026-11-12 09:33:47,778 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.299s 0.7KB/s | embed=92.094s/32c/1738% pg.acquire=1.013s/227c/19%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:33:53",
+    "documents": 32,
+    "wall_s": 5.816,
+    "raw": "2026-11-12 09:33:53,603 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.816s 0.7KB/s | embed=111.15s/34c/1911% pg.acquire=1.243s/227c/21%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:34:00",
+    "documents": 32,
+    "wall_s": 6.595,
+    "raw": "2026-11-12 09:34:00,208 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.595s 0.6KB/s | embed=118.293s/34c/1794% pg.acquire=0.955s/228c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:34:06",
+    "documents": 32,
+    "wall_s": 5.783,
+    "raw": "2026-11-12 09:34:06,002 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.783s 0.9KB/s | embed=117.507s/36c/2032% pg.acquire=0.856s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:34:11",
+    "documents": 32,
+    "wall_s": 5.897,
+    "raw": "2026-11-12 09:34:11,910 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.897s 0.7KB/s | embed=99.59s/32c/1689% pg.acquire=1.028s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:34:17",
+    "documents": 32,
+    "wall_s": 5.673,
+    "raw": "2026-11-12 09:34:17,591 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.673s 0.7KB/s | embed=105.636s/32c/1862% pg.acquire=1.092s/227c/19%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:34:22",
+    "documents": 32,
+    "wall_s": 5.175,
+    "raw": "2026-11-12 09:34:22,776 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.175s 0.8KB/s | embed=80.32s/32c/1552% pg.acquire=0.946s/227c/18%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:34:29",
+    "documents": 32,
+    "wall_s": 6.871,
+    "raw": "2026-11-12 09:34:29,656 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.871s 0.7KB/s | embed=123.27s/32c/1794% pg.acquire=0.876s/227c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:34:35",
+    "documents": 32,
+    "wall_s": 6.129,
+    "raw": "2026-11-12 09:34:35,794 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.129s 0.6KB/s | embed=118.866s/32c/1939% pg.acquire=0.789s/228c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:34:43",
+    "documents": 32,
+    "wall_s": 7.594,
+    "raw": "2026-11-12 09:34:43,400 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.594s 0.5KB/s | embed=128.864s/32c/1697% pg.acquire=1.213s/227c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:34:49",
+    "documents": 32,
+    "wall_s": 6.046,
+    "raw": "2026-11-12 09:34:49,455 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.046s 0.9KB/s | embed=124.828s/36c/2065% pg.acquire=1.208s/227c/20%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:34:56",
+    "documents": 32,
+    "wall_s": 6.837,
+    "raw": "2026-11-12 09:34:56,303 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.837s 0.7KB/s | embed=135.856s/34c/1987% pg.acquire=1.031s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:35:04",
+    "documents": 32,
+    "wall_s": 8.3,
+    "raw": "2026-11-12 09:35:04,613 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.3s 0.5KB/s | embed=184.935s/32c/2228% pg.acquire=1.338s/227c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:35:09",
+    "documents": 32,
+    "wall_s": 5.32,
+    "raw": "2026-11-12 09:35:09,943 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.32s 0.7KB/s | embed=95.5s/32c/1795% pg.acquire=0.827s/228c/16%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:35:19",
+    "documents": 32,
+    "wall_s": 9.734,
+    "raw": "2026-11-12 09:35:19,692 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=9.734s 0.5KB/s | embed=196.394s/34c/2018% pg.acquire=1.505s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:35:28",
+    "documents": 32,
+    "wall_s": 8.732,
+    "raw": "2026-11-12 09:35:28,433 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.732s 0.6KB/s | embed=160.741s/36c/1841% pg.acquire=1.029s/227c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:35:37",
+    "documents": 32,
+    "wall_s": 8.979,
+    "raw": "2026-11-12 09:35:37,421 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.979s 0.5KB/s | embed=180.538s/32c/2011% pg.acquire=1.033s/227c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:35:45",
+    "documents": 32,
+    "wall_s": 8.428,
+    "raw": "2026-11-12 09:35:45,859 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.428s 0.6KB/s | embed=168.352s/32c/1998% pg.acquire=1.057s/228c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:35:52",
+    "documents": 32,
+    "wall_s": 6.719,
+    "raw": "2026-11-12 09:35:52,589 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.719s 0.7KB/s | embed=124.353s/32c/1851% pg.acquire=0.852s/227c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:36:00",
+    "documents": 32,
+    "wall_s": 8.154,
+    "raw": "2026-11-12 09:36:00,752 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.154s 0.5KB/s | embed=143.663s/32c/1762% pg.acquire=0.981s/227c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:36:07",
+    "documents": 32,
+    "wall_s": 6.914,
+    "raw": "2026-11-12 09:36:07,677 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.914s 0.7KB/s | embed=125.781s/32c/1819% pg.acquire=1.198s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:36:14",
+    "documents": 32,
+    "wall_s": 6.392,
+    "raw": "2026-11-12 09:36:14,079 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.392s 0.7KB/s | embed=131.242s/32c/2053% pg.acquire=0.985s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:36:21",
+    "documents": 32,
+    "wall_s": 7.332,
+    "raw": "2026-11-12 09:36:21,421 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.332s 0.6KB/s | embed=136.382s/32c/1860% pg.acquire=1.239s/228c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:36:27",
+    "documents": 32,
+    "wall_s": 6.322,
+    "raw": "2026-11-12 09:36:27,754 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.322s 0.8KB/s | embed=112.923s/32c/1786% pg.acquire=0.928s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:36:34",
+    "documents": 32,
+    "wall_s": 7.078,
+    "raw": "2026-11-12 09:36:34,842 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.078s 0.7KB/s | embed=129.598s/32c/1831% pg.acquire=1.03s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:36:41",
+    "documents": 32,
+    "wall_s": 6.157,
+    "raw": "2026-11-12 09:36:41,009 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.157s 0.6KB/s | embed=102.883s/32c/1671% pg.acquire=1.076s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:36:48",
+    "documents": 32,
+    "wall_s": 7.064,
+    "raw": "2026-11-12 09:36:48,082 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.064s 0.7KB/s | embed=141.182s/33c/1999% pg.acquire=0.998s/227c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:36:56",
+    "documents": 32,
+    "wall_s": 8.475,
+    "raw": "2026-11-12 09:36:56,568 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.475s 0.5KB/s | embed=173.035s/32c/2042% pg.acquire=1.057s/228c/12%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:37:02",
+    "documents": 32,
+    "wall_s": 6.082,
+    "raw": "2026-11-12 09:37:02,660 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.082s 0.5KB/s | embed=104.809s/32c/1723% pg.acquire=1.161s/227c/19%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:37:07",
+    "documents": 32,
+    "wall_s": 5.039,
+    "raw": "2026-11-12 09:37:07,709 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.039s 0.7KB/s | embed=85.617s/32c/1699% pg.acquire=0.987s/227c/20%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:37:13",
+    "documents": 32,
+    "wall_s": 5.38,
+    "raw": "2026-11-12 09:37:13,097 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.38s 0.6KB/s | embed=108.183s/32c/2011% pg.acquire=0.936s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:37:18",
+    "documents": 32,
+    "wall_s": 5.293,
+    "raw": "2026-11-12 09:37:18,400 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.293s 0.7KB/s | embed=102.265s/32c/1932% pg.acquire=1.076s/227c/20%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:37:24",
+    "documents": 32,
+    "wall_s": 6.026,
+    "raw": "2026-11-12 09:37:24,435 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.026s 0.7KB/s | embed=95.632s/32c/1587% pg.acquire=1.071s/227c/18%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:37:30",
+    "documents": 32,
+    "wall_s": 5.73,
+    "raw": "2026-11-12 09:37:30,175 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=5.73s 0.8KB/s | embed=105.766s/32c/1846% pg.acquire=0.963s/228c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:37:36",
+    "documents": 32,
+    "wall_s": 6.593,
+    "raw": "2026-11-12 09:37:36,778 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.593s 0.7KB/s | embed=123.882s/32c/1879% pg.acquire=0.964s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:37:43",
+    "documents": 32,
+    "wall_s": 6.436,
+    "raw": "2026-11-12 09:37:43,222 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.436s 0.6KB/s | embed=139.92s/32c/2174% pg.acquire=0.989s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:37:51",
+    "documents": 32,
+    "wall_s": 8.04,
+    "raw": "2026-11-12 09:37:51,273 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.04s 0.6KB/s | embed=137.55s/34c/1711% pg.acquire=1.063s/227c/13%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:37:58",
+    "documents": 32,
+    "wall_s": 6.994,
+    "raw": "2026-11-12 09:37:58,275 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=6.994s 0.6KB/s | embed=116.909s/34c/1672% pg.acquire=1.157s/227c/17%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:38:06",
+    "documents": 32,
+    "wall_s": 7.998,
+    "raw": "2026-11-12 09:38:06,283 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=7.998s 0.6KB/s | embed=161.417s/34c/2018% pg.acquire=1.088s/228c/14%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:38:14",
+    "documents": 32,
+    "wall_s": 8.242,
+    "raw": "2026-11-12 09:38:14,539 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=32 wall=8.242s 0.6KB/s | embed=153.05s/32c/1857% pg.acquire=1.226s/227c/15%"
+  },
+  {
+    "timestamp_utc": "2026-11-12 09:38:18",
+    "documents": 16,
+    "wall_s": 3.632,
+    "raw": "2026-11-12 09:38:18,181 - INFO - hindsight_api.engine.retain.timing - [retain-timing] bank=miracl_zh_10k_20261112 store=PostgresMemories docs=16 wall=3.632s 0.7KB/s | embed=43.345s/16c/1193% pg.acquire=0.52s/115c/14%"
+  }
+]

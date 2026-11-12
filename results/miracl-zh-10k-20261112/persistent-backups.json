@@ -1,0 +1,32 @@
+[
+  {
+    "file": "/workspace/work/miracl-state/contextbase-complete.dump",
+    "size": 61893026,
+    "sha256": "ff010127c8e158e9580625172fd487355955fbd8a4df9cc5dac790f72785c1e3"
+  },
+  {
+    "file": "/workspace/work/miracl-state/contextbase-private-config.tar.gz",
+    "size": 1679,
+    "sha256": "d5840a6f9059509d7bbab554c2c8fb9a5c544136df5c73c14efed0c0d83f2033"
+  },
+  {
+    "file": "/workspace/work/miracl-state/contextbase.sqlite",
+    "size": 540672,
+    "sha256": "5d2451bf8e7141174404280c7d1f737b795a7056932e14655ad2e95469676630"
+  },
+  {
+    "file": "/workspace/work/miracl-state/weknora-complete.db",
+    "size": 130891776,
+    "sha256": "d61acbd4956d4feab4b64dd2c47df5e43c799be2809288e80a8438f139384ab3"
+  },
+  {
+    "file": "/workspace/work/miracl-state/weknora-private-config.tar.gz",
+    "size": 749,
+    "sha256": "74b1a45854a8cc4303cd1765d10dc188c2008df07e35563d2b396adc6c27d4e0"
+  },
+  {
+    "file": "/workspace/work/miracl-state/weknora.sqlite",
+    "size": 1159168,
+    "sha256": "3740eec710d5f64d33d957a2d8ad0503f0eafe678bf994e08ae0378539f484d1"
+  }
+]

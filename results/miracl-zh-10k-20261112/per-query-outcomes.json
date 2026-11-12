@@ -1,0 +1,27 @@
+{
+  "hit_at_1": {
+    "contextbase_higher": 33,
+    "weknora_higher": 18,
+    "equal": 342
+  },
+  "hit_at_5": {
+    "contextbase_higher": 2,
+    "weknora_higher": 1,
+    "equal": 390
+  },
+  "hit_at_10": {
+    "contextbase_higher": 0,
+    "weknora_higher": 0,
+    "equal": 393
+  },
+  "ndcg_at_10": {
+    "contextbase_higher": 129,
+    "weknora_higher": 80,
+    "equal": 184
+  },
+  "recall_at_100": {
+    "contextbase_higher": 6,
+    "weknora_higher": 2,
+    "equal": 385
+  }
+}

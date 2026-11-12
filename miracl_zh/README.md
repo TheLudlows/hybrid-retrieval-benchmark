@@ -1,5 +1,7 @@
 # MIRACL 中文检索评测
 
+固定种子 20261112、10,000 个段落、两端各 393 题的[完整实测报告与复算数据](../results/miracl-zh-10k-20261112/README.md)已归档。以下同时保留官方全量语料和其他规模子集的执行方法。
+
 采用 MIRACL v1.0 中文开发集的全部 393 道查询、3,928 条相关性标注以及完整的 4,934,368 个段落。语料和标签来自 [MIRACL 官方仓库](https://github.com/project-miracl/miracl)。[source.json](source.json) 固定了文件版本、长度和 SHA-256，[verified.json](verified.json) 是全量语料检查记录。
 
 ## 下载与核验
@@ -25,6 +27,8 @@ python miracl_zh/bench.py --data "$DATA" verify
 ```
 
 如果要控制实际入库量，改用 `--unit passages` 并选择新的输出目录。两款产品使用同一个 `DATA`，分别创建新的 Bank 和知识库。后面的入库、采集和评分都传入该子集目录，采集时两边都传各自的检查点。子集入库完成后输出 `"dataset_complete": true` 和 `"full_corpus": false`，评分结果自带子集标识。子集改变了检索候选池，分数适用于相同子集上的对比。
+
+本次 10,000 段设置为 `--unit passages --count 10000 --seed 20261112`。生成后执行同一个 `verify`，保留 `subset.json` 中的 gzip SHA-256；不能仅凭段落数量复用其他索引。
 
 默认种子 20261112 的实际生成规模如下。
 
@@ -70,6 +74,18 @@ python miracl_zh/bench.py --data "$DATA" score "$DATA/results/weknora-60.jsonl"
 
 采集使用入库检查点时，会检查对应评测范围和全量导入状态。已用其他工具完成全量入库时，WeKnora Lite 可使用带 `passage_map(remote_id, passage_id)` 的 SQLite 映射，ContextBase 如直接使用官方段落 ID，可省略映射参数。
 
+采集现在默认先执行相同的四次非计分中文预热，逐题写入后执行 `fsync`。续跑在原命令增加 `--resume`；同时传入 `--config-sha256 <冻结配置文件的SHA-256>`，脚本会核对索引绑定、语料、预算、候选上限、重排模型和配置指纹，并跳过已保存的题。首次与续跑须使用相同指纹。`--measurement-dir` 指向共享模型服务的记录目录，区分预热、正式查询和重启试测。重启试测可用独立输出文件加 `--smoke-index --max-queries 1 --warmup 0`，重启服务后用 `--resume --max-queries 2` 验证跳过已完成题；该模式最多四题，不能用于正式评分。
+
+`audit_index.py` 可在正式采集前核对入库检查点、全部官方 ID、原生正文和向量覆盖，导出内部 ID 映射。ContextBase 从环境变量 `AUDIT_POSTGRES_URL` 读取数据库连接；WeKnora 从只读的 `--weknora-db` 读取 SQLite。示例：
+
+```bash
+python miracl_zh/audit_index.py --data "$DATA" --product contextbase \
+  --checkpoint "$DATA/contextbase.sqlite" --output "$DATA/results/contextbase-index-audit.json"
+python miracl_zh/audit_index.py --data "$DATA" --product weknora \
+  --checkpoint "$DATA/weknora.sqlite" --weknora-db /path/to/weknora.db \
+  --output "$DATA/results/weknora-index-audit.json"
+```
+
 在 ContextBase 服务端通过 `CONTEXTBASE_API_RERANKER_MAX_CANDIDATES_HIGH` 设置 60 或 40，并重启服务使配置生效。40 档可复用同一份索引。
 
 ```bash
@@ -78,6 +94,8 @@ python miracl_zh/bench.py --data "$DATA" score "$DATA/results/contextbase-40.jso
 ```
 
 按原生排名保留每个来源段落的首次出现位置，统计官方 nDCG@10、Recall@100，以及补充的 Hit@5 和串行 p95。评分同时输出实际返回深度。60 或 40 候选档的 Recall@100 会受各产品配置及实际返回深度限制。和公开基线比较深召回时，需披露请求深度和返回深度。
+
+评分器也输出 Hit@1、Hit@10 和串行 p50、p99；耗时分位数使用 nearest-rank。正式评分仍要求全部 393 题，不完整文件会报错。入库脚本在检查点旁追加 `.timing.jsonl`，记录每批耗时、此前已索引数量和累计索引数量。
 
 MIRACL 的相关性标注以整个段落为单位。这份评分器使用官方段落 ID 计分，2,000 Token 原文证据召回沿用独立的 TaurusDB 业务试测。模型 Token 由实际部署的模型服务记录。
 

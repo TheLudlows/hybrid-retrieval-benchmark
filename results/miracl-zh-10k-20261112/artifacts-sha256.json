@@ -1,0 +1,190 @@
+{
+  "README.md": {
+    "size": 16114,
+    "sha256": "30dab5903935d66b2b3e867783f121f998a040eabc3d6c2640c997524517722a"
+  },
+  "comparison.json": {
+    "size": 209785,
+    "sha256": "56512156e5747366e2ad36f203b8b0b35e5f04917574e6ddef72d9efc006805f"
+  },
+  "config.json": {
+    "size": 6517,
+    "sha256": "d1a60c5d8716343fa1840a6f5ccd7295069cd74a89fa0fbfba70d99b05c5f435"
+  },
+  "config.sha256": {
+    "size": 65,
+    "sha256": "6a955c903e02e1faf7d23f2568faf431837b6cbccf765a53e83708d4c192a874"
+  },
+  "contextbase-60.jsonl": {
+    "size": 584218,
+    "sha256": "79425b70c3c001f310d4a6c3656a29fd1f284a927e5c1bebe09504b8e49b7317"
+  },
+  "contextbase-60.jsonl.config.json": {
+    "size": 376,
+    "sha256": "a1c0b740370c6e9312530760038700ee223eae49cc7ac65533ee08e990461576"
+  },
+  "contextbase-hybrid-probe.json": {
+    "size": 3069497,
+    "sha256": "b72f333c440a8cec1b26c9a658eb9f79b399380ccbf844fa4aae5ef666afda3e"
+  },
+  "contextbase-index-audit.json": {
+    "size": 18246,
+    "sha256": "6f233e4774305664e84e2f2c3b313cd286f813d240695ad9a86854885b92b087"
+  },
+  "contextbase-index-audit.mapping.csv": {
+    "size": 202618,
+    "sha256": "2a1aa467c70e5ac92a16550f06b8a1cb61787d95fee810c2598d2ea0b3edba38"
+  },
+  "contextbase-model-calls.jsonl": {
+    "size": 2632507,
+    "sha256": "37093b23fb6b72da0edbaef9a59cb64605ef279a0c3c9b2c2ed2ccda0c0d419d"
+  },
+  "contextbase-native-ingest-timing.json": {
+    "size": 102504,
+    "sha256": "bf722ba5433b052f2296d60277a901a17c8e669cce38809f910e74949f3fd6f3"
+  },
+  "contextbase-packages.txt": {
+    "size": 3606,
+    "sha256": "2d180980030a87be5a5bedb8225f85753cffce57251cce293ea11e8d2a5ef206"
+  },
+  "contextbase-per-query-usage.csv": {
+    "size": 9994,
+    "sha256": "4c166486c9009053f2ed5c9716e1ee0ddd67442e32aeb3d6ef925f40c11e42f3"
+  },
+  "contextbase-restart-smoke.jsonl": {
+    "size": 495,
+    "sha256": "8621cc0a2605eb79d8b15d3b270c5189f39e5676bee0be3c9414f0aa2a524526"
+  },
+  "contextbase-runtime-readback.json": {
+    "size": 626,
+    "sha256": "17121752d33c06e79fffbeb25742015fc77768418b1211641d209cac6501333e"
+  },
+  "contextbase-score.json": {
+    "size": 82555,
+    "sha256": "168b25d71b777b3fb999b319e8d04ed26d6019a73476514b7c7a5cd2120d1059"
+  },
+  "contextbase.timing.jsonl": {
+    "size": 41373,
+    "sha256": "7f2f288014b49270b21b2183bece8bcdfa130905e42408b608d217bd31f8fc10"
+  },
+  "contextbase.trec": {
+    "size": 739517,
+    "sha256": "9d48966e912bc8ff989cef0b551e7e03b6b854f165d01acc93b7f613c252d7e2"
+  },
+  "corpus-fingerprint.json": {
+    "size": 1399,
+    "sha256": "b9fa81959de9d113a42e882d3ba20fb841cd7fef78596b7578855ce0740d4061"
+  },
+  "environment-observed.json": {
+    "size": 207,
+    "sha256": "e6ed94eeaeee38590d0ef6b8ea12e3a081a5008cbcdf14846133d0b5b2aa60b8"
+  },
+  "full-source-verified.json": {
+    "size": 558,
+    "sha256": "e5ab680cee02b9da01bf1473c919587bf2aab05ee1e06ce040379cdb21bdbbff"
+  },
+  "ingest-timing-summary.json": {
+    "size": 658,
+    "sha256": "959e133f02b470fd27c8cb0bceae36822decc04facbba1b193c4928efa23865e"
+  },
+  "model-packages.txt": {
+    "size": 518,
+    "sha256": "a44a03d31b05c3aab100f185209e595e4cbc01cc8dfc1613445dcc737123f861"
+  },
+  "per-query-comparison.csv": {
+    "size": 52450,
+    "sha256": "dbf8c2c14c00a49586aa8362a6f81059a07fba9158df9b5a7b34466b617a2a61"
+  },
+  "per-query-outcomes.json": {
+    "size": 476,
+    "sha256": "b502ae9603676c315ec37658c9a6ec67c482a32614401a9617cd84fbad796e97"
+  },
+  "persistent-backups.json": {
+    "size": 1072,
+    "sha256": "d6c7ff9d9a5c43e6be53ef297cba60c0cd889209520aceaf0b3d3aa667a2bceb"
+  },
+  "postgres-extensions.txt": {
+    "size": 200,
+    "sha256": "cec3f2105b5cd87ca1fdfaa404a67f1682b0621de98b05121f8168281c411eb7"
+  },
+  "postgres-image.txt": {
+    "size": 72,
+    "sha256": "951c1173dd165aef8483337e6e6a8385fc8334f5ca20721d916b3de8235e7705"
+  },
+  "thread-probe.json": {
+    "size": 246,
+    "sha256": "78655023e1c4acbe9d630d5a25d1b8be6906fa5c2cd3291451428d2a217bb980"
+  },
+  "validation.json": {
+    "size": 1054,
+    "sha256": "6b90d0a6136e485b7cde05b46b0638c2dda8da270cdf6e3f299a43dcf7405736"
+  },
+  "verified.json": {
+    "size": 321,
+    "sha256": "3bc6fe3f92a95f1b0184e8b7454aff3888869121cf9444929425233c0047a5b7"
+  },
+  "weknora-60.jsonl": {
+    "size": 1380551,
+    "sha256": "fae20ea5c58166bac59a1b335dc3ecbf61484d679a0202024ca53a2522f23e9d"
+  },
+  "weknora-60.jsonl.config.json": {
+    "size": 386,
+    "sha256": "9dd2b742d6336fd60a17e39b69e93d035e62ad6f87c304623f9d0c8364ad3ce1"
+  },
+  "weknora-build-info.txt": {
+    "size": 29729,
+    "sha256": "1a57789f982bed0902bd04a189a556e5bfd5eb38124a332863d5ef498b74633a"
+  },
+  "weknora-hybrid-probe.json": {
+    "size": 132076,
+    "sha256": "5e429614b36b3e0c0a3335fcf7a8ab6730ea038570d774d33989b298ed5db4f7"
+  },
+  "weknora-index-audit.json": {
+    "size": 592,
+    "sha256": "e2d37d7d984c6521561d8a7852ea212d64656e8398cd8f8ecab6bf06d62e3a29"
+  },
+  "weknora-index-audit.mapping.csv": {
+    "size": 476320,
+    "sha256": "4a458e752b8c6e3c6f67ac87b37cc5f2d1ed499cefb6068d8de7f7b9961cb0a0"
+  },
+  "weknora-kb-config.json": {
+    "size": 306,
+    "sha256": "ede0705bdd139360c37539f11580f22fd7dd3f85910cb5cc28ab0df96123ad4f"
+  },
+  "weknora-model-calls.jsonl": {
+    "size": 2587222,
+    "sha256": "ef5432bc099e1e02d0a68cd18a88f628d816d6d4472ecddf8b0387d7c8d13df5"
+  },
+  "weknora-model-config-readback.json": {
+    "size": 505,
+    "sha256": "282b1b5239463281d1e4cde7472f05ed5ec2a37b3eddaf16d48f2841cd618016"
+  },
+  "weknora-per-query-usage.csv": {
+    "size": 10030,
+    "sha256": "da8e97e427d7a80a250269edb7eb50a7faea046a34d984c6301e07bbf90e58a5"
+  },
+  "weknora-restart-smoke.jsonl": {
+    "size": 2423,
+    "sha256": "d21b5ebc296c3fc8f5a2ac593e835c68154a5d7f99fa0ecfe7e679bd261d83c0"
+  },
+  "weknora-retrieval-config-readback.json": {
+    "size": 360,
+    "sha256": "5e52ff0122522d823e9339680f04e83c0209f7350a9a6b6d95ab3de414b5c65f"
+  },
+  "weknora-score.json": {
+    "size": 82728,
+    "sha256": "80251888da87d538a4ae89de788f491ec37cf723d17219d3ebf6cabba75fbe2b"
+  },
+  "weknora-system-info.json": {
+    "size": 463,
+    "sha256": "79f135f72c7a838576b6d08bd9e279e6da5c031b286f98f6ca864915a253fb13"
+  },
+  "weknora.timing.jsonl": {
+    "size": 41449,
+    "sha256": "b80d2576237861aed54d74640c9d7de1015596c7809a9ad837bd09a54bb8a0c5"
+  },
+  "weknora.trec": {
+    "size": 828645,
+    "sha256": "3f6e65a2183086e53ee16ff84efe7b1e54684309032e861aef4f15017218747d"
+  }
+}

@@ -15,6 +15,7 @@ model_lock = threading.Lock()
 audit_lock = threading.Lock()
 llm = None
 embedder = None
+embed_async = None
 
 
 def record(product, kind, usage, model, elapsed):
@@ -27,6 +28,8 @@ def record(product, kind, usage, model, elapsed):
     }
     with audit_lock, (MEASUREMENT_DIR / "model-usage.jsonl").open("a", encoding="utf-8") as stream:
         stream.write(json.dumps(entry, ensure_ascii=False) + "\n")
+        stream.flush()
+        os.fsync(stream.fileno())
 
 
 @app.get("/health")
@@ -50,14 +53,17 @@ async def embeddings(product: str, request: Request):
     if isinstance(texts, str):
         texts = [texts]
     start = time.perf_counter()
-    with model_lock:
-        if embedder is None:
-            from fastembed import TextEmbedding
-            embedder = TextEmbedding(
-                model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
-                cache_dir=str(ROOT / "models/embedding"), threads=3,
-            )
-        vectors = list(embedder.embed(texts))
+    if embed_async is not None:
+        vectors = await embed_async(texts)
+    else:
+        with model_lock:
+            if embedder is None:
+                from fastembed import TextEmbedding
+                embedder = TextEmbedding(
+                    model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+                    cache_dir=str(ROOT / "models/embedding"), threads=3,
+                )
+            vectors = list(embedder.embed(texts))
     tokens = sum(sum(encoding.attention_mask) for encoding in embedder.model.tokenize(texts))
     usage = {"input_tokens": tokens, "output_tokens": 0, "calls": 1, "status": "observed"}
     record(product, "embedding", usage, body.get("model"), time.perf_counter() - start)

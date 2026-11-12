@@ -1,0 +1,97 @@
+{
+  "dataset": "miracl/zh/dev/subset-3554a10e8b025194",
+  "seed": 20261112,
+  "passages": 10000,
+  "queries": 393,
+  "judgments": 3928,
+  "concurrency": 1,
+  "query_order": "official topics.tsv insertion order",
+  "warmup": [
+    "检索预热：第1次中文文档检索",
+    "检索预热：第2次中文文档检索",
+    "检索预热：第3次中文文档检索",
+    "检索预热：第4次中文文档检索"
+  ],
+  "contextbase": {
+    "source_commit": "c1cc16269361f2ed0ff4d1cfcb20345137b3b820",
+    "patch": "contextbase-recall-config.patch",
+    "entry": "native memories/recall",
+    "budget": "high",
+    "rerank_max_candidates": 60,
+    "text_search": "pg_search/jieba",
+    "max_tokens": 8192,
+    "chunk_max_tokens": 16384,
+    "retain_mode": "chunks",
+    "chunk_size": 512
+  },
+  "weknora": {
+    "source_commit": "cbdcebabf48c5ee2d6868b370326aa8341703f62",
+    "entry": "native knowledge-search",
+    "match_count": 60,
+    "rerank_top_k": 60,
+    "vector_threshold": 0,
+    "keyword_threshold": 0,
+    "rerank_threshold": 0,
+    "chunk_size": 512,
+    "question_generation": false,
+    "profile": false,
+    "edition": "lite",
+    "binary_sha256": "3131395874d633c81b4d53a25ca443dacb9d93458ec6288677382a6a39597b93",
+    "build_tags": [
+      "sqlite_fts5"
+    ],
+    "go_version": "1.26.0"
+  },
+  "models": {
+    "embedding_revision": "25b9af8e87a38eb120cfe87125383677b9cd309e",
+    "reranker_revision": "6f5ff65298512715a1e669753bc754d2bc8f367b",
+    "format": "ONNX INT8 CPU",
+    "intra_op_threads": 3,
+    "inter_op_threads": 1,
+    "max_length": 512,
+    "batch_size": 8,
+    "files": {
+      "full-reranker/model_quantized.onnx": {
+        "size": 570727094,
+        "sha256": "912fc1215c2dbff6499700534bd8d31253af01573861abbfc43afd1fab6cce5d"
+      },
+      "full-reranker/tokenizer.json": {
+        "size": 17082900,
+        "sha256": "8bf8afbfd11306bd872018c53bfdf2e160a56f8edbcf49933324404791c148d3"
+      },
+      "full-reranker/config.json": {
+        "size": 848,
+        "sha256": "122e922dcfed6503c8721e6fe1daf090340c3d95ca7f3aa3a72730b321a51cfd"
+      },
+      "full-embedding/model_quantized.onnx": {
+        "size": 568479395,
+        "sha256": "2237f770aad5c71bbc1fc2d361a57f9a37400574cc9eff32626f0cdb49234730"
+      },
+      "full-embedding/tokenizer.json": {
+        "size": 17082799,
+        "sha256": "249df0778f236f6ece390de0de746838ef25b9d6954b68c2ee71249e0a9d8fd4"
+      },
+      "full-embedding/config.json": {
+        "size": 658,
+        "sha256": "70dae5884ced999af00244f776ac9eaa71538d68497d3d6a6091e0318cd32905"
+      }
+    },
+    "embedding_http_batch_window_ms": 10,
+    "batching_scope": "Concurrent HTTP embedding inputs; native product requests preserved; ONNX batch size remains 8",
+    "ingest_initial_threads": 6,
+    "formal_query_threads": 3
+  },
+  "hardware": {
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "cpu_count": 5,
+    "cpu": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           46 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  5\nOn-line CPU(s) list:                     0-4\nVendor ID:                               AuthenticAMD\nModel name:                              AMD EPYC 9V74 80-Core Processor\nCPU family:                              25\nModel:                                   17\nThread(s) per core:                      1\nCore(s) per socket:                      5\nSocket(s):                               1\nStepping:                                1\nBogoMIPS:                                5192.29\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext cpuid_fault vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves avx512_bf16 clzero xsaveerptr arat npt nrip_save tsc_scale vmcb_clean flushbyasid pausefilter pfthreshold v_vmsave_vmload avx512vbmi umip avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid fsrm arch_capabilities\nHypervisor vendor:                       KVM\nVirtualization type:                     full\nL1d cache:                               96 KiB (3 instances)\nL1i cache:                               96 KiB (3 instances)\nL2 cache:                                3 MiB (3 instances)\nL3 cache:                                32 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-4\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Vulnerable\nVulnerability Spec store bypass:         Vulnerable\nVulnerability Spectre v1:                Vulnerable: __user pointer sanitization and usercopy barriers only; no swapgs barriers\nVulnerability Spectre v2:                Vulnerable; STIBP: disabled; PBRSB-eIBRS: Not affected; BHI: Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Vulnerable\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected\n",
+    "cpu_max": "400000 100000"
+  },
+  "initial_audit": {
+    "prior_miracl_indices_found": false,
+    "prior_miracl_checkpoints_found": false,
+    "prior_miracl_rankings_found": false,
+    "contextbase_smoke_state": "unrelated test providers; not reused",
+    "running_product_services_found": false
+  }
+}

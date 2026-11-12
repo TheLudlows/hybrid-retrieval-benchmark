@@ -1,0 +1,8 @@
+{
+  "chunking_config": "{\"chunk_size\":512,\"chunk_overlap\":0,\"separators\":null}",
+  "embedding_model_id": "benchmark-bge-m3",
+  "summary_model_id": "",
+  "question_generation_config": "{\"enabled\":false,\"question_count\":0}",
+  "profile_config": "{\"enabled\":false}",
+  "generated_profile": null
+}

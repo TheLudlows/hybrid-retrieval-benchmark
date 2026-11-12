@@ -1,0 +1,24 @@
+[
+  {
+    "id": "benchmark-bge-m3",
+    "type": "Embedding",
+    "name": "bge-m3",
+    "provider": "openai",
+    "base_url": "http://127.0.0.1:18090/weknora/v1",
+    "embedding_parameters": {
+      "dimension": 1024
+    }
+  },
+  {
+    "id": "benchmark-bge-reranker",
+    "type": "Rerank",
+    "name": "BAAI/bge-reranker-v2-m3",
+    "provider": "cohere",
+    "base_url": "http://127.0.0.1:18090/weknora/v1/rerank",
+    "spec": {
+      "compat": {
+        "request_timeout_seconds": 300
+      }
+    }
+  }
+]

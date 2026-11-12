@@ -1,0 +1,20 @@
+{
+  "contextbase": {
+    "initial_16_s": 9.842,
+    "initial_16_clock": "native server retain wall",
+    "resume_9984_wall_s": 2248.4167251586914,
+    "verified_segment_sum_s": 2258.258725166321,
+    "resume_start_unix": 1794474049.8222196,
+    "resume_end_unix": 1794476298.2389448,
+    "native_retain_wall_sum_s": 2124.074,
+    "native_retain_documents": 10000
+  },
+  "weknora": {
+    "initial_16_s": 6.238311052322388,
+    "initial_16_clock": "ingestion driver wall",
+    "resume_9984_wall_s": 2201.971978187561,
+    "verified_segment_sum_s": 2208.2102892398834,
+    "resume_start_unix": 1794479904.8739278,
+    "resume_end_unix": 1794482106.845906
+  }
+}

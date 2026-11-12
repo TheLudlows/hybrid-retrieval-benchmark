@@ -4,6 +4,7 @@ import argparse
 from contextlib import closing
 from itertools import islice
 import json
+import os
 from pathlib import Path
 import sqlite3
 import time
@@ -111,6 +112,7 @@ def ingest(args, api, db, source):
         rows = islice(rows, args.limit)
     seen = 0
     while batch := list(islice(rows, args.batch_size)):
+        started = time.time()
         entries = [(row, db.execute("SELECT remote_id, indexed FROM passage_map WHERE passage_id = ?",
                                     (row["docid"],)).fetchone()) for row in batch]
         if args.product == "contextbase":
@@ -121,6 +123,12 @@ def ingest(args, api, db, source):
             pending = [entry[0] if entry else weknora_create(db, api, row)
                        for row, entry in entries if entry is None or not entry[1]]
             wait_for_index(db, api, pending, args.index_timeout, args.poll_interval)
+        with args.checkpoint.with_suffix(".timing.jsonl").open("a") as stream:
+            stream.write(json.dumps({"started_unix": started, "elapsed_s": time.time() - started,
+                                     "scanned": len(batch), "previously_indexed": sum(bool(e and e[1]) for _, e in entries),
+                                     "indexed_total": db.execute("SELECT COUNT(*) FROM passage_map WHERE indexed=1").fetchone()[0]}) + "\n")
+            stream.flush()
+            os.fsync(stream.fileno())
         seen += len(batch)
         if seen // 1000 != (seen - len(batch)) // 1000:
             print(f"Scanned {seen} passages", flush=True)

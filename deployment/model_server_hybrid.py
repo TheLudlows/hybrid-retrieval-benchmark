@@ -1,5 +1,7 @@
 """Local ONNX embedding and rerank models for the hybrid benchmark."""
 from pathlib import Path
+import asyncio
+import os
 import time
 
 from fastapi import Request
@@ -20,7 +22,7 @@ class OnnxTextModel:
         self.tokenizer.enable_truncation(max_length=512)
         self.tokenizer.no_padding()
         options = ort.SessionOptions()
-        options.intra_op_num_threads = 6
+        options.intra_op_num_threads = int(os.environ.get("BENCH_ONNX_THREADS", "6"))
         options.inter_op_num_threads = 1
         self.session = ort.InferenceSession(str(directory / "model_quantized.onnx"),
                                            sess_options=options, providers=["CPUExecutionProvider"])
@@ -59,6 +61,48 @@ class BGEEmbedding:
 
 base.embedder = BGEEmbedding()
 reranker = OnnxTextModel("full-reranker")
+
+# Optional transport batching: native product requests and per-request usage
+# remain intact; concurrent embedding inputs share the existing ONNX batches.
+batch_window_ms = float(os.environ.get("BENCH_EMBEDDING_BATCH_WINDOW_MS", "0"))
+pending_embeddings = []
+embedding_worker = None
+
+
+async def flush_embeddings():
+    global embedding_worker
+    await asyncio.sleep(batch_window_ms / 1000)
+    requests = pending_embeddings[:]
+    pending_embeddings.clear()
+    try:
+        def predict():
+            with base.model_lock:
+                return list(base.embedder.embed([text for texts, _ in requests for text in texts]))
+        vectors = await asyncio.to_thread(predict)
+        offset = 0
+        for texts, future in requests:
+            future.set_result(vectors[offset:offset + len(texts)])
+            offset += len(texts)
+    except Exception as error:
+        for _, future in requests:
+            future.set_exception(error)
+    finally:
+        embedding_worker = None
+        if pending_embeddings:
+            embedding_worker = asyncio.create_task(flush_embeddings())
+
+
+async def embed_batched(texts):
+    global embedding_worker
+    future = asyncio.get_running_loop().create_future()
+    pending_embeddings.append((texts, future))
+    if embedding_worker is None:
+        embedding_worker = asyncio.create_task(flush_embeddings())
+    return await future
+
+
+if batch_window_ms > 0:
+    base.embed_async = embed_batched
 
 
 @app.get("/contextbase/tei/info")

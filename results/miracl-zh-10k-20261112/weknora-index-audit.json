@@ -1,0 +1,18 @@
+{
+  "product": "weknora",
+  "dataset": "miracl/zh/dev/subset-3554a10e8b025194",
+  "endpoint": "http://127.0.0.1:18080",
+  "scope": "213a967f-cee2-4793-93d6-df5f0c290ca3",
+  "official_ids": 10000,
+  "indexed_ids": 10000,
+  "missing_ids": 0,
+  "extra_ids": 0,
+  "content_checked": true,
+  "canonical_content_sha256": "09d3d24eb941bc59555806669f767e08107b7f7cb898ff1fa01b9a64c4bcbf79",
+  "corpus_fingerprints": {
+    "corpus/subset.jsonl.gz": "3554a10e8b02519462efcdcfb632f9d7de1ee2388c3f9c9cd8c963a8efa93061"
+  },
+  "fts_rows": 10146,
+  "embedding_rows": 10146,
+  "native_vector_rows": 10146
+}
