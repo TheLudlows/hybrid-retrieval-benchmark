@@ -1,14 +1,14 @@
 {
   "scale": "100k",
   "state": "ingesting",
-  "updated_unix": 1794501957.520824,
+  "updated_unix": 1794503850.3631284,
   "pid": 27916,
   "product": "contextbase",
   "case": "default",
   "candidate_ceiling": 60,
   "query_set": null,
   "queries": null,
-  "indexed": 60064,
-  "elapsed_s": 12253.513036489487,
+  "indexed": 70016,
+  "elapsed_s": 14146.35534286499,
   "publish_state": "pushed"
 }
