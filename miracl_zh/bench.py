@@ -19,6 +19,31 @@ HERE = Path(__file__).resolve().parent
 SOURCE = json.loads((HERE / "source.json").read_text(encoding="utf-8"))
 PASSAGE_ID = re.compile(r"[0-9]+#[0-9]+").fullmatch
 
+SUBSET_SHARD = "corpus/subset.jsonl.gz"
+
+
+def dataset_source(data):
+    path = data / "subset.json"
+    if not path.exists():
+        return SOURCE
+    subset = json.loads(path.read_text(encoding="utf-8"))
+    original = {name: entry["sha256"] for name, entry in SOURCE["files"].items()}
+    if (subset["source"] != original or subset["unit"] not in ("articles", "passages")
+            or not 1 <= subset["count"] <= subset["passages"] <= SOURCE["passages"]
+            or (subset["unit"] == "passages" and subset["count"] != subset["passages"])):
+        raise ValueError("Invalid subset manifest or MIRACL source version")
+    entry = subset["file"]
+    if not re.fullmatch(r"[0-9a-f]{64}", entry["sha256"]) or entry["size"] <= 0:
+        raise ValueError("Invalid subset shard fingerprint")
+    return {**SOURCE, "dataset": f"{SOURCE['dataset']}/subset-{entry['sha256'][:16]}",
+            "passages": subset["passages"], "subset": subset,
+            "files": {"topics.tsv": SOURCE["files"]["topics.tsv"], "qrels.tsv": SOURCE["files"]["qrels.tsv"],
+                      SUBSET_SHARD: entry}}
+
+
+def article_id(passage):
+    return passage.split("#", 1)[0]
+
 
 def check_fingerprint(path, expected):
     with path.open("rb") as file:
@@ -66,29 +91,42 @@ def topics_and_qrels(data):
     return topics, qrels
 
 
-def verify(data):
+def corpus_rows(data, source):
+    for name, entry in source["files"].items():
+        if not name.startswith("corpus/"):
+            continue
+        with gzip.open(check_fingerprint(data / name, entry), "rt", encoding="utf-8") as stream:
+            for line in stream:
+                row = json.loads(line)
+                if not PASSAGE_ID(row["docid"]) or not isinstance(row["text"], str) or not isinstance(row["title"], str):
+                    raise ValueError(f"Invalid passage schema in {name}")
+                yield name, row
+
+
+def verify(data, source):
     topics, qrels = topics_and_qrels(data)
     judged = {passage for judgments in qrels.values() for passage in judgments}
     missing = judged.copy()
-    shards = {}
-    for name in SOURCE["files"]:
-        if not name.startswith("corpus/"):
-            continue
-        count = 0
-        with gzip.open(checked_path(data, name), "rt", encoding="utf-8") as file:
-            for line in file:
-                row = json.loads(line)
-                if not PASSAGE_ID(row["docid"]) or not isinstance(row["text"], str) or not isinstance(row["title"], str):
-                    raise ValueError(f"Invalid official passage schema in {name}")
-                missing.discard(row["docid"])
-                count += 1
-        shards[name] = count
+    shards = defaultdict(int)
+    subset = source.get("subset")
+    articles = set() if subset and subset["unit"] == "articles" else None
+    for name, row in corpus_rows(data, source):
+        passage = row["docid"]
+        missing.discard(passage)
+        shards[name] += 1
+        if articles is not None:
+            articles.add(article_id(passage))
     total = sum(shards.values())
-    if total != SOURCE["passages"] or missing:
-        raise ValueError(f"Expected {SOURCE['passages']} passages; got {total} and {len(missing)} judged IDs missing")
-    return {"dataset": SOURCE["dataset"], "queries": len(topics), "judgments": sum(map(len, qrels.values())),
-            "positive_judgments": sum(sum(r.values()) for r in qrels.values()), "distinct_judged_passages": len(judged),
-            "passages": total, "shards": shards}
+    if total != source["passages"] or missing:
+        raise ValueError(f"Expected {source['passages']} passages; got {total} and {len(missing)} judged IDs missing")
+    if articles is not None and len(articles) != subset["count"]:
+        raise ValueError("Article count does not match the subset manifest")
+    result = {"dataset": source["dataset"], "queries": len(topics), "judgments": sum(map(len, qrels.values())),
+              "positive_judgments": sum(sum(r.values()) for r in qrels.values()), "distinct_judged_passages": len(judged),
+              "passages": total, "shards": shards}
+    if subset:
+        result["subset"] = {key: subset[key] for key in ("unit", "count", "seed")}
+    return result
 
 
 def prior_api(product):
@@ -99,16 +137,18 @@ def prior_api(product):
     return module.API(product)
 
 
-def index_binding(api, product):
-    corpus = {name: entry["sha256"] for name, entry in SOURCE["files"].items() if name.startswith("corpus/")}
+def index_binding(api, product, source):
+    corpus = {name: entry["sha256"] for name, entry in source["files"].items() if name.startswith("corpus/")}
     return json.dumps([product, api.base, api.scope, corpus], sort_keys=True)
 
 
-def validate_index_checkpoint(db, api, product):
+def validate_index_checkpoint(db, api, product, source):
     if not db.execute("SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = 'miracl_ingest_run'").fetchone():
+        if source.get("subset"):
+            raise ValueError("Use the subset checkpoint created by ingest.py")
         return
-    if db.execute("SELECT binding, complete FROM miracl_ingest_run WHERE id = 1").fetchone() != (index_binding(api, product), 1):
-        raise ValueError("The checkpoint must match this endpoint and scope and contain a completed full-corpus import")
+    if db.execute("SELECT binding, complete FROM miracl_ingest_run WHERE id = 1").fetchone() != (index_binding(api, product, source), 1):
+        raise ValueError("The checkpoint must match this endpoint and scope and contain a completed dataset import")
 
 
 def fetch_ranked(api, product, query, limit, reranker):
@@ -130,15 +170,15 @@ def fetch_ranked(api, product, query, limit, reranker):
     return [row["knowledge_id"] for row in results]
 
 
-def capture(args, topics):
-    if args.product == "weknora" and not args.passage_map:
-        raise ValueError("WeKnora requires its knowledge-ID to MIRACL passage-ID map")
+def capture(args, topics, source):
+    if (args.product == "weknora" or source.get("subset")) and not args.passage_map:
+        raise ValueError("Provide the passage-map checkpoint for WeKnora or for a subset run")
     db = None
     try:
         api = prior_api(args.product)
         if args.passage_map:
             db = sqlite3.connect(args.passage_map.resolve().as_uri() + "?mode=ro", uri=True)
-            validate_index_checkpoint(db, api, args.product)
+            validate_index_checkpoint(db, api, args.product, source)
         with args.run.open("x", encoding="utf-8") as output:
             for qid, query in topics.items():
                 start = time.perf_counter()
@@ -153,14 +193,14 @@ def capture(args, topics):
                     if not isinstance(passage, str) or not PASSAGE_ID(passage):
                         raise ValueError(f"Result without a valid source passage ID for query {qid}")
                     passages.append(passage)
-                output.write(json.dumps({"qid": qid, "passages": list(dict.fromkeys(passages)), "latency_ms": latency}) + "\n")
+                output.write(json.dumps({"dataset": source["dataset"], "qid": qid, "passages": list(dict.fromkeys(passages)), "latency_ms": latency}) + "\n")
                 output.flush()
     finally:
         if db is not None:
             db.close()
 
 
-def score(run, qrels, trec_output):
+def score(run, qrels, trec_output, source=SOURCE):
     def dcg(binary_labels):
         return sum(value / math.log2(i + 2) for i, value in enumerate(binary_labels))
 
@@ -168,6 +208,8 @@ def score(run, qrels, trec_output):
     for line in run.read_text(encoding="utf-8").splitlines():
         row = json.loads(line)
         qid, ranked, latency = row["qid"], row["passages"], row["latency_ms"]
+        if row.get("dataset", SOURCE["dataset"]) != source["dataset"]:
+            raise ValueError("Capture dataset does not match the scoring corpus")
         if qid not in qrels or qid in per_topic or len(set(ranked)) != len(ranked):
             raise ValueError(f"Invalid or repeated query results for {qid}")
         if any(not isinstance(p, str) or not PASSAGE_ID(p) for p in ranked) or not math.isfinite(latency) or latency < 0:
@@ -188,7 +230,7 @@ def score(run, qrels, trec_output):
                     print(row["qid"], "Q0", passage, rank, -rank, "native", file=out)
     rows = list(per_topic.values())
     latencies = sorted(r["latency_ms"] for r in rows)
-    return {"dataset": SOURCE["dataset"], "queries": len(rows),
+    return {"dataset": source["dataset"], "queries": len(rows),
             **{metric: statistics.mean(r[metric] for r in rows)
                for metric in ("hit_at_5", "ndcg_at_10", "recall_at_100")},
             "returned_depth": {"mean": statistics.mean(r["depth"] for r in rows),
@@ -213,17 +255,20 @@ def main():
     evaluate.add_argument("run", type=Path)
     evaluate.add_argument("--trec-output", type=Path)
     args = parser.parse_args()
+    source = dataset_source(args.data)
     if args.command == "fetch":
+        if source.get("subset"):
+            parser.error("Fetch the official corpus into a separate directory")
         fetch(args.data)
         return
     if args.command == "verify":
-        print(json.dumps(verify(args.data), indent=2))
+        print(json.dumps(verify(args.data, source), indent=2))
         return
     topics, qrels = topics_and_qrels(args.data)
     if args.command == "capture":
-        capture(args, topics)
+        capture(args, topics, source)
     else:
-        print(json.dumps(score(args.run, qrels, args.trec_output), indent=2))
+        print(json.dumps(score(args.run, qrels, args.trec_output, source), indent=2))
 
 
 if __name__ == "__main__":

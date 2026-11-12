@@ -13,6 +13,26 @@ python miracl_zh/bench.py --data .benchmark-data/miracl-zh verify
 
 验证检查全部分片的 SHA-256、段落数及每个已标注段落是否在完整语料内。两款产品各自将每条原始段落作为一个文档入库，保留官方标题、正文和来源段落 ID。两边使用相同的标题与正文文本。索引阶段只使用语料，查询和标注供评测使用。
 
+## 使用 10 万篇文章或 10 万个段落
+
+在下载官方语料后生成一个固定子集。文章模式先保留官方标注覆盖的全部文章，再用固定种子补足篇数，保留所选文章的全部段落。段落模式先保留所有已标注段落，再从未标注段落里抽样补足。两种模式都保留官方 393 道查询、3,928 条标注及其对应的 3,786 个段落。
+
+```bash
+FULL=.benchmark-data/miracl-zh
+DATA=.benchmark-data/miracl-zh-100k-articles
+python miracl_zh/build_subset.py --data "$FULL" --output "$DATA" --unit articles --count 100000
+python miracl_zh/bench.py --data "$DATA" verify
+```
+
+如果要控制实际入库量，改用 `--unit passages` 并选择新的输出目录。两款产品使用同一个 `DATA`，分别创建新的 Bank 和知识库。后面的入库、采集和评分都传入该子集目录，采集时两边都传各自的检查点。子集入库完成后输出 `"dataset_complete": true` 和 `"full_corpus": false`，评分结果自带子集标识。子集改变了检索候选池，分数适用于相同子集上的对比。
+
+默认种子 20261112 的实际生成规模如下。
+
+| 抽样单位 | 入库段落数 | gzip 文件大小 |
+| --- | ---: | ---: |
+| 100,000 篇文章 | 440,281 | 70.1 MB |
+| 100,000 个段落 | 100,000 | 17.7 MB |
+
 ## 启动测试实例与入库
 
 准备一套 ContextBase 和一套 WeKnora Lite，为本次评测各建一个空的 Bank 或知识库，并为入库提供写权限。按 [TaurusDB 基线](../results/taurusdb-config-sweep/METHOD.md) 设置原生混合检索和共享的 BGE-M3、BGE-reranker-v2-m3。ContextBase 使用 chunks 写入模式，WeKnora Lite 关闭问题生成和画像。需要本地模型文件时，可用 [上一轮模型下载脚本](../deployment/fetch_hybrid_models.py)。
@@ -27,13 +47,13 @@ python miracl_zh/bench.py --data .benchmark-data/miracl-zh verify
 使用下面的命令入库。两边的正文都使用官方标题、空行和官方段落正文。ContextBase 保存官方段落 ID，WeKnora Lite 的内部 ID 映射写入各自的 SQLite 检查点。
 
 ```bash
-DATA=.benchmark-data/miracl-zh
+DATA=${DATA:-.benchmark-data/miracl-zh}
 mkdir -p "$DATA/results"
 python miracl_zh/ingest.py --data "$DATA" contextbase "$DATA/contextbase.sqlite"
 python miracl_zh/ingest.py --data "$DATA" weknora "$DATA/weknora.sqlite"
 ```
 
-可先在同一测试范围内给入库命令加 `--limit 100` 验证写入和索引，再去掉它续跑。检查点绑定产品、API 地址、Bank 或知识库和语料版本，建议持续保留。WeKnora Lite 以原生 API 逐条创建，成批轮询解析状态。两条完整入库命令均应输出 `"full_corpus": true` 和 `"indexed_passages": 4934368`。
+可先在同一测试范围内给入库命令加 `--limit 100` 验证写入和索引，再去掉它续跑。检查点绑定产品、API 地址、Bank 或知识库和语料版本，建议持续保留。WeKnora Lite 以原生 API 逐条创建，成批轮询解析状态。选择官方全量语料时，两条入库命令均应输出 `"full_corpus": true` 和 `"indexed_passages": 4934368`。
 
 如果 WeKnora 创建过程中断且没有拿到返回 ID，脚本会报告对应的 MIRACL 段落和 `miracl-…` channel。先在同一个测试知识库查找这条记录。已存在时，在原入库命令末尾加 `--recover <段落ID> <知识ID>`，检查点会核对知识库和 channel 后记录映射。确认该记录未创建时，可用 `--retry-missing <段落ID>` 清除这次未决记录，再执行原命令。遇到解析失败，修复或重新解析已存在的知识后续跑。
 

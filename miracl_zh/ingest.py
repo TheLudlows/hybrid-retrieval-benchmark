@@ -2,7 +2,6 @@
 
 import argparse
 from contextlib import closing
-import gzip
 from itertools import islice
 import json
 from pathlib import Path
@@ -10,18 +9,7 @@ import sqlite3
 import time
 from urllib.parse import quote, urlencode
 
-from bench import PASSAGE_ID, SOURCE, checked_path, index_binding, prior_api
-
-
-def passages(data):
-    for name in SOURCE["files"]:
-        if name.startswith("corpus/"):
-            with gzip.open(checked_path(data, name), "rt", encoding="utf-8") as stream:
-                for line in stream:
-                    row = json.loads(line)
-                    if not PASSAGE_ID(row["docid"]):
-                        raise ValueError(f"Invalid source passage ID in {name}")
-                    yield row
+from bench import PASSAGE_ID, corpus_rows, dataset_source, index_binding, prior_api
 
 
 def setup(db, binding):
@@ -113,12 +101,14 @@ def wait_for_index(db, api, ids, timeout, interval):
             time.sleep(min(delay, interval))
 
 
-def ingest(args, api, db):
+def ingest(args, api, db, source):
     unresolved = db.execute("SELECT passage_id FROM passage_map WHERE remote_id IS NULL LIMIT 1").fetchone()
     if unresolved:
         passage = unresolved[0]
         raise RuntimeError(f"Unresolved create for {passage}, marker {channel(passage)}. Reconcile before continuing")
-    rows = islice(passages(args.data), args.limit) if args.limit is not None else passages(args.data)
+    rows = (row for _, row in corpus_rows(args.data, source))
+    if args.limit is not None:
+        rows = islice(rows, args.limit)
     seen = 0
     while batch := list(islice(rows, args.batch_size)):
         entries = [(row, db.execute("SELECT remote_id, indexed FROM passage_map WHERE passage_id = ?",
@@ -135,17 +125,20 @@ def ingest(args, api, db):
         if seen // 1000 != (seen - len(batch)) // 1000:
             print(f"Scanned {seen} passages", flush=True)
 
-    expected = args.limit if args.limit is not None else SOURCE["passages"]
+    expected = args.limit if args.limit is not None else source["passages"]
     if seen != expected:
         raise ValueError(f"Expected {expected} passages, read {seen}")
     indexed = db.execute("SELECT COUNT(*) FROM passage_map WHERE indexed = 1").fetchone()[0]
-    if seen == SOURCE["passages"]:
+    if seen == source["passages"]:
         if indexed != seen:
             raise ValueError(f"Expected {seen} indexed passages, got {indexed}")
         with db:
             db.execute("UPDATE miracl_ingest_run SET complete = 1 WHERE id = 1")
     complete = bool(db.execute("SELECT complete FROM miracl_ingest_run").fetchone()[0])
-    print(json.dumps({"indexed_passages": indexed, "full_corpus": complete}, indent=2))
+    result = {"indexed_passages": indexed, "full_corpus": complete and not source.get("subset")}
+    if source.get("subset"):
+        result.update(dataset=source["dataset"], dataset_complete=complete)
+    print(json.dumps(result, indent=2))
 
 
 def main():
@@ -163,7 +156,8 @@ def main():
     args = parser.parse_args()
     if not (1 <= args.batch_size <= 64 and args.index_timeout > 0 and args.poll_interval > 0):
         parser.error("Use a batch size of 1–64 and positive timing values")
-    if args.limit is not None and not 1 <= args.limit <= SOURCE["passages"]:
+    source = dataset_source(args.data)
+    if args.limit is not None and not 1 <= args.limit <= source["passages"]:
         parser.error("The limit must be within the corpus size")
     if (args.recover or args.retry_missing) and args.product != "weknora":
         parser.error("Create reconciliation is only needed for WeKnora")
@@ -171,11 +165,11 @@ def main():
     args.checkpoint.parent.mkdir(parents=True, exist_ok=True)
     with closing(sqlite3.connect(args.checkpoint)) as db:
         db.execute("PRAGMA journal_mode=WAL")
-        setup(db, index_binding(api, args.product))
+        setup(db, index_binding(api, args.product, source))
         if args.recover or args.retry_missing:
             recover(db, api, *(args.recover or (args.retry_missing, None)))
         else:
-            ingest(args, api, db)
+            ingest(args, api, db, source)
 
 
 if __name__ == "__main__":
