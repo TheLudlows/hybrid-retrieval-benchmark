@@ -1,0 +1,17 @@
+{
+  "recorded_unix": 1794553362.8807993,
+  "instruction": "User explicitly requires ContextBase and WeKnora service data to be retained after benchmark completion.",
+  "retain_until": "Explicit subsequent user instruction authorizes deletion.",
+  "retain": [
+    "ContextBase PostgreSQL databases and native indexes",
+    "WeKnora SQLite databases, vector/full-text indexes and local files",
+    "Private service configuration and connection files in persistent workspace",
+    "Ingestion checkpoints and official/internal ID mappings",
+    "Corpus files, model files, rankings, timings and model-call records",
+    "Index-ready backups and existing earlier experiment data"
+  ],
+  "persistent_runtime": "/workspace/work/miracl-scale/runtime-v2",
+  "persistent_backups": "/workspace/work/miracl-scale/backups",
+  "verification": "Reviewed both orchestrators: stage switching stops processes but does not delete databases or runtime directories; no post-completion data cleanup is implemented.",
+  "credentials": "Remain private in persistent workspace; not uploaded to Git."
+}
