@@ -153,7 +153,7 @@ def validate_index_checkpoint(db, api, product, source, smoke=False):
         raise ValueError("The checkpoint must match this endpoint and scope and contain a completed dataset import")
 
 
-def fetch_ranked(api, product, query, limit, reranker, max_tokens=8192):
+def fetch_ranked(api, product, query, limit, reranker, max_tokens=8192, disable_rerank=False):
     if product == "contextbase":
         data = api.request("/memories/recall", {
             "query": query, "budget": "high", "types": ["world", "experience"], "max_tokens": max_tokens,
@@ -164,11 +164,13 @@ def fetch_ranked(api, product, query, limit, reranker, max_tokens=8192):
         "query": query, "knowledge_base_id": api.scope, "match_count": limit,
         "disable_vector_match": False, "disable_keywords_match": False,
         "vector_threshold": 0.0, "keyword_threshold": 0.0,
-        "rerank": {"enabled": True, "model_id": reranker, "top_k": limit, "threshold": 0.0},
+        "rerank": {"enabled": not disable_rerank, "model_id": reranker, "top_k": limit, "threshold": 0.0},
     })
     results = data["data"] or []
     rerank_meta = data.get("meta", {}).get("rerank") or {}
-    if results and not rerank_meta.get("applied"):
+    if disable_rerank and (not rerank_meta or rerank_meta.get("applied") or rerank_meta.get("outcome") != "disabled"):
+        raise ValueError("Native WeKnora did not confirm reranking disabled")
+    if results and not disable_rerank and not rerank_meta.get("applied"):
         raise ValueError("Native WeKnora reranking did not run")
     if rerank_meta.get("candidate_count", 0) > limit:
         raise ValueError("Native WeKnora rerank input exceeded the requested candidate ceiling")
@@ -190,6 +192,8 @@ def capture(args, topics, source):
         binding = {"index": index_binding(api, args.product, source), "limit": args.limit,
                    "reranker": args.reranker, "budget": "high", "config_sha256": args.config_sha256,
                    "smoke_index": args.smoke_index}
+        if getattr(args, "disable_rerank", False):
+            binding["model_reranking"] = False
         if getattr(args, "max_tokens", 8192) != 8192:
             binding["max_tokens"] = args.max_tokens
         meta = args.run.with_suffix(args.run.suffix + ".config.json")
@@ -219,7 +223,7 @@ def capture(args, topics, source):
                 temporary.replace(target)
         for i in range(args.warmup):
             context("warmup", str(i))
-            fetch_ranked(api, args.product, f"检索预热：第{i + 1}次中文文档检索", args.limit, args.reranker, getattr(args, "max_tokens", 8192))
+            fetch_ranked(api, args.product, f"检索预热：第{i + 1}次中文文档检索", args.limit, args.reranker, getattr(args, "max_tokens", 8192), getattr(args, "disable_rerank", False))
         with args.run.open("a" if args.resume else "x", encoding="utf-8") as output:
             for qid, query in topics.items():
                 if qid in completed:
@@ -228,7 +232,7 @@ def capture(args, topics, source):
                     break
                 context("smoke_query" if args.smoke_index else "query", qid)
                 start = time.perf_counter()
-                ranked = fetch_ranked(api, args.product, query, args.limit, args.reranker, getattr(args, "max_tokens", 8192))
+                ranked = fetch_ranked(api, args.product, query, args.limit, args.reranker, getattr(args, "max_tokens", 8192), getattr(args, "disable_rerank", False))
                 latency = 1000 * (time.perf_counter() - start)
                 passages = []
                 for remote in dict.fromkeys(ranked):
@@ -273,7 +277,7 @@ def score(run, qrels, trec_output, source=SOURCE):
         per_topic[qid] = {"hit_at_1": int(any(matches[:1])), "hit_at_10": int(any(matches[:10])),
                           "hit_at_5": int(any(matches[:5])),
                           "ndcg_at_10": dcg(matches[:10]) / dcg([1] * min(relevant, 10)),
-                          "recall_at_100": sum(matches) / relevant, "depth": len(ranked), "latency_ms": latency}
+                          "recall_at_10": sum(matches[:10]) / relevant, "recall_at_100": sum(matches) / relevant, "depth": len(ranked), "latency_ms": latency}
     if per_topic.keys() != qrels.keys():
         raise ValueError("Missing official queries. Preserve explicit empty rankings in the capture")
     if trec_output:
@@ -286,7 +290,7 @@ def score(run, qrels, trec_output, source=SOURCE):
     latencies = sorted(r["latency_ms"] for r in rows)
     return {"dataset": source["dataset"], "queries": len(rows),
             **{metric: statistics.mean(r[metric] for r in rows)
-               for metric in ("hit_at_1", "hit_at_5", "hit_at_10", "ndcg_at_10", "recall_at_100")},
+               for metric in ("hit_at_1", "hit_at_5", "hit_at_10", "ndcg_at_10", "recall_at_10", "recall_at_100")},
             "returned_depth": {"mean": statistics.mean(r["depth"] for r in rows),
                                "min": min(r["depth"] for r in rows), "max": max(r["depth"] for r in rows),
                                "queries_at_least_100": sum(r["depth"] >= 100 for r in rows)},
@@ -307,6 +311,7 @@ def main():
     collect.add_argument("--limit", type=int, choices=(40, 60, 100), default=60, help="WeKnora requested depth")
     collect.add_argument("--reranker", default="benchmark-bge-reranker")
     collect.add_argument("--resume", action="store_true")
+    collect.add_argument("--disable-rerank", action="store_true", help="Disable WeKnora model rerank in request; ContextBase also requires native enable_reranking=false. Verify zero model rerank calls.")
     collect.add_argument("--smoke-index", action="store_true", help="Restart test only; at most four queries")
     collect.add_argument("--warmup", type=int, default=4)
     collect.add_argument("--max-queries", type=int)

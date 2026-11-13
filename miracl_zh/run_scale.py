@@ -40,6 +40,7 @@ class Worker:
         self.settings_path=settings;self.s=json.loads(settings.read_text());self.out=results.resolve()
         self.repo=Path(__file__).resolve().parent.parent;self.work=Path(self.s['work']);self.runtime=self.work/('runtime-'+self.s.get('runtime_revision','v1'));self.runtime.mkdir(parents=True,exist_ok=True)
         self.plan=json.loads((self.out/'experiment-plan.json').read_text());self.splits=json.loads((self.out/'query-splits.json').read_text())
+        if self.plan.get('model_reranking') is False and type(self) is Worker:raise RuntimeError('Use run_scale_no_rerank.py for the no-rerank protocol and restart verification')
         for name,digest in self.plan.get('code_sha256',{}).items():
             if hashlib.sha256((self.repo/name).read_bytes()).hexdigest()!=digest:raise RuntimeError('Frozen plan code fingerprint mismatch: '+name)
         self.run_prefix=self.plan.get('experiment_revision','v1')+'/'
@@ -97,6 +98,8 @@ class Worker:
 
     def start(self,product,scale,case,cap=60):
         self.check_code()
+        if self.plan.get('model_reranking') is False and product=='contextbase':
+            case={**case,'env':{**case.get('env',{}),'ENABLE_RERANKING':'false'}}
         self.status(state='starting',scale=scale,product=product,case=case['name'],candidate_ceiling=cap,query_set=None,queries=None,indexed=None,elapsed_s=None)
         self.stop_products();r=self.runtime/(product+'-'+scale);r.mkdir(mode=0o700,parents=True,exist_ok=True);conn=r/'connection.json';env=os.environ.copy()
         if product=='contextbase':
@@ -150,7 +153,13 @@ class Worker:
                 key=http(base+f'/api/v1/tenants/{tenant}/api-keys',{'name':'scale-benchmark','full_access':True},self.wtoken)['data']['token']
                 save(conn,{'WEKNORA_URL':base,'WEKNORA_KB_ID':kb,'WEKNORA_API_KEY':key});conn.chmod(0o600)
             self.set_wconfig(case,cap)
-        self.connection=json.loads(conn.read_text());os.environ.update(self.connection);os.environ['BENCH_HTTP_TIMEOUT_SECONDS']='600'
+        self.connection=json.loads(conn.read_text())
+        if product=='contextbase' and self.plan.get('model_reranking') is False:
+            bank=self.connection['CONTEXTBASE_BANK_ID'];admin=json.loads((r/'admin-key.json').read_text())['secret']
+            evidence=http('http://127.0.0.1:18888/v1/default/banks/'+bank+'/config',{'updates':{'enable_reranking':False}},admin,'PATCH')
+            if evidence['config']['enable_reranking'] is not False:raise RuntimeError('ContextBase reranking disable readback failed')
+            save(self.out/scale/'contextbase-no-rerank-readback.json',{'bank_id':bank,'enable_reranking':False,'source':'native bank config PATCH/readback'})
+        os.environ.update(self.connection);os.environ['BENCH_HTTP_TIMEOUT_SECONDS']='600'
 
     def set_wconfig(self,case,cap):
         cfg={'embedding_top_k':cap,'rerank_top_k':cap,'vector_threshold':0,'keyword_threshold':0,'rerank_threshold':0,'rerank_model_id':'benchmark-bge-reranker',**case['rrf']}
@@ -178,6 +187,16 @@ class Worker:
             os.environ['AUDIT_POSTGRES_URL']=self.dburl(scale)
             audit(Namespace(data=data,checkpoint=checkpoint,product=product,weknora_db=self.runtime/(product+'-'+scale)/'weknora.db',output=marker))
             return checkpoint
+        if self.plan.get('model_reranking') is False and checkpoint.exists():
+            with sqlite3.connect(checkpoint) as db:
+                complete=db.execute('SELECT complete FROM miracl_ingest_run WHERE id=1').fetchone()[0]
+            if complete:
+                os.environ['AUDIT_POSTGRES_URL']=self.dburl(scale)
+                audit(Namespace(data=data,checkpoint=checkpoint,product=product,weknora_db=self.runtime/(product+'-'+scale)/'weknora.db',output=marker))
+                historical=self.plan['reuse_ingestion_run_prefix']+scale+'/'+product+'/ingest'
+                timing=checkpoint.with_suffix('.timing.jsonl');shutil.copyfile(timing,target/(product+'-ingest-timing.jsonl'))
+                save(target/(product+'-ingest-usage.json'),{'reused_complete_index':True,'historical_run_id':historical,'current_ingestion_not_performed':True,'historical_recorded_batch_wall_s':sum(json.loads(line)['elapsed_s'] for line in timing.read_text().splitlines()),'models':self.archive_calls(product,historical,target/(product+'-ingest-model-calls.jsonl.gz'))})
+                self.backup(product,scale,'index-ready');return checkpoint
         runid=self.run_prefix+scale+'/'+product+'/ingest';self.context(product,'ingest',runid);self.status(state='ingesting',indexed=0)
         before=0
         if checkpoint.exists():
@@ -215,19 +234,23 @@ class Worker:
 
     def capture(self,product,scale,data,checkpoint,case,qset,cap=60,max_tokens=8192):
         self.check_code()
+        disable=self.plan.get('model_reranking') is False
         label=case['name']+'-'+qset+'-cap'+str(cap)+('-tokens'+str(max_tokens) if max_tokens!=8192 else '')
         folder=self.out/scale/product/label;folder.mkdir(parents=True,exist_ok=True)
         metrics=folder/'metrics.json'
         if metrics.exists():return json.loads(metrics.read_text())
         topics,qrels,source=self.query_set(data,qset)
         config={'product':product,'scale':scale,'corpus':bench.dataset_source(data)['subset']['file'],'query_set':qset,'query_ids_sha256':hashlib.sha256(json.dumps(list(topics)).encode()).hexdigest(),'case':case,'candidate_ceiling':cap,'max_tokens':max_tokens,'plan_sha256':hashlib.sha256((self.out/'experiment-plan.json').read_bytes()).hexdigest()}
+        if disable:config['model_reranking']=False
         save(folder/'config.json',config);digest=hashlib.sha256((folder/'config.json').read_bytes()).hexdigest();runid=self.run_prefix+scale+'/'+product+'/'+label
-        args=Namespace(product=product,data=data,run=folder/'rankings.jsonl',passage_map=checkpoint,limit=cap,reranker='benchmark-bge-reranker',resume=(folder/'rankings.jsonl').exists(),warmup=4,max_queries=None,smoke_index=False,config_sha256=digest,measurement_dir=self.measure,run_id=runid,max_tokens=max_tokens)
+        args=Namespace(product=product,data=data,run=folder/'rankings.jsonl',passage_map=checkpoint,limit=cap,reranker='benchmark-bge-reranker',resume=(folder/'rankings.jsonl').exists(),warmup=4,max_queries=None,smoke_index=False,config_sha256=digest,measurement_dir=self.measure,run_id=runid,max_tokens=max_tokens,disable_rerank=disable)
         self.status(state='querying',query_set=qset,run_id=runid,queries=len(topics));bench.capture(args,topics,source)
         result=bench.score(args.run,qrels,None,source);usage=self.archive_calls(product,runid,folder/'model-calls.jsonl.gz');query=usage.get('query/rerank',{})
         if query.get('max_pairs',0)>cap:raise RuntimeError('Observed model input exceeded candidate ceiling')
         rows=[json.loads(line) for line in args.run.read_text().splitlines()]
-        if any(r['passages'] and usage.get('per_query',{}).get(r['qid'],{}).get('rerank',{}).get('calls',0)<1 for r in rows):raise RuntimeError('Nonempty ranking without an observed model rerank')
+        if disable and any(v.get('calls',0) for k,v in usage.items() if k.endswith('/rerank')):raise RuntimeError('Model rerank called in no-rerank experiment')
+        if disable and any(usage.get('per_query',{}).get(r['qid'],{}).get('embedding',{}).get('calls',0)<1 for r in rows):raise RuntimeError('Missing observed query embedding; cannot prove model-call accounting')
+        if not disable and any(r['passages'] and usage.get('per_query',{}).get(r['qid'],{}).get('rerank',{}).get('calls',0)<1 for r in rows):raise RuntimeError('Nonempty ranking without an observed model rerank')
         save(folder/'model-usage.json',usage);save(metrics,result);return result
 
     def derive_assessment(self,product,scale,data,case):
@@ -279,6 +302,7 @@ class Worker:
             trials=self.plan[product+'_trials'];default=trials[0]
             self.start(product,scale,default);checkpoint=self.ingest(product,scale,data)
             checkpoints[product]=checkpoint
+            if self.plan.get('model_reranking') is False:self.preflight_no_rerank(product,scale,data,checkpoint,default)
             self.capture(product,scale,data,checkpoint,default,'dev393')
             self.derive_assessment(product,scale,data,default)
             self.publish('Archive '+scale+' '+product+' default 393-query baseline')

@@ -1,0 +1,6 @@
+{
+  "changed_unix": 1794537550.391923,
+  "reason": "User changes primary comparison to native retrieval without model reranking. Old orchestrator stopped without terminating ongoing WeKnora ingestion.",
+  "old_worker_pid": 945,
+  "adopt_ingestion_pid": 2868
+}

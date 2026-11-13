@@ -1,0 +1,20 @@
+[
+  {
+    "passages": 10000,
+    "parent_preserved_ids_and_content": 0,
+    "sha256": "3554a10e8b02519462efcdcfb632f9d7de1ee2388c3f9c9cd8c963a8efa93061",
+    "fresh_required_coverage": 100
+  },
+  {
+    "passages": 100000,
+    "parent_preserved_ids_and_content": 10000,
+    "sha256": "d51e1fe9ec6ec92db05df87aabff132f861a72b046a7713bc945f18746665363",
+    "fresh_required_coverage": 1977
+  },
+  {
+    "passages": 1000000,
+    "parent_preserved_ids_and_content": 100000,
+    "sha256": "bb22256fb99e24a2cf3d541db975447a4af69c1cc5d6878fa99e8ca478374354",
+    "fresh_required_coverage": 1977
+  }
+]
