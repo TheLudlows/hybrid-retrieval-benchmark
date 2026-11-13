@@ -6,6 +6,18 @@
 | --- | ---: | ---: | ---: | ---: | ---: |
 | [contextbase/default-assessment_dev293-derived](contextbase/default-assessment_dev293-derived/metrics.json) | 293 | 16.7235% | 0.409248 | 98.7770% | 0.922 |
 | [contextbase/default-dev393-cap60](contextbase/default-dev393-cap60/metrics.json) | 393 | 17.5573% | 0.407673 | 99.0034% | 0.912 |
+| [contextbase/default-tune_dev100-cap60](contextbase/default-tune_dev100-cap60/metrics.json) | 100 | 20.0000% | 0.403058 | 99.6667% | 0.859 |
+| [contextbase/lean-assessment_dev293-derived](contextbase/lean-assessment_dev293-derived/metrics.json) | 293 | 46.4164% | 0.604075 | 99.6018% | 0.896 |
+| [contextbase/lean-dev393-cap60](contextbase/lean-dev393-cap60/metrics.json) | 393 | 45.2926% | 0.601630 | 99.7031% | 0.916 |
+| [contextbase/lean-fresh_train200-cap60](contextbase/lean-fresh_train200-cap60/metrics.json) | 200 | 45.0000% | 0.613737 | 100.0000% | 0.892 |
+| [contextbase/lean-tune_dev100-cap100](contextbase/lean-tune_dev100-cap100/metrics.json) | 100 | 42.0000% | 0.594464 | 100.0000% | 0.907 |
+| [contextbase/lean-tune_dev100-cap40](contextbase/lean-tune_dev100-cap40/metrics.json) | 100 | 42.0000% | 0.594464 | 99.4167% | 0.890 |
+| [contextbase/lean-tune_dev100-cap60](contextbase/lean-tune_dev100-cap60/metrics.json) | 100 | 42.0000% | 0.594464 | 100.0000% | 0.875 |
+| [contextbase/lean-tune_dev100-cap60-tokens16384](contextbase/lean-tune_dev100-cap60-tokens16384/metrics.json) | 100 | 42.0000% | 0.594464 | 100.0000% | 0.904 |
+| [contextbase/lexical_priority-tune_dev100-cap60](contextbase/lexical_priority-tune_dev100-cap60/metrics.json) | 100 | 20.0000% | 0.402938 | 94.6333% | 0.921 |
+| [contextbase/recall_pool300-tune_dev100-cap60](contextbase/recall_pool300-tune_dev100-cap60/metrics.json) | 100 | 20.0000% | 0.410417 | 99.3333% | 0.817 |
+| [contextbase/semantic_priority-tune_dev100-cap60](contextbase/semantic_priority-tune_dev100-cap60/metrics.json) | 100 | 19.0000% | 0.397116 | 96.2667% | 0.952 |
+| [contextbase/source_cap100-tune_dev100-cap60](contextbase/source_cap100-tune_dev100-cap60/metrics.json) | 100 | 22.0000% | 0.435919 | 100.0000% | 0.829 |
 | [weknora/default-assessment_dev293-derived](weknora/default-assessment_dev293-derived/metrics.json) | 293 | 49.8294% | 0.674218 | 99.6359% | 0.894 |
 | [weknora/default-dev393-cap60](weknora/default-dev393-cap60/metrics.json) | 393 | 50.1272% | 0.683642 | 99.5014% | 0.887 |
 
