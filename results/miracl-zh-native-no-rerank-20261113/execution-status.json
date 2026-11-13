@@ -2,9 +2,9 @@
   "state": "waiting_existing_ingestion",
   "product": "weknora",
   "scale": "100k",
-  "indexed": 60000,
+  "indexed": 70009,
   "adopted_ingest_pid": 2868,
-  "updated_unix": 1794545234.9389405,
+  "updated_unix": 1794547472.6790235,
   "pid": 7657,
   "publish_state": "pushed"
 }
