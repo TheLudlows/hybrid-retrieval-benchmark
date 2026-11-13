@@ -1,0 +1,63 @@
+{
+  "saved_at": "2026-11-13T21:27:27.106681+08:00",
+  "scope": "Exploratory comparison after additional ContextBase tuning and code changes; different timing windows; not an equal tuning-budget product comparison.",
+  "dataset": "miracl/zh/dev/subset-d51e1fe9ec6ec92d",
+  "corpus_sha256": "d51e1fe9ec6ec92db05df87aabff132f861a72b046a7713bc945f18746665363",
+  "source_contextbase_commit": "cdf6430e028ff456d490436ff99e50fcf4aba59c",
+  "source_contextbase_pr": "https://github.com/RSIXDB/hindsight/pull/108",
+  "model_reranking": false,
+  "concurrency": 1,
+  "candidate_ceiling": 60,
+  "contextbase": {
+    "dataset": "miracl/zh/dev/subset-d51e1fe9ec6ec92d",
+    "queries": 393,
+    "hit_at_1": 0.648854961832061,
+    "hit_at_5": 0.9363867684478372,
+    "hit_at_10": 0.9923664122137404,
+    "ndcg_at_10": 0.7768853870007946,
+    "recall_at_10": 0.9540591300133285,
+    "recall_at_100": 0.998303647158609,
+    "returned_depth": {
+      "mean": 54.732824427480914,
+      "min": 38,
+      "max": 60,
+      "queries_at_least_100": 0
+    },
+    "serial_p50_ms": 680.3924369960441,
+    "serial_p95_ms": 876.2977579972357,
+    "serial_p99_ms": 998.7288609991083
+  },
+  "weknora": {
+    "dataset": "miracl/zh/dev/subset-d51e1fe9ec6ec92d",
+    "queries": 393,
+    "hit_at_1": 0.5318066157760815,
+    "hit_at_5": 0.8880407124681934,
+    "hit_at_10": 0.9847328244274809,
+    "ndcg_at_10": 0.7097520222890271,
+    "recall_at_10": 0.9375318066157761,
+    "recall_at_100": 0.9950139343269114,
+    "returned_depth": {
+      "mean": 59.48600508905852,
+      "min": 55,
+      "max": 60,
+      "queries_at_least_100": 0
+    },
+    "serial_p50_ms": 808.6570189989288,
+    "serial_p95_ms": 873.6908110004151,
+    "serial_p99_ms": 898.4086560012656
+  },
+  "quality_delta_contextbase_minus_weknora": {
+    "hit_at_1": 0.11704834605597958,
+    "hit_at_5": 0.04834605597964381,
+    "hit_at_10": 0.007633587786259555,
+    "ndcg_at_10": 0.06713336471176745,
+    "recall_at_10": 0.016527323397552474,
+    "recall_at_100": 0.0032897128316975444
+  },
+  "input_files_sha256": {
+    "results/miracl-zh-rrf-config-formal-20261113/configured-dense97-dev393/metrics.json": "ce37d48b378298eeba5bd7583336f0429fbbbcd5bc5cfafb10f9b7ca1ad788e5",
+    "results/miracl-zh-native-no-rerank-20261113/100k/weknora/rrf_k30-dev393-cap60/metrics.json": "3d3dc133b5b6657556943ac55854a2da1729fa8dffcdd20cb1edb3f52aca8936",
+    "results/miracl-zh-rrf-config-formal-20261113/configured-dense97-dev393/rankings.jsonl": "b837c0fc0c8754af908a2bdf42e2fa616ded4f70d98f7aa9f941f12cf2950353",
+    "results/miracl-zh-native-no-rerank-20261113/100k/weknora/rrf_k30-dev393-cap60/rankings.jsonl": "1c6fa5641efe8970ad666c48463fac7bb4344922a3ab81b16fa0280aab1a9424"
+  }
+}

@@ -1,0 +1,981 @@
+{
+  "corpus_sha256": "d51e1fe9ec6ec92db05df87aabff132f861a72b046a7713bc945f18746665363",
+  "queries": 393,
+  "counts": {
+    "rank_1": 255,
+    "rank_2_5": 113,
+    "miss_top1_judged_zero": 124,
+    "rank_6_10": 22,
+    "miss_top1_unjudged": 14,
+    "rank_11_plus": 3
+  },
+  "scope": "Offline analysis of archived results; no new requests, tuning or model calls. Unjudged top results are not proven irrelevant.",
+  "top1_misses": [
+    {
+      "qid": "67347#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "5619646#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5
+    },
+    {
+      "qid": "138180#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "136113#14",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.618890676363047
+    },
+    {
+      "qid": "3068772#0",
+      "first_positive_rank": 5,
+      "first_returned_passage": "7203572#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.42177340954886444
+    },
+    {
+      "qid": "142510#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "543889#3",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5437713091520254
+    },
+    {
+      "qid": "1530447#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "299087#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.678294684588588
+    },
+    {
+      "qid": "1738836#0",
+      "first_positive_rank": 6,
+      "first_returned_passage": "4530#15",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.3562071871080222
+    },
+    {
+      "qid": "1645657#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "7397789#14",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5495131569368807
+    },
+    {
+      "qid": "5631605#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "4414992#1",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6240505200038379
+    },
+    {
+      "qid": "819295#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "37437#36",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.4776237035032179
+    },
+    {
+      "qid": "4566650#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "521#25",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6052602440527057
+    },
+    {
+      "qid": "121445#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "271#88",
+      "first_returned_label": null,
+      "ndcg_at_10": 0.5931729515195112
+    },
+    {
+      "qid": "4946100#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "923#2",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.3065735963827292
+    },
+    {
+      "qid": "4807731#0",
+      "first_positive_rank": 4,
+      "first_returned_passage": "3444#47",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.43067655807339306
+    },
+    {
+      "qid": "1919705#0",
+      "first_positive_rank": 4,
+      "first_returned_passage": "593360#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.43067655807339306
+    },
+    {
+      "qid": "392137#0",
+      "first_positive_rank": 10,
+      "first_returned_passage": "56611#64",
+      "first_returned_label": null,
+      "ndcg_at_10": 0.17723928678404774
+    },
+    {
+      "qid": "3412909#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "2207#9",
+      "first_returned_label": null,
+      "ndcg_at_10": 0.6663732474096913
+    },
+    {
+      "qid": "188245#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "498027#2",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5
+    },
+    {
+      "qid": "5373229#0",
+      "first_positive_rank": 5,
+      "first_returned_passage": "709164#10",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.38685280723454163
+    },
+    {
+      "qid": "3608981#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "1743524#19",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "1456958#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "1073731#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6978817289434457
+    },
+    {
+      "qid": "4542237#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "1817047#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5780136823717549
+    },
+    {
+      "qid": "1099470#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "6105260#1",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6462302129493456
+    },
+    {
+      "qid": "1261599#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "5025#49",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.4693608375942211
+    },
+    {
+      "qid": "2993422#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "49432#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "1041157#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "1181975#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5
+    },
+    {
+      "qid": "5563155#0",
+      "first_positive_rank": 6,
+      "first_returned_passage": "2889#1",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.4648536698336167
+    },
+    {
+      "qid": "6105722#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "3136#50",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6797310500037655
+    },
+    {
+      "qid": "291771#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "1861236#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "3789850#0",
+      "first_positive_rank": 6,
+      "first_returned_passage": "1140527#6",
+      "first_returned_label": null,
+      "ndcg_at_10": 0.3562071871080222
+    },
+    {
+      "qid": "7064742#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "481#163",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.619668607939653
+    },
+    {
+      "qid": "1473972#0",
+      "first_positive_rank": 6,
+      "first_returned_passage": "13445#32",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.3562071871080222
+    },
+    {
+      "qid": "1292280#0",
+      "first_positive_rank": 7,
+      "first_returned_passage": "5363449#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.3333333333333333
+    },
+    {
+      "qid": "567566#0",
+      "first_positive_rank": 5,
+      "first_returned_passage": "428010#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.38685280723454163
+    },
+    {
+      "qid": "5028923#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "7568177#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6934264036172708
+    },
+    {
+      "qid": "975966#0",
+      "first_positive_rank": 4,
+      "first_returned_passage": "1093609#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.43067655807339306
+    },
+    {
+      "qid": "3298087#0",
+      "first_positive_rank": 5,
+      "first_returned_passage": "3298087#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.38685280723454163
+    },
+    {
+      "qid": "276681#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "370931#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.619668607939653
+    },
+    {
+      "qid": "5048699#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "135182#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "284267#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "22632#1",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6052602440527057
+    },
+    {
+      "qid": "3842421#0",
+      "first_positive_rank": 6,
+      "first_returned_passage": "1343910#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.3562071871080222
+    },
+    {
+      "qid": "1653677#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "105208#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5437713091520254
+    },
+    {
+      "qid": "5286118#0",
+      "first_positive_rank": 5,
+      "first_returned_passage": "6885130#7",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5218136006852979
+    },
+    {
+      "qid": "7273910#0",
+      "first_positive_rank": 10,
+      "first_returned_passage": "6037211#48",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.2890648263178879
+    },
+    {
+      "qid": "7289294#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "5691974#7",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6934264036172708
+    },
+    {
+      "qid": "2963736#0",
+      "first_positive_rank": 4,
+      "first_returned_passage": "99204#18",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.43067655807339306
+    },
+    {
+      "qid": "7688629#0",
+      "first_positive_rank": 6,
+      "first_returned_passage": "5065575#0",
+      "first_returned_label": null,
+      "ndcg_at_10": 0.21840743681816419
+    },
+    {
+      "qid": "59019#0",
+      "first_positive_rank": 4,
+      "first_returned_passage": "7084#24",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.43067655807339306
+    },
+    {
+      "qid": "5172645#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "6379504#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6934264036172708
+    },
+    {
+      "qid": "1755730#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "204926#4",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5249810332008933
+    },
+    {
+      "qid": "6323378#0",
+      "first_positive_rank": 5,
+      "first_returned_passage": "97342#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.38685280723454163
+    },
+    {
+      "qid": "7719206#0",
+      "first_positive_rank": 11,
+      "first_returned_passage": "184484#24",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.0
+    },
+    {
+      "qid": "7243760#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "1290552#6",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5
+    },
+    {
+      "qid": "3185262#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "6844#18",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6934264036172708
+    },
+    {
+      "qid": "3913442#0",
+      "first_positive_rank": 5,
+      "first_returned_passage": "82327#65",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.38685280723454163
+    },
+    {
+      "qid": "5743799#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "30103#19",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5
+    },
+    {
+      "qid": "5429865#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "801731#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6533933590057491
+    },
+    {
+      "qid": "5156310#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "694065#2",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5
+    },
+    {
+      "qid": "1059425#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "687#26",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.7606395682357036
+    },
+    {
+      "qid": "5281126#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "1111967#2",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6509209298071326
+    },
+    {
+      "qid": "5524344#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "233006#43",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5
+    },
+    {
+      "qid": "217818#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "662312#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5
+    },
+    {
+      "qid": "5401198#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "7027059#82",
+      "first_returned_label": null,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "112539#0",
+      "first_positive_rank": 4,
+      "first_returned_passage": "25723#3",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5508095940041026
+    },
+    {
+      "qid": "795709#0",
+      "first_positive_rank": 4,
+      "first_returned_passage": "1124783#2",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.2640681225725909
+    },
+    {
+      "qid": "157900#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "141097#61",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "7252831#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "1808680#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "7555071#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "7284413#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5
+    },
+    {
+      "qid": "154940#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "65599#41",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "1488244#0",
+      "first_positive_rank": 7,
+      "first_returned_passage": "1370#40",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.3333333333333333
+    },
+    {
+      "qid": "1449953#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "13067#1",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "7475338#0",
+      "first_positive_rank": 6,
+      "first_returned_passage": "6314209#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.3562071871080222
+    },
+    {
+      "qid": "5570734#0",
+      "first_positive_rank": 5,
+      "first_returned_passage": "83350#7",
+      "first_returned_label": null,
+      "ndcg_at_10": 0.38685280723454163
+    },
+    {
+      "qid": "384494#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "1930#16",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "1118896#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "51280#19",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "7427419#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "17209#14",
+      "first_returned_label": null,
+      "ndcg_at_10": 0.6240505200038379
+    },
+    {
+      "qid": "1034177#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "5427#18",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "7738286#0",
+      "first_positive_rank": 10,
+      "first_returned_passage": "7223680#0",
+      "first_returned_label": null,
+      "ndcg_at_10": 0.2890648263178879
+    },
+    {
+      "qid": "6414757#0",
+      "first_positive_rank": 4,
+      "first_returned_passage": "2934784#7",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.4790262927928244
+    },
+    {
+      "qid": "3630168#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "47956#4",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6978817289434457
+    },
+    {
+      "qid": "49647#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "4360194#26",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5
+    },
+    {
+      "qid": "3981006#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "3981006#15",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6871475159848289
+    },
+    {
+      "qid": "634280#0",
+      "first_positive_rank": 5,
+      "first_returned_passage": "646836#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.38685280723454163
+    },
+    {
+      "qid": "1055668#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "3922469#14",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "6069550#0",
+      "first_positive_rank": 6,
+      "first_returned_passage": "10997#26",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.3562071871080222
+    },
+    {
+      "qid": "5216220#0",
+      "first_positive_rank": 11,
+      "first_returned_passage": "25846#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.0
+    },
+    {
+      "qid": "741921#0",
+      "first_positive_rank": 5,
+      "first_returned_passage": "48017#9",
+      "first_returned_label": null,
+      "ndcg_at_10": 0.38685280723454163
+    },
+    {
+      "qid": "1148922#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "380480#10",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5
+    },
+    {
+      "qid": "7312734#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "12729#48",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6934264036172708
+    },
+    {
+      "qid": "7848137#0",
+      "first_positive_rank": 7,
+      "first_returned_passage": "5093861#3",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.3333333333333333
+    },
+    {
+      "qid": "6567154#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "6045796#10",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6338412308988606
+    },
+    {
+      "qid": "595258#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "5714569#4",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6871475159848289
+    },
+    {
+      "qid": "7122066#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "553626#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5
+    },
+    {
+      "qid": "909924#0",
+      "first_positive_rank": 4,
+      "first_returned_passage": "3134#15",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.43067655807339306
+    },
+    {
+      "qid": "7008822#0",
+      "first_positive_rank": 4,
+      "first_returned_passage": "31570#26",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.48247555939075504
+    },
+    {
+      "qid": "4854553#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "41411#15",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5
+    },
+    {
+      "qid": "7122606#0",
+      "first_positive_rank": 5,
+      "first_returned_passage": "1721098#1",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.38685280723454163
+    },
+    {
+      "qid": "5650882#0",
+      "first_positive_rank": 8,
+      "first_returned_passage": "9970#5",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.31546487678572877
+    },
+    {
+      "qid": "210354#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "210354#35",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "3291910#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "65599#41",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "188983#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "99279#3",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5363781864793108
+    },
+    {
+      "qid": "6044052#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "7604774#5",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "7464755#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "569846#1",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "962694#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "512030#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5
+    },
+    {
+      "qid": "4714933#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "73521#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "992843#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "449#25",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5
+    },
+    {
+      "qid": "1661746#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "91555#34",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5
+    },
+    {
+      "qid": "202102#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "1733379#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6426881189719141
+    },
+    {
+      "qid": "6038439#0",
+      "first_positive_rank": 4,
+      "first_returned_passage": "3468186#13",
+      "first_returned_label": null,
+      "ndcg_at_10": 0.2640681225725909
+    },
+    {
+      "qid": "1070745#0",
+      "first_positive_rank": 9,
+      "first_returned_passage": "105461#33",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.3010299956639812
+    },
+    {
+      "qid": "7262367#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "2227#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "1065585#0",
+      "first_positive_rank": 9,
+      "first_returned_passage": "201511#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.3010299956639812
+    },
+    {
+      "qid": "5669382#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "162239#2",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5
+    },
+    {
+      "qid": "6551936#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "1180#2",
+      "first_returned_label": null,
+      "ndcg_at_10": 0.5706417189553201
+    },
+    {
+      "qid": "7832551#0",
+      "first_positive_rank": 4,
+      "first_returned_passage": "1127168#2",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.590463510067189
+    },
+    {
+      "qid": "6947878#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "7658#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.592512031964586
+    },
+    {
+      "qid": "3227351#0",
+      "first_positive_rank": 7,
+      "first_returned_passage": "58905#9",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.3333333333333333
+    },
+    {
+      "qid": "6992361#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "156544#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6797310500037655
+    },
+    {
+      "qid": "225339#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "16325#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "1574360#0",
+      "first_positive_rank": 6,
+      "first_returned_passage": "7284#1",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.3562071871080222
+    },
+    {
+      "qid": "3767971#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "110676#11",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "6595664#0",
+      "first_positive_rank": 6,
+      "first_returned_passage": "2226#4",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.3562071871080222
+    },
+    {
+      "qid": "6481844#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "1756147#10",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.619668607939653
+    },
+    {
+      "qid": "5317888#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "395279#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6663732474096913
+    },
+    {
+      "qid": "901779#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "1527591#2",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5307212739772434
+    },
+    {
+      "qid": "2905831#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "284725#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5
+    },
+    {
+      "qid": "1171948#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "112387#72",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.7057102966193831
+    },
+    {
+      "qid": "801235#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "5586145#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6386364459525711
+    },
+    {
+      "qid": "928098#0",
+      "first_positive_rank": 5,
+      "first_returned_passage": "1741#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.38685280723454163
+    },
+    {
+      "qid": "1793396#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "1166988#0",
+      "first_returned_label": null,
+      "ndcg_at_10": 0.5028746730079328
+    },
+    {
+      "qid": "3932257#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "26216#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5706417189553201
+    },
+    {
+      "qid": "2876856#0",
+      "first_positive_rank": 7,
+      "first_returned_passage": "141594#3",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.19632790425573848
+    },
+    {
+      "qid": "6518769#0",
+      "first_positive_rank": 4,
+      "first_returned_passage": "266039#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.16812753627111746
+    },
+    {
+      "qid": "2794016#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "23326#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "5068417#0",
+      "first_positive_rank": 3,
+      "first_returned_passage": "19538#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.5981109640835669
+    },
+    {
+      "qid": "7300525#0",
+      "first_positive_rank": 7,
+      "first_returned_passage": "654050#44",
+      "first_returned_label": null,
+      "ndcg_at_10": 0.13012668333070054
+    },
+    {
+      "qid": "1918355#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "484115#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.6309297535714575
+    },
+    {
+      "qid": "1320527#0",
+      "first_positive_rank": 16,
+      "first_returned_passage": "90113#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.0
+    },
+    {
+      "qid": "5517620#0",
+      "first_positive_rank": 2,
+      "first_returned_passage": "614211#0",
+      "first_returned_label": 0,
+      "ndcg_at_10": 0.7816510974258781
+    }
+  ]
+}
