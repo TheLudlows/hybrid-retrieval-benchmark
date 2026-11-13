@@ -1,0 +1,39 @@
+{
+  "embedding_revision": "25b9af8e87a38eb120cfe87125383677b9cd309e",
+  "reranker_revision": "6f5ff65298512715a1e669753bc754d2bc8f367b",
+  "format": "ONNX INT8 CPU",
+  "intra_op_threads": 3,
+  "inter_op_threads": 1,
+  "max_length": 512,
+  "batch_size": 8,
+  "files": {
+    "full-reranker/model_quantized.onnx": {
+      "size": 570727094,
+      "sha256": "912fc1215c2dbff6499700534bd8d31253af01573861abbfc43afd1fab6cce5d"
+    },
+    "full-reranker/tokenizer.json": {
+      "size": 17082900,
+      "sha256": "8bf8afbfd11306bd872018c53bfdf2e160a56f8edbcf49933324404791c148d3"
+    },
+    "full-reranker/config.json": {
+      "size": 848,
+      "sha256": "122e922dcfed6503c8721e6fe1daf090340c3d95ca7f3aa3a72730b321a51cfd"
+    },
+    "full-embedding/model_quantized.onnx": {
+      "size": 568479395,
+      "sha256": "2237f770aad5c71bbc1fc2d361a57f9a37400574cc9eff32626f0cdb49234730"
+    },
+    "full-embedding/tokenizer.json": {
+      "size": 17082799,
+      "sha256": "249df0778f236f6ece390de0de746838ef25b9d6954b68c2ee71249e0a9d8fd4"
+    },
+    "full-embedding/config.json": {
+      "size": 658,
+      "sha256": "70dae5884ced999af00244f776ac9eaa71538d68497d3d6a6091e0318cd32905"
+    }
+  },
+  "embedding_http_batch_window_ms": 10,
+  "batching_scope": "Concurrent HTTP embedding inputs; native product requests preserved; ONNX batch size remains 8",
+  "formal_query_threads": 3,
+  "ingest_threads": 3
+}

@@ -1,0 +1,6 @@
+{
+  "type": "URLError",
+  "message": "<urlopen error [Errno 111] Connection refused>",
+  "completed_stages": [],
+  "recovery": "Rerun identical command; completed stages and fsynced queries are reused."
+}
