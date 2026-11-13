@@ -1,10 +1,11 @@
 {
   "state": "case_complete",
-  "case": "mixed99",
+  "case": "semantic_only",
   "queries": 393,
   "completed_cases": [
     "baseline97",
     "mixed95",
-    "mixed99"
+    "mixed99",
+    "semantic_only"
   ]
 }

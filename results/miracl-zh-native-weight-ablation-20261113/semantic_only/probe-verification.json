@@ -1,0 +1,9 @@
+{
+  "qid": "4714933#0",
+  "rrf_entries_verified": 100,
+  "bm25_has_results": false,
+  "expected_text_search": false,
+  "query_embedding_sha256": "35e58e8cb8cecb3c3f8271610572a2bc838f8ea2788c3c3a870c070086f1c0ad",
+  "native_passthrough_candidates": 60,
+  "model_rerank_calls_expected": 0
+}
