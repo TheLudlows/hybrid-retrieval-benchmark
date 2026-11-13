@@ -1,0 +1,228 @@
+--- a/hindsight-api-slim/hindsight_api/engine/search/fusion.py
++++ b/hindsight-api-slim/hindsight_api/engine/search/fusion.py
+@@ -2,6 +2,7 @@
+ Helper functions for hybrid search (semantic + BM25 + graph).
+ """
+ 
++from ..._benchmark_retrieval import contribution
+ from .types import ArmScores, MergedCandidate, RetrievalResult
+ 
+ 
+@@ -82,7 +83,7 @@
+                 source_ranks[doc_id] = {}
+                 arm_scores[doc_id] = ArmScores()
+ 
+-            rrf_scores[doc_id] += 1.0 / (k + rank)
++            rrf_scores[doc_id] += contribution(source_name, rank, k)
+             source_ranks[doc_id][f"{source_name}_rank"] = rank
+ 
+             # Capture this arm's raw score for the doc (the merged RetrievalResult
+--- a/hindsight-api-slim/hindsight_api/engine/search/bm25_term_selection.py
++++ b/hindsight-api-slim/hindsight_api/engine/search/bm25_term_selection.py
+@@ -33,6 +33,7 @@
+ import logging
+ from typing import TYPE_CHECKING
+ 
++from ..._benchmark_retrieval import query_text as benchmark_bm25_query_text
+ from ..memory_engine import get_current_schema
+ 
+ if TYPE_CHECKING:
+@@ -141,6 +142,8 @@
+     configured native language.
+     """
+     text_search_extension = config.text_search_extension
++    if text_search_extension == "pg_search":
++        query_text = benchmark_bm25_query_text(query_text)
+     max_query_terms = config.bm25_max_query_terms
+     bm25_tokens = tokens
+     # Native tsvector has no IDF and ranks every `@@` match, so a long OR query over
+--- a/hindsight-api-slim/hindsight_api/engine/sql/postgresql.py
++++ b/hindsight-api-slim/hindsight_api/engine/sql/postgresql.py
+@@ -7,6 +7,7 @@
+ 
+ from dataclasses import dataclass
+ 
++from ..._benchmark_retrieval import stopword_sql
+ from ..._text_search import mental_models_text_document
+ from .base import SQLDialect, bm25_score_gate
+ 
+@@ -56,7 +57,7 @@
+         return (
+             f"ARRAY(SELECT {fn}.term(f, t) FROM ("
+             f"SELECT t FROM unnest({text_param}::text::pdb.{tokenizer}::text[]) WITH ORDINALITY u(t, o)"
+-            f" WHERE t !~ '^[[:space:][:punct:]]*$'"
++            f" WHERE t !~ '^[[:space:][:punct:]]*$'{stopword_sql()}"
+             f" GROUP BY t ORDER BY char_length(t) > 1 DESC, min(o){cap}"
+             f") k CROSS JOIN (VALUES {values}) v(f))"
+         )
+--- /dev/null
++++ b/hindsight-api-slim/hindsight_api/_benchmark_retrieval.py
+@@ -0,0 +1,87 @@
++"""Benchmark-only retrieval experiment; not a released ContextBase configuration API."""
++from __future__ import annotations
++
++from dataclasses import dataclass
++from functools import lru_cache
++import logging
++import math
++import os
++from typing import TYPE_CHECKING, Literal, cast
++
++if TYPE_CHECKING:
++    from opencc import OpenCC
++
++logger = logging.getLogger(__name__)
++Policy = Literal["native", "stop", "expand_stop"]
++# Fixed before this experiment's score collection; not edited per query.
++STOPWORDS = frozenset(
++    "的 了 是 在 有 和 与 哪 谁 什么 哪些 如何 怎么 怎样 哪里 多少 为什么 为何 请问 "
++    "一个 一些 这 那 何时 什么时候 时候 吗 呢".split()
++)
++
++
++@dataclass(frozen=True)
++class ExperimentSettings:
++    policy: Policy
++    vector_weight: float
++    keyword_weight: float
++
++
++@lru_cache(maxsize=1)
++def settings() -> ExperimentSettings:
++    """Settings are immutable for the service lifetime; changing them requires restart."""
++    policy = os.environ.get("CONTEXTBASE_API_EXPERIMENT_BM25_POLICY", "native")
++    if policy not in ("native", "stop", "expand_stop"):
++        raise ValueError(f"Unknown benchmark BM25 policy: {policy}")
++    vector = float(os.environ.get("CONTEXTBASE_API_EXPERIMENT_RRF_VECTOR_WEIGHT", "1"))
++    keyword = float(os.environ.get("CONTEXTBASE_API_EXPERIMENT_RRF_KEYWORD_WEIGHT", "1"))
++    if not all(math.isfinite(value) and value > 0 for value in (vector, keyword)):
++        raise ValueError("Both experimental fusion weights must be finite and positive")
++    result = ExperimentSettings(policy=cast(Policy, policy), vector_weight=vector, keyword_weight=keyword)
++    logger.warning("BENCHMARK-ONLY retrieval source=%s settings=%s", __file__, result)
++    return result
++
++
++def contribution(source: str, rank: int, k: int) -> float:
++    config = settings()
++    weight = config.vector_weight if source == "semantic" else config.keyword_weight if source == "bm25" else 1.0
++    return weight / (k + rank)
++
++
++def stopword_sql() -> str:
++    """Filter only query tokens. Stored documents and their index remain unchanged."""
++    if settings().policy == "native":
++        return ""
++    words = ",".join("'" + word.replace("'", "''") + "'" for word in sorted(STOPWORDS))
++    return f" AND t <> ALL(ARRAY[{words}]::text[])"
++
++
++@dataclass(frozen=True)
++class ScriptConverters:
++    simplified: OpenCC
++    traditional: OpenCC
++    taiwan: OpenCC
++
++
++@lru_cache(maxsize=1)
++def converters() -> ScriptConverters:
++    # Import only for the expansion case, leaving the disabled control independent
++    # of the extra package. Each OpenCC instance is constructed before sharing.
++    from opencc import OpenCC
++
++    return ScriptConverters(OpenCC("t2s"), OpenCC("s2t"), OpenCC("s2twp"))
++
++
++def query_text(text: str) -> str:
++    config = settings()
++    if config.policy != "expand_stop":
++        return text
++    conversion = converters()
++    variants = [text, conversion.simplified.convert(text), conversion.traditional.convert(text),
++                conversion.taiwan.convert(text)]
++    # This function is called only for the BM25 parameter; the original query
++    # continues to feed the embedding model and trace. Spaces delimit variants;
++    # pg_search's existing token filtering removes the whitespace tokens.
++    result = " ".join(dict.fromkeys(variants))
++    logger.info("BM25_EXPERIMENT original=%r expanded=%r", text, result)
++    return result
+--- /dev/null
++++ b/hindsight-api-slim/tests/test_benchmark_retrieval_experiment.py
+@@ -0,0 +1,78 @@
++"""Mechanism tests for the isolated benchmark-only extension."""
++from __future__ import annotations
++
++import os
++import unittest
++from unittest.mock import patch
++
++from hindsight_api import _benchmark_retrieval as experiment
++from hindsight_api.engine.search.fusion import reciprocal_rank_fusion
++from hindsight_api.engine.search.types import RetrievalResult
++from hindsight_api.engine.sql.postgresql import pg_search_should
++
++
++class TestBenchmarkRetrievalExperiment(unittest.TestCase):
++    def setUp(self) -> None:
++        self.environment = patch.dict(os.environ, {
++            "CONTEXTBASE_API_EXPERIMENT_BM25_POLICY": "native",
++            "CONTEXTBASE_API_EXPERIMENT_RRF_VECTOR_WEIGHT": "1",
++            "CONTEXTBASE_API_EXPERIMENT_RRF_KEYWORD_WEIGHT": "1",
++        })
++        self.environment.start()
++        experiment.settings.cache_clear()
++
++    def tearDown(self) -> None:
++        experiment.settings.cache_clear()
++        self.environment.stop()
++
++    def test_disabled_control_keeps_query_sql_and_native_rrf(self) -> None:
++        text = "哥斯达黎加的国歌是什么？"
++        self.assertEqual(experiment.query_text(text), text)
++        self.assertEqual(experiment.stopword_sql(), "")
++        self.assertEqual(experiment.contribution("semantic", 1, 60), 1 / 61)
++        expression = pg_search_should("paradedb", ("text", "text_signals"), "$4", "jieba", 16)
++        self.assertNotIn("<> ALL", expression)
++
++    def test_weighted_fusion_changes_order_with_expected_score(self) -> None:
++        first = RetrievalResult(id="a", text="a", fact_type="world")
++        lexical = RetrievalResult(id="b", text="b", fact_type="world")
++        semantic = [first] + [RetrievalResult(id=f"fill{i}", text="x", fact_type="world") for i in range(18)]
++        semantic.append(lexical)
++        self.assertEqual(reciprocal_rank_fusion([semantic, [lexical]])[0].id, "b")
++        os.environ["CONTEXTBASE_API_EXPERIMENT_RRF_VECTOR_WEIGHT"] = "0.97"
++        os.environ["CONTEXTBASE_API_EXPERIMENT_RRF_KEYWORD_WEIGHT"] = "0.03"
++        experiment.settings.cache_clear()
++        weighted = reciprocal_rank_fusion([semantic, [lexical]])
++        self.assertEqual(weighted[0].id, "a")
++        observed = next(row.rrf_score for row in weighted if row.id == "b")
++        self.assertAlmostEqual(observed, 0.97 / 80 + 0.03 / 61)
++
++    def test_fixed_stopwords_only_change_query_term_filter(self) -> None:
++        os.environ["CONTEXTBASE_API_EXPERIMENT_BM25_POLICY"] = "stop"
++        experiment.settings.cache_clear()
++        self.assertEqual(experiment.query_text("原始问题"), "原始问题")
++        expression = pg_search_should("paradedb", ("text",), "$4", "jieba", 16)
++        self.assertIn("t <> ALL", expression)
++        self.assertIn("'什么'", expression)
++        self.assertIn("$4::text::pdb.jieba", expression)
++
++    def test_script_expansion_preserves_original_and_adds_taiwan_alias(self) -> None:
++        os.environ["CONTEXTBASE_API_EXPERIMENT_BM25_POLICY"] = "expand_stop"
++        experiment.settings.cache_clear()
++        original = "哥斯达黎加的国歌是什么？"
++        expanded = experiment.query_text(original)
++        self.assertTrue(expanded.startswith(original))
++        self.assertIn("哥斯大黎加的國歌是什麼", expanded)
++        self.assertEqual(original, "哥斯达黎加的国歌是什么？")
++        self.assertIn("<> ALL", experiment.stopword_sql())
++
++    def test_invalid_experiment_values_fail_closed(self) -> None:
++        for value in ["0", "-1", "nan", "inf"]:
++            os.environ["CONTEXTBASE_API_EXPERIMENT_RRF_VECTOR_WEIGHT"] = value
++            experiment.settings.cache_clear()
++            with self.assertRaises(ValueError):
++                experiment.settings()
++
++
++if __name__ == "__main__":
++    unittest.main()

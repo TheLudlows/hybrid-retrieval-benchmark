@@ -1,0 +1,18 @@
+{
+  "functional_unit_tests": {
+    "count": 5,
+    "passed": true
+  },
+  "full_repository_lint": {
+    "passed": false,
+    "observed_failure": "Frontend ESLint cannot resolve @eslint/js in isolated archive copy."
+  },
+  "targeted_python_ruff": {
+    "passed": false,
+    "findings": [
+      "I001 import ordering in new benchmark-only helper; retained as review finding."
+    ]
+  },
+  "scope": "Experimental benchmark patch, not production-ready upstream PR. No endpoint or SDK schema changed; native HTTP equivalence and live probe checks will be required before reporting improvements.",
+  "unexpected_api_source_changes_outside_patch": []
+}
