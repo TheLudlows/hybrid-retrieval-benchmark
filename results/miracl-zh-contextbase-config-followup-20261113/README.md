@@ -1,5 +1,7 @@
 # ContextBase 原生配置组合追加验证
 
+**已完成全部验证。结果见 [RESULTS.md](RESULTS.md)，复算与数据保留核验见 [final-verification.json](final-verification.json)。**
+
 用户授权在精简配置上验证两个组合。原先[两端各6组的主实验](../miracl-zh-native-no-rerank-20261113/README.md)独立保留，本轮是ContextBase额外探索，不能包装为相同调参预算的产品对比。
 
 ## 冻结方案

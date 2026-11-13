@@ -1,0 +1,28 @@
+{
+  "all_quality_and_latency_metrics_recomputed": true,
+  "metric_files": 6,
+  "formal_native_queries": 893,
+  "formal_embedding_calls": 893,
+  "formal_embedding_input_tokens": 8598,
+  "warmup_embedding_calls_excluded": 20,
+  "preflight_embedding_calls_excluded": 3,
+  "rerank_calls": 0,
+  "source_and_plan_fingerprints_match": true,
+  "both_100k_ingestion_checkpoints_complete_and_retained": true,
+  "backups_retained": {
+    "weknora-100k-index-ready.db": 1251520512,
+    "contextbase-100k-index-ready.dump": 603400077
+  },
+  "extra200_new": {
+    "hit_at_1": 0.455,
+    "ndcg_at_10": 0.6154390254177464,
+    "recall_at_10": 0.8148511904761905,
+    "recall_at_100": 1.0
+  },
+  "extra200_previous": {
+    "hit_at_1": 0.45,
+    "ndcg_at_10": 0.6137366510910189,
+    "recall_at_10": 0.8184702380952381,
+    "recall_at_100": 1.0
+  }
+}
