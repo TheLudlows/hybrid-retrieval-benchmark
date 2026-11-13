@@ -1,0 +1,5 @@
+{
+  "bank_id": "miracl_scale_100k",
+  "enable_reranking": false,
+  "source": "native bank config PATCH/readback"
+}
