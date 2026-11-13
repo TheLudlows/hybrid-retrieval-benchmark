@@ -1,0 +1,56 @@
+{
+  "registered_at": "2026-11-13T22:25:12.565589+08:00",
+  "scope": "Four fixed native cases; complete 393 queries each; exploratory because these queries have already been used. No additional parameter grid or blind-test claim.",
+  "cases": [
+    {
+      "name": "baseline97",
+      "label": "混合 0.97/0.03 基线",
+      "text_search": true,
+      "semantic_weight": 0.97,
+      "bm25_weight": 0.03
+    },
+    {
+      "name": "mixed95",
+      "label": "混合 0.95/0.05",
+      "text_search": true,
+      "semantic_weight": 0.95,
+      "bm25_weight": 0.05
+    },
+    {
+      "name": "mixed99",
+      "label": "混合 0.99/0.01",
+      "text_search": true,
+      "semantic_weight": 0.99,
+      "bm25_weight": 0.01
+    },
+    {
+      "name": "semantic_only",
+      "label": "纯向量消融（全文关闭）",
+      "text_search": false,
+      "semantic_weight": 1.0,
+      "bm25_weight": 1.0
+    }
+  ],
+  "query_count_each": 393,
+  "corpus_passages": 100000,
+  "corpus_seed": 20261112,
+  "corpus_sha256": "d51e1fe9ec6ec92db05df87aabff132f861a72b046a7713bc945f18746665363",
+  "query_order_sha256": "8a69f06f771198653bcf15d71be8968d9b56f90dd6f3f6b75465ca0c882d1b55",
+  "source_commit": "cdf6430e028ff456d490436ff99e50fcf4aba59c",
+  "model_fingerprints": "results/miracl-zh-rrf-config-formal-20261113/model-fingerprints.json",
+  "probe_embedding_sha256": "35e58e8cb8cecb3c3f8271610572a2bc838f8ea2788c3c3a870c070086f1c0ad",
+  "candidate_ceiling": 60,
+  "source_cap": 100,
+  "recall_high_budget": 1000,
+  "rrf_k": 60,
+  "max_tokens": 8192,
+  "query_concurrency": 1,
+  "warmup_each": 4,
+  "model_reranking": false,
+  "run_prefix": "native-weight-ablation-20261113/",
+  "driver_sha256": "475ca7dcc6c1d0546ece14e5cc9ca4a8ed3262ef781c19c6bbaa8c3620ac843f",
+  "reporting": "Report every registered case. Compare quality and per-query gains/losses to the rerun baseline; semantic-only remains an ablation. No selection on 393 used as an unbiased quality claim.",
+  "retention": "Do not modify/delete original product data. Restore isolated bank to baseline97 and stop only owned validation API.",
+  "recovery": "Reuse complete case artifacts and fsynced per-query results with identical plan/configuration. Preserve actual model-call attempts.",
+  "historical_baseline": "results/miracl-zh-rrf-config-formal-20261113/configured-dense97-dev393"
+}
