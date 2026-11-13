@@ -7,6 +7,7 @@
 | [contextbase/dense70-tune_dev100-cap60](contextbase/dense70-tune_dev100-cap60/metrics.json) | 100 | 46.0000% | 0.665669 | 100.0000% | 0.766 |
 | [contextbase/dense97-tune_dev100-cap60](contextbase/dense97-tune_dev100-cap60/metrics.json) | 100 | 70.0000% | 0.815517 | 100.0000% | 0.861 |
 | [contextbase/script_expand_stop-tune_dev100-cap60](contextbase/script_expand_stop-tune_dev100-cap60/metrics.json) | 100 | 51.0000% | 0.639539 | 100.0000% | 0.818 |
+| [contextbase/script_expand_stop_dense70-tune_dev100-cap60](contextbase/script_expand_stop_dense70-tune_dev100-cap60/metrics.json) | 100 | 52.0000% | 0.702168 | 100.0000% | 0.785 |
 | [contextbase/stock_equivalent-tune_dev100-cap60](contextbase/stock_equivalent-tune_dev100-cap60/metrics.json) | 100 | 42.0000% | 0.596384 | 100.0000% | 0.849 |
 | [contextbase/stop_only-tune_dev100-cap60](contextbase/stop_only-tune_dev100-cap60/metrics.json) | 100 | 43.0000% | 0.591085 | 100.0000% | 0.819 |
 

@@ -2,14 +2,14 @@
   "state": "querying",
   "scale": "100k",
   "product": "contextbase",
-  "case": "dense97",
+  "case": "script_expand_stop_dense70",
   "candidate_ceiling": 60,
   "query_set": "tune_dev100",
   "queries": 100,
   "indexed": null,
   "elapsed_s": null,
-  "updated_unix": 1794562511.694714,
+  "updated_unix": 1794562637.3674214,
   "pid": 23284,
-  "run_id": "nested-v6-experimental-lexical-fusion/100k/contextbase/dense97-tune_dev100-cap60",
+  "run_id": "nested-v6-experimental-lexical-fusion/100k/contextbase/script_expand_stop_dense70-tune_dev100-cap60",
   "publish_state": "pushed"
 }

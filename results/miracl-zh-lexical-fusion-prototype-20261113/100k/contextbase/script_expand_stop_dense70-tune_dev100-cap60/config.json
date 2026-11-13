@@ -1,0 +1,27 @@
+{
+  "product": "contextbase",
+  "scale": "100k",
+  "corpus": {
+    "size": 17787483,
+    "sha256": "d51e1fe9ec6ec92db05df87aabff132f861a72b046a7713bc945f18746665363"
+  },
+  "query_set": "tune_dev100",
+  "query_ids_sha256": "3e290349ba7390b16f304a4c9a22368938634ccedeb71c817d48638067a0db10",
+  "case": {
+    "name": "script_expand_stop_dense70",
+    "env": {
+      "ENABLE_GRAPH_RETRIEVAL": "false",
+      "ENABLE_TEMPORAL_RETRIEVAL": "false",
+      "RECALL_MAX_CANDIDATES_PER_SOURCE": "100",
+      "RECALL_STRATEGY_BOOSTS": "",
+      "BM25_MAX_QUERY_TERMS": "16",
+      "EXPERIMENT_BM25_POLICY": "expand_stop",
+      "EXPERIMENT_RRF_VECTOR_WEIGHT": "0.7",
+      "EXPERIMENT_RRF_KEYWORD_WEIGHT": "0.3"
+    }
+  },
+  "candidate_ceiling": 60,
+  "max_tokens": 8192,
+  "plan_sha256": "d6e0b9c3ddaa74b87dfbed4a9e2ae4f822fb27e3429ec02d5dee1a0c3ec2f79e",
+  "model_reranking": false
+}
