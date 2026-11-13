@@ -1,0 +1,55 @@
+{
+  "observed_unix": 1794531731.6322916,
+  "worker_alive": true,
+  "scale": "100k",
+  "product": "contextbase",
+  "case": "default",
+  "saved_queries": 308,
+  "successful_saved_queries": 308,
+  "unique_qids": 308,
+  "target_queries": 393,
+  "model_runtime": {
+    "onnxruntime": "1.31.1",
+    "embedding_intra_op_threads": 3,
+    "reranker_intra_op_threads": 3,
+    "inter_op_threads": 1,
+    "embedding_providers": [
+      "CPUExecutionProvider"
+    ],
+    "reranker_providers": [
+      "CPUExecutionProvider"
+    ],
+    "embedding_batch_window_ms": 10.0,
+    "embedding_truncation": {
+      "max_length": 512,
+      "stride": 0,
+      "strategy": "longest_first",
+      "direction": "right"
+    },
+    "reranker_truncation": {
+      "max_length": 512,
+      "stride": 0,
+      "strategy": "longest_first",
+      "direction": "right"
+    }
+  },
+  "observed_model_calls": {
+    "warmup/embedding": {
+      "records": 8,
+      "max_pairs": 0
+    },
+    "warmup/rerank": {
+      "records": 8,
+      "max_pairs": 60
+    },
+    "query/embedding": {
+      "records": 310,
+      "max_pairs": 0
+    },
+    "query/rerank": {
+      "records": 308,
+      "max_pairs": 60
+    }
+  },
+  "status": "running; full scale comparison is incomplete"
+}
