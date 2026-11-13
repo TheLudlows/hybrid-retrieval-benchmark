@@ -5,6 +5,7 @@
 | 产品 / 配置 / 查询集 | 题数 | Hit@1 | nDCG@10 | Recall@100 | p95 秒 |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | [contextbase/lean_control-tune_dev100-cap60](contextbase/lean_control-tune_dev100-cap60/metrics.json) | 100 | 42.0000% | 0.594464 | 100.0000% | 0.866 |
+| [contextbase/lean_semantic_priority-tune_dev100-cap60](contextbase/lean_semantic_priority-tune_dev100-cap60/metrics.json) | 100 | 39.0000% | 0.584728 | 97.0500% | 0.991 |
 
 每个已完成配置目录保留配置指纹、逐题排名、实际模型调用（gzip）和用量。`assessment_dev293-derived` 是完整393题中的固定子集，不另发查询；其余记录标明实际查询集。40/100候选和ContextBase 16384返回预算仅为独立预算实验，不参与60候选主配置选择。
 
