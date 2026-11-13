@@ -1,0 +1,8 @@
+{
+  "prototype_probe/embedding": {
+    "input_tokens": 13,
+    "calls": 1,
+    "pairs": 0,
+    "max_pairs": 0
+  }
+}

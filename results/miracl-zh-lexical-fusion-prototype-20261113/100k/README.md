@@ -4,6 +4,7 @@
 
 | 产品 / 配置 / 查询集 | 题数 | Hit@1 | nDCG@10 | Recall@100 | p95 秒 |
 | --- | ---: | ---: | ---: | ---: | ---: |
+| [contextbase/dense70-tune_dev100-cap60](contextbase/dense70-tune_dev100-cap60/metrics.json) | 100 | 46.0000% | 0.665669 | 100.0000% | 0.766 |
 | [contextbase/script_expand_stop-tune_dev100-cap60](contextbase/script_expand_stop-tune_dev100-cap60/metrics.json) | 100 | 51.0000% | 0.639539 | 100.0000% | 0.818 |
 | [contextbase/stock_equivalent-tune_dev100-cap60](contextbase/stock_equivalent-tune_dev100-cap60/metrics.json) | 100 | 42.0000% | 0.596384 | 100.0000% | 0.849 |
 | [contextbase/stop_only-tune_dev100-cap60](contextbase/stop_only-tune_dev100-cap60/metrics.json) | 100 | 43.0000% | 0.591085 | 100.0000% | 0.819 |
