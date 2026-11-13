@@ -1,0 +1,96 @@
+{
+  "baseline97": {
+    "query_embedding_service_recorded_p50_ms": 31.05479800433386,
+    "query_embedding_service_recorded_p95_ms": 41.22437299520243,
+    "native_probe_phase_seconds": {
+      "backend_acquisition": 1.6689300537109375e-06,
+      "generate_query_embedding": 0.10860085487365723,
+      "store_recall": 0.8697507381439209,
+      "parallel_retrieval": 0.8754146099090576,
+      "retrieval_temporal_extraction": 2.384185791015625e-07,
+      "retrieval_store_recall": 0.8697507381439209,
+      "rrf_merge": 0.00033473968505859375,
+      "rerank_prefilter": 0.0,
+      "hydrate_results": 9.775161743164062e-06,
+      "reranking": 0.0018711090087890625,
+      "combined_scoring": 0.0005269050598144531,
+      "chunk_fetch": 0.008741140365600586,
+      "token_filtering": 0.001035928726196289,
+      "result_serialization": 0.001703500747680664,
+      "entity_build": 0.2714102268218994,
+      "semaphore_wait": 5.4836273193359375e-06,
+      "trace_finalize": 0.0031003952026367188
+    },
+    "scope": "Model-service timers are not whole API latency; one native trace probe per case is not a population phase average."
+  },
+  "mixed95": {
+    "query_embedding_service_recorded_p50_ms": 31.42566000315128,
+    "query_embedding_service_recorded_p95_ms": 41.05174400319811,
+    "native_probe_phase_seconds": {
+      "backend_acquisition": 7.152557373046875e-07,
+      "generate_query_embedding": 0.04663801193237305,
+      "store_recall": 0.6100363731384277,
+      "parallel_retrieval": 0.6107192039489746,
+      "retrieval_store_recall": 0.6100363731384277,
+      "rrf_merge": 0.0009305477142333984,
+      "rerank_prefilter": 0.0,
+      "hydrate_results": 5.4836273193359375e-06,
+      "reranking": 0.00011014938354492188,
+      "combined_scoring": 0.0003905296325683594,
+      "chunk_fetch": 0.007668018341064453,
+      "token_filtering": 0.0012116432189941406,
+      "result_serialization": 0.0009100437164306641,
+      "entity_build": 0.00041937828063964844,
+      "semaphore_wait": 2.86102294921875e-06,
+      "trace_finalize": 0.0031981468200683594
+    },
+    "scope": "Model-service timers are not whole API latency; one native trace probe per case is not a population phase average."
+  },
+  "mixed99": {
+    "query_embedding_service_recorded_p50_ms": 31.55014799995115,
+    "query_embedding_service_recorded_p95_ms": 42.707343003712595,
+    "native_probe_phase_seconds": {
+      "backend_acquisition": 7.152557373046875e-07,
+      "generate_query_embedding": 0.0487217903137207,
+      "store_recall": 0.5655539035797119,
+      "parallel_retrieval": 0.5662388801574707,
+      "retrieval_store_recall": 0.5655539035797119,
+      "rrf_merge": 0.0003147125244140625,
+      "rerank_prefilter": 0.0,
+      "hydrate_results": 5.245208740234375e-06,
+      "reranking": 0.00010657310485839844,
+      "combined_scoring": 0.0004303455352783203,
+      "chunk_fetch": 0.004512786865234375,
+      "token_filtering": 0.0008759498596191406,
+      "result_serialization": 0.0005204677581787109,
+      "entity_build": 0.0003578662872314453,
+      "semaphore_wait": 4.5299530029296875e-06,
+      "trace_finalize": 0.002367258071899414
+    },
+    "scope": "Model-service timers are not whole API latency; one native trace probe per case is not a population phase average."
+  },
+  "semantic_only": {
+    "query_embedding_service_recorded_p50_ms": 31.592311002896167,
+    "query_embedding_service_recorded_p95_ms": 43.749919001129456,
+    "native_probe_phase_seconds": {
+      "backend_acquisition": 9.5367431640625e-07,
+      "generate_query_embedding": 0.04163551330566406,
+      "store_recall": 0.19443988800048828,
+      "parallel_retrieval": 0.1951580047607422,
+      "retrieval_temporal_extraction": 2.384185791015625e-07,
+      "retrieval_store_recall": 0.19443988800048828,
+      "rrf_merge": 0.00021314620971679688,
+      "rerank_prefilter": 0.0,
+      "hydrate_results": 4.5299530029296875e-06,
+      "reranking": 8.463859558105469e-05,
+      "combined_scoring": 0.0004367828369140625,
+      "chunk_fetch": 0.0043487548828125,
+      "token_filtering": 0.0006883144378662109,
+      "result_serialization": 0.00046443939208984375,
+      "entity_build": 0.00047397613525390625,
+      "semaphore_wait": 2.86102294921875e-06,
+      "trace_finalize": 0.0020279884338378906
+    },
+    "scope": "Model-service timers are not whole API latency; one native trace probe per case is not a population phase average."
+  }
+}

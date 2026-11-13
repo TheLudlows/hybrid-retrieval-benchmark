@@ -1,0 +1,27 @@
+{
+  "original_service_not_reconfigured": true,
+  "original_source_not_modified": true,
+  "independent_bank_restored_to_baseline97": true,
+  "independent_api_stopped": true,
+  "independent_index_and_runtime_retained": true,
+  "checkpoints": {
+    "contextbase": {
+      "indexed": 100000,
+      "complete": true
+    },
+    "weknora": {
+      "indexed": 100000,
+      "complete": true
+    }
+  },
+  "backups": {
+    "contextbase": {
+      "retained": true,
+      "bytes": 603400077
+    },
+    "weknora": {
+      "retained": true,
+      "bytes": 1251520512
+    }
+  }
+}

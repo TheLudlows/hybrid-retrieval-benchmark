@@ -1,0 +1,12 @@
+{
+  "all_four_cases_queries": 393,
+  "total_successful_queries": 1572,
+  "all_cases_independently_rescored": true,
+  "model_settings_unchanged": true,
+  "all_model_file_fingerprints_unchanged": true,
+  "source_commit_unchanged": "cdf6430e028ff456d490436ff99e50fcf4aba59c",
+  "query_embedding_calls": 1572,
+  "query_embedding_tokens": 15180,
+  "rerank_calls": 0,
+  "restored_baseline97": true
+}

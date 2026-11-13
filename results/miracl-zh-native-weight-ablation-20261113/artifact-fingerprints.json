@@ -1,0 +1,26 @@
+{
+  "baseline97": {
+    "rankings.jsonl": "4680226d7b7a874dd5e177eab40c8263e8e2bd8e1be6fb5566a9e2c7be66dd6a",
+    "metrics.json": "717598d75f7bcc0f6949e1ef176aad3c9c1a1cc93c64c335fe9b2c80d8f33beb",
+    "config.json": "b1f380c18dbf4b8b6b6ae38d8ea356b39eb18ad6ce5a48d70d60e395cb7c86fe",
+    "model-calls.jsonl.gz": "30fb229579acafd6028f1246285b58c02e5fb2e222197fbd8d97f71613569a05"
+  },
+  "mixed95": {
+    "rankings.jsonl": "78b1bacf162d9d3d6d0adc44ac8a98ad87a0248ed7ad4f521b11d859e449f9b4",
+    "metrics.json": "b005e57c694557ac6d257f4626077242da582e3ad50e5b6d04a2dc4a0e38ef0f",
+    "config.json": "99fba25fffba065bc376ea0ec327cda48facd14dc4e056c22d47838649c7da7f",
+    "model-calls.jsonl.gz": "d71f395337e7467b007799e13f711535a8fb5eea5150804480f845904e980e96"
+  },
+  "mixed99": {
+    "rankings.jsonl": "15fd090dea7909559278796833c00758e5dfff9a1be4fc7a5e36168e848bd1b1",
+    "metrics.json": "d51c5531693353430c3619ededd25d402f141c52616504af9af7c63939c84653",
+    "config.json": "ae2997887f8f68da933d8d4778ceabf8fb94666c6e487a9ac7dc05ead8022b8b",
+    "model-calls.jsonl.gz": "0260b982e3caf69e0ff11b0a44ddd31d2c2e5dcb9f3c3db3f37f2b93822d1e6e"
+  },
+  "semantic_only": {
+    "rankings.jsonl": "0c394ec44f3a1744f4dbf8f580e2c9b55553024906058087f7bf1628563df059",
+    "metrics.json": "74e6b233aac3ed43af57e1d71c03d93d15d5eb042244c9433a583b5127ea7552",
+    "config.json": "f1d2ae40ca3326c24129b936182dcb6334ea2c469bc3c5d106d731569f0116f1",
+    "model-calls.jsonl.gz": "1add50121ae84f57bcd96c2e7dcff5c8a60632cfb069238b061a34aaf5093495"
+  }
+}

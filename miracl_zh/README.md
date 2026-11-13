@@ -4,6 +4,8 @@
 
 当前0.97/0.03配置已完成[全部393题原生阶段诊断](../results/miracl-zh-weighted-stage-diagnosis-20261113/REPORT.md)，含损益题目、模型调用及可复算轨迹；诊断不调整参数或改写正式成绩。
 
+已完成[四组原生权重与纯向量消融对照](../results/miracl-zh-native-weight-ablation-20261113/REPORT.md)，各393题，包含同期基线、逐题损益、实际模型用量及耗时。
+
 固定种子 20261112、10,000 个段落、两端各 393 题的[完整实测报告与复算数据](../results/miracl-zh-10k-20261112/README.md)已归档。以下同时保留官方全量语料和其他规模子集的执行方法。
 
 采用 MIRACL v1.0 中文开发集的全部 393 道查询、3,928 条相关性标注以及完整的 4,934,368 个段落。语料和标签来自 [MIRACL 官方仓库](https://github.com/project-miracl/miracl)。[source.json](source.json) 固定了文件版本、长度和 SHA-256，[verified.json](verified.json) 是全量语料检查记录。
