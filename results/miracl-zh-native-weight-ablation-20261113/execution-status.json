@@ -1,11 +1,13 @@
 {
-  "state": "case_complete",
-  "case": "semantic_only",
-  "queries": 393,
+  "state": "complete",
   "completed_cases": [
     "baseline97",
     "mixed95",
     "mixed99",
     "semantic_only"
-  ]
+  ],
+  "restored_baseline97": true,
+  "original_service_untouched": true,
+  "all_product_data_retained": true,
+  "validation_api_stopped": true
 }
