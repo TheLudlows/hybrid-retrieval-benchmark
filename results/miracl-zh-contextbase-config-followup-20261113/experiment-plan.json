@@ -1,0 +1,103 @@
+{
+  "experiment_revision": "nested-v4-config-combinations",
+  "registered_unix": 1794557845.378237,
+  "model_reranking": false,
+  "scales": [
+    100000
+  ],
+  "primary_results": "results/miracl-zh-native-no-rerank-20261113",
+  "selection": "Highest tune_dev100 nDCG@10, then Hit@1, then original registered trial order; default wins exact ties. Never select on assessment_dev293 or fresh_train200.",
+  "models_and_formal_runtime": {
+    "embedding_revision": "25b9af8e87a38eb120cfe87125383677b9cd309e",
+    "reranker_revision": "6f5ff65298512715a1e669753bc754d2bc8f367b",
+    "format": "ONNX INT8 CPU",
+    "intra_op_threads": 3,
+    "inter_op_threads": 1,
+    "max_length": 512,
+    "batch_size": 8,
+    "files": {
+      "full-reranker/model_quantized.onnx": {
+        "size": 570727094,
+        "sha256": "912fc1215c2dbff6499700534bd8d31253af01573861abbfc43afd1fab6cce5d"
+      },
+      "full-reranker/tokenizer.json": {
+        "size": 17082900,
+        "sha256": "8bf8afbfd11306bd872018c53bfdf2e160a56f8edbcf49933324404791c148d3"
+      },
+      "full-reranker/config.json": {
+        "size": 848,
+        "sha256": "122e922dcfed6503c8721e6fe1daf090340c3d95ca7f3aa3a72730b321a51cfd"
+      },
+      "full-embedding/model_quantized.onnx": {
+        "size": 568479395,
+        "sha256": "2237f770aad5c71bbc1fc2d361a57f9a37400574cc9eff32626f0cdb49234730"
+      },
+      "full-embedding/tokenizer.json": {
+        "size": 17082799,
+        "sha256": "249df0778f236f6ece390de0de746838ef25b9d6954b68c2ee71249e0a9d8fd4"
+      },
+      "full-embedding/config.json": {
+        "size": 658,
+        "sha256": "70dae5884ced999af00244f776ac9eaa71538d68497d3d6a6091e0318cd32905"
+      }
+    },
+    "embedding_http_batch_window_ms": 10,
+    "batching_scope": "Concurrent HTTP embedding inputs; native product requests preserved; ONNX batch size remains 8",
+    "formal_query_threads": 3,
+    "ingest_threads": 3
+  },
+  "contextbase_trials": [
+    {
+      "name": "lean_control",
+      "env": {
+        "ENABLE_GRAPH_RETRIEVAL": "false",
+        "ENABLE_TEMPORAL_RETRIEVAL": "false"
+      }
+    },
+    {
+      "name": "lean_semantic_priority",
+      "env": {
+        "ENABLE_GRAPH_RETRIEVAL": "false",
+        "ENABLE_TEMPORAL_RETRIEVAL": "false",
+        "RECALL_STRATEGY_BOOSTS": "semantic:high"
+      }
+    },
+    {
+      "name": "lean_source_cap100",
+      "env": {
+        "ENABLE_GRAPH_RETRIEVAL": "false",
+        "ENABLE_TEMPORAL_RETRIEVAL": "false",
+        "RECALL_MAX_CANDIDATES_PER_SOURCE": "100"
+      }
+    }
+  ],
+  "trials_per_product": {
+    "contextbase": 3,
+    "weknora": 0
+  },
+  "query_splits_file": "query-splits.json",
+  "candidate_ceiling_primary": 60,
+  "max_tokens": 8192,
+  "query_concurrency": 1,
+  "warmup_queries": 4,
+  "baseline_control_repeated": true,
+  "assessment": "Freeze only on tune_dev100, then rerun dev393, derive293 and rerun extra200. Existing dev and extra200 have already been inspected, so follow-up is exploratory, not blind.",
+  "fairness": "Additional ContextBase-only configurations; never merge these into the primary equal-six-trials product comparison.",
+  "execution": "Wait until original primary worker has completed and archived, then acquire same worker lock; no simultaneous product querying or re-ingestion.",
+  "data_retention": "Preserve both services data, private settings, corpora and backups. No million stage.",
+  "code_sha256": {
+    "miracl_zh/bench.py": "bd8cea78097c325c6e91079adb6d260bfa7139dbfa37831328d35c9d416bdd1e",
+    "miracl_zh/run_scale.py": "42d8ad80a63094fffcba473fdac01aa172734dcc6d471bf7dd7af7d08a71e27e",
+    "miracl_zh/audit_index.py": "c4dc26509ccd2ef7ba42e6545c389bb8a20ca8343b7930ba8a79966c7ddcc149",
+    "miracl_zh/summarize_comparison.py": "cfadd96e71251ad49af2272e709e5f479ab3898ee9659cad9b8b41ddbfe613ba",
+    "miracl_zh/build_subset.py": "6d898f490d11aaccd674192b41a1779dd9298f9e95d52938a5f0dfa705ad8032",
+    "miracl_zh/analyze_rankings.py": "a93e9206ca14d0b313a70d65f61a392d95f70cd2076c99ce6854bc6458dd999a",
+    "miracl_zh/verify_contextbase_configs.py": "1735182c6624b9350c29ed7d9b57e5bcf42c97c9d18536aa9b6cceae6c9fd915",
+    "miracl_zh/ingest.py": "eead6dff54083925983c510690878f6e7022d7ce15b6fb16c584b4a1eeab2b9c",
+    "miracl_zh/diagnose_contextbase.py": "7e7b671d85180f18b9d5527ee68a35e00f04bc9561149ea1d612d8766188841e",
+    "miracl_zh/run_scale_no_rerank.py": "9e27b42c27d0a4dbafeea58b4fc5baca9403a87526050dbfa65c00b0f58f8fb8",
+    "doc_recall_v1/bench.py": "e05e9209af74e28f9441b22b632f29a5ac6cb19db51671a16a413d3257116f3b",
+    "deployment/model_server.py": "00284100f3437779a65d01708d41be7c623d3e8b4ac4007c9b19fc48ae4129ac",
+    "deployment/model_server_hybrid.py": "3e3c1cef2a087cdb24930f57b86a95d810efb9aeccbd83c801c10d97e13ad93c"
+  }
+}
