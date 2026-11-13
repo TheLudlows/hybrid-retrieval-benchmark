@@ -1,0 +1,11 @@
+{
+  "preflight_failure": "Shared model and original API ports were not listening; persistent PostgreSQL container was stopped.",
+  "native_queries_before_failure": 0,
+  "recovery": "Started existing miracl-pg container without rebuilding it; restarted model server with ONNX threads3, batch window10ms; restarted original API from preserved source/profile.",
+  "previous_data_and_indexes_preserved": true,
+  "model_runtime_readback_matches_previous_runs": true,
+  "original_api_health_after_recovery": "healthy",
+  "resumed_identical_plan_and_driver": true,
+  "failure_record": "failure.json",
+  "cause_of_initial_process_stop": "Not established; no claim of data loss."
+}

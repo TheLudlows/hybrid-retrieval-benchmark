@@ -1,8 +1,7 @@
 {
-  "state": "failed",
-  "completed_stages": [],
-  "restored_baseline97": false,
-  "original_service_untouched": true,
-  "all_product_data_retained": true,
-  "validation_api_stopped": true
+  "state": "stage_complete",
+  "last_stage": "tune100/w99_pool1000",
+  "completed_stages": [
+    "tune100/w99_pool1000"
+  ]
 }
