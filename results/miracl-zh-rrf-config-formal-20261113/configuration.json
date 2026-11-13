@@ -1,0 +1,83 @@
+{
+  "corpus": {
+    "unit": "passages",
+    "count": 100000,
+    "seed": 20261112,
+    "passages": 100000,
+    "judged_passages": 3786,
+    "file": {
+      "size": 17787483,
+      "sha256": "d51e1fe9ec6ec92db05df87aabff132f861a72b046a7713bc945f18746665363"
+    },
+    "source": {
+      "topics.tsv": "5b284a9aabf08bb2d1c88ed7ea276025c9d23846457c5350dc8d391b5e0d0a13",
+      "qrels.tsv": "5546474d3dc8139014e6571e9f4041848bb0a314ca6d2d4bac708174d71c59eb",
+      "corpus/docs-0.jsonl.gz": "b036ba6a927a4598b314de55a1de200d2a619b28b4327f49e97ec4233d324827",
+      "corpus/docs-1.jsonl.gz": "d6db9e242bdebeac76f586c0ec9a6301a9ec4a52c64c71949945ba5983467506",
+      "corpus/docs-2.jsonl.gz": "29f1b1e3bec59770367be71d1698a7afaf7efb8006d168d40a2815025c8d1b43",
+      "corpus/docs-3.jsonl.gz": "9cfc76c7f9ec9edc12d351913ba0f33a96d496a7449b46a6488f77668acf178d",
+      "corpus/docs-4.jsonl.gz": "d47cef57928c3452d95cc8499dea37ce6e589808a9315ab2cf9809a23fe349b5",
+      "corpus/docs-5.jsonl.gz": "17e1d4bf36d3992ccf5c519522ed1dcf896cb72772907e973bfcf1b2dd993e28",
+      "corpus/docs-6.jsonl.gz": "4b3cdc7aeefc01ca4c2f55ba16ac80d773393068b78d4f971fc3c25c6fb9a859",
+      "corpus/docs-7.jsonl.gz": "e7541af8c2fb7a96cff271e06047f0b4f00372b205735fabeed6217f9a7bb334",
+      "corpus/docs-8.jsonl.gz": "f456671170b8286ede8f81feb9d365750af5027465399f63445a441fc96c41a7",
+      "corpus/docs-9.jsonl.gz": "6c8193e14aafd93fb1ee57eac4f1171a44a0c975ebdefd6e9df1903c1b2fd7ca"
+    },
+    "parent_subset": {
+      "passages": 10000,
+      "sha256": "3554a10e8b02519462efcdcfb632f9d7de1ee2388c3f9c9cd8c963a8efa93061"
+    },
+    "extra_mandatory_ids": {
+      "count": 1977,
+      "sha256": "aae837a969a28dadf0c1b522024e73f7595e4f6aa7b694601f43c6432d8e476c"
+    }
+  },
+  "source_base": "cdf6430e028ff456d490436ff99e50fcf4aba59c",
+  "source_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "model_reranking": false,
+  "candidate_ceiling": 60,
+  "max_tokens": 8192,
+  "concurrency": 1,
+  "original_service_untouched": true,
+  "database": "miracl_rrf_config_validation_20261113",
+  "weights_only": true,
+  "query_normalization": false,
+  "driver_sha256": "dde5ed8b13199f8afe4dca9bab131d8e05f5ae028aed284bcd11658ca4097fb9",
+  "cases": {
+    "unit-default-tune100": {
+      "semantic": 1.0,
+      "bm25": 1.0
+    },
+    "configured-dense97-dev393": {
+      "semantic": 0.97,
+      "bm25": 0.03
+    }
+  },
+  "global_environment": {
+    "HOST": "127.0.0.1",
+    "PORT": "18889",
+    "EMBEDDINGS_PROVIDER": "openai",
+    "EMBEDDINGS_OPENAI_MODEL": "bge-m3",
+    "EMBEDDINGS_OPENAI_DIMENSIONS": "1024",
+    "EMBEDDINGS_OPENAI_BASE_URL": "http://127.0.0.1:18090/contextbase/v1",
+    "TEXT_SEARCH_EXTENSION": "pg_search",
+    "TEXT_SEARCH_EXTENSION_PG_SEARCH_TOKENIZER": "jieba",
+    "ENABLE_TEXT_SEARCH": "true",
+    "ENABLE_GRAPH_RETRIEVAL": "false",
+    "ENABLE_TEMPORAL_RETRIEVAL": "false",
+    "ENABLE_RERANKING": "false",
+    "RERANKER_PROVIDER": "tei",
+    "RERANKER_TEI_URL": "http://127.0.0.1:18090/contextbase/tei",
+    "RERANKER_MAX_CANDIDATES": "60",
+    "RERANKER_MAX_CANDIDATES_HIGH": "60",
+    "RECALL_MAX_CANDIDATES_PER_SOURCE": "100",
+    "RECALL_STRATEGY_BOOSTS": "",
+    "RECALL_BUDGET_FUNCTION": "fixed",
+    "RECALL_BUDGET_FIXED_HIGH": "1000",
+    "RECALL_RRF_SEMANTIC_WEIGHT": "1",
+    "RECALL_RRF_BM25_WEIGHT": "1",
+    "RECALL_RRF_GRAPH_WEIGHT": "1",
+    "RECALL_RRF_TEMPORAL_WEIGHT": "1"
+  },
+  "source_files_sha256": {}
+}

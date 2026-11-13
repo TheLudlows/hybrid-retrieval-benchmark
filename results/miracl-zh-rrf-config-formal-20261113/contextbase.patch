@@ -1,0 +1,1061 @@
+diff --git a/.env.example b/.env.example
+index a9c7add..27d7180 100644
+--- a/.env.example
++++ b/.env.example
+@@ -619,6 +619,14 @@ HINDSIGHT_API_LOG_LEVEL=info
+ # HINDSIGHT_API_RERANKER_MAX_CANDIDATES_MID=0
+ # HINDSIGHT_API_RERANKER_MAX_CANDIDATES_HIGH=0
+ 
++# Relative RRF source weights (finite > 0, default 1 each; overridable per bank).
++# Weights need not sum to 1. Enable flags control which retrieval arms run.
++# Interleave fusion ignores these weights; strategy priority boosts compose with them.
++# HINDSIGHT_API_RECALL_RRF_SEMANTIC_WEIGHT=1.0
++# HINDSIGHT_API_RECALL_RRF_BM25_WEIGHT=1.0
++# HINDSIGHT_API_RECALL_RRF_GRAPH_WEIGHT=1.0
++# HINDSIGHT_API_RECALL_RRF_TEMPORAL_WEIGHT=1.0
++
+ # Reranker failover chain: extra rerankers tried, in order, when the one above
+ # fails. Members are numbered from 1 (indices must be contiguous) and every
+ # setting of member n carries the same index. A member inherits nothing from the
+diff --git a/contextbase-control-plane/src/components/documents-view.tsx b/contextbase-control-plane/src/components/documents-view.tsx
+index d44b3d5..7c56fed 100644
+--- a/contextbase-control-plane/src/components/documents-view.tsx
++++ b/contextbase-control-plane/src/components/documents-view.tsx
+@@ -2401,4 +2401,3 @@ export function DocumentsView() {
+     </div>
+   );
+ }
+-
+diff --git a/hindsight-api-slim/hindsight_api/_recall_fusion.py b/hindsight-api-slim/hindsight_api/_recall_fusion.py
+new file mode 100644
+index 0000000..c59fd0c
+--- /dev/null
++++ b/hindsight-api-slim/hindsight_api/_recall_fusion.py
+@@ -0,0 +1,54 @@
++"""Validated relative weights shared by configuration and recall fusion."""
++
++import math
++from dataclasses import dataclass, fields
++from typing import TYPE_CHECKING
++
++if TYPE_CHECKING:
++    from .config import HindsightConfig
++
++
++def validate_rrf_weight(name: str, value: object) -> None:
++    """Reject invalid weights at every configuration boundary, including tenants."""
++    if isinstance(value, bool) or not isinstance(value, int | float):
++        raise ValueError(f"Invalid {name}: must be a finite number greater than 0")
++    try:
++        valid = math.isfinite(value) and value > 0
++    except OverflowError:
++        valid = False
++    if not valid:
++        raise ValueError(f"Invalid {name}: must be a finite number greater than 0")
++
++
++@dataclass(frozen=True)
++class RecallRRFWeights:
++    """Relative contributions; unit defaults preserve the original RRF scores.
++
++    Weights need not sum to one. Disable an arm using its enable flag rather
++    than zero weight, so the backend does not perform work that is discarded.
++    """
++
++    semantic: float = 1.0
++    bm25: float = 1.0
++    graph: float = 1.0
++    temporal: float = 1.0
++
++    def __post_init__(self) -> None:
++        for field in fields(self):
++            validate_rrf_weight(f"recall_rrf_{field.name}_weight", getattr(self, field.name))
++
++    @classmethod
++    def from_config(cls, config: "HindsightConfig") -> "RecallRRFWeights":
++        """Read from resolved bank configuration, never the static global proxy."""
++        return cls(
++            semantic=config.recall_rrf_semantic_weight,
++            bm25=config.recall_rrf_bm25_weight,
++            graph=config.recall_rrf_graph_weight,
++            temporal=config.recall_rrf_temporal_weight,
++        )
++
++    def for_source(self, source: str) -> float:
++        """Keep additional internal fusion lists at their historical unit weight."""
++        if source in {"semantic", "bm25", "graph", "temporal"}:
++            return getattr(self, source)
++        return 1.0
+diff --git a/hindsight-api-slim/hindsight_api/api/http.py b/hindsight-api-slim/hindsight_api/api/http.py
+index 140c948..2d115ac 100644
+--- a/hindsight-api-slim/hindsight_api/api/http.py
++++ b/hindsight-api-slim/hindsight_api/api/http.py
+@@ -5796,8 +5796,7 @@ def _register_routes(app: FastAPI):
+         "/v1/file-storage/config",
+         response_model=FileStorageConfigResponse,
+         summary="Get file-storage configuration",
+-        description="Returns the current file-storage backend configuration. "
+-        "Secret credentials are masked.",
++        description="Returns the current file-storage backend configuration. Secret credentials are masked.",
+         tags=["System"],
+         operation_id="get_file_storage_config",
+     )
+@@ -5843,7 +5842,6 @@ def _register_routes(app: FastAPI):
+             "s3_secret_access_key": "file_storage_s3_secret_access_key",
+         }
+ 
+-        config = _get_raw_config()
+         updates: dict[str, str | None] = {}
+         for api_name in update.model_fields_set:
+             config_name = _FIELD_MAP[api_name]
+@@ -5874,6 +5872,7 @@ def _register_routes(app: FastAPI):
+                 # succeeded, so log and continue rather than failing the
+                 # request.  The config reverts on the next restart.
+                 import logging
++
+                 logging.getLogger(__name__).warning("Failed to persist file storage config: %s", e)
+             await app.state.memory.reinitialize_file_storage()
+ 
+diff --git a/hindsight-api-slim/hindsight_api/config.py b/hindsight-api-slim/hindsight_api/config.py
+index 5e674b5..a888182 100644
+--- a/hindsight-api-slim/hindsight_api/config.py
++++ b/hindsight-api-slim/hindsight_api/config.py
+@@ -17,6 +17,7 @@ from dotenv import find_dotenv, load_dotenv
+ from pydantic import BaseModel, ConfigDict, Field, ValidationError, field_validator, model_validator
+ 
+ from ._pg_search import normalize_pg_search_tokenizer
++from ._recall_fusion import RecallRRFWeights
+ from ._vector_index import validate_extension
+ from .utils import mask_network_location
+ 
+@@ -1057,6 +1058,10 @@ ENV_RECALL_MAX_CANDIDATES_PER_SOURCE = "HINDSIGHT_API_RECALL_MAX_CANDIDATES_PER_
+ # engine/search/recall_boost.py for the level -> magnitude mapping and rationale.
+ # Empty disables the feature.
+ ENV_RECALL_STRATEGY_BOOSTS = "HINDSIGHT_API_RECALL_STRATEGY_BOOSTS"
++ENV_RECALL_RRF_SEMANTIC_WEIGHT = "HINDSIGHT_API_RECALL_RRF_SEMANTIC_WEIGHT"
++ENV_RECALL_RRF_BM25_WEIGHT = "HINDSIGHT_API_RECALL_RRF_BM25_WEIGHT"
++ENV_RECALL_RRF_GRAPH_WEIGHT = "HINDSIGHT_API_RECALL_RRF_GRAPH_WEIGHT"
++ENV_RECALL_RRF_TEMPORAL_WEIGHT = "HINDSIGHT_API_RECALL_RRF_TEMPORAL_WEIGHT"
+ 
+ # Recency decay used by recall reranking (engine/search/reranking.py). The decay
+ # function maps a memory's age onto a freshness signal that nudges its final
+@@ -1347,6 +1352,8 @@ DEFAULT_RECALL_MAX_CANDIDATES_PER_SOURCE = 0
+ # "graph:high,semantic:low"). Empty disables the feature. See
+ # ENV_RECALL_STRATEGY_BOOSTS for the full rationale.
+ DEFAULT_RECALL_STRATEGY_BOOSTS = ""
++# Unit weights preserve native RRF scores unless explicitly tuned per bank.
++DEFAULT_RECALL_RRF_WEIGHT = 1.0
+ # Recency decay shape used by recall reranking. "linear" reproduces the
+ # historical straight-line decay; defaults below keep behaviour unchanged.
+ RECENCY_DECAY_FUNCTIONS = ("linear", "exponential", "none")
+@@ -3290,6 +3297,10 @@ class HindsightConfig:
+     bm25_min_score: float
+     recall_max_candidates_per_source: int
+     recall_strategy_boosts: dict[str, str]
++    recall_rrf_semantic_weight: float
++    recall_rrf_bm25_weight: float
++    recall_rrf_graph_weight: float
++    recall_rrf_temporal_weight: float
+     recency_decay_function: str
+     recency_decay_linear_window_days: float
+     recency_decay_halflife_days: float
+@@ -3804,6 +3815,10 @@ class HindsightConfig:
+         "enable_temporal_retrieval",
+         "enable_graph_retrieval",
+         "enable_reranking",
++        "recall_rrf_semantic_weight",
++        "recall_rrf_bm25_weight",
++        "recall_rrf_graph_weight",
++        "recall_rrf_temporal_weight",
+         # Consolidation settings
+         "enable_observations",
+         "enable_auto_consolidation",
+@@ -3995,6 +4010,9 @@ class HindsightConfig:
+ 
+     def validate(self) -> None:
+         """Validate configuration values and raise errors for invalid combinations."""
++        # Validate weights even for direct dataclass construction.
++        RecallRRFWeights.from_config(self)
++
+         # Validate vector_extension
+         validate_extension(self.vector_extension)
+ 
+@@ -4699,6 +4717,10 @@ class HindsightConfig:
+             recall_max_candidates_per_source=int(
+                 os.getenv(ENV_RECALL_MAX_CANDIDATES_PER_SOURCE, str(DEFAULT_RECALL_MAX_CANDIDATES_PER_SOURCE))
+             ),
++            recall_rrf_semantic_weight=float(os.getenv(ENV_RECALL_RRF_SEMANTIC_WEIGHT, str(DEFAULT_RECALL_RRF_WEIGHT))),
++            recall_rrf_bm25_weight=float(os.getenv(ENV_RECALL_RRF_BM25_WEIGHT, str(DEFAULT_RECALL_RRF_WEIGHT))),
++            recall_rrf_graph_weight=float(os.getenv(ENV_RECALL_RRF_GRAPH_WEIGHT, str(DEFAULT_RECALL_RRF_WEIGHT))),
++            recall_rrf_temporal_weight=float(os.getenv(ENV_RECALL_RRF_TEMPORAL_WEIGHT, str(DEFAULT_RECALL_RRF_WEIGHT))),
+             recall_strategy_boosts=_parse_strategy_boosts(
+                 os.getenv(ENV_RECALL_STRATEGY_BOOSTS, DEFAULT_RECALL_STRATEGY_BOOSTS)
+             ),
+@@ -5507,6 +5529,7 @@ def clear_config_cache() -> None:
+     global _config_cache
+     _config_cache = None
+ 
++
+ #: Mask string returned for set secrets in the file-storage config API. The PUT
+ #: endpoint treats this value (and omitted fields) as "keep current" so the UI
+ #: can round-trip the config without ever learning the real credential.
+@@ -5542,4 +5565,3 @@ def update_file_storage_config(updates: dict[str, str | None]) -> None:
+     kwargs = {k: v for k, v in updates.items() if k in _FILE_STORAGE_CONFIG_FIELDS}
+     if kwargs:
+         _config_cache = replace(current, **kwargs)
+-
+diff --git a/hindsight-api-slim/hindsight_api/config_resolver.py b/hindsight-api-slim/hindsight_api/config_resolver.py
+index 0f6d7db..8dd914b 100644
+--- a/hindsight-api-slim/hindsight_api/config_resolver.py
++++ b/hindsight-api-slim/hindsight_api/config_resolver.py
+@@ -17,6 +17,7 @@ from functools import lru_cache
+ from types import UnionType
+ from typing import TYPE_CHECKING, Any, Union, get_args, get_origin
+ 
++from hindsight_api._recall_fusion import RecallRRFWeights, validate_rrf_weight
+ from hindsight_api.config import (
+     RECALL_BUDGET_FUNCTIONS,
+     HindsightConfig,
+@@ -223,6 +224,8 @@ class ConfigResolver:
+         resolved = copy.copy(self._global_config)
+         for key, value in overrides.items():
+             setattr(resolved, key, value)
++        # Extension and stored overrides must obey the same contract as API writes.
++        RecallRRFWeights.from_config(resolved)
+         return resolved
+ 
+     async def resolve_full_config(
+@@ -612,6 +615,11 @@ class ConfigResolver:
+         if normalized_updates.get("consolidation_strategies") is not None:
+             _validate_consolidation_strategies(normalized_updates["consolidation_strategies"])
+ 
++        for arm in ("semantic", "bm25", "graph", "temporal"):
++            field_name = f"recall_rrf_{arm}_weight"
++            if field_name in normalized_updates and normalized_updates[field_name] is not None:
++                validate_rrf_weight(field_name, normalized_updates[field_name])
++
+         # Validate recall budget fields
+         _validate_recall_budget_updates(normalized_updates)
+ 
+diff --git a/hindsight-api-slim/hindsight_api/engine/memories/base.py b/hindsight-api-slim/hindsight_api/engine/memories/base.py
+index 27bfa73..7e06845 100644
+--- a/hindsight-api-slim/hindsight_api/engine/memories/base.py
++++ b/hindsight-api-slim/hindsight_api/engine/memories/base.py
+@@ -44,6 +44,7 @@ from dataclasses import dataclass, field
+ from datetime import datetime, timezone
+ from typing import TYPE_CHECKING, Any, Protocol, cast
+ 
++from ..._recall_fusion import RecallRRFWeights
+ from ...extensions.base import Extension
+ 
+ # The five tag-matching modes, as the HTTP layer already validates them. Declared here
+@@ -876,6 +877,8 @@ class FullRecallRequest:
+     #: Per-observation budget. When >= 0 this REPLACES the total, so one observation with many
+     #: sources cannot spend every other observation's provenance.
+     max_source_facts_tokens_per_observation: int = -1
++    #: Resolved per-bank fusion policy. Appended to preserve existing positional arguments.
++    rrf_weights: RecallRRFWeights = field(default_factory=RecallRRFWeights)
+ 
+ 
+ @dataclass
+diff --git a/hindsight-api-slim/hindsight_api/engine/memory_engine.py b/hindsight-api-slim/hindsight_api/engine/memory_engine.py
+index 670f2c0..2109436 100644
+--- a/hindsight-api-slim/hindsight_api/engine/memory_engine.py
++++ b/hindsight-api-slim/hindsight_api/engine/memory_engine.py
+@@ -24,7 +24,7 @@ import time
+ import uuid
+ from collections.abc import AsyncIterator, Awaitable, Callable, Iterable, Iterator, Mapping, Sequence
+ from contextlib import AsyncExitStack, asynccontextmanager, contextmanager
+-from dataclasses import dataclass, field, replace
++from dataclasses import asdict, dataclass, field, replace
+ from datetime import UTC, datetime, timedelta, timezone
+ from types import SimpleNamespace
+ from typing import TYPE_CHECKING, Any, Literal, NoReturn, ParamSpec, TypeVar, cast
+@@ -32,6 +32,7 @@ from typing import TYPE_CHECKING, Any, Literal, NoReturn, ParamSpec, TypeVar, ca
+ import asyncpg
+ from pydantic import TypeAdapter, ValidationError
+ 
++from .._recall_fusion import RecallRRFWeights
+ from .._vector_index import (
+     ann_search_tuning_settings,
+     configured_vector_extension,
+@@ -6046,8 +6047,8 @@ class MemoryEngine(MemoryEngineInterface):
+         # changes survive restarts.  Done here (after the pool is ready,
+         # before storage is created) so create_file_storage sees the
+         # persisted values.
+-        from .system_config import load_file_storage_config
+         from ..config import update_file_storage_config
++        from .system_config import load_file_storage_config
+ 
+         persisted = await load_file_storage_config(self._pool)
+         if persisted:
+@@ -9038,7 +9039,13 @@ class MemoryEngine(MemoryEngineInterface):
+         # Function "fixed" preserves legacy {LOW: 100, MID: 300, HIGH: 1000}; function "adaptive"
+         # derives from max_tokens and clamps to [recall_budget_min, recall_budget_max].
+         _t0 = time.time()
+-        budget_config_dict = await self._config_resolver.get_bank_config(bank_id, request_context)
++        resolved_recall_config = await self._config_resolver.resolve_full_config(bank_id, request_context)
++        # Internal execution must use resolved values even when a caller cannot
++        # view/edit those fields through the permission-filtered config endpoint.
++        budget_config_dict = {
++            name: getattr(resolved_recall_config, name) for name in HindsightConfig.get_configurable_fields()
++        }
++        rrf_weights = RecallRRFWeights.from_config(resolved_recall_config)
+         _d = time.time() - _t0
+         get_metrics_collector().record_recall_phase("bank_config", _d)
+         if _d > 0.100:
+@@ -9118,6 +9125,7 @@ class MemoryEngine(MemoryEngineInterface):
+                             enable_text_search=enable_text_search,
+                             enable_temporal_retrieval=enable_temporal_retrieval,
+                             enable_graph_retrieval=enable_graph_retrieval,
++                            rrf_weights=rrf_weights,
+                         )
+                         get_metrics_collector().record_recall_phase(
+                             "search_with_retries", time.time() - _t0_swr2, diagnostic=True
+@@ -9293,6 +9301,7 @@ class MemoryEngine(MemoryEngineInterface):
+         enable_text_search: bool = True,
+         enable_temporal_retrieval: bool = True,
+         enable_graph_retrieval: bool = True,
++        rrf_weights: RecallRRFWeights | None = None,
+     ) -> RecallResultModel:
+         """
+         Search implementation with modular retrieval and reranking.
+@@ -9458,6 +9467,7 @@ class MemoryEngine(MemoryEngineInterface):
+                     ),
+                     per_source_cap=get_config().recall_max_candidates_per_source,
+                     strategy_boosts=get_config().recall_strategy_boosts,
++                    rrf_weights=rrf_weights or RecallRRFWeights(),
+                     recency_decay_function=get_config().recency_decay_function,
+                     recency_decay_linear_window_days=get_config().recency_decay_linear_window_days,
+                     recency_decay_halflife_days=get_config().recency_decay_halflife_days,
+@@ -9855,8 +9865,10 @@ class MemoryEngine(MemoryEngineInterface):
+                 result_lists = [semantic_results, bm25_results, graph_results]
+                 if temporal_results:
+                     result_lists.append(temporal_results)
+-                fuse = interleave_fusion if reranking == "interleave" else reciprocal_rank_fusion
+-                merged_candidates = fuse(result_lists)
++                if reranking == "interleave":
++                    merged_candidates = interleave_fusion(result_lists)
++                else:
++                    merged_candidates = reciprocal_rank_fusion(result_lists, weights=rrf_weights)
+ 
+                 step_duration = time.time() - step_start
+                 log_buffer.append(
+@@ -9878,7 +9890,16 @@ class MemoryEngine(MemoryEngineInterface):
+                     for mc in merged_candidates
+                 ]
+                 tracer.add_rrf_merged(tracer_merged)
+-            tracer.add_phase_metric("rrf_merge", step_duration, {"candidates_merged": len(merged_candidates)})
++            tracer.add_phase_metric(
++                "rrf_merge",
++                step_duration,
++                {
++                    "candidates_merged": len(merged_candidates),
++                    "fusion": "interleave" if reranking == "interleave" else "rrf",
++                    # Interleave deliberately ignores the bank's RRF policy.
++                    "rrf_weights": None if reranking == "interleave" else asdict(rrf_weights or RecallRRFWeights()),
++                },
++            )
+ 
+             # Step 4: Rerank using cross-encoder (MergedCandidate -> ScoredResult)
+             step_start = time.time()
+@@ -9910,7 +9931,12 @@ class MemoryEngine(MemoryEngineInterface):
+                 from .search.recall_boost import trim_merged_candidates
+ 
+                 strategy_boosts = get_config().recall_strategy_boosts
+-                trimmed = trim_merged_candidates(merged_candidates, max_candidates, strategy_boosts)
++                trimmed = trim_merged_candidates(
++                    merged_candidates,
++                    max_candidates,
++                    strategy_boosts,
++                    weights=None if reranking == "interleave" else rrf_weights,
++                )
+                 merged_candidates = trimmed.kept
+                 pre_filtered_count = trimmed.dropped
+                 if pre_filtered_count > 0:
+diff --git a/hindsight-api-slim/hindsight_api/engine/search/fusion.py b/hindsight-api-slim/hindsight_api/engine/search/fusion.py
+index 4ef3349..357fe86 100644
+--- a/hindsight-api-slim/hindsight_api/engine/search/fusion.py
++++ b/hindsight-api-slim/hindsight_api/engine/search/fusion.py
+@@ -2,6 +2,8 @@
+ Helper functions for hybrid search (semantic + BM25 + graph).
+ """
+ 
++from hindsight_api._recall_fusion import RecallRRFWeights
++
+ from .types import ArmScores, MergedCandidate, RetrievalResult
+ 
+ 
+@@ -26,15 +28,18 @@ def cap_per_source(results: list[RetrievalResult], cap: int) -> list[RetrievalRe
+     return results[:cap]
+ 
+ 
+-def reciprocal_rank_fusion(result_lists: list[list[RetrievalResult]], k: int = 60) -> list[MergedCandidate]:
++def reciprocal_rank_fusion(
++    result_lists: list[list[RetrievalResult]], k: int = 60, *, weights: RecallRRFWeights | None = None
++) -> list[MergedCandidate]:
+     """
+     Merge multiple ranked result lists using Reciprocal Rank Fusion.
+ 
+-    RRF formula: score(d) = sum_over_lists(1 / (k + rank(d)))
++    RRF formula: score(d) = sum_over_lists(weight / (k + rank(d)))
+ 
+     Args:
+         result_lists: List of result lists, each containing RetrievalResult objects
+         k: Constant for RRF formula (default: 60)
++        weights: Relative source weights in semantic, BM25, graph, temporal order.
+ 
+     Returns:
+         Merged list of MergedCandidate objects, sorted by RRF score
+@@ -47,6 +52,7 @@ def reciprocal_rank_fusion(result_lists: list[list[RetrievalResult]], k: int = 6
+         merged = reciprocal_rank_fusion([semantic_results, bm25_results, graph_results])
+         # Returns: [MergedCandidate(...), MergedCandidate(...), ...]
+     """
++    weights = weights or RecallRRFWeights()
+     # Track scores from each list
+     rrf_scores = {}
+     source_ranks = {}  # Track rank from each source for each doc_id
+@@ -58,6 +64,8 @@ def reciprocal_rank_fusion(result_lists: list[list[RetrievalResult]], k: int = 6
+     for source_idx, results in enumerate(result_lists):
+         source_name = source_names[source_idx] if source_idx < len(source_names) else f"source_{source_idx}"
+ 
++        source_weight = weights.for_source(source_name)
++
+         for rank, retrieval in enumerate(results, start=1):
+             # Type check to catch tuple issues
+             if isinstance(retrieval, tuple):
+@@ -82,7 +90,7 @@ def reciprocal_rank_fusion(result_lists: list[list[RetrievalResult]], k: int = 6
+                 source_ranks[doc_id] = {}
+                 arm_scores[doc_id] = ArmScores()
+ 
+-            rrf_scores[doc_id] += 1.0 / (k + rank)
++            rrf_scores[doc_id] += source_weight / (k + rank)
+             source_ranks[doc_id][f"{source_name}_rank"] = rank
+ 
+             # Capture this arm's raw score for the doc (the merged RetrievalResult
+diff --git a/hindsight-api-slim/hindsight_api/engine/search/recall_boost.py b/hindsight-api-slim/hindsight_api/engine/search/recall_boost.py
+index 994deca..d242812 100644
+--- a/hindsight-api-slim/hindsight_api/engine/search/recall_boost.py
++++ b/hindsight-api-slim/hindsight_api/engine/search/recall_boost.py
+@@ -53,6 +53,8 @@ several arms have been summed. Displacement no longer depends on the pool size.
+ 
+ from dataclasses import dataclass
+ 
++from hindsight_api._recall_fusion import RecallRRFWeights
++
+ from .types import MergedCandidate, ScoredResult
+ 
+ 
+@@ -124,17 +126,24 @@ BOOST_LEVELS: dict[str, BoostWeights] = {
+ _FLAT_STAGE2_STRATEGIES = frozenset({"temporal"})
+ 
+ 
+-def boosted_rrf_score(candidate: MergedCandidate, boosts: dict[str, str], k: int = 60) -> float:
++def boosted_rrf_score(
++    candidate: MergedCandidate,
++    boosts: dict[str, str],
++    k: int = 60,
++    *,
++    weights: RecallRRFWeights | None = None,
++) -> float:
+     """Return ``candidate``'s RRF score with boosted arms promoted in rank space.
+ 
+     For each boosted arm the candidate appeared in, replaces that arm's
+-    ``1/(k+rank)`` contribution with ``1/(k + rank/divisor)`` — expressed as a
++    ``weight/(k+rank)`` contribution with ``weight/(k + rank/divisor)`` — expressed as a
+     delta so ``rrf_score`` stays authoritative and unboosted arms are untouched.
+ 
+     Args:
+         candidate: Merged candidate carrying ``rrf_score`` and ``source_ranks``.
+         boosts: Map of strategy name -> priority level. Empty means no boost.
+         k: RRF constant; must match the value used during fusion.
++        weights: The same resolved source weights used during fusion.
+ 
+     Returns:
+         The (possibly) boosted score to sort by. Equal to ``rrf_score`` when no
+@@ -142,12 +151,14 @@ def boosted_rrf_score(candidate: MergedCandidate, boosts: dict[str, str], k: int
+     """
+     if not boosts:
+         return candidate.rrf_score
++    weights = weights or RecallRRFWeights()
+     delta = 0.0
+     for strategy, level in boosts.items():
+         rank = candidate.source_ranks.get(f"{strategy}_rank")
+         if rank is not None:
+             divisor = BOOST_LEVELS[level].rank_divisor
+-            delta += 1.0 / (k + rank / divisor) - 1.0 / (k + rank)
++            # Replace this arm's weighted contribution, preserving its relative influence.
++            delta += weights.for_source(strategy) * (1.0 / (k + rank / divisor) - 1.0 / (k + rank))
+     return candidate.rrf_score + delta
+ 
+ 
+@@ -196,6 +207,8 @@ def trim_merged_candidates(
+     candidates: list[MergedCandidate],
+     max_candidates: int,
+     boosts: dict[str, str],
++    *,
++    weights: RecallRRFWeights | None = None,
+ ) -> TrimmedCandidates:
+     """Keep the pre-rerank budget, promoting boosted arms in rank space.
+ 
+@@ -207,7 +220,7 @@ def trim_merged_candidates(
+     """
+     if len(candidates) <= max_candidates:
+         return TrimmedCandidates(kept=candidates, dropped=0)
+-    candidates.sort(key=lambda mc: boosted_rrf_score(mc, boosts), reverse=True)
++    candidates.sort(key=lambda mc: boosted_rrf_score(mc, boosts, weights=weights), reverse=True)
+     dropped = len(candidates) - max_candidates
+     return TrimmedCandidates(kept=candidates[:max_candidates], dropped=dropped)
+ 
+diff --git a/hindsight-api-slim/hindsight_api/engine/system_config.py b/hindsight-api-slim/hindsight_api/engine/system_config.py
+index 2d6fcf4..371164e 100644
+--- a/hindsight-api-slim/hindsight_api/engine/system_config.py
++++ b/hindsight-api-slim/hindsight_api/engine/system_config.py
+@@ -1,4 +1,4 @@
+-﻿"""Persist and load file-storage configuration from the database.
++"""Persist and load file-storage configuration from the database.
+ 
+ A thin key-value store (``ctxdb_meta.system_config`` table) backs the runtime
+ file-storage config so changes made through the admin API survive process
+@@ -63,9 +63,7 @@ async def load_file_storage_config(pool: "asyncpg.Pool") -> dict[str, str | None
+     """
+     async with pool.acquire() as conn:
+         await _ensure_table(conn)
+-        row = await conn.fetchrow(
+-            "SELECT value FROM ctxdb_meta.system_config WHERE key = $1", CONFIG_KEY
+-        )
++        row = await conn.fetchrow("SELECT value FROM ctxdb_meta.system_config WHERE key = $1", CONFIG_KEY)
+     if row is None:
+         return None
+     try:
+@@ -75,9 +73,7 @@ async def load_file_storage_config(pool: "asyncpg.Pool") -> dict[str, str | None
+         return None
+ 
+ 
+-async def save_file_storage_config(
+-    pool: "asyncpg.Pool", config: dict[str, str | None]
+-) -> None:
++async def save_file_storage_config(pool: "asyncpg.Pool", config: dict[str, str | None]) -> None:
+     """Persist file-storage config to the database (upsert).
+ 
+     ``config`` is a full snapshot — every persisted field is written, fields set
+@@ -97,8 +93,5 @@ async def save_file_storage_config(
+             CONFIG_KEY,
+             payload,
+         )
+-    safe = {
+-        k: ("***" if k in _SECRET_FIELDS and v else v)
+-        for k, v in filtered.items()
+-    }
++    safe = {k: ("***" if k in _SECRET_FIELDS and v else v) for k, v in filtered.items()}
+     logger.info("Persisted file storage config: %s", safe)
+diff --git a/hindsight-api-slim/tests/test_hierarchical_config.py b/hindsight-api-slim/tests/test_hierarchical_config.py
+index f9e2629..9330d8c 100644
+--- a/hindsight-api-slim/tests/test_hierarchical_config.py
++++ b/hindsight-api-slim/tests/test_hierarchical_config.py
+@@ -155,7 +155,9 @@ async def test_hierarchical_fields_categorization():
+     assert "reflect_default_options" in configurable
+ 
+     # Verify count is correct
+-    assert len(configurable) == 51
++    for arm in ("semantic", "bm25", "graph", "temporal"):
++        assert f"recall_rrf_{arm}_weight" in configurable
++    assert len(configurable) == 55
+ 
+     # Verify credential fields (NEVER exposed)
+     assert "llm_api_key" in credentials
+diff --git a/hindsight-api-slim/tests/test_recall_boost.py b/hindsight-api-slim/tests/test_recall_boost.py
+index d34214c..41a05bd 100644
+--- a/hindsight-api-slim/tests/test_recall_boost.py
++++ b/hindsight-api-slim/tests/test_recall_boost.py
+@@ -4,7 +4,7 @@ from dataclasses import dataclass
+ 
+ import pytest
+ 
+-from hindsight_api.config import RECALL_BOOST_LEVELS, _parse_strategy_boosts
++from hindsight_api.config import RECALL_BOOST_LEVELS, HindsightConfig, _get_raw_config, _parse_strategy_boosts
+ from hindsight_api.engine.search.recall_boost import (
+     BOOST_LEVELS,
+     additive_strategy_boost,
+@@ -474,8 +474,8 @@ def test_recall_async_wires_stage2_and_keeps_interleave(monkeypatch):
+     fact_id = "00000000-0000-0000-0000-00000000000a"
+ 
+     class _ConfigResolver:
+-        async def get_bank_config(self, _bank_id: str, _request_context: RequestContext) -> dict[str, object]:
+-            return {}
++        async def resolve_full_config(self, _bank_id: str, _request_context: RequestContext) -> HindsightConfig:
++            return _get_raw_config()
+ 
+     class _Encoder:
+         provider_name = "tei"
+diff --git a/hindsight-api-slim/tests/test_recall_boost_pipeline.py b/hindsight-api-slim/tests/test_recall_boost_pipeline.py
+index 26a5b11..61f5504 100644
+--- a/hindsight-api-slim/tests/test_recall_boost_pipeline.py
++++ b/hindsight-api-slim/tests/test_recall_boost_pipeline.py
+@@ -7,7 +7,8 @@ from unittest.mock import AsyncMock
+ 
+ import pytest
+ 
+-from hindsight_api.config import _get_raw_config
++from hindsight_api._recall_fusion import RecallRRFWeights
++from hindsight_api.config import HindsightConfig, _get_raw_config
+ from hindsight_api.engine import memory_engine
+ from hindsight_api.engine.cross_encoder import CrossEncoderModel, MultiCrossEncoder, RRFPassthroughCrossEncoder
+ from hindsight_api.engine.memory_engine import Budget
+@@ -33,8 +34,8 @@ class _Primary(CrossEncoderModel):
+ 
+ 
+ class _ConfigResolver:
+-    async def get_bank_config(self, _bank_id: str, _request_context: RequestContext) -> dict[str, object]:
+-        return {}
++    async def resolve_full_config(self, _bank_id: str, _request_context: RequestContext) -> HindsightConfig:
++        return _get_raw_config()
+ 
+ 
+ @dataclass
+@@ -181,3 +182,35 @@ async def test_concurrent_recalls_use_their_own_rerank_provider(
+     assert [r.scores.final for r in by_query["primary"].results] == pytest.approx([0.7, 0.2 + 4 / 9, 0.6])
+     assert all(r.scores.reranker is None for r in by_query["fallback"].results)
+     assert [r.scores.final for r in by_query["fallback"].results] == pytest.approx([1.0, 0.55, 0.1])
++
++
++@pytest.mark.asyncio
++async def test_interleave_ignores_resolved_rrf_weights(
++    recall_harness: _RecallHarness, monkeypatch: pytest.MonkeyPatch
++) -> None:
++    before = await recall_harness.recall(reranking="interleave")
++    monkeypatch.setattr(_get_raw_config(), "recall_rrf_graph_weight", 0.03)
++    after = await recall_harness.recall(reranking="interleave")
++    assert [r.model_dump() for r in after.results] == [r.model_dump() for r in before.results]
++
++
++@pytest.mark.asyncio
++async def test_store_owned_recall_receives_resolved_bank_weights(
++    recall_harness: _RecallHarness, monkeypatch: pytest.MonkeyPatch
++) -> None:
++    from hindsight_api.engine.memories import get_memories
++    from hindsight_api.engine.memories.base import FullRecallRequest
++
++    received: list[FullRecallRequest] = []
++
++    async def answer(request: FullRecallRequest) -> RecallResult:
++        received.append(request)
++        return RecallResult(results=[])
++
++    monkeypatch.setattr(get_memories(), "full_recall", answer)
++    monkeypatch.setattr(_get_raw_config(), "recall_rrf_semantic_weight", 0.97)
++    monkeypatch.setattr(_get_raw_config(), "recall_rrf_bm25_weight", 0.03)
++    result = await recall_harness.recall(reranking="rrf")
++    assert result.results == []
++    assert len(received) == 1
++    assert received[0].rrf_weights == RecallRRFWeights(semantic=0.97, bm25=0.03)
+diff --git a/hindsight-api-slim/tests/test_recall_scoring_time.py b/hindsight-api-slim/tests/test_recall_scoring_time.py
+index b1c8c2d..bd0c472 100644
+--- a/hindsight-api-slim/tests/test_recall_scoring_time.py
++++ b/hindsight-api-slim/tests/test_recall_scoring_time.py
+@@ -5,6 +5,7 @@ from unittest.mock import AsyncMock
+ 
+ import pytest
+ 
++from hindsight_api.config import HindsightConfig, _get_raw_config
+ from hindsight_api.engine import memory_engine
+ from hindsight_api.engine.memory_engine import Budget
+ from hindsight_api.engine.search.reranking import RerankResult
+@@ -14,8 +15,8 @@ from hindsight_api.models import RequestContext
+ 
+ 
+ class _ConfigResolver:
+-    async def get_bank_config(self, _bank_id: str, _request_context: RequestContext) -> dict[str, object]:
+-        return {}
++    async def resolve_full_config(self, _bank_id: str, _request_context: RequestContext) -> HindsightConfig:
++        return _get_raw_config()
+ 
+ 
+ class _Reranker:
+diff --git a/hindsight-api-slim/tests/test_rrf_weights.py b/hindsight-api-slim/tests/test_rrf_weights.py
+new file mode 100644
+index 0000000..6905400
+--- /dev/null
++++ b/hindsight-api-slim/tests/test_rrf_weights.py
+@@ -0,0 +1,140 @@
++"""Weighted RRF preserves defaults and composes with caps, boosts and hierarchy."""
++
++from dataclasses import asdict, replace
++from unittest.mock import AsyncMock
++
++import pytest
++
++from hindsight_api._recall_fusion import RecallRRFWeights, validate_rrf_weight
++from hindsight_api.config import HindsightConfig, load_dotenv_for_entrypoint, normalize_config_dict
++from hindsight_api.config_resolver import ConfigResolver
++from hindsight_api.engine.search.fusion import reciprocal_rank_fusion
++from hindsight_api.engine.search.recall_boost import BOOST_LEVELS, boosted_rrf_score, trim_merged_candidates
++from hindsight_api.engine.search.types import RetrievalResult
++from hindsight_api.models import RequestContext
++
++from .test_hierarchical_config import FakeBankConfigBackend, MockTenantExtension
++
++ARMS = ("semantic", "bm25", "graph", "temporal")
++
++
++def result(doc_id: str) -> RetrievalResult:
++    return RetrievalResult(id=doc_id, text=doc_id, fact_type="world")
++
++
++def test_unit_defaults_preserve_original_scores_order_and_ties() -> None:
++    lists = [[result("a"), result("b")], [result("b"), result("a")], [result("c")], []]
++    merged = reciprocal_rank_fusion(lists)
++    explicit = reciprocal_rank_fusion(lists, weights=RecallRRFWeights())
++    assert merged == explicit
++    assert [candidate.id for candidate in merged] == ["a", "b", "c"]
++    assert [candidate.rrf_score for candidate in merged] == [1 / 61 + 1 / 62, 1 / 61 + 1 / 62, 1 / 61]
++    assert merged[0].source_ranks == {"semantic_rank": 1, "bm25_rank": 2}
++
++
++def test_each_arm_contributes_its_own_linear_weight() -> None:
++    weights = RecallRRFWeights(semantic=0.97, bm25=0.03, graph=2.0, temporal=3.0)
++    lists = [[result(arm), result("shared")] for arm in ARMS]
++    merged = reciprocal_rank_fusion(lists, weights=weights)
++    scores = {candidate.id: candidate.rrf_score for candidate in merged}
++    for arm in ARMS:
++        assert scores[arm] == weights.for_source(arm) / 61
++    assert scores["shared"] == sum(weights.for_source(arm) / 62 for arm in ARMS)
++    assert [candidate.id for candidate in merged] == ["shared", "temporal", "graph", "semantic", "bm25"]
++
++
++def test_additional_internal_source_keeps_unit_weight() -> None:
++    merged = reciprocal_rank_fusion([[], [], [], [], [result("extra")]], weights=RecallRRFWeights(semantic=4))
++    assert merged[0].rrf_score == 1 / 61
++    assert merged[0].source_ranks == {"source_4_rank": 1}
++
++
++@pytest.mark.parametrize("arm", ARMS)
++@pytest.mark.parametrize(
++    "invalid", [0, -1, float("nan"), float("inf"), -float("inf"), True, False, "0.5", None, 10**400]
++)
++def test_reject_invalid_weights(arm: str, invalid: object) -> None:
++    with pytest.raises(ValueError, match=f"recall_rrf_{arm}_weight.*finite number greater than 0"):
++        validate_rrf_weight(f"recall_rrf_{arm}_weight", invalid)
++    with pytest.raises(ValueError):
++        replace(RecallRRFWeights(), **{arm: invalid})
++
++
++@pytest.mark.parametrize("arm", ARMS)
++@pytest.mark.parametrize("invalid", ["0", "-0.1", "nan", "inf", "-inf", "true", ""])
++def test_env_rejects_invalid_weights(monkeypatch: pytest.MonkeyPatch, arm: str, invalid: str) -> None:
++    monkeypatch.setenv(f"HINDSIGHT_API_RECALL_RRF_{arm.upper()}_WEIGHT", invalid)
++    with pytest.raises(ValueError):
++        HindsightConfig.from_env()
++
++
++def test_env_fields_are_hierarchical_and_read_contextbase_alias(monkeypatch: pytest.MonkeyPatch) -> None:
++    for arm in ARMS:
++        monkeypatch.delenv(f"HINDSIGHT_API_RECALL_RRF_{arm.upper()}_WEIGHT", raising=False)
++        monkeypatch.setenv(f"CONTEXTBASE_API_RECALL_RRF_{arm.upper()}_WEIGHT", "0.25")
++        # load_dotenv_for_entrypoint writes the alias; ensure pytest restores it.
++        monkeypatch.setenv(f"HINDSIGHT_API_RECALL_RRF_{arm.upper()}_WEIGHT", "1")
++    load_dotenv_for_entrypoint()
++    config = HindsightConfig.from_env()
++    assert asdict(RecallRRFWeights.from_config(config)) == dict.fromkeys(ARMS, 0.25)
++    for arm in ARMS:
++        field = f"recall_rrf_{arm}_weight"
++        assert field in HindsightConfig.get_configurable_fields()
++        assert normalize_config_dict({f"CONTEXTBASE_API_{field.upper()}": 0.5}) == {field: 0.5}
++
++
++@pytest.mark.parametrize("arm", ARMS)
++@pytest.mark.parametrize("level", ["low", "medium", "high"])
++def test_priority_boost_replaces_weighted_contribution(arm: str, level: str) -> None:
++    weights = replace(RecallRRFWeights(), **{arm: 0.03})
++    lists = [[result("same")] for _ in ARMS]
++    candidate = reciprocal_rank_fusion(lists, weights=weights)[0]
++    expected = sum(weights.for_source(other) / 61 for other in ARMS if other != arm)
++    expected += 0.03 / (60 + 1 / BOOST_LEVELS[level].rank_divisor)
++    assert boosted_rrf_score(candidate, {arm: level}, weights=weights) == pytest.approx(expected)
++    assert boosted_rrf_score(candidate, {}, weights=weights) == candidate.rrf_score
++
++
++def test_cap_cannot_undo_a_small_arm_weight_through_priority_boost() -> None:
++    weights = RecallRRFWeights(semantic=0.97, bm25=0.03)
++    candidates = reciprocal_rank_fusion([[result("dense")], [result("lexical")]], weights=weights)
++    original_scores = [candidate.rrf_score for candidate in candidates]
++    trimmed = trim_merged_candidates(candidates, 1, {"bm25": "high"}, weights=weights)
++    assert [candidate.id for candidate in trimmed.kept] == ["dense"]
++    assert trimmed.dropped == 1
++    assert [candidate.rrf_score for candidate in candidates] == original_scores
++
++
++@pytest.mark.asyncio
++async def test_global_tenant_bank_precedence_and_reset_are_isolated() -> None:
++    global_config = replace(HindsightConfig.from_env(), recall_rrf_semantic_weight=0.8)
++    tenant = MockTenantExtension({"recall_rrf_bm25_weight": 0.2})
++    resolver = ConfigResolver(FakeBankConfigBackend(), tenant_extension=tenant)
++    resolver._global_config = global_config
++    resolver._load_bank_config = AsyncMock(
++        side_effect=lambda bank, **kw: {"recall_rrf_semantic_weight": 0.97} if bank == "A" else {}
++    )
++    context = RequestContext(internal=True)
++    a = await resolver.resolve_full_config("A", context)
++    b = await resolver.resolve_full_config("B", context)
++    assert RecallRRFWeights.from_config(a) == RecallRRFWeights(semantic=0.97, bm25=0.2)
++    assert RecallRRFWeights.from_config(b) == RecallRRFWeights(semantic=0.8, bm25=0.2)
++    assert global_config.recall_rrf_semantic_weight == 0.8
++    validated = await resolver.validate_bank_config_updates("A", {"recall_rrf_semantic_weight": None}, context)
++    assert validated.updates == {"recall_rrf_semantic_weight": None}
++    # A null update removes the stored override, revealing its parent's value.
++    resolver._load_bank_config = AsyncMock(return_value={})
++    assert RecallRRFWeights.from_config(
++        await resolver.resolve_full_config("A", context)
++    ) == RecallRRFWeights.from_config(b)
++
++
++@pytest.mark.asyncio
++@pytest.mark.parametrize("invalid", [0, -1, float("inf"), float("nan"), True, "0.97"])
++async def test_bad_bank_update_and_tenant_override_fail_before_recall(invalid: object) -> None:
++    resolver = ConfigResolver(FakeBankConfigBackend())
++    with pytest.raises(ValueError):
++        await resolver.validate_bank_config_updates("A", {"recall_rrf_semantic_weight": invalid})
++    resolver.tenant_extension = MockTenantExtension({"recall_rrf_semantic_weight": invalid})
++    with pytest.raises(ValueError):
++        await resolver.resolve_full_config("A", RequestContext(internal=True))
+diff --git a/hindsight-docs/docs/developer/configuration.mdx b/hindsight-docs/docs/developer/configuration.mdx
+index d9823bb..ada1e8c 100644
+--- a/hindsight-docs/docs/developer/configuration.mdx
++++ b/hindsight-docs/docs/developer/configuration.mdx
+@@ -1636,7 +1636,11 @@ validates the address it resolved, and a proxy would contact one that was never
+ | `CONTEXTBASE_API_SEMANTIC_LINK_MIN_SIMILARITY` | Minimum cosine similarity for creating semantic links during normal retain, streaming retain, and graph-maintenance relinking. This directly controls semantic graph density. Must be between `0` and `1`. | `0.7` |
+ | `CONTEXTBASE_API_BM25_MIN_SCORE` | Minimum BM25 score a row must exceed to enter fusion. Gates out zero-score, non-matching rows on backends (notably `vchord`) whose operator ranks every document instead of pre-filtering to query-term matches. `0` keeps only genuine term matches; raise it to require stronger matches. | `0` |
+ | `CONTEXTBASE_API_RECALL_MAX_CANDIDATES_PER_SOURCE` | Cap on candidates each retrieval source (semantic, BM25, graph, temporal) contributes to RRF, applied before the global reranker cap. Prevents one over-expanding backend from filling the reranker budget on its own. `0` disables the cap. | `0` |
+-| `CONTEXTBASE_API_RECALL_STRATEGY_BOOSTS` | Prioritise one or more retrieval sources over the others on recall, as a comma-separated `strategy:level` list (e.g. `graph:high` to strongly favour graph hits, or `graph:high,bm25:low`). Strategies: `semantic`, `bm25`, `graph`, `temporal`. Levels: `low` (gentle — mainly protects the source's candidates from being dropped before reranking), `medium` (moderate preference), `high` (strong — the source takes the large majority of the reranker's candidate budget). The pre-cap boost works in rank space and only runs when the merged pool is larger than `CONTEXTBASE_API_RERANKER_MAX_CANDIDATES`; it does not rewrite RRF scores. Comparing one boosted arm with one other arm, a boosted candidate at rank `r` outranks the other arm's candidate at rank `s` when `r < divisor * s` (divisors: `low` 2, `medium` 4, `high` 8). That is a single-arm comparison, not a guarantee about the fused list, and it does not depend on pool size. After a cross-encoder rerank, each favoured candidate gets an additive nudge that is the level's full amount at rank 1 and shrinks with its rank in that source (rank-1 amounts: `low` 0.05, `medium` 0.2, `high` 0.5). The decay reuses the same divisor as an initial scale, so `high` halves by rank 9. The `temporal` strategy is the exception: its rank is mostly how close a memory's date is to the middle of the query's date window, which says nothing about relevance among the memories inside the window, so every candidate the temporal source surfaced (including memories linked to those) gets the full amount whatever its rank. For the other sources the decay reduces how far a deep hit moves. For every source, the nudge does not cap the final rank change, it does not guarantee a strong direct match stays ahead, and nudges from two arms add. On a passthrough reranker — recall mode `rrf`, a provider named `rrf`, or a failover chain that has degraded to its `rrf` member — that post-rerank nudge is skipped. If the pool is within the cap, the setting then has no effect; if the pool exceeds the cap, it only changes which candidates enter, and the final order follows raw RRF plus the recency, temporal and proof multipliers. Only the strategies you list are boosted — any you omit keep their normal weight (no implicit boost). A strategy written without a level (`graph` or `graph:`) defaults to `medium`. Empty disables the feature. | _(empty)_ |
++| `CONTEXTBASE_API_RECALL_RRF_SEMANTIC_WEIGHT` | Relative semantic contribution to RRF: `weight / (60 + rank)`. Finite number greater than zero; hierarchical (global → tenant → bank). Interleave fusion ignores it. | `1.0` |
++| `CONTEXTBASE_API_RECALL_RRF_BM25_WEIGHT` | Relative BM25 contribution to RRF: `weight / (60 + rank)`. Finite number greater than zero; hierarchical (global → tenant → bank). Interleave fusion ignores it. | `1.0` |
++| `CONTEXTBASE_API_RECALL_RRF_GRAPH_WEIGHT` | Relative graph contribution to RRF: `weight / (60 + rank)`. Finite number greater than zero; hierarchical (global → tenant → bank). Interleave fusion ignores it. | `1.0` |
++| `CONTEXTBASE_API_RECALL_RRF_TEMPORAL_WEIGHT` | Relative temporal contribution to RRF: `weight / (60 + rank)`. Finite number greater than zero; hierarchical (global → tenant → bank). Interleave fusion ignores it. | `1.0` |
++| `CONTEXTBASE_API_RECALL_STRATEGY_BOOSTS` | Prioritise one or more retrieval sources over the others on recall, as a comma-separated `strategy:level` list (e.g. `graph:high` to strongly favour graph hits, or `graph:high,bm25:low`). Strategies: `semantic`, `bm25`, `graph`, `temporal`. Levels: `low` (gentle — mainly protects the source's candidates from being dropped before reranking), `medium` (moderate preference), `high` (strong — the source takes the large majority of the reranker's candidate budget). The pre-cap boost works in rank space and only runs when the merged pool is larger than `CONTEXTBASE_API_RERANKER_MAX_CANDIDATES`; it does not rewrite RRF scores. Comparing one boosted arm with one other arm, with equal RRF source weights, a boosted candidate at rank `r` outranks the other arm's candidate at rank `s` when `r < divisor * s` (divisors: `low` 2, `medium` 4, `high` 8). That is a single-arm comparison, not a guarantee about the fused list, and it does not depend on pool size. After a cross-encoder rerank, each favoured candidate gets an additive nudge that is the level's full amount at rank 1 and shrinks with its rank in that source (rank-1 amounts: `low` 0.05, `medium` 0.2, `high` 0.5). The decay reuses the same divisor as an initial scale, so `high` halves by rank 9. The `temporal` strategy is the exception: its rank is mostly how close a memory's date is to the middle of the query's date window, which says nothing about relevance among the memories inside the window, so every candidate the temporal source surfaced (including memories linked to those) gets the full amount whatever its rank. For the other sources the decay reduces how far a deep hit moves. For every source, the nudge does not cap the final rank change, it does not guarantee a strong direct match stays ahead, and nudges from two arms add. On a passthrough reranker — recall mode `rrf`, a provider named `rrf`, or a failover chain that has degraded to its `rrf` member — that post-rerank nudge is skipped. If the pool is within the cap, the setting then has no effect; if the pool exceeds the cap, it only changes which candidates enter, and the final order follows raw RRF plus the recency, temporal and proof multipliers. Only the strategies you list are boosted — any you omit keep their normal weight (no implicit boost). A strategy written without a level (`graph` or `graph:`) defaults to `medium`. Empty disables the feature. | _(empty)_ |
+ | `CONTEXTBASE_API_RECENCY_DECAY_FUNCTION` | Shape of the recency boost applied during reranking — how a memory's age is turned into a small freshness adjustment to its final rank. `linear` (default) decays in a straight line from full freshness (today) to a floor reached at `CONTEXTBASE_API_RECENCY_DECAY_LINEAR_WINDOW_DAYS`. `exponential` decays by half-life: a memory is treated as neutral (no boost or penalty) at `CONTEXTBASE_API_RECENCY_DECAY_HALFLIFE_DAYS`, younger memories are boosted and older ones penalised, with a smooth fade rather than a hard cutoff. `none` disables recency entirely (age never affects ranking). | `linear` |
+ | `CONTEXTBASE_API_RECENCY_DECAY_LINEAR_WINDOW_DAYS` | For the `linear` decay function: the number of days over which a memory fades from full freshness to the minimum. Only used when `CONTEXTBASE_API_RECENCY_DECAY_FUNCTION=linear`. | `365` |
+ | `CONTEXTBASE_API_RECENCY_DECAY_HALFLIFE_DAYS` | For the `exponential` decay function: the age (in days) at which a memory is considered neutral — younger memories get a recency boost, older ones a penalty. Smaller values favour very recent memories more aggressively. Only used when `CONTEXTBASE_API_RECENCY_DECAY_FUNCTION=exponential`. | `90` |
+@@ -1645,6 +1649,23 @@ validates the address it resolved, and a proxy would contact one that was never
+ | `CONTEXTBASE_API_KNOWLEDGE_PAGE_DEFAULT_TRIGGER` | Default refresh settings for newly created knowledge pages, as a JSON object merged over the built-in default (`{"mode": "delta", "fact_types": ["observation"], "exclude_mental_models": true, "refresh_after_consolidation": true}`). Set only the fields you want to change — e.g. `{"refresh_cron": "0 * * * *"}` makes new pages refresh hourly instead of after every consolidation. A trigger sent when creating the page still wins; existing pages are not changed. Configurable per bank. | - |
+ | `CONTEXTBASE_API_MENTAL_MODEL_HISTORY_MAX_ENTRIES` | Max history rows kept per mental model. On each refresh the previous version is inserted into the `mental_model_history` table and the oldest rows beyond this cap are deleted, so per-model history can't grow without bound. `0` or a negative value **removes the cap** (history then grows with every refresh — unbounded); to turn history off entirely set `CONTEXTBASE_API_ENABLE_MENTAL_MODEL_HISTORY=false` instead. | `50` |
+ 
++RRF source weights are relative and do not need to sum to one. The unit defaults
++preserve existing fusion scores and ordering. Configure `recall_rrf_semantic_weight`,
++`recall_rrf_bm25_weight`, `recall_rrf_graph_weight` and `recall_rrf_temporal_weight`
++through the existing Bank Config `updates` object to tune one bank; setting an
++override to `null` restores its tenant/global value. Zero, negative, non-finite and
++boolean values are rejected. Use the existing `enable_*` flags to disable an arm.
++
++These weights affect fusion and the candidates entering the reranker, including
++when model reranking is disabled. A configured strategy priority divides the
++rank inside that arm's weighted RRF term; it does not restore an unweighted
++contribution. The separate additive boost after model reranking is unchanged.
++Recall traces report the effective weights in the `rrf_merge` phase details;
++interleave reports `null` because its round-robin order ignores RRF weights.
++A semantic/BM25 ratio such as `0.97`/`0.03` is an opt-in tuning choice that should
++be validated on the target corpus, not a universal preset.
++
++
+ The five embedding-dependent gates—main semantic retrieval, graph seeds, temporal retrieval, semantic-link
+ construction, and observation deduplication—serve different precision/recall tradeoffs and are intentionally
+ configured independently. Their defaults preserve the behavior calibrated for `BAAI/bge-small-en-v1.5`.
+diff --git a/hindsight-embed/hindsight_embed/daemon_embed_manager.py b/hindsight-embed/hindsight_embed/daemon_embed_manager.py
+index 29ca1e5..b261615 100644
+--- a/hindsight-embed/hindsight_embed/daemon_embed_manager.py
++++ b/hindsight-embed/hindsight_embed/daemon_embed_manager.py
+@@ -896,9 +896,7 @@ class DaemonEmbedManager(EmbedManager):
+                 env[key] = str(value)
+ 
+         # Use profile-specific database (check config for override)
+-        db_override = config.get("CONTEXTBASE_EMBED_API_DATABASE_URL") or env.get(
+-            "CONTEXTBASE_EMBED_API_DATABASE_URL"
+-        )
++        db_override = config.get("CONTEXTBASE_EMBED_API_DATABASE_URL") or env.get("CONTEXTBASE_EMBED_API_DATABASE_URL")
+         if db_override:
+             env["CONTEXTBASE_API_DATABASE_URL"] = db_override
+         else:
+diff --git a/hindsight-embed/hindsight_embed/env.example b/hindsight-embed/hindsight_embed/env.example
+index 00ce320..27d7180 100644
+--- a/hindsight-embed/hindsight_embed/env.example
++++ b/hindsight-embed/hindsight_embed/env.example
+@@ -8,11 +8,9 @@ contextdb_name=contextbase
+ # deployment directory's ui.env, which service.sh loads before starting the UI.
+ # Example files are not runtime configuration. Restart the UI after changing values.
+ # Use HTTPS URLs pointing directly to install files; change these for your mirror.
+-# Coding Agents defaults to @huaweicloud/contextbase-coding-agents@latest.
++# ContextBase Agent Installer defaults to @huaweicloud/contextbase-agent-installer@latest.
+ # Optional override to pin a published version:
+-# CONTEXTBASE_CP_CODING_AGENTS_NPM_PACKAGE=@huaweicloud/contextbase-coding-agents@1.0.0
+-CONTEXTBASE_CP_OPENCLAW_PACKAGE_URL=https://github.com/RSIXDB/hindsight/releases/download/contextbase-clients-v0.1.0/contextbase-openclaw-1.0.0.tgz
+-CONTEXTBASE_CP_HERMES_PACKAGE_URL=https://github.com/RSIXDB/hindsight/releases/download/contextbase-clients-v0.1.0/hermes-plugin-contextbase-1.2.2.zip
++# CONTEXTBASE_CP_CODING_AGENTS_NPM_PACKAGE=@huaweicloud/contextbase-agent-installer@1.2.0
+ CONTEXTBASE_CP_PYTHON_SDK_PACKAGE_URL=https://github.com/RSIXDB/hindsight/releases/download/contextbase-clients-v0.1.0/contextbase_client-1.0.0-py3-none-any.whl
+ # Public API/MCP addresses depend on the deployment and must be set separately:
+ # CONTEXTBASE_CP_PUBLIC_API_URL=https://api.your-domain.example
+@@ -621,6 +619,14 @@ HINDSIGHT_API_LOG_LEVEL=info
+ # HINDSIGHT_API_RERANKER_MAX_CANDIDATES_MID=0
+ # HINDSIGHT_API_RERANKER_MAX_CANDIDATES_HIGH=0
+ 
++# Relative RRF source weights (finite > 0, default 1 each; overridable per bank).
++# Weights need not sum to 1. Enable flags control which retrieval arms run.
++# Interleave fusion ignores these weights; strategy priority boosts compose with them.
++# HINDSIGHT_API_RECALL_RRF_SEMANTIC_WEIGHT=1.0
++# HINDSIGHT_API_RECALL_RRF_BM25_WEIGHT=1.0
++# HINDSIGHT_API_RECALL_RRF_GRAPH_WEIGHT=1.0
++# HINDSIGHT_API_RECALL_RRF_TEMPORAL_WEIGHT=1.0
++
+ # Reranker failover chain: extra rerankers tried, in order, when the one above
+ # fails. Members are numbered from 1 (indices must be contiguous) and every
+ # setting of member n carries the same index. A member inherits nothing from the
+diff --git a/hindsight-embed/tests/test_profile_daemon_config.py b/hindsight-embed/tests/test_profile_daemon_config.py
+index 85d7107..8dfaed2 100644
+--- a/hindsight-embed/tests/test_profile_daemon_config.py
++++ b/hindsight-embed/tests/test_profile_daemon_config.py
+@@ -165,9 +165,7 @@ def test_load_config_file_uses_correct_profile(temp_home, monkeypatch):
+ 
+     # Should have loaded from the named profile
+     assert os.environ.get("CONTEXTBASE_API_LLM_PROVIDER") == "groq", "Should load from named profile, not default"
+-    assert os.environ.get("CONTEXTBASE_API_LLM_MODEL") == "llama-3.1-70b", (
+-        "Should load from named profile, not default"
+-    )
++    assert os.environ.get("CONTEXTBASE_API_LLM_MODEL") == "llama-3.1-70b", "Should load from named profile, not default"
+ 
+ 
+ def test_load_config_file_reads_utf8_profile(temp_home, monkeypatch):
+diff --git a/hindsight-embed/tests/test_profile_manager.py b/hindsight-embed/tests/test_profile_manager.py
+index 3038a2b..ea337d3 100644
+--- a/hindsight-embed/tests/test_profile_manager.py
++++ b/hindsight-embed/tests/test_profile_manager.py
+@@ -82,9 +82,7 @@ class TestProfileManager:
+         assert "port" not in metadata["profiles"]["test-profile"]
+         assert "created_at" in metadata["profiles"]["test-profile"]
+ 
+-    def test_profile_config_uses_utf8_when_locale_is_not_utf8(
+-        self, profile_manager, temp_contextbase_dir, monkeypatch
+-    ):
++    def test_profile_config_uses_utf8_when_locale_is_not_utf8(self, profile_manager, temp_contextbase_dir, monkeypatch):
+         """Profile templates remain readable with a legacy default code page."""
+         original_open = pathlib.Path.open
+         original_builtin_open = builtins.open
+diff --git a/hindsight-system-tests/tests/test_99_rrf_weights.py b/hindsight-system-tests/tests/test_99_rrf_weights.py
+new file mode 100644
+index 0000000..be5f52d
+--- /dev/null
++++ b/hindsight-system-tests/tests/test_99_rrf_weights.py
+@@ -0,0 +1,116 @@
++"""Bank weights reach native fusion, stay isolated, and reset without reindexing."""
++
++from __future__ import annotations
++
++import contextlib
++from typing import Any
++
++import pytest
++from contextbase_client_api.exceptions import ApiException
++
++from hindsight_system_tests.payloads import consolidation, extracted, fact
++
++pytestmark = pytest.mark.asyncio
++
++UNIT = {"semantic": 1.0, "bm25": 1.0, "graph": 1.0, "temporal": 1.0}
++TUNED = {**UNIT, "semantic": 0.97, "bm25": 0.03}
++QUERY = "Where does Alice live?"
++CONTENT = "Alice moved to Berlin in 2021 and plays cello."
++TEXTS = [
++    "Alice moved to Berlin in 2021 | When: 2021 | Involving: Alice",
++    "Alice plays the cello professionally | Involving: Alice",
++]
++
++
++def assert_fusion(trace: dict[str, Any], expected_weights: dict[str, float]) -> None:
++    phase = next(phase for phase in trace["summary"]["phase_metrics"] if phase["phase_name"] == "rrf_merge")
++    assert phase["details"]["fusion"] == "rrf"
++    assert phase["details"]["rrf_weights"] == expected_weights
++    # Assert the score of every fused item, not just the configuration echo.
++    assert len(trace["rrf_merged"]) == 2
++    for item in trace["rrf_merged"]:
++        expected = sum(
++            expected_weights[source.removesuffix("_rank")] / (60 + rank)
++            for source, rank in item["source_ranks"].items()
++        )
++        assert item["rrf_score"] == pytest.approx(expected)
++
++
++async def test_rrf_weights_apply_per_bank_and_null_restores_defaults(client, llm, bank_id, settled) -> None:
++    other_bank = bank_id + "-other"
++    llm.on_step("extract_facts", contains="Berlin").returns(
++        extracted(
++            fact("Alice moved to Berlin in 2021", when="2021", who="Alice", entities=["Alice", "Berlin"]),
++            fact("Alice plays the cello professionally", who="Alice", entities=["Alice", "cello"]),
++        )
++    )
++    llm.on_step("consolidate").returns(consolidation())
++    try:
++        for bank in (bank_id, other_bank):
++            await client.acreate_bank(bank_id=bank)
++            await client.banks.update_bank_config(
++                bank,
++                {
++                    "updates": {
++                        "enable_graph_retrieval": False,
++                        "enable_temporal_retrieval": False,
++                        "enable_reranking": False,
++                    }
++                },
++            )
++            await client.aretain(bank_id=bank, content=CONTENT)
++            await settled(bank)
++        original = await client.arecall(bank_id=bank_id, query=QUERY, trace=True)
++        assert_fusion(original.trace, UNIT)
++        await client.banks.update_bank_config(
++            bank_id,
++            {
++                "updates": {
++                    "recall_rrf_semantic_weight": 0.97,
++                    "recall_rrf_bm25_weight": 0.03,
++                }
++            },
++        )
++        configured = (await client.banks.get_bank_config(bank_id)).config
++        assert configured["recall_rrf_semantic_weight"] == 0.97
++        assert configured["recall_rrf_bm25_weight"] == 0.03
++        assert configured["enable_reranking"] is False
++        tuned = await client.arecall(bank_id=bank_id, query=QUERY, trace=True)
++        assert_fusion(tuned.trace, TUNED)
++        assert [r.text for r in tuned.results] == TEXTS
++        assert [r.scores.final for r in tuned.results] == pytest.approx([1.1, 0.11])
++        assert all(r.scores.reranker is None for r in tuned.results)
++        assert tuned.entities is None
++        assert tuned.chunks is None
++        untouched = await client.arecall(bank_id=other_bank, query=QUERY, trace=True)
++        assert_fusion(untouched.trace, UNIT)
++        assert [r.text for r in untouched.results] == [r.text for r in original.results]
++        await client.banks.update_bank_config(
++            bank_id,
++            {
++                "updates": {
++                    "recall_rrf_semantic_weight": None,
++                    "recall_rrf_bm25_weight": None,
++                }
++            },
++        )
++        restored = await client.arecall(bank_id=bank_id, query=QUERY, trace=True)
++        assert_fusion(restored.trace, UNIT)
++        assert [r.model_dump(exclude={"scores"}) for r in restored.results] == [
++            r.model_dump(exclude={"scores"}) for r in original.results
++        ]
++        for restored_result, original_result in zip(restored.results, original.results, strict=True):
++            assert restored_result.scores.model_dump() == pytest.approx(original_result.scores.model_dump())
++    finally:
++        with contextlib.suppress(ApiException):
++            await client.banks.delete_bank(other_bank)
++
++
++@pytest.mark.parametrize("value", [0, -0.1, True, "0.97"])
++async def test_invalid_bank_weight_does_not_change_saved_config(client, bank_id, value) -> None:
++    await client.acreate_bank(bank_id=bank_id)
++    before = (await client.banks.get_bank_config(bank_id)).config
++    with pytest.raises(ApiException) as error:
++        await client.banks.update_bank_config(bank_id, {"updates": {"recall_rrf_semantic_weight": value}})
++    assert 400 <= error.value.status < 500
++    assert (await client.banks.get_bank_config(bank_id)).config == before

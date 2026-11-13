@@ -1,0 +1,16 @@
+{
+  "source_repository": "https://github.com/RSIXDB/hindsight",
+  "source_commit": "cdf6430e028ff456d490436ff99e50fcf4aba59c",
+  "pull_request": "https://github.com/RSIXDB/hindsight/pull/108",
+  "must_fix": [],
+  "should_fix": [],
+  "unit_regression_tests_passed": 369,
+  "sdk_system_tests_passed": 18,
+  "lint_script": "scripts/hooks/lint.sh passed",
+  "type_checks": "passed as part of full lint",
+  "diff_check": "passed",
+  "unused_check": "completed; pre-existing advisory findings only",
+  "api_schema_change": false,
+  "models_or_prompts_changed": false,
+  "note": "Reviewed before pushing; no merge or production deployment."
+}

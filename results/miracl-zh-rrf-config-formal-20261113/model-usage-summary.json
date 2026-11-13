@@ -1,0 +1,28 @@
+{
+  "unit-default-tune100": {
+    "successful_queries": 100,
+    "query_embedding_calls": 100,
+    "query_embedding_input_tokens": 948,
+    "query_rerank_calls": 0,
+    "query_rerank_input_tokens": 0,
+    "average_model_rerank_candidates": 0,
+    "warmup_embedding_calls": 8,
+    "warmup_embedding_input_tokens": 128,
+    "current_ingest_embedding_calls": 0,
+    "current_ingest_embedding_input_tokens": 0,
+    "index_reused": true
+  },
+  "configured-dense97-dev393": {
+    "successful_queries": 393,
+    "query_embedding_calls": 393,
+    "query_embedding_input_tokens": 3795,
+    "query_rerank_calls": 0,
+    "query_rerank_input_tokens": 0,
+    "average_model_rerank_candidates": 0,
+    "warmup_embedding_calls": 4,
+    "warmup_embedding_input_tokens": 64,
+    "current_ingest_embedding_calls": 0,
+    "current_ingest_embedding_input_tokens": 0,
+    "index_reused": true
+  }
+}

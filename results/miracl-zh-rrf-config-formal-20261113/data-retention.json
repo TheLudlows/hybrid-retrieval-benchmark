@@ -1,0 +1,20 @@
+{
+  "original_contextbase_source_untouched": true,
+  "original_contextbase_api": "http://127.0.0.1:18888",
+  "original_contextbase_database": "miracl_scale_100k_v2",
+  "weknora_database_retained": true,
+  "original_contextbase_backup_retained": true,
+  "weknora_backup_retained": true,
+  "isolated_validation_database_retained": "miracl_rrf_config_validation_20261113",
+  "isolated_validation_runtime_retained": true,
+  "isolated_api_stopped_after_validation": true,
+  "original_service_not_deployed_with_feature": true,
+  "contextbase_original_checkpoint": {
+    "indexed": 100000,
+    "complete": true
+  },
+  "weknora_original_checkpoint": {
+    "indexed": 100000,
+    "complete": true
+  }
+}

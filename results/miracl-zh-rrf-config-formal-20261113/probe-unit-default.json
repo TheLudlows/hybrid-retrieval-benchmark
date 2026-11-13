@@ -1,0 +1,12 @@
+{
+  "qid": "4714933#0",
+  "weights": {
+    "semantic": 1.0,
+    "bm25": 1.0,
+    "graph": 1.0,
+    "temporal": 1.0
+  },
+  "all_rrf_scores_checked": 167,
+  "bm25_returned_candidates": true,
+  "query_embedding_sha256": "35e58e8cb8cecb3c3f8271610572a2bc838f8ea2788c3c3a870c070086f1c0ad"
+}

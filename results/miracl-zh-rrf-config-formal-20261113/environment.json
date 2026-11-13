@@ -1,0 +1,13 @@
+{
+  "os": "Linux",
+  "kernel": "6.18.57",
+  "machine": "x86_64",
+  "logical_cpus_reported": 5,
+  "python_service": "3.11.17",
+  "database": "PostgreSQL 18.4, pgvector 0.8.2, pg_search 0.24.1",
+  "model_runtime": "ONNX Runtime 1.31.1, INT8 CPU",
+  "query_concurrency": 1,
+  "cgroup_cpu_max": "400000 100000",
+  "cgroup_memory_max": "17179869184",
+  "cpu_model": "AMD EPYC 9V74 80-Core Processor"
+}

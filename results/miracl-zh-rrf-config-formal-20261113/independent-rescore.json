@@ -1,0 +1,10 @@
+{
+  "unit-default-tune100": {
+    "queries": 100,
+    "all_metrics_and_per_query_results_match": true
+  },
+  "configured-dense97-dev393": {
+    "queries": 393,
+    "all_metrics_and_per_query_results_match": true
+  }
+}
