@@ -1,0 +1,15 @@
+{
+  "trace_requests": 60,
+  "selected_queries": 30,
+  "native_rrf_entries_formula_and_source_rank_verified": 59447,
+  "archived_final_rankings_match": 60,
+  "diagnostic_embedding_calls": 60,
+  "diagnostic_embedding_input_tokens": 580,
+  "diagnostic_rerank_calls": 0,
+  "all_selected_positive_judgments_returned": true,
+  "prior_benchmark_result_directories_unchanged": true,
+  "restored_configuration": "lean_source_cap100",
+  "code_fingerprints_match": true,
+  "both_100k_checkpoints_complete_and_retained": true,
+  "public_artifact_credential_scan": "passed"
+}

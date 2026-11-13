@@ -1,5 +1,7 @@
 # ContextBase 原生检索阶段诊断
 
+**已完成30题×2配置的60次原生trace诊断。结论和实例见 [REPORT.md](REPORT.md)，核验见 [final-verification.json](final-verification.json)。**
+
 用户要求先定位现有错题的阶段断点。本轮只诊断，不新增权重扫描，不修改已归档成绩，不重新入库。
 
 从固定100道调参题中，选择精简配置首位未命中的30题。选择顺序为：先覆盖全部5道前十无正例题，再按相对WeKnora选定配置的nDCG差值从小到大、最后以固定种子qid哈希补满。选题规则和题目在任何本轮trace查询前固定，见 [selected-queries.json](selected-queries.json) 和 [experiment-plan.json](experiment-plan.json)。这是有意选择的难例集合，不代表全部查询的统计分布。
