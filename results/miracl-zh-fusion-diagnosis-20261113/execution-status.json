@@ -1,18 +1,21 @@
 {
-  "state": "diagnosing",
+  "state": "complete",
   "scale": "100k",
   "product": "contextbase",
-  "case": "lean_control",
+  "case": "lean_source_cap100",
   "candidate_ceiling": 60,
   "query_set": null,
   "queries": null,
   "indexed": null,
   "elapsed_s": null,
-  "updated_unix": 1794559871.3872137,
+  "updated_unix": 1794559922.786645,
   "pid": 20811,
   "qid": "6568153#0",
   "diagnostic_queries_completed": 29,
   "diagnostic_queries_target": 30,
   "run_id": "nested-v5-fusion-diagnostic/100k/contextbase/lean_control",
-  "publish_state": "pushed"
+  "publish_state": "pushed",
+  "diagnostic_queries": 30,
+  "diagnostic_native_requests": 60,
+  "restored_case": "lean_source_cap100"
 }
