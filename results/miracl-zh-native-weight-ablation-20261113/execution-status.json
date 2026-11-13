@@ -1,8 +1,9 @@
 {
   "state": "case_complete",
-  "case": "baseline97",
+  "case": "mixed95",
   "queries": 393,
   "completed_cases": [
-    "baseline97"
+    "baseline97",
+    "mixed95"
   ]
 }

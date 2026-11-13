@@ -1,0 +1,20 @@
+{
+  "case": {
+    "name": "mixed95",
+    "label": "混合 0.95/0.05",
+    "text_search": true,
+    "semantic_weight": 0.95,
+    "bm25_weight": 0.05
+  },
+  "plan_sha256": "33fd8bb22902b81a751e620b651c5ac7386c199bd020556399e676cfe3ea2230",
+  "corpus_sha256": "d51e1fe9ec6ec92db05df87aabff132f861a72b046a7713bc945f18746665363",
+  "source_commit": "cdf6430e028ff456d490436ff99e50fcf4aba59c",
+  "candidate_ceiling": 60,
+  "max_tokens": 8192,
+  "high_budget": 1000,
+  "source_cap": 100,
+  "query_order_sha256": "8a69f06f771198653bcf15d71be8968d9b56f90dd6f3f6b75465ca0c882d1b55",
+  "model_reranking": false,
+  "warmup_queries": 4,
+  "concurrency": 1
+}
