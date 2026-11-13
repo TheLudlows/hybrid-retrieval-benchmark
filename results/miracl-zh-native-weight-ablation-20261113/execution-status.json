@@ -1,4 +1,8 @@
 {
-  "state": "registered",
-  "completed_cases": []
+  "state": "case_complete",
+  "case": "baseline97",
+  "queries": 393,
+  "completed_cases": [
+    "baseline97"
+  ]
 }
