@@ -1,0 +1,19 @@
+{
+  "native_bank_config": {
+    "enable_graph_retrieval": false,
+    "enable_temporal_retrieval": false,
+    "enable_reranking": false
+  },
+  "native_api_env": {
+    "BM25_MAX_QUERY_TERMS": "16",
+    "ENABLE_GRAPH_RETRIEVAL": "false",
+    "ENABLE_TEMPORAL_RETRIEVAL": "false",
+    "EXPERIMENT_BM25_POLICY": "stop",
+    "EXPERIMENT_RRF_KEYWORD_WEIGHT": "1",
+    "EXPERIMENT_RRF_VECTOR_WEIGHT": "1",
+    "RECALL_BUDGET_FIXED_HIGH": "1000",
+    "RECALL_MAX_CANDIDATES_PER_SOURCE": "100",
+    "RECALL_STRATEGY_BOOSTS": ""
+  },
+  "source": "Native bank GET and startup-generated api.env; no credentials"
+}
