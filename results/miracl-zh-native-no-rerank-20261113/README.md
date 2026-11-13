@@ -1,6 +1,6 @@
 # MIRACL 中文：关闭模型重排的原生检索对比
 
-用户于 2026-11-13 将本轮主比较改为关闭产品内部模型重排。此目录独立于[此前带重排实验](../miracl-zh-scale-20261112/README.md)，不混合模式、耗时或逐题排名。**方案已冻结，尚无已完成的关闭重排正式查询结果。**
+用户于 2026-11-13 将本轮主比较改为关闭产品内部模型重排。此目录独立于[此前带重排实验](../miracl-zh-scale-20261112/README.md)，不混合模式、耗时或逐题排名。**10万段主实验已全部完成。完整复算报告见 [REPORT.md](REPORT.md)，结构化差值和核验见 [comparison-complete.json](comparison-complete.json)。额外配置组合验证单独记录，不改变本轮各6组的结果。**
 
 **范围更新：用户已确认不做100万段验证，仅完成本轮10万段实验。原方案备份见 [protocol-revisions/before-100k-only.json](protocol-revisions/before-100k-only.json)。**
 
