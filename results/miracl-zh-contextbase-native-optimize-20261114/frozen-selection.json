@@ -1,0 +1,26 @@
+{
+  "quality_case": "w985_pool1000",
+  "efficiency_case": "w985_pool300",
+  "assessment_cases": [
+    "w99_pool1000",
+    "w985_pool1000",
+    "w985_pool300"
+  ],
+  "efficiency_eligible_cases": [
+    "w985_pool1000",
+    "w985_pool500",
+    "w985_pool300"
+  ],
+  "selection_only": "tune100",
+  "tuning_metrics_sha256": {
+    "w99_pool1000": "0ce16e9a1afbe09a8582c9a4bd7f322cd944d64eb35b3eaff77e5ded4386d95d",
+    "w98_pool1000": "82fe8905a404d49d56e9aa609cfe952be021dac707e732378aaa0ecc8187615f",
+    "w985_pool1000": "e35a1c94e2fd218a2d58856138760071978ec6e8ea51a17a3a666a6a0a4cfa58",
+    "w99_pool500": "ea11139b1cba2eda85ff1724dfd86c33519529de9b7c4035cb85717a333b6298",
+    "w98_pool500": "507a92565c0cea3daf2ebb62b78a2a3816db16f402286ac663201eb97d7ca371",
+    "w985_pool500": "01d602db6b4db531a6d26153d929055a7b0ca08e6f6be2ce0a8f877b5f31028c",
+    "w99_pool300": "824ebd98ac6bbf747363984c535600d356143217dc349bf79d0c0bff8a62a756",
+    "w98_pool300": "1debac7772aa5d4fda56d400faff2fedeefdc0528824f496b1947cc10cc05f41",
+    "w985_pool300": "f4fe02c5e113df2d595cb0620bee4fb80792f1d645b0838cbdcb2e682129b4fa"
+  }
+}
