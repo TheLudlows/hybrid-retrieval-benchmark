@@ -1,10 +1,10 @@
 {
-  "state": "querying",
+  "state": "complete",
   "product": "weknora",
   "scale": "100k",
   "indexed": null,
   "adopted_ingest_pid": 2868,
-  "updated_unix": 1794557699.2394085,
+  "updated_unix": 1794557793.7747087,
   "pid": 7657,
   "publish_state": "pushed",
   "case": "default",
@@ -12,5 +12,9 @@
   "query_set": "tune_dev100",
   "queries": 100,
   "elapsed_s": null,
-  "run_id": "nested-v3-no-rerank/100k/weknora/rrf_k30-tune_dev100-cap100"
+  "run_id": "nested-v3-no-rerank/100k/weknora/rrf_k30-tune_dev100-cap100",
+  "completed_scales": [
+    100000
+  ],
+  "million_stage": "cancelled_by_user"
 }
