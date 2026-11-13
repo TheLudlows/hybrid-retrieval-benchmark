@@ -1,0 +1,13 @@
+{
+  "case": {
+    "name": "lean_source_cap100",
+    "env": {
+      "ENABLE_GRAPH_RETRIEVAL": "false",
+      "ENABLE_TEMPORAL_RETRIEVAL": "false",
+      "RECALL_MAX_CANDIDATES_PER_SOURCE": "100"
+    }
+  },
+  "selection_only": "tune_dev100",
+  "rule": "Highest tune_dev100 nDCG@10, then Hit@1, then original registered trial order; default wins exact ties. Never select on assessment_dev293 or fresh_train200.",
+  "note": "Existing dev393 and extra200 results already inspected earlier. All follow-up results are exploratory, not blind validation."
+}
