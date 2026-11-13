@@ -1,0 +1,217 @@
+{
+  "seed": 20261112,
+  "created_before_scale_quality_results": true,
+  "baseline_commit": "aa5db170e71892455bf4572b09cebc693574903a",
+  "models_and_formal_runtime": {
+    "embedding_revision": "25b9af8e87a38eb120cfe87125383677b9cd309e",
+    "reranker_revision": "6f5ff65298512715a1e669753bc754d2bc8f367b",
+    "format": "ONNX INT8 CPU",
+    "intra_op_threads": 3,
+    "inter_op_threads": 1,
+    "max_length": 512,
+    "batch_size": 8,
+    "files": {
+      "full-reranker/model_quantized.onnx": {
+        "size": 570727094,
+        "sha256": "912fc1215c2dbff6499700534bd8d31253af01573861abbfc43afd1fab6cce5d"
+      },
+      "full-reranker/tokenizer.json": {
+        "size": 17082900,
+        "sha256": "8bf8afbfd11306bd872018c53bfdf2e160a56f8edbcf49933324404791c148d3"
+      },
+      "full-reranker/config.json": {
+        "size": 848,
+        "sha256": "122e922dcfed6503c8721e6fe1daf090340c3d95ca7f3aa3a72730b321a51cfd"
+      },
+      "full-embedding/model_quantized.onnx": {
+        "size": 568479395,
+        "sha256": "2237f770aad5c71bbc1fc2d361a57f9a37400574cc9eff32626f0cdb49234730"
+      },
+      "full-embedding/tokenizer.json": {
+        "size": 17082799,
+        "sha256": "249df0778f236f6ece390de0de746838ef25b9d6954b68c2ee71249e0a9d8fd4"
+      },
+      "full-embedding/config.json": {
+        "size": 658,
+        "sha256": "70dae5884ced999af00244f776ac9eaa71538d68497d3d6a6091e0318cd32905"
+      }
+    },
+    "embedding_http_batch_window_ms": 10,
+    "batching_scope": "Concurrent HTTP embedding inputs; native product requests preserved; ONNX batch size remains 8",
+    "formal_query_threads": 3,
+    "ingest_threads": 3
+  },
+  "query_splits_file": "query-splits.json",
+  "candidate_ceiling_primary": 60,
+  "query_concurrency": 1,
+  "warmup_queries": 4,
+  "default_dev_queries": 393,
+  "trials_per_product": 6,
+  "selection": "Highest tune_dev100 nDCG@10, then Hit@1, then original registered trial order; default wins exact ties. Never select on assessment_dev293 or fresh_train200.",
+  "contextbase_trials": [
+    {
+      "name": "default",
+      "env": {}
+    },
+    {
+      "name": "lean",
+      "env": {
+        "ENABLE_GRAPH_RETRIEVAL": "false",
+        "ENABLE_TEMPORAL_RETRIEVAL": "false"
+      }
+    },
+    {
+      "name": "semantic_priority",
+      "env": {
+        "RECALL_STRATEGY_BOOSTS": "semantic:high"
+      }
+    },
+    {
+      "name": "lexical_priority",
+      "env": {
+        "RECALL_STRATEGY_BOOSTS": "bm25:high"
+      }
+    },
+    {
+      "name": "source_cap100",
+      "env": {
+        "RECALL_MAX_CANDIDATES_PER_SOURCE": "100"
+      }
+    },
+    {
+      "name": "recall_pool300",
+      "env": {
+        "RECALL_BUDGET_FIXED_HIGH": "300"
+      }
+    }
+  ],
+  "weknora_trials": [
+    {
+      "name": "default",
+      "rrf": {
+        "rrf_k": 60,
+        "rrf_vector_weight": 0.7,
+        "rrf_keyword_weight": 0.3
+      }
+    },
+    {
+      "name": "balanced",
+      "rrf": {
+        "rrf_k": 60,
+        "rrf_vector_weight": 0.5,
+        "rrf_keyword_weight": 0.5
+      }
+    },
+    {
+      "name": "lexical_priority",
+      "rrf": {
+        "rrf_k": 60,
+        "rrf_vector_weight": 0.3,
+        "rrf_keyword_weight": 0.7
+      }
+    },
+    {
+      "name": "rrf_k30",
+      "rrf": {
+        "rrf_k": 30,
+        "rrf_vector_weight": 0.7,
+        "rrf_keyword_weight": 0.3
+      }
+    },
+    {
+      "name": "rrf_k100",
+      "rrf": {
+        "rrf_k": 100,
+        "rrf_vector_weight": 0.7,
+        "rrf_keyword_weight": 0.3
+      }
+    },
+    {
+      "name": "balanced_k30",
+      "rrf": {
+        "rrf_k": 30,
+        "rrf_vector_weight": 0.5,
+        "rrf_keyword_weight": 0.5
+      }
+    }
+  ],
+  "frontier_candidate_ceilings": [
+    40,
+    100
+  ],
+  "frontier_query_set": "tune_dev100; descriptive, not selection",
+  "scales": [
+    100000,
+    1000000
+  ],
+  "million_gate": "After 100k measurements, require projected native index growth + projected backup allowance + 8 GiB reserve below actual free disk. Otherwise stop as blocked_capacity without deleting original indices.",
+  "query_scope_note": "All 393 original dev queries already inspected. Assessment293 remains exploratory. Fresh200 is an untouched-for-this-tuning official train query sample, not an official blind test or a guarantee of model-unseen text.",
+  "single_product_at_a_time": true,
+  "weights_unchanged": true,
+  "return_budget_diagnostic": {
+    "product": "contextbase",
+    "max_tokens": 16384,
+    "candidate_ceiling": 60,
+    "query_set": "tune_dev100",
+    "not_used_for_selection": true,
+    "note": "Native return budget diagnostic without model rerank; not a selection trial."
+  },
+  "execution_order": "Finish already-running WeKnora ingestion without interruption, then re-audit existing indices, run both no-rerank default baselines before equal-budget tuning; retain old reranked baseline separately.",
+  "code_sha256": {
+    "miracl_zh/bench.py": "bd8cea78097c325c6e91079adb6d260bfa7139dbfa37831328d35c9d416bdd1e",
+    "miracl_zh/run_scale.py": "447b93f91ffad651b4967467500171d2a7aaeb2746dcb67ef16f26a2818444a0",
+    "miracl_zh/audit_index.py": "c4dc26509ccd2ef7ba42e6545c389bb8a20ca8343b7930ba8a79966c7ddcc149",
+    "miracl_zh/summarize_comparison.py": "cfadd96e71251ad49af2272e709e5f479ab3898ee9659cad9b8b41ddbfe613ba",
+    "miracl_zh/build_subset.py": "6d898f490d11aaccd674192b41a1779dd9298f9e95d52938a5f0dfa705ad8032",
+    "miracl_zh/analyze_rankings.py": "a93e9206ca14d0b313a70d65f61a392d95f70cd2076c99ce6854bc6458dd999a",
+    "miracl_zh/ingest.py": "eead6dff54083925983c510690878f6e7022d7ce15b6fb16c584b4a1eeab2b9c",
+    "miracl_zh/diagnose_contextbase.py": "7e7b671d85180f18b9d5527ee68a35e00f04bc9561149ea1d612d8766188841e",
+    "miracl_zh/run_scale_no_rerank.py": "9e27b42c27d0a4dbafeea58b4fc5baca9403a87526050dbfa65c00b0f58f8fb8",
+    "doc_recall_v1/bench.py": "e05e9209af74e28f9441b22b632f29a5ac6cb19db51671a16a413d3257116f3b",
+    "deployment/model_server.py": "00284100f3437779a65d01708d41be7c623d3e8b4ac4007c9b19fc48ae4129ac",
+    "deployment/model_server_hybrid.py": "3e3c1cef2a087cdb24930f57b86a95d810efb9aeccbd83c801c10d97e13ad93c"
+  },
+  "experiment_revision": "nested-v3-no-rerank",
+  "corpus_fingerprints": [
+    {
+      "passages": 10000,
+      "parent_preserved_ids_and_content": 0,
+      "sha256": "3554a10e8b02519462efcdcfb632f9d7de1ee2388c3f9c9cd8c963a8efa93061",
+      "fresh_required_coverage": 100
+    },
+    {
+      "passages": 100000,
+      "parent_preserved_ids_and_content": 10000,
+      "sha256": "d51e1fe9ec6ec92db05df87aabff132f861a72b046a7713bc945f18746665363",
+      "fresh_required_coverage": 1977
+    },
+    {
+      "passages": 1000000,
+      "parent_preserved_ids_and_content": 100000,
+      "sha256": "bb22256fb99e24a2cf3d541db975447a4af69c1cc5d6878fa99e8ca478374354",
+      "fresh_required_coverage": 1977
+    }
+  ],
+  "query_splits_sha256": "b7980f21b9ad91bbc86ab0cec347293dae533e1dbd36223c18f2dd5393bd9073",
+  "model_reranking": false,
+  "reuse_ingestion_run_prefix": "nested-v2-text-dedup/",
+  "requested_change_unix": 1794537829.0362039,
+  "supersedes_primary_comparison": "../miracl-zh-scale-20261112",
+  "primary_metrics": [
+    "hit_at_1",
+    "hit_at_5",
+    "hit_at_10",
+    "ndcg_at_10",
+    "recall_at_10",
+    "recall_at_100"
+  ],
+  "budget_interpretation": "60 is native fusion candidate/output budget, not model rerank input; retain native retrieval pools (ContextBase high=1000, WeKnora single KB over-retrieval=300).",
+  "no_rerank_acceptance": [
+    "ContextBase native bank config enable_reranking=false readback",
+    "WeKnora explicit rerank.enabled=false and native outcome=disabled",
+    "Actual formal and warmup rerank model calls must be zero",
+    "Every scored query must have observed embedding call",
+    "Native restart smoke preserves completed qids before formal capture"
+  ],
+  "ingestion_note": "Indices are identical and reused. Historical ingestion calls and recorded times remain attributed to original run IDs; this change does not redo ingestion."
+}

@@ -282,6 +282,8 @@ class Worker:
 
     def render(self):
         for scale in ('100k','1m'):
+            if scale=='1m' and 1000000 not in self.plan.get('scales',[100000,1000000]):
+                root=self.out/scale;root.mkdir(exist_ok=True);(root/'README.md').write_text('# 100万段阶段已取消\n\n用户已明确仅执行10万段实验。已生成语料及指纹保留，不启动百万段入库、查询或容量验证。\n');continue
             root=self.out/scale
             lines=['# '+scale+' 阶段结果','', '所有数值来自已完成并落盘的阶段；缺失阶段仍在运行或尚未开始。开发集结果已被检查，不能声称盲测。新增200题来自官方 train，仅未用于本轮调参。','', '| 产品 / 配置 / 查询集 | 题数 | Hit@1 | nDCG@10 | Recall@100 | p95 秒 |','| --- | ---: | ---: | ---: | ---: | ---: |']
             for p in sorted(root.glob('*/*/metrics.json')):
@@ -339,6 +341,9 @@ class Worker:
     def main(self):
         try:
             frozen,sizes=self.scale('100k',Path(self.s['data100k']))
+            if 1000000 not in self.plan.get('scales',[100000,1000000]):
+                self.status(state='complete',completed_scales=[100000],million_stage='cancelled_by_user')
+                self.publish('Complete 100k native comparison; million stage cancelled by user');return
             free=shutil.disk_usage(self.work).free
             # Tenfold live indices, one additional backup allowance, and 8 GiB reserve.
             needed=sum(sizes.values())*19+8*1024**3

@@ -141,10 +141,9 @@
   ],
   "frontier_query_set": "tune_dev100; descriptive, not selection",
   "scales": [
-    100000,
-    1000000
+    100000
   ],
-  "million_gate": "After 100k measurements, require projected native index growth + projected backup allowance + 8 GiB reserve below actual free disk. Otherwise stop as blocked_capacity without deleting original indices.",
+  "million_gate": "Cancelled by explicit user instruction: no million-passage indexing, queries, or capacity gate. Keep existing generated corpus.",
   "query_scope_note": "All 393 original dev queries already inspected. Assessment293 remains exploratory. Fresh200 is an untouched-for-this-tuning official train query sample, not an official blind test or a guarantee of model-unseen text.",
   "single_product_at_a_time": true,
   "weights_unchanged": true,
@@ -156,10 +155,10 @@
     "not_used_for_selection": true,
     "note": "Native return budget diagnostic without model rerank; not a selection trial."
   },
-  "execution_order": "Finish already-running WeKnora ingestion without interruption, then re-audit existing indices, run both no-rerank default baselines before equal-budget tuning; retain old reranked baseline separately.",
+  "execution_order": "Finish already-running WeKnora ingestion without interruption, then re-audit existing indices, run both no-rerank default baselines before equal-budget tuning; retain old reranked baseline separately. Stop after the 100k tuning and verification stages.",
   "code_sha256": {
     "miracl_zh/bench.py": "bd8cea78097c325c6e91079adb6d260bfa7139dbfa37831328d35c9d416bdd1e",
-    "miracl_zh/run_scale.py": "447b93f91ffad651b4967467500171d2a7aaeb2746dcb67ef16f26a2818444a0",
+    "miracl_zh/run_scale.py": "42d8ad80a63094fffcba473fdac01aa172734dcc6d471bf7dd7af7d08a71e27e",
     "miracl_zh/audit_index.py": "c4dc26509ccd2ef7ba42e6545c389bb8a20ca8343b7930ba8a79966c7ddcc149",
     "miracl_zh/summarize_comparison.py": "cfadd96e71251ad49af2272e709e5f479ab3898ee9659cad9b8b41ddbfe613ba",
     "miracl_zh/build_subset.py": "6d898f490d11aaccd674192b41a1779dd9298f9e95d52938a5f0dfa705ad8032",
@@ -213,5 +212,11 @@
     "Every scored query must have observed embedding call",
     "Native restart smoke preserves completed qids before formal capture"
   ],
-  "ingestion_note": "Indices are identical and reused. Historical ingestion calls and recorded times remain attributed to original run IDs; this change does not redo ingestion."
+  "ingestion_note": "Indices are identical and reused. Historical ingestion calls and recorded times remain attributed to original run IDs; this change does not redo ingestion.",
+  "scope_change": {
+    "changed_unix": 1794540988.2047284,
+    "reason": "User explicitly confirmed cancellation of the 1m validation; retain 100k baseline, tuning and additional query validation.",
+    "prior_protocol": "protocol-revisions/before-100k-only.json",
+    "no_no_rerank_quality_queries_completed_at_change": true
+  }
 }
