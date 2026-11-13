@@ -1,0 +1,15 @@
+{
+  "restart_verified": true,
+  "completed_queries_preserved": 2,
+  "final_unique_qids": 3,
+  "model_rerank_calls": 0,
+  "excluded_from_formal_metrics": true,
+  "model_usage": {
+    "smoke_query/embedding": {
+      "input_tokens": 27,
+      "calls": 3,
+      "pairs": 0,
+      "max_pairs": 0
+    }
+  }
+}

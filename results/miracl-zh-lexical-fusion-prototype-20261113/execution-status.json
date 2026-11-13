@@ -1,0 +1,14 @@
+{
+  "state": "querying",
+  "scale": "100k",
+  "product": "contextbase",
+  "case": "stock_equivalent",
+  "candidate_ceiling": 60,
+  "query_set": "tune_dev100",
+  "queries": 100,
+  "indexed": null,
+  "elapsed_s": null,
+  "updated_unix": 1794562014.3776283,
+  "pid": 23284,
+  "run_id": "nested-v6-experimental-lexical-fusion/100k/contextbase/stock_equivalent-tune_dev100-cap60"
+}
