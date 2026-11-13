@@ -1,0 +1,17 @@
+{
+  "observed_unix": 1794531466.231232,
+  "state": "interrupted",
+  "previous_worker_pid": 27916,
+  "worker_absent": true,
+  "model_and_product_services_absent": true,
+  "last_saved_queries": 284,
+  "remaining_queries": 109,
+  "contextbase_index_audit": {
+    "official_ids": 100000,
+    "indexed_ids": 100000,
+    "missing_ids": 0,
+    "extra_ids": 0
+  },
+  "cause": "Unknown: no shutdown or exception recorded; services and worker absent after environment resumed.",
+  "recovery": "Restart same model configuration and original frozen worker; re-audit existing index and resume qids from rankings.jsonl; do not rebuild complete index."
+}

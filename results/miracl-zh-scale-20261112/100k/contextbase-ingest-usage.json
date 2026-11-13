@@ -1,0 +1,13 @@
+{
+  "driver_attempt_wall_s": 19721.710772037506,
+  "indexed_before_attempt": 0,
+  "cumulative_recorded_batch_wall_s": 19696.80511546135,
+  "models": {
+    "ingest/embedding": {
+      "input_tokens": 9237990,
+      "calls": 100000,
+      "pairs": 0,
+      "max_pairs": 0
+    }
+  }
+}
