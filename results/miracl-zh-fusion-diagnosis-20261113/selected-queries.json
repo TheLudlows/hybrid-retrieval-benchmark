@@ -1,0 +1,722 @@
+[
+  {
+    "qid": "5570734#0",
+    "query": "电脑的发展历程有哪些？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 0,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.0,
+      "recall_at_10": 0.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 824.314884001069
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.5,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 849.9916580003628
+    }
+  },
+  {
+    "qid": "4714933#0",
+    "query": "哥斯达黎加的国歌是什么？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 0,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.0,
+      "recall_at_10": 0.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 664.2578249993676
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.5,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 796.3285119985812
+    }
+  },
+  {
+    "qid": "67347#0",
+    "query": "电视剧《继承者们》的女主角是谁？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 0,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.0,
+      "recall_at_10": 0.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 767.7019299990206
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.38685280723454163,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 787.6786039996659
+    }
+  },
+  {
+    "qid": "188245#0",
+    "query": "日本连载时间最长的漫画是？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 0,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.0,
+      "recall_at_10": 0.0,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 699.5275459994446
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.3562071871080222,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 795.3121899990947
+    }
+  },
+  {
+    "qid": "6518769#0",
+    "query": "台北有哪些旅游景点？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 0,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.0,
+      "recall_at_10": 0.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 660.8748609978647
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.2532778777010656,
+      "recall_at_10": 0.5,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 786.5819340004236
+    }
+  },
+  {
+    "qid": "427995#0",
+    "query": "世界上有哪些共产主义国家？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.18154179253735267,
+      "recall_at_10": 0.3333333333333333,
+      "recall_at_100": 1.0,
+      "depth": 55,
+      "latency_ms": 726.8465670022124
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.9060254355346823,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 848.8450570002897
+    }
+  },
+  {
+    "qid": "735382#0",
+    "query": "陈水扁属于哪一党派？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.16812753627111746,
+      "recall_at_10": 0.25,
+      "recall_at_100": 1.0,
+      "depth": 53,
+      "latency_ms": 721.6876159982348
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.8547529378296287,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 828.1157370001893
+    }
+  },
+  {
+    "qid": "506820#0",
+    "query": "蒙古发现哪些化石？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.31546487678572877,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 54,
+      "latency_ms": 687.7788349993352
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 778.9187410016893
+    }
+  },
+  {
+    "qid": "142518#0",
+    "query": "日本有哪些知名作家？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.3333333333333333,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 663.7916720028443
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 814.0457500012417
+    }
+  },
+  {
+    "qid": "3362581#0",
+    "query": "黄帝的妻子叫什么？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.3562071871080222,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 725.4053340002429
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 773.6624659992231
+    }
+  },
+  {
+    "qid": "7443372#0",
+    "query": "联合国五常国家有哪些？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.16958010263680806,
+      "recall_at_10": 0.2,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 702.9861440023524
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.7760551678305495,
+      "recall_at_10": 0.8,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 861.5631700013182
+    }
+  },
+  {
+    "qid": "7549261#0",
+    "query": "上海市普陀区有多少小学？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.43067655807339306,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 680.566158000147
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 831.2383810007304
+    }
+  },
+  {
+    "qid": "975966#0",
+    "query": "山东有哪些足球队？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.43067655807339306,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 958.7269609983196
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 798.1700050004292
+    }
+  },
+  {
+    "qid": "3981006#0",
+    "query": "李荣浩有哪些作品？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.2920782154400332,
+      "recall_at_10": 0.6666666666666666,
+      "recall_at_100": 1.0,
+      "depth": 55,
+      "latency_ms": 619.0245379984844
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.86034433104172,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 784.0584370023862
+    }
+  },
+  {
+    "qid": "1276927#0",
+    "query": "基督教会有哪些教会标志？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.3228087653971817,
+      "recall_at_10": 0.6666666666666666,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 665.3813240009185
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.8451850618939637,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 798.4956849977607
+    }
+  },
+  {
+    "qid": "898037#0",
+    "query": "唐朝魏博现是在哪一城市？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.34337431936037655,
+      "recall_at_10": 0.6666666666666666,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 742.449220000708
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.8179809735263114,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 829.2985949992726
+    }
+  },
+  {
+    "qid": "7552826#0",
+    "query": "秘鲁国土面积多大？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.5706417189553201,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 689.8144389997469
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 824.8005589994136
+    }
+  },
+  {
+    "qid": "5494982#0",
+    "query": "基督教有哪三大流派？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.5337676583167362,
+      "recall_at_10": 0.6666666666666666,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 737.2459479993267
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.9099466049873365,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 793.1597239985422
+    }
+  },
+  {
+    "qid": "6323378#0",
+    "query": "香港实行哪种经济制度？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6309297535714575,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 52,
+      "latency_ms": 717.3213169990049
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 797.0824559997709
+    }
+  },
+  {
+    "qid": "1045502#0",
+    "query": "数学有哪些基础运算公式？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6309297535714575,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 715.040950999537
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 833.875005999289
+    }
+  },
+  {
+    "qid": "5459159#0",
+    "query": "立陶宛在哪一大洲？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.29007579773858083,
+      "recall_at_10": 0.5,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 694.845838999754
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6436579276931672,
+      "recall_at_10": 0.75,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 781.7289880003955
+    }
+  },
+  {
+    "qid": "4972338#0",
+    "query": "四川省有哪些美食？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.18457569677956817,
+      "recall_at_10": 0.5,
+      "recall_at_100": 1.0,
+      "depth": 56,
+      "latency_ms": 672.8156649987795
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.5249810332008933,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 835.1420920007513
+    }
+  },
+  {
+    "qid": "3412909#0",
+    "query": "基督教的创始人是谁？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.2960819109658652,
+      "recall_at_10": 0.3333333333333333,
+      "recall_at_100": 1.0,
+      "depth": 57,
+      "latency_ms": 678.1935369981511
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6364391809889587,
+      "recall_at_10": 0.6666666666666666,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 800.9837950012297
+    }
+  },
+  {
+    "qid": "3917#0",
+    "query": "英国第一任君主是谁？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.31546487678572877,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 641.8315189985151
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6309297535714575,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 832.7705049996439
+    }
+  },
+  {
+    "qid": "6567154#0",
+    "query": "周深有哪些代表作？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.16716045496620227,
+      "recall_at_10": 0.3333333333333333,
+      "recall_at_100": 1.0,
+      "depth": 56,
+      "latency_ms": 654.4019380016834
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.4592386704062355,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 787.2267179991468
+    }
+  },
+  {
+    "qid": "524302#0",
+    "query": "美国第一名航天员是谁？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6509209298071326,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 674.9652250000509
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.9197207891481876,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 844.8983289999887
+    }
+  },
+  {
+    "qid": "7340207#0",
+    "query": "唐朝哪一年创国？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.36926780146674987,
+      "recall_at_10": 0.6666666666666666,
+      "recall_at_100": 1.0,
+      "depth": 55,
+      "latency_ms": 726.7384869992384
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6364391809889587,
+      "recall_at_10": 0.6666666666666666,
+      "recall_at_100": 1.0,
+      "depth": 57,
+      "latency_ms": 809.7950770024909
+    }
+  },
+  {
+    "qid": "1148922#0",
+    "query": "Corsair旗下有哪些产品？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.38685280723454163,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 56,
+      "latency_ms": 657.4338219979836
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6309297535714575,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 790.2163340004336
+    }
+  },
+  {
+    "qid": "5502525#0",
+    "query": "乌克兰的国土面积有多大？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.29769321486741446,
+      "recall_at_10": 0.6666666666666666,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 792.0220810010505
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.5307212739772434,
+      "recall_at_10": 0.6666666666666666,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 789.639103000809
+    }
+  },
+  {
+    "qid": "6568153#0",
+    "query": "季铵盐有哪些特点？",
+    "baseline_metrics": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6934264036172708,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 700.5907579987252
+    },
+    "weknora_reference_metrics": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.9197207891481876,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 757.5802399987879
+    }
+  }
+]
