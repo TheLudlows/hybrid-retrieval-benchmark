@@ -1,0 +1,22 @@
+{
+  "product": "contextbase",
+  "scale": "100k",
+  "corpus": {
+    "size": 17787483,
+    "sha256": "d51e1fe9ec6ec92db05df87aabff132f861a72b046a7713bc945f18746665363"
+  },
+  "query_set": "fresh_train200",
+  "query_ids_sha256": "638c35a5152767c9625f15dd7e133a7b01fcd7e5cc04ac966eae811c204dc212",
+  "case": {
+    "name": "lean_source_cap100",
+    "env": {
+      "ENABLE_GRAPH_RETRIEVAL": "false",
+      "ENABLE_TEMPORAL_RETRIEVAL": "false",
+      "RECALL_MAX_CANDIDATES_PER_SOURCE": "100"
+    }
+  },
+  "candidate_ceiling": 60,
+  "max_tokens": 8192,
+  "plan_sha256": "2dd1fdd749b72383e82ecde04731fc006d33bd28a852a0f048ea3e95a826af2a",
+  "model_reranking": false
+}

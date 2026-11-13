@@ -6,6 +6,9 @@
 | --- | ---: | ---: | ---: | ---: | ---: |
 | [contextbase/lean_control-tune_dev100-cap60](contextbase/lean_control-tune_dev100-cap60/metrics.json) | 100 | 42.0000% | 0.594464 | 100.0000% | 0.866 |
 | [contextbase/lean_semantic_priority-tune_dev100-cap60](contextbase/lean_semantic_priority-tune_dev100-cap60/metrics.json) | 100 | 39.0000% | 0.584728 | 97.0500% | 0.991 |
+| [contextbase/lean_source_cap100-assessment_dev293-derived](contextbase/lean_source_cap100-assessment_dev293-derived/metrics.json) | 293 | 46.4164% | 0.606607 | 99.9431% | 0.798 |
+| [contextbase/lean_source_cap100-dev393-cap60](contextbase/lean_source_cap100-dev393-cap60/metrics.json) | 393 | 45.2926% | 0.604006 | 99.9576% | 0.818 |
+| [contextbase/lean_source_cap100-fresh_train200-cap60](contextbase/lean_source_cap100-fresh_train200-cap60/metrics.json) | 200 | 45.5000% | 0.615439 | 100.0000% | 0.830 |
 | [contextbase/lean_source_cap100-tune_dev100-cap60](contextbase/lean_source_cap100-tune_dev100-cap60/metrics.json) | 100 | 42.0000% | 0.596384 | 100.0000% | 0.808 |
 
 每个已完成配置目录保留配置指纹、逐题排名、实际模型调用（gzip）和用量。`assessment_dev293-derived` 是完整393题中的固定子集，不另发查询；其余记录标明实际查询集。40/100候选和ContextBase 16384返回预算仅为独立预算实验，不参与60候选主配置选择。

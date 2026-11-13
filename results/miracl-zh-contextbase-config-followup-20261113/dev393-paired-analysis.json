@@ -1,0 +1,15 @@
+{
+  "queries": 393,
+  "delta_ndcg_new_minus_previous_lean": 0.002376125088794216,
+  "bootstrap_draws": 10000,
+  "seed": 20261112,
+  "percentile95": [
+    -0.001138386186601038,
+    0.006103569938677828
+  ],
+  "ndcg_improved_queries": 15,
+  "ndcg_worsened_queries": 6,
+  "hit1_gains": 0,
+  "hit1_losses": 0,
+  "limits": "Exploratory on previously inspected dev; 100 queries selected this configuration. Bootstrap assumes independent queries and is descriptive, not new held-out evidence."
+}

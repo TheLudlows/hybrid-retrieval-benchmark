@@ -1,15 +1,19 @@
 {
-  "state": "querying",
+  "state": "complete",
   "scale": "100k",
   "product": "contextbase",
   "case": "lean_source_cap100",
   "candidate_ceiling": 60,
-  "query_set": "tune_dev100",
-  "queries": 100,
+  "query_set": "fresh_train200",
+  "queries": 200,
   "indexed": null,
   "elapsed_s": null,
-  "updated_unix": 1794558311.267083,
+  "updated_unix": 1794558786.835107,
   "pid": 17308,
-  "run_id": "nested-v4-config-combinations/100k/contextbase/lean_source_cap100-tune_dev100-cap60",
-  "publish_state": "pushed"
+  "run_id": "nested-v4-config-combinations/100k/contextbase/lean_source_cap100-fresh_train200-cap60",
+  "publish_state": "pushed",
+  "completed_scales": [
+    100000
+  ],
+  "million_stage": "cancelled_by_user"
 }
