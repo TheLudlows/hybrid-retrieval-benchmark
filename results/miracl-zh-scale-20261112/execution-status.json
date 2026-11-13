@@ -1,14 +1,15 @@
 {
   "scale": "100k",
-  "state": "querying",
-  "updated_unix": 1794531488.838835,
+  "state": "ingesting",
+  "updated_unix": 1794534813.3002777,
   "pid": 945,
-  "product": "contextbase",
+  "product": "weknora",
   "case": "default",
   "candidate_ceiling": 60,
-  "query_set": "dev393",
-  "queries": 393,
-  "indexed": null,
-  "elapsed_s": null,
-  "run_id": "nested-v2-text-dedup/100k/contextbase/default-dev393-cap60"
+  "query_set": null,
+  "queries": null,
+  "indexed": 10016,
+  "elapsed_s": 2370.7299268245697,
+  "run_id": "nested-v2-text-dedup/100k/contextbase/default-dev393-cap60",
+  "publish_state": "pushed"
 }
