@@ -1,0 +1,1422 @@
+{
+  "probe/embedding": {
+    "input_tokens": 13,
+    "calls": 1,
+    "pairs": 0,
+    "max_pairs": 0
+  },
+  "warmup/embedding": {
+    "input_tokens": 64,
+    "calls": 4,
+    "pairs": 0,
+    "max_pairs": 0
+  },
+  "query/embedding": {
+    "input_tokens": 1959,
+    "calls": 200,
+    "pairs": 0,
+    "max_pairs": 0
+  },
+  "per_query": {
+    "1904482#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "7063442#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "327799#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "7057685#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 7,
+        "pairs": 0
+      }
+    },
+    "1914012#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 7,
+        "pairs": 0
+      }
+    },
+    "5275411#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 13,
+        "pairs": 0
+      }
+    },
+    "4714055#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "3893527#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "453241#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "6266714#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "678040#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "7313153#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "3124089#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "1168014#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 7,
+        "pairs": 0
+      }
+    },
+    "903974#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 7,
+        "pairs": 0
+      }
+    },
+    "1069215#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 14,
+        "pairs": 0
+      }
+    },
+    "2756483#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 14,
+        "pairs": 0
+      }
+    },
+    "7011273#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "3198878#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "102614#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "131613#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "711169#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "903032#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "7712485#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "1005288#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "1296913#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "3084352#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "6471242#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "1233345#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "3785624#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 12,
+        "pairs": 0
+      }
+    },
+    "5397481#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "6999896#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "257669#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "4117208#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "6725857#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "684042#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "3772100#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "1885930#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "1508219#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 12,
+        "pairs": 0
+      }
+    },
+    "1195#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "7855635#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "1475763#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "1507967#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "7407733#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 7,
+        "pairs": 0
+      }
+    },
+    "757273#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 7,
+        "pairs": 0
+      }
+    },
+    "650463#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "6754521#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 7,
+        "pairs": 0
+      }
+    },
+    "692002#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "4656459#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 13,
+        "pairs": 0
+      }
+    },
+    "709764#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "1115385#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "6955522#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 7,
+        "pairs": 0
+      }
+    },
+    "437154#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 12,
+        "pairs": 0
+      }
+    },
+    "106364#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "3520263#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 12,
+        "pairs": 0
+      }
+    },
+    "306727#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "3379484#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 7,
+        "pairs": 0
+      }
+    },
+    "6584349#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "7363147#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "964408#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 12,
+        "pairs": 0
+      }
+    },
+    "513476#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "57721#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "1515295#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "5159613#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "1200687#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 7,
+        "pairs": 0
+      }
+    },
+    "1582823#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "2733938#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 12,
+        "pairs": 0
+      }
+    },
+    "855039#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 7,
+        "pairs": 0
+      }
+    },
+    "7060776#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "392494#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "7135479#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "1523070#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "6016254#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "2955005#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "7076831#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 14,
+        "pairs": 0
+      }
+    },
+    "3726493#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "5672199#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 7,
+        "pairs": 0
+      }
+    },
+    "3178735#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 12,
+        "pairs": 0
+      }
+    },
+    "1545454#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 12,
+        "pairs": 0
+      }
+    },
+    "7491#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "966392#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "3443100#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "1150227#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "5186086#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "1447878#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "1496015#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "5473027#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 7,
+        "pairs": 0
+      }
+    },
+    "3407600#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "5667001#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 12,
+        "pairs": 0
+      }
+    },
+    "1568899#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "7104050#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "119027#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "6237844#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "960550#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 7,
+        "pairs": 0
+      }
+    },
+    "286394#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "5745244#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "4966633#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 12,
+        "pairs": 0
+      }
+    },
+    "5788022#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "1729827#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "922010#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "6591387#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "346953#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "3798264#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "4482173#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "699998#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "4469279#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 7,
+        "pairs": 0
+      }
+    },
+    "6138861#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "3259153#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "136026#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "3498574#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 12,
+        "pairs": 0
+      }
+    },
+    "5746421#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "428529#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "5726961#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "3534122#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 13,
+        "pairs": 0
+      }
+    },
+    "1479955#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "6941007#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 7,
+        "pairs": 0
+      }
+    },
+    "4764692#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "34713#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "13705#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "132785#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "7642235#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "1290957#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "449855#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "5247728#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "7697429#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "6715767#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "68360#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 12,
+        "pairs": 0
+      }
+    },
+    "7757616#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "1589345#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "4205127#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "4209060#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "1185072#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "4482341#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 7,
+        "pairs": 0
+      }
+    },
+    "1724613#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 7,
+        "pairs": 0
+      }
+    },
+    "363413#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 13,
+        "pairs": 0
+      }
+    },
+    "6503462#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 14,
+        "pairs": 0
+      }
+    },
+    "7056411#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "639032#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "2792213#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "5223830#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 12,
+        "pairs": 0
+      }
+    },
+    "1825832#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 14,
+        "pairs": 0
+      }
+    },
+    "983599#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "91294#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "3141003#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "915478#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "7046800#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 7,
+        "pairs": 0
+      }
+    },
+    "1535330#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "7473787#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "6388920#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "4658977#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "1781261#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 7,
+        "pairs": 0
+      }
+    },
+    "221847#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "6064552#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "490430#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "462747#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 14,
+        "pairs": 0
+      }
+    },
+    "1395483#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "6012746#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "1263679#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 13,
+        "pairs": 0
+      }
+    },
+    "925949#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "6149704#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "1579729#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "4532528#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "6796152#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "144896#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "5582161#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "904030#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "4814556#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "1580268#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "7057801#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 12,
+        "pairs": 0
+      }
+    },
+    "7339225#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "528455#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "1453821#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "636674#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "5455987#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 12,
+        "pairs": 0
+      }
+    },
+    "1050376#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "3953430#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "50719#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 14,
+        "pairs": 0
+      }
+    },
+    "5465482#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "5393143#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "3981688#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 13,
+        "pairs": 0
+      }
+    },
+    "5205914#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "5254070#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "2904864#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "3011920#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "5070892#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 13,
+        "pairs": 0
+      }
+    },
+    "5966653#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 7,
+        "pairs": 0
+      }
+    },
+    "3373315#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 13,
+        "pairs": 0
+      }
+    },
+    "1281019#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "5394985#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 12,
+        "pairs": 0
+      }
+    },
+    "7393399#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "319580#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "6340347#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "595540#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "6487344#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "7616139#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 10,
+        "pairs": 0
+      }
+    },
+    "3076754#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 9,
+        "pairs": 0
+      }
+    },
+    "3952456#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 11,
+        "pairs": 0
+      }
+    },
+    "6506172#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 12,
+        "pairs": 0
+      }
+    },
+    "129691#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 8,
+        "pairs": 0
+      }
+    },
+    "4299382#0": {
+      "embedding": {
+        "calls": 1,
+        "input_tokens": 16,
+        "pairs": 0
+      }
+    }
+  }
+}
