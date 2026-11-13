@@ -1,0 +1,12 @@
+{
+  "enable_text_search": true,
+  "enable_graph_retrieval": false,
+  "enable_temporal_retrieval": false,
+  "enable_reranking": false,
+  "recall_rrf_semantic_weight": 0.98,
+  "recall_rrf_bm25_weight": 0.02,
+  "recall_rrf_graph_weight": 1.0,
+  "recall_rrf_temporal_weight": 1.0,
+  "recall_budget_function": "fixed",
+  "recall_budget_fixed_high": 300
+}

@@ -1,6 +1,6 @@
 {
   "state": "stage_complete",
-  "last_stage": "tune100/w99_pool300",
+  "last_stage": "tune100/w98_pool300",
   "completed_stages": [
     "tune100/w99_pool1000",
     "tune100/w98_pool1000",
@@ -8,6 +8,7 @@
     "tune100/w99_pool500",
     "tune100/w98_pool500",
     "tune100/w985_pool500",
-    "tune100/w99_pool300"
+    "tune100/w99_pool300",
+    "tune100/w98_pool300"
   ]
 }

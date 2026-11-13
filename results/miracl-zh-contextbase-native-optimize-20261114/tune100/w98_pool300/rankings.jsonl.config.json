@@ -1,0 +1,9 @@
+{
+  "index": "[\"contextbase\", \"http://127.0.0.1:18889\", \"miracl_scale_100k\", {\"corpus/subset.jsonl.gz\": \"d51e1fe9ec6ec92db05df87aabff132f861a72b046a7713bc945f18746665363\"}]",
+  "limit": 60,
+  "reranker": "benchmark-bge-reranker",
+  "budget": "high",
+  "config_sha256": "7a3c1dff17744b3488a61b975ac013c01c45738a2c5da1a3d48805a0d7e25e8e",
+  "smoke_index": false,
+  "model_reranking": false
+}
