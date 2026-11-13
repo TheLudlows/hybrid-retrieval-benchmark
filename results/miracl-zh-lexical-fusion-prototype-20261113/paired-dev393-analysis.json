@@ -1,0 +1,10 @@
+{
+  "ndcg_new_minus_stock": 0.17287963487373467,
+  "bootstrap_draws": 10000,
+  "seed": 20261112,
+  "percentile95": [
+    0.14273610447952456,
+    0.20303981172599098
+  ],
+  "scope": "Exploratory on previously examined dev393, includes100 selecting queries; does not establish unseen generalization."
+}

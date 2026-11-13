@@ -1,5 +1,7 @@
 # 中文BM25查询处理与融合权重：独立实验版
 
+**六组调参及393题、额外200题复核均已完成。结果见 [RESULTS.md](RESULTS.md)，复算和恢复核验见 [final-verification.json](final-verification.json)。当前服务已恢复原版。**
+
 用户要求继续定位后的优化。本轮保留原版实验结果，使用独立源码副本验证查询词处理与真正的线性加权RRF。**新增EXPERIMENT参数属于本轮实验补丁，不是原版ContextBase已有配置；本轮结果不能改写原版产品成绩。**
 
 ## 实测线索
