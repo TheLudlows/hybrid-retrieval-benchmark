@@ -18,8 +18,19 @@
 | [contextbase/recall_pool300-tune_dev100-cap60](contextbase/recall_pool300-tune_dev100-cap60/metrics.json) | 100 | 20.0000% | 0.410417 | 99.3333% | 0.817 |
 | [contextbase/semantic_priority-tune_dev100-cap60](contextbase/semantic_priority-tune_dev100-cap60/metrics.json) | 100 | 19.0000% | 0.397116 | 96.2667% | 0.952 |
 | [contextbase/source_cap100-tune_dev100-cap60](contextbase/source_cap100-tune_dev100-cap60/metrics.json) | 100 | 22.0000% | 0.435919 | 100.0000% | 0.829 |
+| [weknora/balanced-tune_dev100-cap60](weknora/balanced-tune_dev100-cap60/metrics.json) | 100 | 41.0000% | 0.620818 | 98.8571% | 0.912 |
+| [weknora/balanced_k30-tune_dev100-cap60](weknora/balanced_k30-tune_dev100-cap60/metrics.json) | 100 | 42.0000% | 0.643206 | 99.1071% | 0.856 |
 | [weknora/default-assessment_dev293-derived](weknora/default-assessment_dev293-derived/metrics.json) | 293 | 49.8294% | 0.674218 | 99.6359% | 0.894 |
 | [weknora/default-dev393-cap60](weknora/default-dev393-cap60/metrics.json) | 393 | 50.1272% | 0.683642 | 99.5014% | 0.887 |
+| [weknora/default-tune_dev100-cap60](weknora/default-tune_dev100-cap60/metrics.json) | 100 | 51.0000% | 0.711252 | 99.1071% | 0.909 |
+| [weknora/lexical_priority-tune_dev100-cap60](weknora/lexical_priority-tune_dev100-cap60/metrics.json) | 100 | 37.0000% | 0.549817 | 93.1238% | 0.876 |
+| [weknora/rrf_k100-tune_dev100-cap60](weknora/rrf_k100-tune_dev100-cap60/metrics.json) | 100 | 49.0000% | 0.688503 | 99.1071% | 0.855 |
+| [weknora/rrf_k30-assessment_dev293-derived](weknora/rrf_k30-assessment_dev293-derived/metrics.json) | 293 | 52.2184% | 0.701389 | 99.6359% | 0.874 |
+| [weknora/rrf_k30-dev393-cap60](weknora/rrf_k30-dev393-cap60/metrics.json) | 393 | 53.1807% | 0.709752 | 99.5014% | 0.874 |
+| [weknora/rrf_k30-fresh_train200-cap60](weknora/rrf_k30-fresh_train200-cap60/metrics.json) | 200 | 59.5000% | 0.749657 | 99.6500% | 0.871 |
+| [weknora/rrf_k30-tune_dev100-cap100](weknora/rrf_k30-tune_dev100-cap100/metrics.json) | 100 | 56.0000% | 0.735962 | 99.1071% | 0.945 |
+| [weknora/rrf_k30-tune_dev100-cap40](weknora/rrf_k30-tune_dev100-cap40/metrics.json) | 100 | 56.0000% | 0.734364 | 99.1071% | 0.855 |
+| [weknora/rrf_k30-tune_dev100-cap60](weknora/rrf_k30-tune_dev100-cap60/metrics.json) | 100 | 56.0000% | 0.734256 | 99.1071% | 0.892 |
 
 每个已完成配置目录保留配置指纹、逐题排名、实际模型调用（gzip）和用量。`assessment_dev293-derived` 是完整393题中的固定子集，不另发查询；其余记录标明实际查询集。40/100候选和ContextBase 16384返回预算仅为独立预算实验，不参与60候选主配置选择。
 

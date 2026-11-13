@@ -1,0 +1,12 @@
+{
+  "case": {
+    "name": "rrf_k30",
+    "rrf": {
+      "rrf_k": 30,
+      "rrf_vector_weight": 0.7,
+      "rrf_keyword_weight": 0.3
+    }
+  },
+  "rule": "Highest tune_dev100 nDCG@10, then Hit@1, then original registered trial order; default wins exact ties. Never select on assessment_dev293 or fresh_train200.",
+  "frozen_before_assessment_and_fresh": true
+}

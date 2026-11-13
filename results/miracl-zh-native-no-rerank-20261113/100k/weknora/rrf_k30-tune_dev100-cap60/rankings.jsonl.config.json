@@ -1,0 +1,9 @@
+{
+  "index": "[\"weknora\", \"http://127.0.0.1:18080\", \"f12b92e8-230c-4a36-8944-2ab8da0b9422\", {\"corpus/subset.jsonl.gz\": \"d51e1fe9ec6ec92db05df87aabff132f861a72b046a7713bc945f18746665363\"}]",
+  "limit": 60,
+  "reranker": "benchmark-bge-reranker",
+  "budget": "high",
+  "config_sha256": "08d9b178af5bff776e9f593aa1ec795e4a130880459b5be626263938c021721a",
+  "smoke_index": false,
+  "model_reranking": false
+}

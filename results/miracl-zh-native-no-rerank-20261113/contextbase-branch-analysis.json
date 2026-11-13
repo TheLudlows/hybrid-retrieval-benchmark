@@ -1,0 +1,22 @@
+{
+  "source": "Native baseline 393-query server logs, excluding 3 restart preflight queries and all warmups; aligned and checked against official query order.",
+  "model_reranking": false,
+  "default_queries": 393,
+  "detected_temporal_constraint_queries": 0,
+  "groups": {
+    "graph_nonempty": {
+      "queries": 384,
+      "first_hit_gains": 110,
+      "first_hit_losses": 1,
+      "ndcg_changed_queries": 264
+    },
+    "graph_empty": {
+      "queries": 9,
+      "first_hit_gains": 0,
+      "first_hit_losses": 0,
+      "ndcg_changed_queries": 0
+    }
+  },
+  "mechanism": "Native RRF sums 1/(60+rank) for each present arm (semantic, bm25, graph, temporal). Adding the graph arm changes rank contributions; no cross-encoder exists to correct relevance afterward.",
+  "limit": "Graph and temporal switches changed together. Log evidence points to graph fusion, with no temporal arm hits observed; separate single-switch ablations would be needed to isolate causality fully."
+}
