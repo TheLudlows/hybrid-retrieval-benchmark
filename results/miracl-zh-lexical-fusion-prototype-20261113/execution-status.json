@@ -1,15 +1,18 @@
 {
-  "state": "querying",
+  "state": "complete",
   "scale": "100k",
   "product": "contextbase",
-  "case": "script_expand_stop_dense70",
+  "case": "restored_stock",
   "candidate_ceiling": 60,
-  "query_set": "tune_dev100",
-  "queries": 100,
+  "query_set": null,
+  "queries": null,
   "indexed": null,
   "elapsed_s": null,
-  "updated_unix": 1794562714.442458,
+  "updated_unix": 1794563250.01716,
   "pid": 23284,
-  "run_id": "nested-v6-experimental-lexical-fusion/100k/contextbase/script_expand_stop_dense70-tune_dev100-cap60",
-  "publish_state": "pushed"
+  "run_id": "nested-v6-experimental-lexical-fusion/100k/contextbase/dense97-fresh_train200-cap60",
+  "publish_state": "pushed",
+  "stock_restored": true,
+  "experimental_study": true,
+  "million_stage": "cancelled_by_user"
 }

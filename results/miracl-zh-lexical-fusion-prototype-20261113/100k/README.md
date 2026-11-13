@@ -5,6 +5,9 @@
 | 产品 / 配置 / 查询集 | 题数 | Hit@1 | nDCG@10 | Recall@100 | p95 秒 |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | [contextbase/dense70-tune_dev100-cap60](contextbase/dense70-tune_dev100-cap60/metrics.json) | 100 | 46.0000% | 0.665669 | 100.0000% | 0.766 |
+| [contextbase/dense97-assessment_dev293-derived](contextbase/dense97-assessment_dev293-derived/metrics.json) | 293 | 63.1399% | 0.763701 | 99.7725% | 0.861 |
+| [contextbase/dense97-dev393-cap60](contextbase/dense97-dev393-cap60/metrics.json) | 393 | 64.8855% | 0.776885 | 99.8304% | 0.869 |
+| [contextbase/dense97-fresh_train200-cap60](contextbase/dense97-fresh_train200-cap60/metrics.json) | 200 | 73.5000% | 0.833846 | 100.0000% | 0.791 |
 | [contextbase/dense97-tune_dev100-cap60](contextbase/dense97-tune_dev100-cap60/metrics.json) | 100 | 70.0000% | 0.815517 | 100.0000% | 0.861 |
 | [contextbase/script_expand_stop-tune_dev100-cap60](contextbase/script_expand_stop-tune_dev100-cap60/metrics.json) | 100 | 51.0000% | 0.639539 | 100.0000% | 0.818 |
 | [contextbase/script_expand_stop_dense70-tune_dev100-cap60](contextbase/script_expand_stop_dense70-tune_dev100-cap60/metrics.json) | 100 | 52.0000% | 0.702168 | 100.0000% | 0.785 |

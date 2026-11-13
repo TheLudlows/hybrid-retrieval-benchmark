@@ -1,0 +1,7 @@
+{
+  "original_source": "/workspace/work/contextbase",
+  "configuration": "lean_source_cap100",
+  "native_probe_matches_stock_equivalent": true,
+  "experimental_env_keys_removed_from_persistent_api_env": true,
+  "both_service_data_retained": true
+}
