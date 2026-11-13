@@ -1,0 +1,7 @@
+{
+  "same_query_ids": true,
+  "queries": 100,
+  "identical_full_rankings": 100,
+  "identical_top10_rankings": 100,
+  "comparison_ignores_elapsed_time": true
+}
