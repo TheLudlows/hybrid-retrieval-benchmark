@@ -1,15 +1,15 @@
 {
   "scale": "100k",
   "state": "ingesting",
-  "updated_unix": 1794534813.3002777,
+  "updated_unix": 1794536930.4644606,
   "pid": 945,
   "product": "weknora",
   "case": "default",
   "candidate_ceiling": 60,
   "query_set": null,
   "queries": null,
-  "indexed": 10016,
-  "elapsed_s": 2370.7299268245697,
+  "indexed": 20059,
+  "elapsed_s": 4487.894131660461,
   "run_id": "nested-v2-text-dedup/100k/contextbase/default-dev393-cap60",
   "publish_state": "pushed"
 }
