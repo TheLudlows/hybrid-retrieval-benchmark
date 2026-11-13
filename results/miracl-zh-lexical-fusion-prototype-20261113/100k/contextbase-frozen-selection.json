@@ -1,0 +1,17 @@
+{
+  "case": {
+    "name": "dense97",
+    "env": {
+      "ENABLE_GRAPH_RETRIEVAL": "false",
+      "ENABLE_TEMPORAL_RETRIEVAL": "false",
+      "RECALL_MAX_CANDIDATES_PER_SOURCE": "100",
+      "RECALL_STRATEGY_BOOSTS": "",
+      "BM25_MAX_QUERY_TERMS": "16",
+      "EXPERIMENT_BM25_POLICY": "native",
+      "EXPERIMENT_RRF_VECTOR_WEIGHT": "0.97",
+      "EXPERIMENT_RRF_KEYWORD_WEIGHT": "0.03"
+    }
+  },
+  "rule": "Highest tune_dev100 nDCG@10, then Hit@1, then original registered trial order; default wins exact ties. Never select on assessment_dev293 or fresh_train200.",
+  "scope": "Exploratory experimental fork; not stock ContextBase. No selection on dev393 or extra200."
+}
