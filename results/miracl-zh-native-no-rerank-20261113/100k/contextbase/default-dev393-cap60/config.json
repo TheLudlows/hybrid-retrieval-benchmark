@@ -1,0 +1,18 @@
+{
+  "product": "contextbase",
+  "scale": "100k",
+  "corpus": {
+    "size": 17787483,
+    "sha256": "d51e1fe9ec6ec92db05df87aabff132f861a72b046a7713bc945f18746665363"
+  },
+  "query_set": "dev393",
+  "query_ids_sha256": "8a69f06f771198653bcf15d71be8968d9b56f90dd6f3f6b75465ca0c882d1b55",
+  "case": {
+    "name": "default",
+    "env": {}
+  },
+  "candidate_ceiling": 60,
+  "max_tokens": 8192,
+  "plan_sha256": "e3278651a0e7521dd407e2cfaa4824f20f5c56a5e9f458e3a4ebe752b0183ab9",
+  "model_reranking": false
+}
