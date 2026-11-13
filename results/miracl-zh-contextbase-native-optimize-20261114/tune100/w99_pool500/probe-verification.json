@@ -1,0 +1,12 @@
+{
+  "budget": 500,
+  "weights": {
+    "semantic": 0.99,
+    "bm25": 0.01,
+    "graph": 1.0,
+    "temporal": 1.0
+  },
+  "bm25_returned": true,
+  "rrf_entries_verified": 167,
+  "same_query_embedding": true
+}
