@@ -1,14 +1,14 @@
 {
   "scale": "100k",
-  "state": "ingesting",
-  "updated_unix": 1794507561.2377806,
-  "pid": 27916,
+  "state": "querying",
+  "updated_unix": 1794531488.838835,
+  "pid": 945,
   "product": "contextbase",
   "case": "default",
   "candidate_ceiling": 60,
-  "query_set": null,
-  "queries": null,
-  "indexed": 90048,
-  "elapsed_s": 17857.22999572754,
-  "publish_state": "pushed"
+  "query_set": "dev393",
+  "queries": 393,
+  "indexed": null,
+  "elapsed_s": null,
+  "run_id": "nested-v2-text-dedup/100k/contextbase/default-dev393-cap60"
 }

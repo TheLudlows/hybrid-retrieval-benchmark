@@ -4,6 +4,8 @@
 
 | 产品 / 配置 / 查询集 | 题数 | Hit@1 | nDCG@10 | Recall@100 | p95 秒 |
 | --- | ---: | ---: | ---: | ---: | ---: |
+| [contextbase/default-assessment_dev293-derived](contextbase/default-assessment_dev293-derived/metrics.json) | 293 | 65.5290% | 0.797539 | 99.6303% | 11.320 |
+| [contextbase/default-dev393-cap60](contextbase/default-dev393-cap60/metrics.json) | 393 | 68.7023% | 0.809471 | 99.7243% | 11.276 |
 
 每个已完成配置目录保留配置指纹、逐题排名、实际模型调用（gzip）和用量。`assessment_dev293-derived` 是完整393题中的固定子集，不另发查询；其余记录标明实际查询集。40/100候选和ContextBase 16384返回预算仅为独立预算实验，不参与60候选主配置选择。
 
