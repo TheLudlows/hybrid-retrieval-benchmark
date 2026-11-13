@@ -6,6 +6,8 @@
 | --- | ---: | ---: | ---: | ---: | ---: |
 | [contextbase/default-assessment_dev293-derived](contextbase/default-assessment_dev293-derived/metrics.json) | 293 | 16.7235% | 0.409248 | 98.7770% | 0.922 |
 | [contextbase/default-dev393-cap60](contextbase/default-dev393-cap60/metrics.json) | 393 | 17.5573% | 0.407673 | 99.0034% | 0.912 |
+| [weknora/default-assessment_dev293-derived](weknora/default-assessment_dev293-derived/metrics.json) | 293 | 49.8294% | 0.674218 | 99.6359% | 0.894 |
+| [weknora/default-dev393-cap60](weknora/default-dev393-cap60/metrics.json) | 393 | 50.1272% | 0.683642 | 99.5014% | 0.887 |
 
 每个已完成配置目录保留配置指纹、逐题排名、实际模型调用（gzip）和用量。`assessment_dev293-derived` 是完整393题中的固定子集，不另发查询；其余记录标明实际查询集。40/100候选和ContextBase 16384返回预算仅为独立预算实验，不参与60候选主配置选择。
 

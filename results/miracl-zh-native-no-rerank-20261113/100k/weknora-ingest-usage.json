@@ -1,0 +1,14 @@
+{
+  "reused_complete_index": true,
+  "historical_run_id": "nested-v2-text-dedup/100k/weknora/ingest",
+  "current_ingestion_not_performed": true,
+  "historical_recorded_batch_wall_s": 21642.46999359131,
+  "models": {
+    "ingest/embedding": {
+      "input_tokens": 9810841,
+      "calls": 100002,
+      "pairs": 0,
+      "max_pairs": 0
+    }
+  }
+}

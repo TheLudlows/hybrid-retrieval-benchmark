@@ -1,10 +1,10 @@
 {
   "state": "querying",
-  "product": "contextbase",
+  "product": "weknora",
   "scale": "100k",
   "indexed": null,
   "adopted_ingest_pid": 2868,
-  "updated_unix": 1794554278.5608637,
+  "updated_unix": 1794554649.2588918,
   "pid": 7657,
   "publish_state": "pushed",
   "case": "default",
@@ -12,5 +12,5 @@
   "query_set": "dev393",
   "queries": 393,
   "elapsed_s": null,
-  "run_id": "nested-v3-no-rerank/100k/contextbase/default-dev393-cap60"
+  "run_id": "nested-v3-no-rerank/100k/weknora/default-dev393-cap60"
 }
