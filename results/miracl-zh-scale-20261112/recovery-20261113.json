@@ -12,6 +12,15 @@
     "missing_ids": 0,
     "extra_ids": 0
   },
-  "cause": "Unknown: no shutdown or exception recorded; services and worker absent after environment resumed.",
-  "recovery": "Restart same model configuration and original frozen worker; re-audit existing index and resume qids from rankings.jsonl; do not rebuild complete index."
+  "cause": "A runtime restart is confirmed; the old worker and all native/model services were absent after restart. Exact initial interruption trigger (platform suspension/recycle, OOM, or other termination) cannot be established from retained logs.",
+  "recovery": "Restart same model configuration and original frozen worker; re-audit existing index and resume qids from rankings.jsonl; do not rebuild complete index.",
+  "followup_evidence": {
+    "runtime_boot_time_beijing": "2026-11-13T08:55:51+08:00",
+    "last_preinterruption_ranking_beijing": "2026-11-13T03:35:17.925031+08:00",
+    "all_original_worker_model_and_api_processes_absent_on_first_inspection": true,
+    "docker_initial_observation": "Exited (255) after runtime resumed",
+    "platform_status_current": "running; historical stop reason unavailable",
+    "current_cgroup_oom_kill": 0,
+    "limitations": "Current-boot OOM counters cannot exclude OOM in previous runtime. Runtime restart is confirmed, but exact initial interruption trigger and platform lifecycle reason are unavailable."
+  }
 }
