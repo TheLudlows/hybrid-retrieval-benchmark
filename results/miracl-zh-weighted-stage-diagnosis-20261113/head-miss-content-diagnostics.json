@@ -1,0 +1,1382 @@
+[
+  {
+    "qid": "67347#0",
+    "query": "电视剧《继承者们》的女主角是谁？",
+    "first_returned_id": "5619646#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "5619646#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "138180#0",
+    "query": "细胞是如何进行分裂的？",
+    "first_returned_id": "136113#14",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "136113#14",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "3068772#0",
+    "query": "日本现任首相是谁？",
+    "first_returned_id": "7203572#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "7203572#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 5,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "142510#0",
+    "query": "圣经启示录中四匹马代表什么？",
+    "first_returned_id": "543889#3",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "543889#3",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "1530447#0",
+    "query": "英国王室有哪些成员？",
+    "first_returned_id": "299087#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "299087#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "1738836#0",
+    "query": "利比亚石油储量排名第几？",
+    "first_returned_id": "4530#15",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "4530#15",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 6,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "1645657#0",
+    "query": "行星探测经历了哪些环节？",
+    "first_returned_id": "7397789#14",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "7397789#14",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "5631605#0",
+    "query": "美国烂番茄评分最高的喜剧片是哪一部？",
+    "first_returned_id": "4414992#1",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "4414992#1",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "819295#0",
+    "query": "上海有哪些大学？",
+    "first_returned_id": "37437#36",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "37437#36",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "4566650#0",
+    "query": "编程有哪几种语言？",
+    "first_returned_id": "521#25",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "521#25",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "121445#0",
+    "query": "台湾有哪些少数民族？",
+    "first_returned_id": "271#88",
+    "first_returned_label": null,
+    "raw_semantic_first_id": "271#88",
+    "raw_semantic_first_label": null,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "4946100#0",
+    "query": "元朝的开国皇帝是谁？",
+    "first_returned_id": "923#2",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "923#2",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "4807731#0",
+    "query": "巴西有哪些足球运动员？",
+    "first_returned_id": "3444#47",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "3444#47",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "1919705#0",
+    "query": "昆明有哪些火车站？",
+    "first_returned_id": "593360#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "593360#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 4,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "392137#0",
+    "query": "香港有哪些警匪片？",
+    "first_returned_id": "56611#64",
+    "first_returned_label": null,
+    "raw_semantic_first_id": "56611#64",
+    "raw_semantic_first_label": null,
+    "first_positive_raw_semantic_rank": 10,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "3412909#0",
+    "query": "基督教的创始人是谁？",
+    "first_returned_id": "2207#9",
+    "first_returned_label": null,
+    "raw_semantic_first_id": "2207#9",
+    "raw_semantic_first_label": null,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "188245#0",
+    "query": "日本连载时间最长的漫画是？",
+    "first_returned_id": "498027#2",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "498027#2",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "5373229#0",
+    "query": "中国围棋有哪些特点？",
+    "first_returned_id": "709164#10",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "709164#10",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 5,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "3608981#0",
+    "query": "南美洲有哪些植被类型？",
+    "first_returned_id": "1743524#19",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "1743524#19",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "1456958#0",
+    "query": "隋朝修建了哪些运河？",
+    "first_returned_id": "1073731#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "1073731#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "4542237#0",
+    "query": "日本有哪些火山？",
+    "first_returned_id": "1817047#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "1817047#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "1099470#0",
+    "query": "动物有哪些繁衍活动？",
+    "first_returned_id": "6105260#1",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "6105260#1",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "1261599#0",
+    "query": "马来西亚位于哪一大洲？",
+    "first_returned_id": "5025#49",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "5025#49",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "2993422#0",
+    "query": "司马懿的父亲是谁？",
+    "first_returned_id": "49432#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "49432#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "1041157#0",
+    "query": "世界上最大的平原在哪里？",
+    "first_returned_id": "1181975#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "1181975#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "5563155#0",
+    "query": "中国战国时代有哪些国家？",
+    "first_returned_id": "2889#1",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "2889#1",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 5,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "6105722#0",
+    "query": "纽约市有哪些高层建筑？",
+    "first_returned_id": "3136#50",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "3136#50",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "291771#0",
+    "query": "香港有哪些慈善展会？",
+    "first_returned_id": "1861236#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "1861236#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "3789850#0",
+    "query": "中国铁路得过哪些荣誉？",
+    "first_returned_id": "1140527#6",
+    "first_returned_label": null,
+    "raw_semantic_first_id": "1140527#6",
+    "raw_semantic_first_label": null,
+    "first_positive_raw_semantic_rank": 6,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "7064742#0",
+    "query": "美国有哪些杂志社？",
+    "first_returned_id": "481#163",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "481#163",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "1473972#0",
+    "query": "珠海市人均GDP多少？",
+    "first_returned_id": "13445#32",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "13445#32",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 6,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "1292280#0",
+    "query": "俄罗斯有多少军队？",
+    "first_returned_id": "5363449#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "5363449#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 6,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "567566#0",
+    "query": "明末最后一任皇帝是谁？",
+    "first_returned_id": "428010#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "428010#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 6,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "5028923#0",
+    "query": "重庆市有哪些区？",
+    "first_returned_id": "7568177#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "7568177#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "975966#0",
+    "query": "山东有哪些足球队？",
+    "first_returned_id": "1093609#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "1093609#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 4,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "3298087#0",
+    "query": "古希腊有哪些雕刻家？",
+    "first_returned_id": "3298087#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "3298087#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 5,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "276681#0",
+    "query": "有哪些足球杂志？",
+    "first_returned_id": "370931#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "370931#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "5048699#0",
+    "query": "晶界有哪些分类？",
+    "first_returned_id": "135182#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "135182#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "284267#0",
+    "query": "日本平安时代领导者是谁？",
+    "first_returned_id": "22632#1",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "22632#1",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "3842421#0",
+    "query": "广东省有哪些河流流经？",
+    "first_returned_id": "1343910#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "1343910#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 6,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "1653677#0",
+    "query": "香港有哪些高山？",
+    "first_returned_id": "105208#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "105208#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "5286118#0",
+    "query": "有哪些电子行业的公司？",
+    "first_returned_id": "6885130#7",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "6885130#7",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 5,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "7273910#0",
+    "query": "德国海军有多少舰艇？",
+    "first_returned_id": "6037211#48",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "6037211#48",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 11,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "7289294#0",
+    "query": "哪些人员有执法权？",
+    "first_returned_id": "5691974#7",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "5691974#7",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "2963736#0",
+    "query": "西藏著名佛教寺庙有哪些？",
+    "first_returned_id": "99204#18",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "99204#18",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 4,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "7688629#0",
+    "query": "美国知名的摇滚曲有哪些？",
+    "first_returned_id": "5065575#0",
+    "first_returned_label": null,
+    "raw_semantic_first_id": "5065575#0",
+    "raw_semantic_first_label": null,
+    "first_positive_raw_semantic_rank": 7,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "59019#0",
+    "query": "唐代诗人李白的代表作有哪些？",
+    "first_returned_id": "7084#24",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "7084#24",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 5,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "5172645#0",
+    "query": "加拿大魁北克适用的法律体系是什么？",
+    "first_returned_id": "6379504#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "6379504#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "1755730#0",
+    "query": "中国有哪些围棋名人？",
+    "first_returned_id": "204926#4",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "204926#4",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "6323378#0",
+    "query": "香港实行哪种经济制度？",
+    "first_returned_id": "97342#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "97342#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 6,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "7719206#0",
+    "query": "中国国民党有哪些人物？",
+    "first_returned_id": "184484#24",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "184484#24",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 13,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "7243760#0",
+    "query": "木星有哪些特征？",
+    "first_returned_id": "1290552#6",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "1290552#6",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "3185262#0",
+    "query": "春秋时期有哪些思想学派？",
+    "first_returned_id": "6844#18",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "6844#18",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "3913442#0",
+    "query": "英国铁路最长多少公里？",
+    "first_returned_id": "82327#65",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "82327#65",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 4,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "5743799#0",
+    "query": "AC米兰有哪些球员？",
+    "first_returned_id": "30103#19",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "30103#19",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "5429865#0",
+    "query": "我国第一台月球车叫什么名字？",
+    "first_returned_id": "801731#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "801731#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "5156310#0",
+    "query": "中国哪些基建公司？",
+    "first_returned_id": "694065#2",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "694065#2",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "1059425#0",
+    "query": "西藏总人口多少？",
+    "first_returned_id": "687#26",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "687#26",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "5281126#0",
+    "query": "白宫是哪一年建造？",
+    "first_returned_id": "1111967#2",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "213214#4",
+    "raw_semantic_first_label": 1,
+    "first_positive_raw_semantic_rank": 1,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "5524344#0",
+    "query": "古埃及有哪些出土文物？",
+    "first_returned_id": "233006#43",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "233006#43",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "217818#0",
+    "query": "白俄罗斯有多少球队？",
+    "first_returned_id": "662312#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "662312#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "5401198#0",
+    "query": "麦克阿瑟参加国哪些战争？",
+    "first_returned_id": "7027059#82",
+    "first_returned_label": null,
+    "raw_semantic_first_id": "7027059#82",
+    "raw_semantic_first_label": null,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "112539#0",
+    "query": "中国盛产哪些茶叶？",
+    "first_returned_id": "25723#3",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "944999#2",
+    "raw_semantic_first_label": null,
+    "first_positive_raw_semantic_rank": 4,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "795709#0",
+    "query": "百老汇有哪些著名剧目？",
+    "first_returned_id": "1124783#2",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "1124783#2",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 4,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "157900#0",
+    "query": "莱布尼茨手稿在那一博物馆？",
+    "first_returned_id": "141097#61",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "141097#61",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "7252831#0",
+    "query": "台湾有哪些羽毛球队？",
+    "first_returned_id": "1808680#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "5718149#36",
+    "raw_semantic_first_label": 1,
+    "first_positive_raw_semantic_rank": 1,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "7555071#0",
+    "query": "台湾有哪些饶舌歌手？",
+    "first_returned_id": "7284413#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "7284413#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "154940#0",
+    "query": "巴拿马运河全长多少？",
+    "first_returned_id": "65599#41",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "65599#41",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "1488244#0",
+    "query": "细胞有哪些代谢方式？",
+    "first_returned_id": "1370#40",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "1370#40",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 8,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "1449953#0",
+    "query": "中国的铁路线有哪些？",
+    "first_returned_id": "13067#1",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "13067#1",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "7475338#0",
+    "query": "获得奥斯卡最佳电影的韩国电影是哪一部？",
+    "first_returned_id": "6314209#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "6314209#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 5,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "5570734#0",
+    "query": "电脑的发展历程有哪些？",
+    "first_returned_id": "83350#7",
+    "first_returned_label": null,
+    "raw_semantic_first_id": "83350#7",
+    "raw_semantic_first_label": null,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "384494#0",
+    "query": "澳大利亚国土面积多大？",
+    "first_returned_id": "1930#16",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "1930#16",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "1118896#0",
+    "query": "香港大学的现任校长是谁？",
+    "first_returned_id": "51280#19",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "51280#19",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "7427419#0",
+    "query": "中国三国时期有哪些典故？",
+    "first_returned_id": "17209#14",
+    "first_returned_label": null,
+    "raw_semantic_first_id": "17209#14",
+    "raw_semantic_first_label": null,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "1034177#0",
+    "query": "阿塞拜疆属于什么气候类型？",
+    "first_returned_id": "5427#18",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "5427#18",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "7738286#0",
+    "query": "超级联赛第一届在哪里举办？",
+    "first_returned_id": "7223680#0",
+    "first_returned_label": null,
+    "raw_semantic_first_id": "7223680#0",
+    "raw_semantic_first_label": null,
+    "first_positive_raw_semantic_rank": 11,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "6414757#0",
+    "query": "中华民国第一节立法委员选举哪一年举办？",
+    "first_returned_id": "2934784#7",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "2934784#7",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 4,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "3630168#0",
+    "query": "有哪些国家地处热带？",
+    "first_returned_id": "47956#4",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "47956#4",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "49647#0",
+    "query": "期货有哪些作用？",
+    "first_returned_id": "4360194#26",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "4360194#26",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "3981006#0",
+    "query": "李荣浩有哪些作品？",
+    "first_returned_id": "3981006#15",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "3981006#5",
+    "raw_semantic_first_label": 1,
+    "first_positive_raw_semantic_rank": 1,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "634280#0",
+    "query": "香港最大的酒店是哪个？",
+    "first_returned_id": "646836#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "646836#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 5,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "1055668#0",
+    "query": "美国2010年销量最高的小说是哪部？",
+    "first_returned_id": "3922469#14",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "1519564#1",
+    "raw_semantic_first_label": 1,
+    "first_positive_raw_semantic_rank": 1,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "6069550#0",
+    "query": "浙江省宁波市市长是谁？",
+    "first_returned_id": "10997#26",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "10997#26",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 6,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "5216220#0",
+    "query": "中国有哪些社交软件？",
+    "first_returned_id": "25846#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "25846#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 11,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "741921#0",
+    "query": "香港警察有哪些职能？",
+    "first_returned_id": "48017#9",
+    "first_returned_label": null,
+    "raw_semantic_first_id": "48017#9",
+    "raw_semantic_first_label": null,
+    "first_positive_raw_semantic_rank": 4,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "1148922#0",
+    "query": "Corsair旗下有哪些产品？",
+    "first_returned_id": "380480#10",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "380480#10",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "7312734#0",
+    "query": "河北省有哪些农作物？",
+    "first_returned_id": "12729#48",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "12729#48",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "7848137#0",
+    "query": "福建省副省长是谁？",
+    "first_returned_id": "5093861#3",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "5093861#3",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 7,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "6567154#0",
+    "query": "周深有哪些代表作？",
+    "first_returned_id": "6045796#10",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "6045796#10",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "595258#0",
+    "query": "上海迪士尼乐园哪一年开业？",
+    "first_returned_id": "5714569#4",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "5714569#4",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "7122066#0",
+    "query": "日本NHK电视台有哪些经典的纪录片",
+    "first_returned_id": "553626#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "553626#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "909924#0",
+    "query": "洛杉矶有哪些景点？",
+    "first_returned_id": "3134#15",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "3134#15",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 4,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "7008822#0",
+    "query": "美国通用电气公司总裁是谁？",
+    "first_returned_id": "31570#26",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "31570#26",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 5,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "4854553#0",
+    "query": "肯尼亚总统是谁？",
+    "first_returned_id": "41411#15",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "41411#15",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "7122606#0",
+    "query": "大禹治水发生在哪一朝代？",
+    "first_returned_id": "1721098#1",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "1721098#1",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 5,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "5650882#0",
+    "query": "中国共产党中国人民政治协商会议什么时间召开？",
+    "first_returned_id": "9970#5",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "9970#5",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 8,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "210354#0",
+    "query": "吴孟超哪一大学毕业？",
+    "first_returned_id": "210354#35",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "210354#35",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "3291910#0",
+    "query": "巴拿马运河全长多少？",
+    "first_returned_id": "65599#41",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "65599#41",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "188983#0",
+    "query": "谁发明的蒸汽机？",
+    "first_returned_id": "99279#3",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "99279#3",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "6044052#0",
+    "query": "波兰首都面积多大？",
+    "first_returned_id": "7604774#5",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "99859#0",
+    "raw_semantic_first_label": 1,
+    "first_positive_raw_semantic_rank": 1,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "7464755#0",
+    "query": "沈阳铁路局局长是谁？",
+    "first_returned_id": "569846#1",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "569846#1",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "962694#0",
+    "query": "上海江南造船厂哪一年创立？",
+    "first_returned_id": "512030#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "512030#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "4714933#0",
+    "query": "哥斯达黎加的国歌是什么？",
+    "first_returned_id": "73521#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "1576876#0",
+    "raw_semantic_first_label": 1,
+    "first_positive_raw_semantic_rank": 1,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "992843#0",
+    "query": "云南的平均海拔多少？",
+    "first_returned_id": "449#25",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "449#25",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "1661746#0",
+    "query": "南苏丹面积多大？",
+    "first_returned_id": "91555#34",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "797786#12",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "202102#0",
+    "query": "党的中央委员会每届任期多久？",
+    "first_returned_id": "1733379#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "1733379#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "6038439#0",
+    "query": "无线电视哪一年创立？",
+    "first_returned_id": "3468186#13",
+    "first_returned_label": null,
+    "raw_semantic_first_id": "3468186#13",
+    "raw_semantic_first_label": null,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "1070745#0",
+    "query": "琉球哪一年被割据？",
+    "first_returned_id": "105461#33",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "105461#33",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 9,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "7262367#0",
+    "query": "火星距离地球多远？",
+    "first_returned_id": "2227#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "2227#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "1065585#0",
+    "query": "上海有哪些剧院？",
+    "first_returned_id": "201511#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "201511#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 10,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "5669382#0",
+    "query": "索尼公司哪一年创立？",
+    "first_returned_id": "162239#2",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "162239#2",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "6551936#0",
+    "query": "英语的使用人数有多少？",
+    "first_returned_id": "1180#2",
+    "first_returned_label": null,
+    "raw_semantic_first_id": "1180#2",
+    "raw_semantic_first_label": null,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "7832551#0",
+    "query": "参加国家公务员考试有什么要求？",
+    "first_returned_id": "1127168#2",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "1127168#2",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 4,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "6947878#0",
+    "query": "全国代表大会的举办周期是多少年？",
+    "first_returned_id": "7658#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "7658#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "3227351#0",
+    "query": "亚马逊的总裁是谁？",
+    "first_returned_id": "58905#9",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "58905#9",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 9,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "6992361#0",
+    "query": "李玟有哪些代表作？",
+    "first_returned_id": "156544#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "156544#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "225339#0",
+    "query": "楷书有哪些分类？",
+    "first_returned_id": "16325#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "16325#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "1574360#0",
+    "query": "上海交通大学在中国大学中排名多少？",
+    "first_returned_id": "7284#1",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "7284#1",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 6,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "3767971#0",
+    "query": "湖南省有哪些知名湘菜？",
+    "first_returned_id": "110676#11",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "4664#96",
+    "raw_semantic_first_label": 1,
+    "first_positive_raw_semantic_rank": 1,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "6595664#0",
+    "query": "无机化合物分为哪几类？",
+    "first_returned_id": "2226#4",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "2226#4",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 6,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "6481844#0",
+    "query": "古印欧人起始于哪里？",
+    "first_returned_id": "1756147#10",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "1756147#10",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "5317888#0",
+    "query": "鼠尾草有什么功效？",
+    "first_returned_id": "395279#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "395279#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "901779#0",
+    "query": "股市指数有哪些？",
+    "first_returned_id": "1527591#2",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "1527591#2",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "2905831#0",
+    "query": "牛排有哪些种类？",
+    "first_returned_id": "284725#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "284725#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "1171948#0",
+    "query": "美国总统富兰克林有哪些成就？",
+    "first_returned_id": "112387#72",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "112387#72",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "801235#0",
+    "query": "俄罗斯的国旗有几种颜色？",
+    "first_returned_id": "5586145#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "5586145#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "928098#0",
+    "query": "丹麦的国旗有哪几种颜色？",
+    "first_returned_id": "1741#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "1741#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 5,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "1793396#0",
+    "query": "集英社有哪些漫画作品？",
+    "first_returned_id": "1166988#0",
+    "first_returned_label": null,
+    "raw_semantic_first_id": "315877#1",
+    "raw_semantic_first_label": 1,
+    "first_positive_raw_semantic_rank": 1,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "3932257#0",
+    "query": "会计有哪些准则？",
+    "first_returned_id": "26216#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "26216#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "2876856#0",
+    "query": "音乐剧有哪些代表人物？",
+    "first_returned_id": "141594#3",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "2187#17",
+    "raw_semantic_first_label": null,
+    "first_positive_raw_semantic_rank": 6,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "6518769#0",
+    "query": "台北有哪些旅游景点？",
+    "first_returned_id": "266039#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "266039#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 3,
+    "first_returned_shares_article_with_positive": true
+  },
+  {
+    "qid": "2794016#0",
+    "query": "四川省有哪些大学？",
+    "first_returned_id": "23326#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "23326#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "5068417#0",
+    "query": "日本有哪些动画？",
+    "first_returned_id": "19538#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "19538#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "7300525#0",
+    "query": "天主教有哪些教义？",
+    "first_returned_id": "654050#44",
+    "first_returned_label": null,
+    "raw_semantic_first_id": "654050#44",
+    "raw_semantic_first_label": null,
+    "first_positive_raw_semantic_rank": 8,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "1918355#0",
+    "query": "世界最大的水库是哪里？",
+    "first_returned_id": "484115#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "3000212#1",
+    "raw_semantic_first_label": 1,
+    "first_positive_raw_semantic_rank": 1,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "1320527#0",
+    "query": "马其顿在哪一大洲？",
+    "first_returned_id": "90113#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "90113#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 16,
+    "first_returned_shares_article_with_positive": false
+  },
+  {
+    "qid": "5517620#0",
+    "query": "中国女足有哪些成绩？",
+    "first_returned_id": "614211#0",
+    "first_returned_label": 0,
+    "raw_semantic_first_id": "614211#0",
+    "raw_semantic_first_label": 0,
+    "first_positive_raw_semantic_rank": 2,
+    "first_returned_shares_article_with_positive": true
+  }
+]

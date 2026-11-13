@@ -1,0 +1,18 @@
+{
+  "semantic_head_False_bm25_head_False": {
+    "queries": 111,
+    "final_correct": 2
+  },
+  "semantic_head_False_bm25_head_True": {
+    "queries": 20,
+    "final_correct": 0
+  },
+  "semantic_head_True_bm25_head_False": {
+    "queries": 201,
+    "final_correct": 192
+  },
+  "semantic_head_True_bm25_head_True": {
+    "queries": 61,
+    "final_correct": 61
+  }
+}

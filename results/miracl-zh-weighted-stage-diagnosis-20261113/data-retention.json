@@ -1,0 +1,20 @@
+{
+  "original_service_not_stopped_or_reconfigured": true,
+  "source_feature_commit": "cdf6430e028ff456d490436ff99e50fcf4aba59c",
+  "no_parameters_changed": true,
+  "diagnostic_api_stopped_after_completion": true,
+  "original_backups_retained": true,
+  "private_raw_responses_retained": true,
+  "raw_response_gzip_bytes": 260371751,
+  "compact_trace_bytes": 37458738,
+  "original_checkpoints": {
+    "contextbase": {
+      "indexed": 100000,
+      "complete": true
+    },
+    "weknora": {
+      "indexed": 100000,
+      "complete": true
+    }
+  }
+}

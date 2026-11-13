@@ -1,0 +1,14 @@
+{
+  "diagnostic_warmup/embedding": {
+    "input_tokens": 64,
+    "calls": 4,
+    "pairs": 0,
+    "max_pairs": 0
+  },
+  "diagnostic/embedding": {
+    "input_tokens": 3795,
+    "calls": 393,
+    "pairs": 0,
+    "max_pairs": 0
+  }
+}

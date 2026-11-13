@@ -1,0 +1,21 @@
+{
+  "scope": "All 393 queries; stage diagnosis only, no new tuning",
+  "source_commit": "cdf6430e028ff456d490436ff99e50fcf4aba59c",
+  "corpus_sha256": "d51e1fe9ec6ec92db05df87aabff132f861a72b046a7713bc945f18746665363",
+  "baseline_rankings_sha256": "b837c0fc0c8754af908a2bdf42e2fa616ded4f70d98f7aa9f941f12cf2950353",
+  "query_order_sha256": "8a69f06f771198653bcf15d71be8968d9b56f90dd6f3f6b75465ca0c882d1b55",
+  "driver_sha256": "bd51afcc02e9c5b0efb5d172a15d581a859a852eff910e9cd8df6f6389c8a213",
+  "weights": {
+    "semantic": 0.97,
+    "bm25": 0.03,
+    "graph": 1.0,
+    "temporal": 1.0
+  },
+  "concurrency": 1,
+  "full_response_directory": "/workspace/work/rrf-config-validation/weighted-stage-diagnosis-raw",
+  "compact_trace_schema": "compact-native-trace-v1",
+  "max_candidates": 60,
+  "max_tokens": 8192,
+  "source_cap": 100,
+  "recall_high": 1000
+}

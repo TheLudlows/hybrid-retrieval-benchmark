@@ -1,0 +1,84 @@
+{
+  "scope": "All 393 frozen dev queries; raw-arm readouts are diagnostic, not standalone single-arm native benchmarks.",
+  "weights": {
+    "semantic": 0.97,
+    "bm25": 0.03,
+    "graph": 1.0,
+    "temporal": 1.0
+  },
+  "queries": 393,
+  "stage_metrics": {
+    "semantic": {
+      "hit_at_1": 0.6666666666666666,
+      "hit_at_10": 0.9872773536895675,
+      "ndcg_at_10": 0.7807989728270784,
+      "recall_at_10": 0.9472494850357446
+    },
+    "bm25": {
+      "hit_at_1": 0.20610687022900764,
+      "hit_at_10": 0.7175572519083969,
+      "ndcg_at_10": 0.37622897585234816,
+      "recall_at_10": 0.560808190960863
+    },
+    "fusion": {
+      "hit_at_1": 0.648854961832061,
+      "hit_at_10": 0.9923664122137404,
+      "ndcg_at_10": 0.7768853870007946,
+      "recall_at_10": 0.9540591300133286
+    },
+    "post_scoring_candidates": {
+      "hit_at_1": 0.648854961832061,
+      "hit_at_10": 0.9923664122137404,
+      "ndcg_at_10": 0.7768853870007946,
+      "recall_at_10": 0.9540591300133286
+    },
+    "final": {
+      "hit_at_1": 0.648854961832061,
+      "hit_at_10": 0.9923664122137404,
+      "ndcg_at_10": 0.7768853870007946,
+      "recall_at_10": 0.9540591300133286
+    }
+  },
+  "counts": {
+    "queries": 393,
+    "final_top1_correct": 255,
+    "full_ranking_matches_archive": 393,
+    "top10_matches_archive": 393,
+    "per_query_quality_matches_archive": 393,
+    "final_list_differs_from_60_candidates": 261,
+    "final_top1_miss": 138,
+    "final_miss_neither_arm_top1_positive": 109,
+    "some_arm_top1_positive_fusion_top1_not_positive": 29,
+    "semantic_top1_rescued_by_final": 2,
+    "semantic_top1_lost_by_final": 9,
+    "semantic_top1_positive_fusion_top1_not_positive": 9
+  },
+  "positive_judgment_classification": {
+    "returned_2_to_10": 674,
+    "returned_top1": 255,
+    "returned_below_top10": 63,
+    "outside_fusion_top60": 1,
+    "outside_per_source_fusion_cap": 1
+  },
+  "verified_rrf_entries": 68431,
+  "model_usage": {
+    "diagnostic_warmup/embedding": {
+      "input_tokens": 64,
+      "calls": 4,
+      "pairs": 0,
+      "max_pairs": 0
+    },
+    "diagnostic/embedding": {
+      "input_tokens": 3795,
+      "calls": 393,
+      "pairs": 0,
+      "max_pairs": 0
+    }
+  },
+  "baseline_quality": {
+    "hit_at_1": 0.648854961832061,
+    "hit_at_10": 0.9923664122137404,
+    "ndcg_at_10": 0.7768853870007946,
+    "recall_at_10": 0.9540591300133285
+  }
+}
