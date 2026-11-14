@@ -1,6 +1,5 @@
 {
-  "state": "stage_complete",
-  "last_stage": "fresh_train200/w985_pool300",
+  "state": "complete",
   "completed_stages": [
     "tune100/w99_pool1000",
     "tune100/w98_pool1000",
@@ -17,5 +16,9 @@
     "fresh_train200/w985_pool1000",
     "dev393/w985_pool300",
     "fresh_train200/w985_pool300"
-  ]
+  ],
+  "restored_baseline97": true,
+  "original_service_untouched": true,
+  "all_product_data_retained": true,
+  "validation_api_stopped": true
 }
