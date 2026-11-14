@@ -2,6 +2,8 @@
 
 完整成绩、候选差值和结论见 [REPORT.md](REPORT.md)，实时状态见 [execution-status.json](execution-status.json)。只有存在完整 `metrics.json` 的阶段才算完成。
 
+本轮已完成全部15个阶段、2679次正式请求。[推荐候选配置](recommended-config.json)为0.985/0.015、high预算300；393题nDCG@10为0.781703，额外200题为0.833261。模型重排调用为0；推荐候选未部署到原服务。
+
 ## 评测范围
 
 - MIRACL v1.0 中文，固定10万个官方段落；种子20261112，包含既有1万段子集及开发集、额外200题的全部标注段落。
@@ -45,5 +47,7 @@ python miracl_zh/analyze_contextbase_optimization.py \
 ```
 
 已有逐题文件必须与同一语料和配置指纹一致。原命令重跑会跳过完整阶段和已完成题目；所有实际模型尝试均保留在日志中。不要清除检查点或用其他配置覆盖结果文件。`--publish`仅在明确需要提交评测仓库时启用，本地默认不提交。
+
+既有[少量题目重启续跑验证](../miracl-zh-rrf-config-formal-20261113/restart-proof.json)继续保留。本轮预检失败发生于0次正式请求时，不将其算作完成题目的续跑证明；原故障记录保存在recovery-history中，已恢复状态见service-recovery.json。
 
 本轮结束时将独立Bank恢复0.97/0.03、high=1000，并停止本轮拥有的验证API。两端原数据、索引、检查点、备份及独立验证库均保留；原始服务进程恢复与实验配置变更是分开记录的。

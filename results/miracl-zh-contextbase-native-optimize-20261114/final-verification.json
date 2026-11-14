@@ -1,0 +1,15 @@
+{
+  "models_and_settings_unchanged": true,
+  "model_files_sha256_verified": 6,
+  "source_commit_unchanged": "cdf6430e028ff456d490436ff99e50fcf4aba59c",
+  "source_checkout_clean": true,
+  "original_data_retention_reaudited": true,
+  "all_three_indexes_same_canonical_corpus_sha256": "47e0fec7b5ddd5587f344be69b57df97df68558bcaa3f1c0064877766035ac13",
+  "preflight_failure_resolved": true,
+  "successful_queries": 2679,
+  "query_embedding_calls": 2679,
+  "query_embedding_input_tokens": 25794,
+  "model_rerank_calls": 0,
+  "frozen_selection_verified": true,
+  "verified_at_utc": "2026-11-14T00:16:04.330280+00:00"
+}

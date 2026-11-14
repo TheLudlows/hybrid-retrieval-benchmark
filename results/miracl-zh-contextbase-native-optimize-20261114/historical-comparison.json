@@ -1,0 +1,32 @@
+{
+  "ContextBase 0.95/0.05（历史）": {
+    "source": "results/miracl-zh-native-weight-ablation-20261113/mixed95/metrics.json",
+    "queries": 393,
+    "hit_at_1": 0.6259541984732825,
+    "hit_at_5": 0.9287531806615776,
+    "hit_at_10": 0.9949109414758269,
+    "ndcg_at_10": 0.7700339402238827,
+    "recall_at_10": 0.959239064582576,
+    "recall_at_100": 0.998303647158609
+  },
+  "ContextBase 0.97/0.03（历史）": {
+    "source": "results/miracl-zh-native-weight-ablation-20261113/baseline97/metrics.json",
+    "queries": 393,
+    "hit_at_1": 0.648854961832061,
+    "hit_at_5": 0.9363867684478372,
+    "hit_at_10": 0.9923664122137404,
+    "ndcg_at_10": 0.7768853870007946,
+    "recall_at_10": 0.9540591300133285,
+    "recall_at_100": 0.998303647158609
+  },
+  "WeKnora Lite k30（历史）": {
+    "source": "results/miracl-zh-native-no-rerank-20261113/100k/weknora/rrf_k30-dev393-cap60/metrics.json",
+    "queries": 393,
+    "hit_at_1": 0.5318066157760815,
+    "hit_at_5": 0.8880407124681934,
+    "hit_at_10": 0.9847328244274809,
+    "ndcg_at_10": 0.7097520222890271,
+    "recall_at_10": 0.9375318066157761,
+    "recall_at_100": 0.9950139343269114
+  }
+}

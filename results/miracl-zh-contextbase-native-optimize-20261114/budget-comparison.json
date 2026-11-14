@@ -1,0 +1,18 @@
+{
+  "dev393": {
+    "queries": 393,
+    "same_aggregate_quality": true,
+    "same_per_query_quality": true,
+    "same_top10_lists": 393,
+    "same_full_lists": 386,
+    "p95_reduction_fraction": 0.0876235698561404
+  },
+  "fresh_train200": {
+    "queries": 200,
+    "same_aggregate_quality": true,
+    "same_per_query_quality": true,
+    "same_top10_lists": 199,
+    "same_full_lists": 198,
+    "p95_reduction_fraction": 0.10339290570645088
+  }
+}

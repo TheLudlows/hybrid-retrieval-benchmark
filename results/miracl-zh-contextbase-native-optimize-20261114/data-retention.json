@@ -1,0 +1,50 @@
+{
+  "original_service_configuration_unchanged": true,
+  "original_api_restarted_from_preserved_profile_before_benchmark": true,
+  "original_service_not_switched_to_feature_source": true,
+  "original_api_health": {
+    "status": "healthy",
+    "database": "connected",
+    "db_acquire_ms": 1.2,
+    "db_pool_waiting": 0,
+    "db_pool_in_use": 0,
+    "db_pool_max": 100,
+    "db_pool_idle": 5
+  },
+  "independent_bank_restored_to_baseline97_high1000": true,
+  "independent_api_stopped": true,
+  "independent_index_and_runtime_retained": true,
+  "original_indexes_full_content_and_official_id_mapping_reaudited": true,
+  "checkpoints": {
+    "contextbase": {
+      "indexed": 100000,
+      "complete": true
+    },
+    "weknora": {
+      "indexed": 100000,
+      "complete": true
+    }
+  },
+  "backups": {
+    "contextbase": {
+      "retained": true,
+      "bytes": 603400077
+    },
+    "weknora": {
+      "retained": true,
+      "bytes": 1251520512
+    }
+  },
+  "restoration_config": {
+    "enable_text_search": true,
+    "enable_graph_retrieval": false,
+    "enable_temporal_retrieval": false,
+    "enable_reranking": false,
+    "recall_rrf_semantic_weight": 0.97,
+    "recall_rrf_bm25_weight": 0.03,
+    "recall_rrf_graph_weight": 1.0,
+    "recall_rrf_temporal_weight": 1.0,
+    "recall_budget_function": "fixed",
+    "recall_budget_fixed_high": 1000
+  }
+}

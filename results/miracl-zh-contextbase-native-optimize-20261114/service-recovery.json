@@ -6,6 +6,8 @@
   "model_runtime_readback_matches_previous_runs": true,
   "original_api_health_after_recovery": "healthy",
   "resumed_identical_plan_and_driver": true,
-  "failure_record": "failure.json",
-  "cause_of_initial_process_stop": "Not established; no claim of data loss."
+  "failure_record": "recovery-history/initial-preflight-failure.json",
+  "cause_of_initial_process_stop": "Not established; no claim of data loss.",
+  "resolved": true,
+  "final_execution_state": "complete"
 }

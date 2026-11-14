@@ -1,0 +1,13 @@
+{
+  "freeze_commit": "a2c3e0913a3023da73ede86ddfa93da2a6db47d8",
+  "freeze_commit_url": "https://github.com/TheLudlows/hybrid-retrieval-benchmark/commit/a2c3e0913a3023da73ede86ddfa93da2a6db47d8",
+  "freeze_commit_epoch": 1794613989,
+  "first_assessment_request_estimated_start_epoch": 1794613995.2962253,
+  "freeze_committed_before_any_assessment": true,
+  "selection_only": "tune100",
+  "assessed_configs": [
+    "w99_pool1000",
+    "w985_pool1000",
+    "w985_pool300"
+  ]
+}

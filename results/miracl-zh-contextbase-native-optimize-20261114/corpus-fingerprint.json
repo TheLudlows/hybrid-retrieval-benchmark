@@ -1,0 +1,13 @@
+{
+  "passages": 100000,
+  "seed": 20261112,
+  "corpus_gzip_sha256": "d51e1fe9ec6ec92db05df87aabff132f861a72b046a7713bc945f18746665363",
+  "canonical_id_and_content_sha256": "47e0fec7b5ddd5587f344be69b57df97df68558bcaa3f1c0064877766035ac13",
+  "development_queries": 393,
+  "development_qrels": 3928,
+  "historical_train_sample_queries": 200,
+  "query_files_sha256": {
+    "fresh-topics.tsv": "691b6674a49bb3eed8f429581c3c82bdc3fac6443d93c7894b36ab66d138f588",
+    "fresh-qrels.tsv": "c98ed7d87aed2e7d466e4ee4ac6861a0eaecbe9c25c71210121f9219fd82cadf"
+  }
+}

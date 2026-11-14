@@ -6,6 +6,8 @@
 
 已完成[四组原生权重与纯向量消融对照](../results/miracl-zh-native-weight-ablation-20261113/REPORT.md)，各393题，包含同期基线、逐题损益、实际模型用量及耗时。
 
+后续[9组原生混合检索参数探索](../results/miracl-zh-contextbase-native-optimize-20261114/REPORT.md)已完成：先筛选100题，冻结候选后复核393题与既有额外200题，共2679次正式请求。0.985/0.015、high预算300保留预算1000候选的逐题质量，开发集nDCG@10为0.781703；提升很小，候选配置未应用到原服务。见[复跑和恢复说明](../results/miracl-zh-contextbase-native-optimize-20261114/README.md)。
+
 固定种子 20261112、10,000 个段落、两端各 393 题的[完整实测报告与复算数据](../results/miracl-zh-10k-20261112/README.md)已归档。以下同时保留官方全量语料和其他规模子集的执行方法。
 
 采用 MIRACL v1.0 中文开发集的全部 393 道查询、3,928 条相关性标注以及完整的 4,934,368 个段落。语料和标签来自 [MIRACL 官方仓库](https://github.com/project-miracl/miracl)。[source.json](source.json) 固定了文件版本、长度和 SHA-256，[verified.json](verified.json) 是全量语料检查记录。

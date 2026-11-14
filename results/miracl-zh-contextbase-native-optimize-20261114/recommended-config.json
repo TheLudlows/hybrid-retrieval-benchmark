@@ -1,0 +1,42 @@
+{
+  "status": "validated_candidate_not_deployed",
+  "candidate": "w985_pool300",
+  "source_commit": "cdf6430e028ff456d490436ff99e50fcf4aba59c",
+  "required_feature_pr": "https://github.com/RSIXDB/hindsight/pull/108",
+  "corpus_sha256": "d51e1fe9ec6ec92db05df87aabff132f861a72b046a7713bc945f18746665363",
+  "bank_config_updates": {
+    "enable_text_search": true,
+    "enable_graph_retrieval": false,
+    "enable_temporal_retrieval": false,
+    "enable_reranking": false,
+    "recall_rrf_semantic_weight": 0.985,
+    "recall_rrf_bm25_weight": 0.015,
+    "recall_rrf_graph_weight": 1.0,
+    "recall_rrf_temporal_weight": 1.0,
+    "recall_budget_function": "fixed",
+    "recall_budget_fixed_high": 300
+  },
+  "service_environment": {
+    "CONTEXTBASE_API_RECALL_MAX_CANDIDATES_PER_SOURCE": "100",
+    "CONTEXTBASE_API_RERANKER_MAX_CANDIDATES": "60",
+    "CONTEXTBASE_API_RERANKER_MAX_CANDIDATES_HIGH": "60"
+  },
+  "recall_request": {
+    "query": "<original MIRACL query>",
+    "budget": "high",
+    "types": [
+      "world",
+      "experience"
+    ],
+    "max_tokens": 8192,
+    "include": {
+      "entities": null,
+      "chunks": {
+        "max_tokens": 16384
+      }
+    }
+  },
+  "embedding_revision": "25b9af8e87a38eb120cfe87125383677b9cd309e",
+  "model_reranking": false,
+  "scope": "Exploratory 100k MIRACL zh, CPU environment; no global optimum or blind assessment claim."
+}
