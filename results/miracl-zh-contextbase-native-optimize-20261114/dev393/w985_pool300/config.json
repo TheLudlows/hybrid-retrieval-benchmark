@@ -1,0 +1,19 @@
+{
+  "case": {
+    "name": "w985_pool300",
+    "semantic_weight": 0.985,
+    "bm25_weight": 0.015,
+    "high_budget": 300
+  },
+  "query_set": "dev393",
+  "query_ids_sha256": "8a69f06f771198653bcf15d71be8968d9b56f90dd6f3f6b75465ca0c882d1b55",
+  "plan_sha256": "14cefbeb1e01eb12e2c045e63e07fc5508e7ce0ad16b3a14e5cbd040429c10da",
+  "corpus_sha256": "d51e1fe9ec6ec92db05df87aabff132f861a72b046a7713bc945f18746665363",
+  "source_commit": "cdf6430e028ff456d490436ff99e50fcf4aba59c",
+  "candidate_ceiling": 60,
+  "source_cap": 100,
+  "max_tokens": 8192,
+  "model_reranking": false,
+  "concurrency": 1,
+  "warmup": 4
+}
