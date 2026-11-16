@@ -1,0 +1,7 @@
+{
+  "original_data_and_backups_not_deleted": true,
+  "original_apis_not_reconfigured_or_restarted": true,
+  "isolated_corpus_reaudited_after_synthetic_document_cleanup": true,
+  "official_passages_each": 100000,
+  "independent_weknora_snapshot_retained": true
+}

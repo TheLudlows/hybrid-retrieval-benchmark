@@ -15,8 +15,8 @@
     "load100-r2-c1/weknora",
     "load100-r2-c1/contextbase"
   ],
-  "state": "visibility",
-  "product": "weknora",
-  "repetition": 9,
-  "operation": "delete"
+  "state": "complete",
+  "restored_contextbase_baseline97": true,
+  "generation_model_used": false,
+  "owned_validation_apis_stopped": true
 }
