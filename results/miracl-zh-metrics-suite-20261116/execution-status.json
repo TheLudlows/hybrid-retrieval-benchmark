@@ -15,7 +15,8 @@
     "load100-r2-c1/weknora",
     "load100-r2-c1/contextbase"
   ],
-  "state": "stage_complete",
-  "stage": "load100-r2-c1",
-  "product": "contextbase"
+  "state": "visibility",
+  "product": "contextbase",
+  "repetition": 9,
+  "operation": "delete"
 }

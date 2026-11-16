@@ -1,0 +1,50 @@
+{
+  "synthetic_identifier": "metrics-suite-20261116-canary-contextbase-01",
+  "product": "contextbase",
+  "operations": [
+    {
+      "operation": "create",
+      "write_ack_ms": 250.253143000009,
+      "ack_to_first_observed_visible_ms": 666.0606579998785,
+      "submit_to_first_observed_visible_ms": 916.3138009998875,
+      "observations": [
+        {
+          "after_ack_ms": 666.0606579998785,
+          "found": true,
+          "source_marker_matches": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "update",
+      "write_ack_ms": 178.7845459998607,
+      "ack_to_first_observed_visible_ms": 660.8341280002605,
+      "submit_to_first_observed_visible_ms": 839.6186740001212,
+      "observations": [
+        {
+          "after_ack_ms": 660.8341280002605,
+          "found": true,
+          "source_marker_matches": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "delete",
+      "write_ack_ms": 53.574810000100115,
+      "ack_to_first_observed_visible_ms": 683.6495309999009,
+      "submit_to_first_observed_visible_ms": 737.224341000001,
+      "observations": [
+        {
+          "after_ack_ms": 683.6495309999009,
+          "found": false,
+          "source_marker_matches": true,
+          "visible": true
+        }
+      ]
+    }
+  ],
+  "remote_id": "metrics-suite-20261116-canary-contextbase-01",
+  "complete": true
+}
