@@ -1,0 +1,2929 @@
+{
+  "dataset": "miracl/zh/dev/subset-d51e1fe9ec6ec92d",
+  "queries": 100,
+  "hit_at_1": 0.56,
+  "hit_at_5": 0.95,
+  "hit_at_10": 1,
+  "ndcg_at_10": 0.7343216838597222,
+  "recall_at_10": 0.9624047619047619,
+  "recall_at_100": 0.9910714285714286,
+  "returned_depth": {
+    "mean": 59.33,
+    "min": 56,
+    "max": 60,
+    "queries_at_least_100": 0
+  },
+  "serial_p50_ms": 1533.2335419998344,
+  "serial_p95_ms": 1602.9115269998329,
+  "serial_p99_ms": 1628.4809179996955,
+  "per_topic": {
+    "6911039#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.559008518493208,
+      "recall_at_10": 0.75,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1520.8209889997306,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 2,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.3,
+      "unjudged_at_10": 0.3,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 3,
+        "judged_zero": 4,
+        "unjudged": 3,
+        "returned": 10
+      },
+      "mrr_at_10": 0.5
+    },
+    "86616#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.9217868789962071,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1523.8282760001312,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 2,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.3,
+      "unjudged_at_10": 0.3,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 3,
+        "judged_zero": 4,
+        "unjudged": 3,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "67347#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.43067655807339306,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1560.5289830000402,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 3,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.4,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 5,
+        "unjudged": 4,
+        "returned": 10
+      },
+      "mrr_at_10": 0.25
+    },
+    "3362581#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1559.3441370001528,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 3,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.3,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 6,
+        "unjudged": 3,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "7443372#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.7238911047912078,
+      "recall_at_10": 0.8,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1527.1095509997394,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.4,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 1,
+        "unjudged": 2,
+        "returned": 5
+      },
+      "precision_at_10": 0.4,
+      "unjudged_at_10": 0.4,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 4,
+        "judged_zero": 2,
+        "unjudged": 4,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "3068772#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.44130740935663865,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1533.2335419998344,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 3,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 6,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 0.25
+    },
+    "288698#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.9103075074400794,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1512.0505419999972,
+      "precision_at_5": 0.6,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 3,
+        "judged_zero": 2,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.5,
+      "unjudged_at_10": 0.0,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 5,
+        "judged_zero": 5,
+        "unjudged": 0,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "386482#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.9060254355346823,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 1511.3237549999212,
+      "precision_at_5": 0.6,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 3,
+        "judged_zero": 1,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.3,
+      "unjudged_at_10": 0.4,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 3,
+        "judged_zero": 3,
+        "unjudged": 4,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "1045502#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6309297535714575,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1553.9439180001864,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 7,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 0.5
+    },
+    "7454365#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.45560514958746035,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 1563.7618800001292,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 6,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 0.2
+    },
+    "7795889#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6340499455108034,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 1557.5308980000955,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 2,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.3,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 3,
+        "judged_zero": 6,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 0.5
+    },
+    "10598#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.9052181617170642,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1566.372336999848,
+      "precision_at_5": 0.6,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 3,
+        "judged_zero": 2,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.4,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 4,
+        "judged_zero": 5,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "3412909#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6364391809889587,
+      "recall_at_10": 0.6666666666666666,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1583.778378000261,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.4,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 2,
+        "unjudged": 2,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.4,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 4,
+        "unjudged": 4,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "1276927#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6719882468370725,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1581.7698299997573,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 2,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.3,
+      "unjudged_at_10": 0.4,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 3,
+        "judged_zero": 3,
+        "unjudged": 4,
+        "returned": 10
+      },
+      "mrr_at_10": 0.5
+    },
+    "188245#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.3562071871080222,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 1547.658034000051,
+      "precision_at_5": 0.0,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 0,
+        "judged_zero": 4,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.3,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 6,
+        "unjudged": 3,
+        "returned": 10
+      },
+      "mrr_at_10": 0.16666666666666666
+    },
+    "3608981#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6309297535714575,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 1545.986754000296,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.4,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 5,
+        "unjudged": 4,
+        "returned": 10
+      },
+      "mrr_at_10": 0.5
+    },
+    "7761450#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.8175295903539445,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1576.521282000158,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 7,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "291771#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.5,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1578.63296000005,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.4,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 2,
+        "unjudged": 2,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.5,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 5,
+        "returned": 10
+      },
+      "mrr_at_10": 0.3333333333333333
+    },
+    "402986#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1501.92196099988,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.3,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 6,
+        "unjudged": 3,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "975966#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 1500.6234120000954,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 8,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "1653677#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.5437713091520254,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1473.8178790003076,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 3,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.4,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 4,
+        "unjudged": 4,
+        "returned": 10
+      },
+      "mrr_at_10": 0.3333333333333333
+    },
+    "3842421#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.31546487678572877,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1477.5590949998332,
+      "precision_at_5": 0.0,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 0,
+        "judged_zero": 5,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 8,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 0.125
+    },
+    "7688629#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.44130740935663865,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 1478.9403190002304,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.4,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 2,
+        "unjudged": 2,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.4,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 4,
+        "unjudged": 4,
+        "returned": 10
+      },
+      "mrr_at_10": 0.25
+    },
+    "6879435#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.7979719524871096,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 1477.3183549996247,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 3,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.4,
+      "unjudged_at_10": 0.0,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 4,
+        "judged_zero": 6,
+        "unjudged": 0,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "4805231#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.9066276098484507,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 56,
+      "latency_ms": 1494.7916749997603,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 2,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.3,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 3,
+        "judged_zero": 6,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "3722020#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.8712137160156971,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1495.7822430001215,
+      "precision_at_5": 0.6,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 3,
+        "judged_zero": 2,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.4,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 4,
+        "judged_zero": 5,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "5172645#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.8175295903539445,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 1593.7555349996728,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 7,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "5502525#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.5307212739772434,
+      "recall_at_10": 0.6666666666666666,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 1600.3364620000866,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 2,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.3,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 5,
+        "unjudged": 3,
+        "returned": 10
+      },
+      "mrr_at_10": 0.5
+    },
+    "6323378#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 1506.281872999807,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 3,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.4,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 5,
+        "unjudged": 4,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "1057816#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.9469024295259745,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 1511.7190260002644,
+      "precision_at_5": 0.6,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 3,
+        "judged_zero": 1,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.3,
+      "unjudged_at_10": 0.3,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 3,
+        "judged_zero": 4,
+        "unjudged": 3,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "5156310#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.5,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1550.1575640000738,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 7,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 0.3333333333333333
+    },
+    "316047#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.5,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1553.872735999903,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.0,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 8,
+        "unjudged": 0,
+        "returned": 10
+      },
+      "mrr_at_10": 0.3333333333333333
+    },
+    "565177#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.5714285040141098,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1513.8361529998292,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 3,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 7,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 0.5
+    },
+    "1059425#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.7045057227504283,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1517.3992449999787,
+      "precision_at_5": 0.6,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 3,
+        "judged_zero": 2,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.4,
+      "unjudged_at_10": 0.0,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 4,
+        "judged_zero": 6,
+        "unjudged": 0,
+        "returned": 10
+      },
+      "mrr_at_10": 0.5
+    },
+    "5471194#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.8485833840018,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 57,
+      "latency_ms": 1468.5686800003168,
+      "precision_at_5": 0.6,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 3,
+        "judged_zero": 2,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.4,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 4,
+        "judged_zero": 4,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "7062292#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.8065735963827293,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1468.8488580000012,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.0,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 8,
+        "unjudged": 0,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "5867679#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.7977228895450266,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1457.5234769999952,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 3,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 7,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "5280169#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.43067655807339306,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 1464.38174099967,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 7,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 0.25
+    },
+    "3118436#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1551.0996600000908,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.3,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 6,
+        "unjudged": 3,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "7779127#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1552.0142450000094,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 7,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "1655317#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6309297535714575,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 1544.337937000364,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 3,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.4,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 5,
+        "unjudged": 4,
+        "returned": 10
+      },
+      "mrr_at_10": 0.5
+    },
+    "4643932#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 1551.3886909998291,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 8,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "1065971#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.9674679834891693,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 1528.642206999848,
+      "precision_at_5": 0.6,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 3,
+        "judged_zero": 2,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.3,
+      "unjudged_at_10": 0.3,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 3,
+        "judged_zero": 4,
+        "unjudged": 3,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "1009493#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.4911492931622974,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1527.482007999879,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.0,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 8,
+        "unjudged": 0,
+        "returned": 10
+      },
+      "mrr_at_10": 0.3333333333333333
+    },
+    "154940#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.5,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1523.2257509996998,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 7,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 0.3333333333333333
+    },
+    "4895#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1527.7145380000547,
+      "precision_at_5": 1.0,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 5,
+        "judged_zero": 0,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.5,
+      "unjudged_at_10": 0.3,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 5,
+        "judged_zero": 2,
+        "unjudged": 3,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "6084114#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.8932547230000344,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1615.631699000005,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 3,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.4,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 4,
+        "judged_zero": 5,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "1077527#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.9134015924715543,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1618.6903510001684,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 3,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.3,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 3,
+        "judged_zero": 5,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "5570734#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.43067655807339306,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 1540.2452570001515,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 3,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.4,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 5,
+        "unjudged": 4,
+        "returned": 10
+      },
+      "mrr_at_10": 0.25
+    },
+    "72463#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.7271360547643255,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 1540.1837990002605,
+      "precision_at_5": 0.6,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 3,
+        "judged_zero": 2,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.4,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 4,
+        "judged_zero": 4,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 0.5
+    },
+    "5187134#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1583.2121330004156,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.4,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 1,
+        "unjudged": 2,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 6,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "4952417#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.8503449055347546,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 1584.44403600015,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 3,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 7,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "3981006#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.86034433104172,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 57,
+      "latency_ms": 1490.2247769996393,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 3,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.3,
+      "unjudged_at_10": 0.3,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 3,
+        "judged_zero": 4,
+        "unjudged": 3,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "7818367#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1493.2484939999995,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 8,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "7549261#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1602.9115269998329,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.0,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 9,
+        "unjudged": 0,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "3917#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6309297535714575,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1606.7767039999126,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 3,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.3,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 6,
+        "unjudged": 3,
+        "returned": 10
+      },
+      "mrr_at_10": 0.5
+    },
+    "3106611#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.7227265726449519,
+      "recall_at_10": 0.6,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1516.8500409999979,
+      "precision_at_5": 0.6,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 3,
+        "judged_zero": 1,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.3,
+      "unjudged_at_10": 0.4,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 3,
+        "judged_zero": 3,
+        "unjudged": 4,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "142518#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1516.2376059997769,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 7,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "6568153#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.9197207891481876,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1538.4476260001065,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 3,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 7,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "7843060#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1539.1280220001136,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 3,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 6,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "1148922#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.5,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 1502.147695000076,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 8,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 0.3333333333333333
+    },
+    "7107849#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.8847838959703266,
+      "recall_at_10": 0.8571428571428571,
+      "recall_at_100": 0.8571428571428571,
+      "depth": 56,
+      "latency_ms": 1509.5645540000078,
+      "precision_at_5": 0.8,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 4,
+        "judged_zero": 1,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.6,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 6,
+        "judged_zero": 3,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "7312734#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.3065735963827292,
+      "recall_at_10": 0.5,
+      "recall_at_100": 0.5,
+      "depth": 58,
+      "latency_ms": 1536.8153860003986,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 3,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.4,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 5,
+        "unjudged": 4,
+        "returned": 10
+      },
+      "mrr_at_10": 0.3333333333333333
+    },
+    "6567154#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.4508533838815827,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 1536.2019770000188,
+      "precision_at_5": 0.0,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 0,
+        "judged_zero": 5,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.3,
+      "unjudged_at_10": 0.0,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 3,
+        "judged_zero": 7,
+        "unjudged": 0,
+        "returned": 10
+      },
+      "mrr_at_10": 0.16666666666666666
+    },
+    "506820#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 1537.4553560000095,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 8,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "1169736#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1540.5353529999957,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 3,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.4,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 5,
+        "unjudged": 4,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "909924#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.43067655807339306,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1565.3047389996573,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 8,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 0.25
+    },
+    "524302#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.9197207891481876,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1562.9453629999261,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 3,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.3,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 5,
+        "unjudged": 3,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "7552826#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 1560.9996109997155,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 2,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.6,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 2,
+        "unjudged": 6,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "898037#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.8179809735263114,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1562.1543309998742,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 3,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.3,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 3,
+        "judged_zero": 5,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "3291910#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.5,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1628.4809179996955,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 7,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 0.3333333333333333
+    },
+    "7464755#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6309297535714575,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 1628.9120310002545,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.0,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 9,
+        "unjudged": 0,
+        "returned": 10
+      },
+      "mrr_at_10": 0.5
+    },
+    "4714933#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.5,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1552.015105999999,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 7,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 0.3333333333333333
+    },
+    "962694#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6509209298071326,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1559.503093999865,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 3,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.0,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 8,
+        "unjudged": 0,
+        "returned": 10
+      },
+      "mrr_at_10": 0.5
+    },
+    "4230656#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 1559.9332270003288,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.4,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 2,
+        "unjudged": 2,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.5,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 5,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "1415646#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 1570.3334529998756,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 3,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 6,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "968374#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.9005471983095722,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1601.685739000004,
+      "precision_at_5": 0.6,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 3,
+        "judged_zero": 2,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.4,
+      "unjudged_at_10": 0.0,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 4,
+        "judged_zero": 6,
+        "unjudged": 0,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "1849393#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.8756458727267334,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1593.7348389998078,
+      "precision_at_5": 0.6,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 3,
+        "judged_zero": 2,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.4,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 4,
+        "judged_zero": 5,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "110812#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 1586.5833520001615,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 8,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "735382#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.8756458727267334,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1590.3253510000468,
+      "precision_at_5": 0.6,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 3,
+        "judged_zero": 2,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.4,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 4,
+        "judged_zero": 4,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "7659399#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 57,
+      "latency_ms": 1513.2812450001438,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 3,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 6,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "398674#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.38685280723454163,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1513.74362200022,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 3,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.4,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 5,
+        "unjudged": 4,
+        "returned": 10
+      },
+      "mrr_at_10": 0.2
+    },
+    "225339#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6309297535714575,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1482.09090499995,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.3,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 6,
+        "unjudged": 3,
+        "returned": 10
+      },
+      "mrr_at_10": 0.5
+    },
+    "7340207#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6364391809889587,
+      "recall_at_10": 0.6666666666666666,
+      "recall_at_100": 1.0,
+      "depth": 57,
+      "latency_ms": 1483.9624960000037,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.3,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 5,
+        "unjudged": 3,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "5219602#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.933745776545611,
+      "recall_at_10": 0.9,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1508.397597000112,
+      "precision_at_5": 1.0,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 5,
+        "judged_zero": 0,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.9,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 9,
+        "judged_zero": 0,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "7380005#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.9404511968899847,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1511.5217709999342,
+      "precision_at_5": 0.8,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 4,
+        "judged_zero": 1,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.6,
+      "unjudged_at_10": 0.0,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 6,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "801235#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.5478510149086853,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1476.809501000389,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.4,
+      "unjudged_at_10": 0.0,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 4,
+        "judged_zero": 6,
+        "unjudged": 0,
+        "returned": 10
+      },
+      "mrr_at_10": 0.25
+    },
+    "4972338#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.5249810332008933,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1479.9047310002607,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 3,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.4,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 4,
+        "unjudged": 4,
+        "returned": 10
+      },
+      "mrr_at_10": 0.3333333333333333
+    },
+    "3932257#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6509209298071326,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1460.6705809997038,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 3,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.0,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 8,
+        "unjudged": 0,
+        "returned": 10
+      },
+      "mrr_at_10": 0.5
+    },
+    "7074783#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.7852835896039292,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1463.6415090003538,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 3,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.6,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 6,
+        "judged_zero": 3,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "3071733#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.8270966332020971,
+      "recall_at_10": 0.8333333333333334,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1514.1752929998802,
+      "precision_at_5": 0.6,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 3,
+        "judged_zero": 1,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.5,
+      "unjudged_at_10": 0.3,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 5,
+        "judged_zero": 2,
+        "unjudged": 3,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "954282#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.43067655807339306,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 1515.2208039999095,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 3,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.3,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 6,
+        "unjudged": 3,
+        "returned": 10
+      },
+      "mrr_at_10": 0.25
+    },
+    "6182502#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.4415801103577823,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1449.4394990001638,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 6,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 0.2
+    },
+    "1042661#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.5726073975563163,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 58,
+      "latency_ms": 1456.0526060004122,
+      "precision_at_5": 0.4,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 2,
+        "judged_zero": 3,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.3,
+      "unjudged_at_10": 0.1,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 3,
+        "judged_zero": 6,
+        "unjudged": 1,
+        "returned": 10
+      },
+      "mrr_at_10": 0.3333333333333333
+    },
+    "5494982#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.9099466049873365,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1464.8541050000858,
+      "precision_at_5": 0.8,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 4,
+        "judged_zero": 1,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.6,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 6,
+        "judged_zero": 2,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "6518769#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.2532778777010656,
+      "recall_at_10": 0.5,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1460.446963999857,
+      "precision_at_5": 0.0,
+      "unjudged_at_5": 0.4,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 0,
+        "judged_zero": 3,
+        "unjudged": 2,
+        "returned": 5
+      },
+      "precision_at_10": 0.2,
+      "unjudged_at_10": 0.3,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 2,
+        "judged_zero": 5,
+        "unjudged": 3,
+        "returned": 10
+      },
+      "mrr_at_10": 0.14285714285714285
+    },
+    "6086338#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.9669850519151657,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 60,
+      "latency_ms": 1587.8272439999819,
+      "precision_at_5": 0.8,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 4,
+        "judged_zero": 1,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.5,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 5,
+        "judged_zero": 3,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "5068417#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.37079398245749273,
+      "recall_at_10": 0.75,
+      "recall_at_100": 0.75,
+      "depth": 58,
+      "latency_ms": 1587.8279660000771,
+      "precision_at_5": 0.0,
+      "unjudged_at_5": 0.2,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 0,
+        "judged_zero": 4,
+        "unjudged": 1,
+        "returned": 5
+      },
+      "precision_at_10": 0.3,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 3,
+        "judged_zero": 5,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 0.14285714285714285
+    },
+    "5459159#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6436579276931672,
+      "recall_at_10": 0.75,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 1501.5959039997142,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 4,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.3,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 3,
+        "judged_zero": 5,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 1.0
+    },
+    "427995#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.7328286204777911,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 59,
+      "latency_ms": 1504.0704640000513,
+      "precision_at_5": 0.6,
+      "unjudged_at_5": 0.0,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 3,
+        "judged_zero": 2,
+        "unjudged": 0,
+        "returned": 5
+      },
+      "precision_at_10": 0.3,
+      "unjudged_at_10": 0.2,
+      "missing_slots_at_10": 0.0,
+      "top10_counts": {
+        "positive": 3,
+        "judged_zero": 5,
+        "unjudged": 2,
+        "returned": 10
+      },
+      "mrr_at_10": 0.5
+    }
+  },
+  "precision_at_5": 0.338,
+  "precision_at_10": 0.241,
+  "mrr_at_10": 0.7134404761904762,
+  "unjudged_at_5": 0.084,
+  "unjudged_at_10": 0.20800000000000002,
+  "missing_slots_at_5": 0.0,
+  "missing_slots_at_10": 0.0,
+  "rankings_sha256": "789978844cca01b30e980c6d2596d0d287bc72a70577b21319dad43a17ba1bc0"
+}
