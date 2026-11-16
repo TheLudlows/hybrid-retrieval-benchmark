@@ -1,0 +1,50 @@
+{
+  "synthetic_identifier": "metrics-suite-20261116-canary-weknora-08",
+  "product": "weknora",
+  "operations": [
+    {
+      "operation": "create",
+      "write_ack_ms": 2.3317740001402854,
+      "ack_to_first_observed_visible_ms": 1028.6783719998311,
+      "submit_to_first_observed_visible_ms": 1031.0101459999714,
+      "observations": [
+        {
+          "after_ack_ms": 1028.6783719998311,
+          "found": true,
+          "source_marker_matches": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "update",
+      "write_ack_ms": 2.650374000040756,
+      "ack_to_first_observed_visible_ms": 1011.7835050000394,
+      "submit_to_first_observed_visible_ms": 1014.4338790000802,
+      "observations": [
+        {
+          "after_ack_ms": 1011.7835050000394,
+          "found": true,
+          "source_marker_matches": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "delete",
+      "write_ack_ms": 3.130267999949865,
+      "ack_to_first_observed_visible_ms": 868.0233569998563,
+      "submit_to_first_observed_visible_ms": 871.1536249998062,
+      "observations": [
+        {
+          "after_ack_ms": 868.0233569998563,
+          "found": false,
+          "source_marker_matches": true,
+          "visible": true
+        }
+      ]
+    }
+  ],
+  "remote_id": "49f69aaf-fb04-48e4-bc48-ae60f627214a",
+  "complete": true
+}

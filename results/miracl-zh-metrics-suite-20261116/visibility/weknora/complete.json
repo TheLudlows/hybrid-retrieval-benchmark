@@ -1,0 +1,10 @@
+{
+  "repetitions": 10,
+  "operations": [
+    "create",
+    "update",
+    "delete"
+  ],
+  "poll_sleep_s": 0.25,
+  "limitation": "Measured first observation includes native search/probe latency. Not a millisecond-accurate internal commit timestamp; all mutations are synthetic documents in isolated copies."
+}

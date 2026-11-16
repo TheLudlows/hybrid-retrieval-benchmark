@@ -1,0 +1,56 @@
+{
+  "synthetic_identifier": "metrics-suite-20261116-canary-weknora-00",
+  "product": "weknora",
+  "operations": [
+    {
+      "operation": "create",
+      "write_ack_ms": 20.66046700019797,
+      "ack_to_first_observed_visible_ms": 2087.36913499979,
+      "submit_to_first_observed_visible_ms": 2108.029601999988,
+      "observations": [
+        {
+          "after_ack_ms": 1027.6740859999336,
+          "found": false,
+          "source_marker_matches": true,
+          "visible": false
+        },
+        {
+          "after_ack_ms": 2087.36913499979,
+          "found": true,
+          "source_marker_matches": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "update",
+      "write_ack_ms": 2.9327490001378465,
+      "ack_to_first_observed_visible_ms": 976.083620999816,
+      "submit_to_first_observed_visible_ms": 979.0163699999539,
+      "observations": [
+        {
+          "after_ack_ms": 976.083620999816,
+          "found": true,
+          "source_marker_matches": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "delete",
+      "write_ack_ms": 4.014780000034079,
+      "ack_to_first_observed_visible_ms": 831.8640160000541,
+      "submit_to_first_observed_visible_ms": 835.8787960000882,
+      "observations": [
+        {
+          "after_ack_ms": 831.8640160000541,
+          "found": false,
+          "source_marker_matches": true,
+          "visible": true
+        }
+      ]
+    }
+  ],
+  "remote_id": "cc41ea63-7133-4be1-bfe9-fef8447e0d5d",
+  "complete": true
+}

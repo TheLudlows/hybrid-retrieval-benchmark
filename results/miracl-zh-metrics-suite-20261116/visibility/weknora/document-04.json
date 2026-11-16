@@ -1,0 +1,62 @@
+{
+  "synthetic_identifier": "metrics-suite-20261116-canary-weknora-04",
+  "product": "weknora",
+  "operations": [
+    {
+      "operation": "create",
+      "write_ack_ms": 3.477460999874893,
+      "ack_to_first_observed_visible_ms": 2067.443348999859,
+      "submit_to_first_observed_visible_ms": 2070.920809999734,
+      "observations": [
+        {
+          "after_ack_ms": 993.3214819998284,
+          "found": false,
+          "source_marker_matches": true,
+          "visible": false
+        },
+        {
+          "after_ack_ms": 2067.443348999859,
+          "found": true,
+          "source_marker_matches": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "update",
+      "write_ack_ms": 2.6427729999340954,
+      "ack_to_first_observed_visible_ms": 2076.0729430003266,
+      "submit_to_first_observed_visible_ms": 2078.7157160002607,
+      "observations": [
+        {
+          "after_ack_ms": 979.3004860002839,
+          "found": false,
+          "source_marker_matches": true,
+          "visible": false
+        },
+        {
+          "after_ack_ms": 2076.0729430003266,
+          "found": true,
+          "source_marker_matches": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "delete",
+      "write_ack_ms": 3.11065799996868,
+      "ack_to_first_observed_visible_ms": 792.301173999931,
+      "submit_to_first_observed_visible_ms": 795.4118319998997,
+      "observations": [
+        {
+          "after_ack_ms": 792.301173999931,
+          "found": false,
+          "source_marker_matches": true,
+          "visible": true
+        }
+      ]
+    }
+  ],
+  "remote_id": "94227572-1ece-4cfd-8b50-481395905047",
+  "complete": true
+}
