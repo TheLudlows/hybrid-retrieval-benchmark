@@ -1,9 +1,10 @@
 {
   "completed_stages": [
     "serial393/contextbase",
-    "serial393/weknora"
+    "serial393/weknora",
+    "load100-r1-c1/contextbase"
   ],
   "state": "stage_complete",
-  "stage": "serial393",
-  "product": "weknora"
+  "stage": "load100-r1-c1",
+  "product": "contextbase"
 }
