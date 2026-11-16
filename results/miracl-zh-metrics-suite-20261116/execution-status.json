@@ -6,9 +6,10 @@
     "load100-r1-c1/weknora",
     "load100-r1-c2/contextbase",
     "load100-r1-c2/weknora",
-    "load100-r1-c4/contextbase"
+    "load100-r1-c4/contextbase",
+    "load100-r1-c4/weknora"
   ],
   "state": "stage_complete",
   "stage": "load100-r1-c4",
-  "product": "contextbase"
+  "product": "weknora"
 }

@@ -1,0 +1,49 @@
+{
+  "dataset": "miracl/zh/dev/subset-d51e1fe9ec6ec92d",
+  "queries": 100,
+  "hit_at_1": 0.58,
+  "hit_at_5": 0.95,
+  "hit_at_10": 1,
+  "ndcg_at_10": 0.742265220351927,
+  "recall_at_10": 0.9624047619047619,
+  "recall_at_100": 0.9910714285714286,
+  "returned_depth": {
+    "mean": 59.31,
+    "min": 55,
+    "max": 60,
+    "queries_at_least_100": 0
+  },
+  "serial_p50_ms": 3019.279048000044,
+  "serial_p95_ms": 3216.530846999831,
+  "serial_p99_ms": 3277.89313600033,
+  "precision_at_5": 0.334,
+  "precision_at_10": 0.241,
+  "mrr_at_10": 0.7257738095238095,
+  "unjudged_at_5": 0.082,
+  "unjudged_at_10": 0.199,
+  "missing_slots_at_5": 0.0,
+  "missing_slots_at_10": 0.0,
+  "rankings_sha256": "915def452a1d354bc8b505d4c6934fedd925013a191171f147491270ce0eab4a",
+  "concurrency": 4,
+  "attempted_queries": 100,
+  "successful_queries": 100,
+  "success_rate": 1.0,
+  "timeout_queries": 0,
+  "active_window_s": 76.13995996299991,
+  "successful_qps": 1.3133707983113576,
+  "attempted_qps": 1.3133707983113576,
+  "attempt_directory": "attempt-001",
+  "model_usage": {
+    "warmup/embedding": {
+      "calls": 4,
+      "input_tokens": 64,
+      "pairs": 0
+    },
+    "query/embedding": {
+      "calls": 100,
+      "input_tokens": 948,
+      "pairs": 0
+    }
+  },
+  "measurement": "Closed-loop workers; queue wait before worker starts excluded from request latency. QPS includes dispatch and durable result logging. Latencies include failures."
+}
