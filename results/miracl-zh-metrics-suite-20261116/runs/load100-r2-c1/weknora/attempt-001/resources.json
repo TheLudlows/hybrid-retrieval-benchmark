@@ -1,0 +1,27 @@
+{
+  "sample_interval_s": 0.5,
+  "components": {
+    "contextbase_api": {
+      "baseline_rss_bytes_sum": 397631488,
+      "peak_sampled_rss_bytes_sum": 397631488,
+      "cpu_seconds": 0.87
+    },
+    "weknora_api": {
+      "baseline_rss_bytes_sum": 349380608,
+      "peak_sampled_rss_bytes_sum": 351870976,
+      "cpu_seconds": 77.05
+    },
+    "shared_model": {
+      "baseline_rss_bytes_sum": 2030612480,
+      "peak_sampled_rss_bytes_sum": 2030751744,
+      "cpu_seconds": 15.13
+    },
+    "postgres_instance": {
+      "baseline_rss_bytes_sum": 4410613760,
+      "peak_sampled_rss_bytes_sum": 4410986496,
+      "cpu_seconds": 0.89
+    }
+  },
+  "peak_host_cgroup_memory_bytes": 7706378240,
+  "limitations": "RSS sums may count shared pages more than once; PostgreSQL is instance-wide, not single-bank attribution. Shared model and idle peer API are reported separately. Peaks are sampled."
+}
