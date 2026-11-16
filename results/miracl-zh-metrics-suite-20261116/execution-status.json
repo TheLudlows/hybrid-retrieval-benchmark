@@ -1,5 +1,8 @@
 {
-  "state": "registered",
-  "completed_stages": [],
-  "generation_model_used": false
+  "completed_stages": [
+    "serial393/contextbase"
+  ],
+  "state": "stage_complete",
+  "stage": "serial393",
+  "product": "contextbase"
 }

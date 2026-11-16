@@ -1,0 +1,13 @@
+{
+  "measured_before_synthetic_mutations": true,
+  "contextbase": {
+    "database_total_bytes": 2569844415,
+    "workspace_tables_including_toast_bytes": 749813760,
+    "workspace_indexes_bytes": 1793802240
+  },
+  "weknora": {
+    "sqlite_main_file_bytes": 1251520512,
+    "sqlite_wal_bytes": 140112
+  },
+  "limitation": "Native database footprints, not normalized storage engines; PostgreSQL shared cluster/runtime files are outside per-database size."
+}

@@ -1,0 +1,11 @@
+{
+  "embedding_top_k": 60,
+  "rerank_top_k": 60,
+  "vector_threshold": 0,
+  "keyword_threshold": 0,
+  "rerank_threshold": 0,
+  "rerank_model_id": "benchmark-bge-reranker",
+  "rrf_k": 30,
+  "rrf_vector_weight": 0.7,
+  "rrf_keyword_weight": 0.3
+}

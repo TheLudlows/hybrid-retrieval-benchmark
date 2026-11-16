@@ -1,0 +1,12 @@
+{
+  "warmup/embedding": {
+    "calls": 4,
+    "input_tokens": 64,
+    "pairs": 0
+  },
+  "query/embedding": {
+    "calls": 393,
+    "input_tokens": 3795,
+    "pairs": 0
+  }
+}
