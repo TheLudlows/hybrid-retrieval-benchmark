@@ -1,0 +1,56 @@
+{
+  "dataset": "miracl/zh/dev/subset-d51e1fe9ec6ec92d",
+  "queries_per_product": 393,
+  "source_rankings": {
+    "contextbase": "miracl-zh-contextbase-native-optimize-20261114/dev393/w985_pool300",
+    "weknora": "miracl-zh-native-no-rerank-20261113/100k/weknora/rrf_k30-dev393-cap60"
+  },
+  "metrics": {
+    "contextbase": {
+      "hit_at_1": 0.6666666666666666,
+      "hit_at_5": 0.9363867684478372,
+      "hit_at_10": 0.9872773536895675,
+      "ndcg_at_10": 0.7817033376525738,
+      "recall_at_10": 0.9483945232036836,
+      "recall_at_100": 0.998303647158609,
+      "mrr_at_10": 0.7806464316006301,
+      "precision_at_5": 0.3669211195928753,
+      "precision_at_10": 0.23536895674300254,
+      "unjudged_at_5": 0.09618320610687023,
+      "unjudged_at_10": 0.2440203562340967
+    },
+    "weknora": {
+      "hit_at_1": 0.5318066157760815,
+      "hit_at_5": 0.8880407124681934,
+      "hit_at_10": 0.9847328244274809,
+      "ndcg_at_10": 0.7097520222890271,
+      "recall_at_10": 0.9375318066157761,
+      "recall_at_100": 0.9950139343269114,
+      "mrr_at_10": 0.6826881134133043,
+      "precision_at_5": 0.3287531806615776,
+      "precision_at_10": 0.23307888040712468,
+      "unjudged_at_5": 0.08142493638676845,
+      "unjudged_at_10": 0.1964376590330789
+    }
+  },
+  "contextbase_minus_weknora": {
+    "hit_at_1": 0.13486005089058517,
+    "hit_at_5": 0.04834605597964381,
+    "hit_at_10": 0.0025445292620865922,
+    "ndcg_at_10": 0.07195131536354671,
+    "recall_at_10": 0.010862716587907495,
+    "recall_at_100": 0.0032897128316975444,
+    "mrr_at_10": 0.09795831818732581,
+    "precision_at_5": 0.03816793893129772,
+    "precision_at_10": 0.0022900763358778553,
+    "unjudged_at_5": 0.014758269720101774,
+    "unjudged_at_10": 0.04758269720101782
+  },
+  "protocol": {
+    "precision": "Positive qrels count among first K, divided by K; empty slots and unjudged score zero.",
+    "mrr_at_10": "Reciprocal rank of first positive qrel within ten, otherwise zero; macro average.",
+    "unjudged_at_k": "Unjudged among actually returned first K, divided by actual returned count; null if empty.",
+    "limitation": "Qrels are incomplete. Judged precision is not a human judgment that unjudged items are irrelevant.",
+    "comparison": "ContextBase received additional tuning and feature-source changes; historical windows differ."
+  }
+}

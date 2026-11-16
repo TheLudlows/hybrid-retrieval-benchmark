@@ -1,0 +1,26 @@
+{
+  "contextbase": {
+    "source": "results/miracl-zh-native-no-rerank-20261113/100k/contextbase-ingest-usage.json",
+    "historical_run_id": "nested-v2-text-dedup/100k/contextbase/ingest",
+    "recorded_batch_wall_s": 19696.80511546135,
+    "embedding": {
+      "input_tokens": 9237990,
+      "calls": 100000,
+      "pairs": 0,
+      "max_pairs": 0
+    },
+    "new_full_corpus_ingestion_performed": false
+  },
+  "weknora": {
+    "source": "results/miracl-zh-native-no-rerank-20261113/100k/weknora-ingest-usage.json",
+    "historical_run_id": "nested-v2-text-dedup/100k/weknora/ingest",
+    "recorded_batch_wall_s": 21642.46999359131,
+    "embedding": {
+      "input_tokens": 9810841,
+      "calls": 100002,
+      "pairs": 0,
+      "max_pairs": 0
+    },
+    "new_full_corpus_ingestion_performed": false
+  }
+}
