@@ -1,5 +1,7 @@
 # ContextBase：9组原生混合检索参数探索
 
+后续[知识库指标补全](../miracl-zh-metrics-suite-20261116/REPORT.md)已完成，包含两端同期复测、MRR/Precision、并发吞吐、资源成本与更新可见性；本页保留参数探索原始快照。
+
 完整成绩、候选差值和结论见 [REPORT.md](REPORT.md)，实时状态见 [execution-status.json](execution-status.json)。只有存在完整 `metrics.json` 的阶段才算完成。
 
 本轮已完成全部15个阶段、2679次正式请求。[推荐候选配置](recommended-config.json)为0.985/0.015、high预算300；393题nDCG@10为0.781703，额外200题为0.833261。模型重排调用为0；推荐候选未部署到原服务。

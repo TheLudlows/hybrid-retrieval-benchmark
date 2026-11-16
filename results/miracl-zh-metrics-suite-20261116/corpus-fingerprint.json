@@ -1,0 +1,10 @@
+{
+  "passages": 100000,
+  "seed": 20261112,
+  "gzip_sha256": "d51e1fe9ec6ec92db05df87aabff132f861a72b046a7713bc945f18746665363",
+  "canonical_id_and_content_sha256": "47e0fec7b5ddd5587f344be69b57df97df68558bcaa3f1c0064877766035ac13",
+  "development_queries": 393,
+  "development_judgments": 3928,
+  "distinct_judged_passages": 3786,
+  "positive_query_passage_pairs": 994
+}

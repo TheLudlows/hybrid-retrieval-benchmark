@@ -2,6 +2,8 @@
 
 当前主实验按用户要求改为[关闭产品内部模型重排](../results/miracl-zh-native-no-rerank-20261113/README.md)。采集新增 `--disable-rerank`，WeKnora请求显式关闭，ContextBase还需原生Bank/服务端 `enable_reranking=false`。该模式必须核验实际重排调用为零，且不能续跑进带重排的文件。评分新增 Recall@10。
 
+已完成[知识库指标补全实测](../results/miracl-zh-metrics-suite-20261116/REPORT.md)：补齐MRR@10、Precision@5/10和未标注率，两端同期393题、并发1/2/4两轮负载、资源成本和60次合成文档操作，共1986次正式查询全部成功。按用户要求不使用生成模型。并发质量存在共享INT8模型服务的批次相关波动，原始结果和诊断均公开；两端原数据、索引和备份保留。
+
 当前0.97/0.03配置已完成[全部393题原生阶段诊断](../results/miracl-zh-weighted-stage-diagnosis-20261113/REPORT.md)，含损益题目、模型调用及可复算轨迹；诊断不调整参数或改写正式成绩。
 
 已完成[四组原生权重与纯向量消融对照](../results/miracl-zh-native-weight-ablation-20261113/REPORT.md)，各393题，包含同期基线、逐题损益、实际模型用量及耗时。

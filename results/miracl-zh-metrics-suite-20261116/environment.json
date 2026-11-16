@@ -1,0 +1,10 @@
+{
+  "os": "Linux",
+  "kernel": "6.18.57",
+  "machine": "x86_64",
+  "logical_cpus_reported": 5,
+  "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+  "cgroup_cpu_max": "400000 100000",
+  "cgroup_memory_max": "17179869184",
+  "model_runtime": "ONNX INT8 CPU, embedding/reranker loaded, reranker not invoked, intra3/inter1, batch window10ms"
+}

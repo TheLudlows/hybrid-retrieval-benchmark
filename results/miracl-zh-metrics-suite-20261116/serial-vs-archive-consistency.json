@@ -1,0 +1,14 @@
+{
+  "contextbase": {
+    "queries": 393,
+    "same_top1": 393,
+    "same_top10": 393,
+    "same_full_lists": 393
+  },
+  "weknora": {
+    "queries": 393,
+    "same_top1": 393,
+    "same_top10": 393,
+    "same_full_lists": 393
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "source_path": "deployment/weknora/internal/container/container.go",
+  "source_commit": "cbdcebabf48c5ee2d6868b370326aa8341703f62",
+  "source_file_sha256": "220c29e8fb5447bcab3038a42c18688b66242646e137ba775337aa0149e552ca",
+  "line": 1168,
+  "sqlite_pool_code_excerpt": "\t// Configure connection pool parameters\n\tif os.Getenv(\"DB_DRIVER\") == \"sqlite\" {\n\t\t// SQLite only supports one concurrent writer even in WAL mode.\n\t\t// Limiting to a single open connection serialises all DB access and\n\t\t// prevents \"database is locked\" errors from concurrent goroutines.\n\t\tsqlDB.SetMaxOpenConns(1)\n\t} else {\n\t\tsqlDB.SetMaxIdleConns(10)\n\t\tapplyDBMaxOpenConns(context.Background(), sqlDB)\n\t}",
+  "binary_sha256": "3131395874d633c81b4d53a25ca443dacb9d93458ec6288677382a6a39597b93",
+  "binary_size": 360759480,
+  "build_vcs_lines": [
+    "build\tvcs.revision=cbdcebabf48c5ee2d6868b370326aa8341703f62",
+    "build\tvcs.time=2026-11-09T15:19:49Z",
+    "build\tvcs.modified=false"
+  ],
+  "limitation": "Source/binary provenance and observed saturation; no independent DB wait profiling or comparison to a PostgreSQL WeKnora deployment."
+}

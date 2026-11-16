@@ -1,0 +1,8 @@
+{
+  "judged_positive_pairs": 994,
+  "qrels_precision_upper_bound": {
+    "5": 0.48244274809160304,
+    "10": 0.2529262086513995
+  },
+  "limitation": "Upper bound under existing qrels convention, not the true relevance precision of unjudged documents."
+}

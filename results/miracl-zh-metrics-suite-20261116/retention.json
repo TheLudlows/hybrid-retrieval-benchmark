@@ -3,5 +3,22 @@
   "original_apis_not_reconfigured_or_restarted": true,
   "isolated_corpus_reaudited_after_synthetic_document_cleanup": true,
   "official_passages_each": 100000,
-  "independent_weknora_snapshot_retained": true
+  "independent_weknora_snapshot_retained": true,
+  "backups": {
+    "contextbase": {
+      "exists": true,
+      "bytes": 603400077
+    },
+    "weknora": {
+      "exists": true,
+      "bytes": 1251520512
+    }
+  },
+  "ports_after_completion": {
+    "18889": false,
+    "18081": false,
+    "18888": false,
+    "18080": false,
+    "18090": true
+  }
 }

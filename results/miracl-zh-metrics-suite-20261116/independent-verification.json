@@ -1,0 +1,26 @@
+{
+  "completed_query_windows": 14,
+  "formal_attempts": 1986,
+  "successes": 1986,
+  "all_rankings_rescored": true,
+  "all_four_indexes_same_canonical_corpus_sha256": "47e0fec7b5ddd5587f344be69b57df97df68558bcaa3f1c0064877766035ac13",
+  "generation_model_used": false,
+  "model_rerank_calls": 0,
+  "model_files_and_runtime_unchanged": true,
+  "restored_contextbase_baseline97": true,
+  "visibility_operations_verified": 60,
+  "serial_rankings_vs_archive": {
+    "contextbase": {
+      "queries": 393,
+      "same_top1": 393,
+      "same_top10": 393,
+      "same_full_lists": 393
+    },
+    "weknora": {
+      "queries": 393,
+      "same_top1": 393,
+      "same_top10": 393,
+      "same_full_lists": 393
+    }
+  }
+}

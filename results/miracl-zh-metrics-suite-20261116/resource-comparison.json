@@ -1,0 +1,71 @@
+{
+  "serial393": {
+    "contextbase": {
+      "sample_interval_s": 0.5,
+      "components": {
+        "contextbase_api": {
+          "baseline_rss_bytes_sum": 400355328,
+          "peak_sampled_rss_bytes_sum": 400355328,
+          "cpu_seconds": 11.83
+        },
+        "weknora_api": {
+          "baseline_rss_bytes_sum": 319516672,
+          "peak_sampled_rss_bytes_sum": 319778816,
+          "cpu_seconds": 0.75
+        },
+        "shared_model": {
+          "baseline_rss_bytes_sum": 2027073536,
+          "peak_sampled_rss_bytes_sum": 2028122112,
+          "cpu_seconds": 58.77
+        },
+        "postgres_instance": {
+          "baseline_rss_bytes_sum": 1204301824,
+          "peak_sampled_rss_bytes_sum": 2071773184,
+          "cpu_seconds": 228.27
+        }
+      },
+      "peak_host_cgroup_memory_bytes": 9150124032,
+      "limitations": "RSS sums may count shared pages more than once; PostgreSQL is instance-wide, not single-bank attribution. Shared model and idle peer API are reported separately. Peaks are sampled."
+    },
+    "weknora": {
+      "sample_interval_s": 0.5,
+      "components": {
+        "contextbase_api": {
+          "baseline_rss_bytes_sum": 400355328,
+          "peak_sampled_rss_bytes_sum": 400355328,
+          "cpu_seconds": 3.49
+        },
+        "weknora_api": {
+          "baseline_rss_bytes_sum": 301797376,
+          "peak_sampled_rss_bytes_sum": 336232448,
+          "cpu_seconds": 304.87
+        },
+        "shared_model": {
+          "baseline_rss_bytes_sum": 2028253184,
+          "peak_sampled_rss_bytes_sum": 2028253184,
+          "cpu_seconds": 59.58
+        },
+        "postgres_instance": {
+          "baseline_rss_bytes_sum": 2071773184,
+          "peak_sampled_rss_bytes_sum": 2071773184,
+          "cpu_seconds": 3.27
+        }
+      },
+      "peak_host_cgroup_memory_bytes": 8596422656,
+      "limitations": "RSS sums may count shared pages more than once; PostgreSQL is instance-wide, not single-bank attribution. Shared model and idle peer API are reported separately. Peaks are sampled."
+    }
+  },
+  "native_storage": {
+    "measured_before_synthetic_mutations": true,
+    "contextbase": {
+      "database_total_bytes": 2569844415,
+      "workspace_tables_including_toast_bytes": 749813760,
+      "workspace_indexes_bytes": 1793802240
+    },
+    "weknora": {
+      "sqlite_main_file_bytes": 1251520512,
+      "sqlite_wal_bytes": 140112
+    },
+    "limitation": "Native database footprints, not normalized storage engines; PostgreSQL shared cluster/runtime files are outside per-database size."
+  }
+}

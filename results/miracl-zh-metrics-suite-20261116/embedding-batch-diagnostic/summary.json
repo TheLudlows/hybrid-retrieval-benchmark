@@ -1,0 +1,147 @@
+{
+  "post_hoc": true,
+  "run_id": "metrics-suite-20261116/embedding-batch-diagnostic",
+  "selected_query_ids": [
+    "3917#0",
+    "110812#0",
+    "1655317#0",
+    "86616#0"
+  ],
+  "selection": "Largest observed nDCG loss in second concurrency4 ContextBase run, plus long/short queries and first remaining registered query; four examples, not a representative benchmark.",
+  "unchanged_model_settings": {
+    "onnxruntime": "1.31.1",
+    "embedding_intra_op_threads": 3,
+    "reranker_intra_op_threads": 3,
+    "inter_op_threads": 1,
+    "embedding_providers": [
+      "CPUExecutionProvider"
+    ],
+    "reranker_providers": [
+      "CPUExecutionProvider"
+    ],
+    "embedding_batch_window_ms": 10.0,
+    "embedding_truncation": {
+      "max_length": 512,
+      "stride": 0,
+      "strategy": "longest_first",
+      "direction": "right"
+    },
+    "reranker_truncation": {
+      "max_length": 512,
+      "stride": 0,
+      "strategy": "longest_first",
+      "direction": "right"
+    }
+  },
+  "comparisons": {
+    "3917#0": {
+      "single/1": {
+        "same_sha256": true,
+        "cosine_similarity": 1.0,
+        "max_absolute_difference": 0.0
+      },
+      "single/2": {
+        "same_sha256": true,
+        "cosine_similarity": 1.0,
+        "max_absolute_difference": 0.0
+      },
+      "concurrent_four/1": {
+        "same_sha256": false,
+        "cosine_similarity": 0.9884471509893134,
+        "max_absolute_difference": 0.017023369669914246
+      },
+      "concurrent_four/2": {
+        "same_sha256": false,
+        "cosine_similarity": 0.9884471509893134,
+        "max_absolute_difference": 0.017023369669914246
+      },
+      "joint_http_batch/1": {
+        "same_sha256": false,
+        "cosine_similarity": 0.9884471509893134,
+        "max_absolute_difference": 0.017023369669914246
+      }
+    },
+    "110812#0": {
+      "single/1": {
+        "same_sha256": true,
+        "cosine_similarity": 1.0,
+        "max_absolute_difference": 0.0
+      },
+      "single/2": {
+        "same_sha256": true,
+        "cosine_similarity": 1.0,
+        "max_absolute_difference": 0.0
+      },
+      "concurrent_four/1": {
+        "same_sha256": false,
+        "cosine_similarity": 0.9846068266805308,
+        "max_absolute_difference": 0.03134086728096008
+      },
+      "concurrent_four/2": {
+        "same_sha256": false,
+        "cosine_similarity": 0.9846068266805308,
+        "max_absolute_difference": 0.03134086728096008
+      },
+      "joint_http_batch/1": {
+        "same_sha256": false,
+        "cosine_similarity": 0.9846068266805308,
+        "max_absolute_difference": 0.03134086728096008
+      }
+    },
+    "1655317#0": {
+      "single/1": {
+        "same_sha256": true,
+        "cosine_similarity": 1.0,
+        "max_absolute_difference": 0.0
+      },
+      "single/2": {
+        "same_sha256": true,
+        "cosine_similarity": 1.0,
+        "max_absolute_difference": 0.0
+      },
+      "concurrent_four/1": {
+        "same_sha256": false,
+        "cosine_similarity": 0.9889255909518813,
+        "max_absolute_difference": 0.017413752153515816
+      },
+      "concurrent_four/2": {
+        "same_sha256": false,
+        "cosine_similarity": 0.9889255909518813,
+        "max_absolute_difference": 0.017413752153515816
+      },
+      "joint_http_batch/1": {
+        "same_sha256": false,
+        "cosine_similarity": 0.9889255909518813,
+        "max_absolute_difference": 0.017413752153515816
+      }
+    },
+    "86616#0": {
+      "single/1": {
+        "same_sha256": true,
+        "cosine_similarity": 1.0,
+        "max_absolute_difference": 0.0
+      },
+      "single/2": {
+        "same_sha256": true,
+        "cosine_similarity": 1.0,
+        "max_absolute_difference": 0.0
+      },
+      "concurrent_four/1": {
+        "same_sha256": false,
+        "cosine_similarity": 0.985496834288153,
+        "max_absolute_difference": 0.021627762354910374
+      },
+      "concurrent_four/2": {
+        "same_sha256": false,
+        "cosine_similarity": 0.985496834288153,
+        "max_absolute_difference": 0.021627762354910374
+      },
+      "joint_http_batch/1": {
+        "same_sha256": false,
+        "cosine_similarity": 0.985496834288153,
+        "max_absolute_difference": 0.021627762354910374
+      }
+    }
+  },
+  "limitation": "Direct model-only diagnostic, separate from native benchmark. Does not assign all native ranking changes to a single cause. No tuning or main score replacement."
+}

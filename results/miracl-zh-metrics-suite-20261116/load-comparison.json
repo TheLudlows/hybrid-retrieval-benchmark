@@ -1,0 +1,158 @@
+{
+  "c1/contextbase": {
+    "queries": 200,
+    "successes": 200,
+    "success_rate": 1.0,
+    "combined_successful_qps": 1.5578841711447302,
+    "per_round_successful_qps": [
+      1.5766700076407132,
+      1.5395407256483484
+    ],
+    "request_p50_ms": 629.9020910000763,
+    "request_p95_ms": 726.9623189999947,
+    "request_p99_ms": 865.1059600001645,
+    "per_round_ndcg_at_10": [
+      0.82277912240913,
+      0.82277912240913
+    ],
+    "per_round_hit_at_1": [
+      0.72,
+      0.72
+    ],
+    "per_round_recall_at_10": [
+      0.9702380952380952,
+      0.9702380952380952
+    ],
+    "limitations": "Two100-query closed-loop windows; time-weighted combined QPS; not393 distinct queries or a sustainable capacity guarantee."
+  },
+  "c1/weknora": {
+    "queries": 200,
+    "successes": 200,
+    "success_rate": 1.0,
+    "combined_successful_qps": 1.2405623961090582,
+    "per_round_successful_qps": [
+      1.2366874534638725,
+      1.2444616979822232
+    ],
+    "request_p50_ms": 795.4228569997213,
+    "request_p95_ms": 867.6219500002844,
+    "request_p99_ms": 983.5605260000193,
+    "per_round_ndcg_at_10": [
+      0.7342563708142452,
+      0.7342563708142452
+    ],
+    "per_round_hit_at_1": [
+      0.56,
+      0.56
+    ],
+    "per_round_recall_at_10": [
+      0.9565714285714285,
+      0.9565714285714285
+    ],
+    "limitations": "Two100-query closed-loop windows; time-weighted combined QPS; not393 distinct queries or a sustainable capacity guarantee."
+  },
+  "c2/contextbase": {
+    "queries": 200,
+    "successes": 200,
+    "success_rate": 1.0,
+    "combined_successful_qps": 2.97209681878802,
+    "per_round_successful_qps": [
+      3.1130798047652943,
+      2.8433300705499893
+    ],
+    "request_p50_ms": 646.876345000237,
+    "request_p95_ms": 827.3299620000216,
+    "request_p99_ms": 919.0423410000221,
+    "per_round_ndcg_at_10": [
+      0.8223627363446062,
+      0.8249697010580846
+    ],
+    "per_round_hit_at_1": [
+      0.73,
+      0.72
+    ],
+    "per_round_recall_at_10": [
+      0.9652380952380952,
+      0.9735714285714285
+    ],
+    "limitations": "Two100-query closed-loop windows; time-weighted combined QPS; not393 distinct queries or a sustainable capacity guarantee."
+  },
+  "c2/weknora": {
+    "queries": 200,
+    "successes": 200,
+    "success_rate": 1.0,
+    "combined_successful_qps": 1.2847432462799562,
+    "per_round_successful_qps": [
+      1.30302072442348,
+      1.2669714317430851
+    ],
+    "request_p50_ms": 1548.366008999892,
+    "request_p95_ms": 1648.928303000048,
+    "request_p99_ms": 1679.9077810001108,
+    "per_round_ndcg_at_10": [
+      0.7343216838597222,
+      0.7341127545107512
+    ],
+    "per_round_hit_at_1": [
+      0.56,
+      0.56
+    ],
+    "per_round_recall_at_10": [
+      0.9624047619047619,
+      0.9624047619047619
+    ],
+    "limitations": "Two100-query closed-loop windows; time-weighted combined QPS; not393 distinct queries or a sustainable capacity guarantee."
+  },
+  "c4/contextbase": {
+    "queries": 200,
+    "successes": 200,
+    "success_rate": 1.0,
+    "combined_successful_qps": 5.009469518077811,
+    "per_round_successful_qps": [
+      4.940806217544752,
+      5.080068167766426
+    ],
+    "request_p50_ms": 778.854025000328,
+    "request_p95_ms": 941.2608359998558,
+    "request_p99_ms": 1012.025406000248,
+    "per_round_ndcg_at_10": [
+      0.825708757041708,
+      0.814709542716191
+    ],
+    "per_round_hit_at_1": [
+      0.72,
+      0.7
+    ],
+    "per_round_recall_at_10": [
+      0.9769047619047619,
+      0.9721428571428572
+    ],
+    "limitations": "Two100-query closed-loop windows; time-weighted combined QPS; not393 distinct queries or a sustainable capacity guarantee."
+  },
+  "c4/weknora": {
+    "queries": 200,
+    "successes": 200,
+    "success_rate": 1.0,
+    "combined_successful_qps": 1.307589312516254,
+    "per_round_successful_qps": [
+      1.3133707983113576,
+      1.301858504081758
+    ],
+    "request_p50_ms": 3042.531317999874,
+    "request_p95_ms": 3222.373504999723,
+    "request_p99_ms": 3288.8530709997212,
+    "per_round_ndcg_at_10": [
+      0.742265220351927,
+      0.7331760353555508
+    ],
+    "per_round_hit_at_1": [
+      0.58,
+      0.55
+    ],
+    "per_round_recall_at_10": [
+      0.9624047619047619,
+      0.9624047619047619
+    ],
+    "limitations": "Two100-query closed-loop windows; time-weighted combined QPS; not393 distinct queries or a sustainable capacity guarantee."
+  }
+}

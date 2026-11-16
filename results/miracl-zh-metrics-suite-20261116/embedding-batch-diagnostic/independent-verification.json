@@ -1,0 +1,15 @@
+{
+  "post_hoc": true,
+  "verified_queries": [
+    "3917#0",
+    "110812#0",
+    "1655317#0",
+    "86616#0"
+  ],
+  "all_single_repeats_equal": true,
+  "all_concurrent_equals_joint_batch": true,
+  "all_batch_vectors_differ_from_single": true,
+  "single_vs_batch_cosine_min": 0.9846068266805308,
+  "single_vs_batch_cosine_max": 0.9889255909518813,
+  "scope": "Four selected examples prove batch-dependent service outputs, not full causality for every native rank change. No benchmark parameter or main score replaced."
+}

@@ -1,0 +1,44 @@
+{
+  "contextbase/create": {
+    "samples": 10,
+    "write_ack_p50_ms": 185.10474599997906,
+    "ack_to_first_observed_p50_ms": 683.3037970000078,
+    "submit_to_first_observed_p50_ms": 865.9988234999219,
+    "submit_to_first_observed_max_ms": 1690.673925000283
+  },
+  "contextbase/update": {
+    "samples": 10,
+    "write_ack_p50_ms": 163.42315950009834,
+    "ack_to_first_observed_p50_ms": 684.5527605000825,
+    "submit_to_first_observed_p50_ms": 845.9720690000267,
+    "submit_to_first_observed_max_ms": 1017.1140259999447
+  },
+  "contextbase/delete": {
+    "samples": 10,
+    "write_ack_p50_ms": 58.77446900012728,
+    "ack_to_first_observed_p50_ms": 703.9089964998766,
+    "submit_to_first_observed_p50_ms": 764.7051994999856,
+    "submit_to_first_observed_max_ms": 806.0137109996504
+  },
+  "weknora/create": {
+    "samples": 10,
+    "write_ack_p50_ms": 3.5931175000314397,
+    "ack_to_first_observed_p50_ms": 1527.1539015000144,
+    "submit_to_first_observed_p50_ms": 1530.5694140001833,
+    "submit_to_first_observed_max_ms": 2200.70897100004
+  },
+  "weknora/update": {
+    "samples": 10,
+    "write_ack_p50_ms": 2.9096795001350984,
+    "ack_to_first_observed_p50_ms": 1013.0804415000512,
+    "submit_to_first_observed_p50_ms": 1016.9328225001664,
+    "submit_to_first_observed_max_ms": 2118.707256000107
+  },
+  "weknora/delete": {
+    "samples": 10,
+    "write_ack_p50_ms": 3.3348889999160747,
+    "ack_to_first_observed_p50_ms": 838.9487419999568,
+    "submit_to_first_observed_p50_ms": 842.4507745000938,
+    "submit_to_first_observed_max_ms": 913.8443189999634
+  }
+}

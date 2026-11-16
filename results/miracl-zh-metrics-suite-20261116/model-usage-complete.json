@@ -1,0 +1,41 @@
+{
+  "by_product_phase": {
+    "contextbase/probe": {
+      "calls": 1,
+      "input_tokens": 13
+    },
+    "contextbase/warmup": {
+      "calls": 28,
+      "input_tokens": 448
+    },
+    "contextbase/query": {
+      "calls": 993,
+      "input_tokens": 9483
+    },
+    "weknora/warmup": {
+      "calls": 28,
+      "input_tokens": 448
+    },
+    "weknora/query": {
+      "calls": 993,
+      "input_tokens": 9483
+    },
+    "contextbase/visibility": {
+      "calls": 50,
+      "input_tokens": 2551
+    },
+    "weknora/visibility": {
+      "calls": 59,
+      "input_tokens": 3216
+    },
+    "contextbase/embedding_batch_diagnostic": {
+      "calls": 17,
+      "input_tokens": 190
+    }
+  },
+  "model_rerank_calls": 0,
+  "generation_calls": 0,
+  "average_model_rerank_candidates": null,
+  "reranking_status": "disabled; no model rerank calls",
+  "note": "Visibility combines synthetic document embedding and native query probes. All retained timing attempts and probes are included, not just successful rows."
+}
