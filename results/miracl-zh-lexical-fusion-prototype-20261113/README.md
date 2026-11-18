@@ -27,6 +27,8 @@
 
 ## 实现、核验和恢复
 
+运行本报告的历史命令前，请按[MIRACL 复现说明](../../miracl_zh/README.md#其他复现入口)检出整理前的固定版本。
+
 补丁：[contextbase-experimental.patch](contextbase-experimental.patch)。相对固定版本源码应用，不包含凭证。方案、源码指纹、原版文件指纹和依赖版本见[experiment-plan.json](experiment-plan.json)。原版目录不改，服务临时切换到独立副本；正常结束或捕获异常时恢复原版源码和原`lean_source_cap100`配置，并验证一个原版完整排名探针。数据库、索引、检查点及备份保留，不做百万段验证。
 
 5项功能单元检查已通过。仓库整套lint已执行，但缺少前端`@eslint/js`导致未全通过；目标Python检查还记录新增实验模块的I001导入排序提示，见[implementation-checks.json](implementation-checks.json)。这是实验补丁，未宣称可以直接合并为生产功能。没有新增HTTP接口或改变SDK请求结构。

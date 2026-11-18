@@ -29,6 +29,8 @@
 
 ## 进度和恢复
 
+运行本报告的历史命令前，请按[MIRACL 复现说明](../../miracl_zh/README.md#其他复现入口)检出整理前的固定版本。
+
 入口为 `miracl_zh/run_scale_no_rerank.py`，复用原 `run_scale.py`、`ingest.py`、`bench.py` 和 `audit_index.py`。查询使用新增 `--disable-rerank`；跨模式续跑会拒绝配置不一致。ContextBase 单独使用该参数不能更改服务端配置，必须同时按上文关闭原生开关并核验调用。
 
 当前环境启动命令（私有设置、凭证和索引不进入 Git）：

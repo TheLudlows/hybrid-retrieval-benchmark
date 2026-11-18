@@ -7,7 +7,7 @@ from pathlib import Path
 import statistics
 
 import bench
-from run_scale import save
+from run_support import save
 
 
 def evaluate(run, qrels, source):

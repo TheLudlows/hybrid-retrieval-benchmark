@@ -9,6 +9,7 @@
 | 完整混合检索结果 | [docs/baseline-results.md](docs/baseline-results.md)、[results/](results/) | 双边 120 题实测、逐题返回、模型用量与检索 trace |
 | TaurusDB 试测集 | [taurusdb_retrieval_pilot/](taurusdb_retrieval_pilot/) | 40 个官方页面来源、40 道标注题、5 组更新样本。[首轮实测](results/taurusdb-pilot/summary.json)已完成 |
 | ContextBase 重排配置对比 | [实测结果与复算数据](results/taurusdb-config-sweep/) | 同一套 TaurusDB 语料复测 ContextBase 与 WeKnora Lite |
+| MIRACL 中文直连复现 | [配置与运行步骤](miracl_zh/README.md) | 使用已部署服务，附 10 万段、393 道题和官方标注 |
 | MIRACL 中文 10,000 段实测 | [完整报告与逐题数据](results/miracl-zh-10k-20261112/README.md) | 两端各 393 题已完成；含五项检索质量、延迟、实际模型 Token、索引审计和恢复验证 |
 | MIRACL 扩容与参数实验 | [分析、冻结方案和阶段结果](results/miracl-zh-scale-20261112/README.md) | 1万段分歧已分析；嵌套10万/100万语料已准备，后续阶段按实际完成状态发布 |
 | 采集与复算代码 | [deployment/](deployment/)、[doc_recall_v1/bench.py](doc_recall_v1/bench.py) | 复算脚本直接读取已归档结果。原采集入口依赖外部产品和模型运行时 |

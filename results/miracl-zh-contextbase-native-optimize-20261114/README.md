@@ -34,6 +34,8 @@ Recall@100按实际返回列表计分。本轮候选上限60且有Token过滤，
 
 ## 复跑和恢复
 
+运行本报告的历史命令前，请按[MIRACL 复现说明](../../miracl_zh/README.md#其他复现入口)检出整理前的固定版本。
+
 先按 [正式配置验证报告](../miracl-zh-rrf-config-formal-20261113/REPORT.md) 准备独立恢复库、原生API运行环境、模型服务及私有设置。复制本目录的 `experiment-plan.json`、`fresh-topics.tsv`、`fresh-qrels.tsv` 到新的结果目录。驱动会校验自身SHA、源码提交、模型文件和语料指纹；私有路径与密钥不入库。
 
 ```bash

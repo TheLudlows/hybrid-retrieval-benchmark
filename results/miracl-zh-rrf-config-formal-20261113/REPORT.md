@@ -51,6 +51,8 @@
 
 ## 复跑与保留状态
 
+运行本报告的历史命令前，请按[MIRACL 复现说明](../../miracl_zh/README.md#其他复现入口)检出整理前的固定版本。
+
 先按既有README完成100k数据和原生入库，保留私有runtime-settings.json及备份。使用本目录contextbase.patch或上述提交准备源码，按源码仓库的本地启动指南安装依赖；Python参数指向安装该版本依赖的解释器。下面的私有工作目录必须在Git仓库外：
 
 ```bash

@@ -21,7 +21,7 @@ from run_llm_ingest_rerank import (
     append_row,
     read_json,
 )
-from run_scale import save
+from run_support import save
 
 DATA = Path(__file__).resolve().parent / "data/miracl-zh-100k"
 MIRACL_SOURCE_FIELDS = (

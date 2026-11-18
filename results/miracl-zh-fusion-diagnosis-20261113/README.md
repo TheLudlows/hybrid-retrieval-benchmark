@@ -1,5 +1,7 @@
 # ContextBase 原生检索阶段诊断
 
+运行本报告的历史命令前，请按[MIRACL 复现说明](../../miracl_zh/README.md#其他复现入口)检出整理前的固定版本。
+
 **已完成30题×2配置的60次原生trace诊断。结论和实例见 [REPORT.md](REPORT.md)，核验见 [final-verification.json](final-verification.json)。**
 
 用户要求先定位现有错题的阶段断点。本轮只诊断，不新增权重扫描，不修改已归档成绩，不重新入库。

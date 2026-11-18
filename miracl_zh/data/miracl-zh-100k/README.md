@@ -2,7 +2,7 @@
 
 这是 LLM 入库与模型重排正式评测使用的同一份数据。压缩语料约 17.8 MB，保留原始段落 ID、标题和正文。语料由官方中文语料抽样，固定种子为 20261112，包含此前 10,000 段子集和额外训练题的标注段落。官方开发集的 393 道题与 3,928 条标注按原字节归档。抽样参数、父子集和来源 SHA-256 在 [subset.json](subset.json)。
 
-在仓库根目录运行 `bash miracl_zh/local_llm_ingest_rerank.sh verify` 可以校验文件指纹、段落数和官方标注覆盖。实际评测的配置和启动方法见 [本地复现说明](../../LLM_INGEST_RERANK.md)。
+在仓库根目录运行 `bash miracl_zh/local_llm_ingest_rerank.sh verify` 可以校验文件指纹、段落数和官方标注覆盖。实际评测的配置和启动方法见[本地复现说明](../../README.md)。
 
 ## 资料来源与署名
 

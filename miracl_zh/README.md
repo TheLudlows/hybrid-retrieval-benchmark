@@ -1,122 +1,48 @@
 # MIRACL 中文检索评测
 
-已部署服务和模型时，用 [API 直连入口](EXISTING_SERVICES.md) 对比两端，复用仓库中的同一份语料和官方标注。
+用已有的 ContextBase 和 WeKnora Lite 服务比较 LLM 入库与开启重排的检索。运行端需要 Linux 和 Python 3.11+，脚本通过两端的原生 API 使用服务已配置的模型。仓库自带 MIRACL v1.0 中文开发集的 [10 万段语料、393 道题和 3,928 条相关性标注](data/miracl-zh-100k/README.md)。
 
-[LLM 入库与模型重排](LLM_INGEST_RERANK.md)提供两端独立建库、同一生成模型、原生重排和并发 1／4／8 的本地复现脚本。仓库含正式跑的 [MIRACL 中文 10 万段、393 题及标注](data/miracl-zh-100k/README.md)，可直接用 `local_llm_ingest_rerank.sh smoke` 预检。
+## 准备测试库
 
-当前主实验按用户要求改为[关闭产品内部模型重排](../results/miracl-zh-native-no-rerank-20261113/README.md)。采集新增 `--disable-rerank`，WeKnora请求显式关闭，ContextBase还需原生Bank/服务端 `enable_reranking=false`。该模式必须核验实际重排调用为零，且不能续跑进带重排的文件。评分新增 Recall@10。
+- 在两端各创建一个专用空库，配置同版本的生成、Embedding 和重排模型。
+- ContextBase Bank 开启事实抽取、全文检索和模型重排，关闭图和时间检索，重排候选上限设为 60。
+- WeKnora 文档知识库开启入库问题生成，关闭知识库画像，并配置默认重排模型。脚本提交导入请求时会关闭文档摘要。
 
-已完成[知识库指标补全实测](../results/miracl-zh-metrics-suite-20261116/REPORT.md)：补齐MRR@10、Precision@5/10和未标注率，两端同期393题、并发1/2/4两轮负载、资源成本和60次合成文档操作，共1986次正式查询全部成功。按用户要求不使用生成模型。并发质量存在共享INT8模型服务的批次相关波动，原始结果和诊断均公开；两端原数据、索引和备份保留。
+[正式评测配置](../results/miracl-zh-llm-ingest-rerank-20261118/formal-runtime.json)记录了原实测所用的库设置。通过 API 可读取的设置及重排证据由脚本核验，实际模型版本由部署方确认。
 
-当前0.97/0.03配置已完成[全部393题原生阶段诊断](../results/miracl-zh-weighted-stage-diagnosis-20261113/REPORT.md)，含损益题目、模型调用及可复算轨迹；诊断不调整参数或改写正式成绩。
+## 配置并预检
 
-已完成[四组原生权重与纯向量消融对照](../results/miracl-zh-native-weight-ablation-20261113/REPORT.md)，各393题，包含同期基线、逐题损益、实际模型用量及耗时。
-
-后续[9组原生混合检索参数探索](../results/miracl-zh-contextbase-native-optimize-20261114/REPORT.md)已完成：先筛选100题，冻结候选后复核393题与既有额外200题，共2679次正式请求。0.985/0.015、high预算300保留预算1000候选的逐题质量，开发集nDCG@10为0.781703；提升很小，候选配置未应用到原服务。见[复跑和恢复说明](../results/miracl-zh-contextbase-native-optimize-20261114/README.md)。
-
-固定种子 20261112、10,000 个段落、两端各 393 题的[完整实测报告与复算数据](../results/miracl-zh-10k-20261112/README.md)已归档。以下同时保留官方全量语料和其他规模子集的执行方法。
-
-采用 MIRACL v1.0 中文开发集的全部 393 道查询、3,928 条相关性标注以及完整的 4,934,368 个段落。语料和标签来自 [MIRACL 官方仓库](https://github.com/project-miracl/miracl)。[source.json](source.json) 固定了文件版本、长度和 SHA-256，[verified.json](verified.json) 是全量语料检查记录。
-
-## 下载与核验
-
-需要 Python 3.11 或以上。
+在仓库根目录复制配置模板，再填写两端的 `base_url`、`api_key` 以及 ContextBase 的 `bank_id` 和 WeKnora 的 `kb_id`。填写 API 根地址，省略 `/v1` 或 `/api/v1`。密钥需要能读写测试库。WeKnora 的 `reranker_id` 可留空，使用服务默认模型。
 
 ```bash
-python miracl_zh/bench.py --data .benchmark-data/miracl-zh fetch
-python miracl_zh/bench.py --data .benchmark-data/miracl-zh verify
+cp miracl_zh/services.example.json miracl-services.local.json
+chmod 600 miracl-services.local.json
+# 填好配置后执行
+python3 miracl_zh/run_existing_services.py --config miracl-services.local.json
 ```
 
-验证检查全部分片的 SHA-256、段落数及每个已标注段落是否在完整语料内。两款产品各自将每条原始段落作为一个文档入库，保留官方标题、正文和来源段落 ID。两边使用相同的标题与正文文本。索引阶段只使用语料，查询和标注供评测使用。
+本地配置文件已加入 Git 忽略规则。`api_key` 也可留空，由脚本读入 `CONTEXTBASE_API_KEY` 或 `WEKNORA_API_KEY`。如果使用位置参数直接传两个地址，同时设置这两个变量和 `CONTEXTBASE_BANK_ID`、`WEKNORA_KB_ID`。WeKnora 重排模型的选择顺序为 `--weknora-reranker-id`、配置文件的 `reranker_id`、`WEKNORA_RERANKER_ID`、服务默认模型。
 
-## 使用 10 万篇文章或 10 万个段落
+默认导入 8 段并查询 8 道题。结果和进度分别写入 `~/miracl-api-benchmark/api_smoke/REPORT.md` 和 `status.json`。
 
-在下载官方语料后生成一个固定子集。文章模式先保留官方标注覆盖的全部文章，再用固定种子补足篇数，保留所选文章的全部段落。段落模式先保留所有已标注段落，再从未标注段落里抽样补足。两种模式都保留官方 393 道查询、3,928 条标注及其对应的 3,786 个段落。
+## 正式运行
+
+预检通过后，给正式评测创建另一对空库，把新库 ID 写入配置。添加 `--full` 后，脚本会导入 10 万段，分别以并发 1／4／8 在两端查询 393 道题。
 
 ```bash
-FULL=.benchmark-data/miracl-zh
-DATA=.benchmark-data/miracl-zh-100k-articles
-python miracl_zh/build_subset.py --data "$FULL" --output "$DATA" --unit articles --count 100000
-python miracl_zh/bench.py --data "$DATA" verify
+python3 miracl_zh/run_existing_services.py --config miracl-services.local.json --full
 ```
 
-如果要控制实际入库量，改用 `--unit passages` 并选择新的输出目录。两款产品使用同一个 `DATA`，分别创建新的 Bank 和知识库。后面的入库、采集和评分都传入该子集目录，采集时两边都传各自的检查点。子集入库完成后输出 `"dataset_complete": true` 和 `"full_corpus": false`，评分结果自带子集标识。子集改变了检索候选池，分数适用于相同子集上的对比。
+- 默认数据目录为 `miracl_zh/data/miracl-zh-100k/`。使用 `python3 miracl_zh/bench.py --data miracl_zh/data/miracl-zh-100k verify` 可单独核验语料。评测其他用 `build_subset.py` 生成的 MIRACL 中文子集时，传 `--data <目录>`。
+- 正式报告在 `~/miracl-api-benchmark/api_full/REPORT.md`。`--output <目录>` 可指定结果路径。中断后保留测试库和输出目录，用相同模式、地址、库 ID 和输出目录续跑。WeKnora 创建请求中断时，按脚本提示用 `--recover-weknora` 恢复官方段落 ID 与已创建的知识 ID 的映射。
+- 报告包含导入耗时、查询成功率、QPS、p95、nDCG@10、Recall@10、MRR@10、Hit@1 和 Precision@5／10。逐题排名和 p50、p99、返回深度等写在各并发档的 JSON 中。查询耗时包含客户端到服务的网络。
+- ContextBase 同步导入返回完整的事实抽取用量时，报告会列出 LLM 输入和输出 Token。其他实际模型用量与服务端资源消耗依赖部署方监控。直连模式拿不到的数据会在报告中标为 `N/A`。
 
-本次 10,000 段设置为 `--unit passages --count 10000 --seed 20261112`。生成后执行同一个 `verify`，保留 `subset.json` 中的 gzip SHA-256；不能仅凭段落数量复用其他索引。
+## 其他复现入口
 
-扩容需要保留原候选池时，使用 `--include-subset /path/to/parent`；不能假定相同 seed 下不同 count 的独立抽样天然包含。可另传 `--extra-passages /path/to/ids.txt` 保留其他查询集的全部标注段落。这两个选项仅支持段落模式，生成器验证所有必选 ID 均存在。新的嵌套语料、查询分组及预注册实验见[扩容实验](../results/miracl-zh-scale-20261112/README.md)。原有不带这两个选项的抽样规则不变。
+- [从零启动本机服务和模型的流程](LLM_INGEST_RERANK.md)。
+- [历史实测和逐题结果](../results/)。复跑旧版 10,000 段、扩大语料、关闭重排或参数调优实验时，从[整理前的固定版本](https://github.com/TheLudlows/hybrid-retrieval-benchmark/tree/fc48ea1051e75af7dd3be596d48dcfe3d6ebf024/miracl_zh)取脚本及原运行说明。例如，在当前仓库旁开一个检出目录：
 
-默认种子 20261112 的实际生成规模如下。
-
-| 抽样单位 | 入库段落数 | gzip 文件大小 |
-| --- | ---: | ---: |
-| 100,000 篇文章 | 440,281 | 70.1 MB |
-| 100,000 个段落 | 100,000 | 17.7 MB |
-
-## 启动测试实例与入库
-
-准备一套 ContextBase 和一套 WeKnora Lite，为本次评测各建一个空的 Bank 或知识库，并为入库提供写权限。按 [TaurusDB 基线](../results/taurusdb-config-sweep/METHOD.md) 设置原生混合检索和共享的 BGE-M3、BGE-reranker-v2-m3。ContextBase 使用 chunks 写入模式，WeKnora Lite 关闭问题生成和画像。需要本地模型文件时，可用 [上一轮模型下载脚本](../deployment/fetch_hybrid_models.py)。
-
-从当前终端配置连接和评测范围。API Key 从部署配置中注入。
-
-| 产品 | 所需环境变量 |
-| --- | --- |
-| ContextBase | `CONTEXTBASE_URL`、`CONTEXTBASE_BANK_ID`、`CONTEXTBASE_API_KEY` |
-| WeKnora Lite | `WEKNORA_URL`、`WEKNORA_KB_ID`、`WEKNORA_API_KEY` |
-
-使用下面的命令入库。两边的正文都使用官方标题、空行和官方段落正文。ContextBase 保存官方段落 ID，WeKnora Lite 的内部 ID 映射写入各自的 SQLite 检查点。
-
-```bash
-DATA=${DATA:-.benchmark-data/miracl-zh}
-mkdir -p "$DATA/results"
-python miracl_zh/ingest.py --data "$DATA" contextbase "$DATA/contextbase.sqlite"
-python miracl_zh/ingest.py --data "$DATA" weknora "$DATA/weknora.sqlite"
-```
-
-可先在同一测试范围内给入库命令加 `--limit 100` 验证写入和索引，再去掉它续跑。检查点绑定产品、API 地址、Bank 或知识库和语料版本，建议持续保留。WeKnora Lite 以原生 API 逐条创建，成批轮询解析状态。选择官方全量语料时，两条入库命令均应输出 `"full_corpus": true` 和 `"indexed_passages": 4934368`。
-
-如果 WeKnora 创建过程中断且没有拿到返回 ID，脚本会报告对应的 MIRACL 段落和 `miracl-…` channel。先在同一个测试知识库查找这条记录。已存在时，在原入库命令末尾加 `--recover <段落ID> <知识ID>`，检查点会核对知识库和 channel 后记录映射。确认该记录未创建时，可用 `--retry-missing <段落ID>` 清除这次未决记录，再执行原命令。遇到解析失败，修复或重新解析已存在的知识后续跑。
-
-## 采集与评分
-
-采集前用非计分查询预热，并记录各端配置、模型输入用量及运行硬件。ContextBase 的 `budget=high` 候选上限在服务端设置为 60 和 40。WeKnora Lite 使用原生混合检索，默认请求深度为 60，并要求非空返回实际执行重排。重排模型 ID 默认为 `benchmark-bge-reranker`，实例里的 ID 不同时用 `--reranker` 指定。
-
-```bash
-python miracl_zh/bench.py --data "$DATA" capture contextbase "$DATA/results/contextbase-60.jsonl" --passage-map "$DATA/contextbase.sqlite"
-python miracl_zh/bench.py --data "$DATA" capture weknora "$DATA/results/weknora-60.jsonl" --passage-map "$DATA/weknora.sqlite"
-python miracl_zh/bench.py --data "$DATA" score "$DATA/results/contextbase-60.jsonl" --trec-output "$DATA/results/contextbase-60.trec"
-python miracl_zh/bench.py --data "$DATA" score "$DATA/results/weknora-60.jsonl"
-```
-
-采集使用入库检查点时，会检查对应评测范围和全量导入状态。已用其他工具完成全量入库时，WeKnora Lite 可使用带 `passage_map(remote_id, passage_id)` 的 SQLite 映射，ContextBase 如直接使用官方段落 ID，可省略映射参数。
-
-采集现在默认先执行相同的四次非计分中文预热，逐题写入后执行 `fsync`。续跑在原命令增加 `--resume`；同时传入 `--config-sha256 <冻结配置文件的SHA-256>`，脚本会核对索引绑定、语料、预算、候选上限、重排模型和配置指纹，并跳过已保存的题。首次与续跑须使用相同指纹。`--measurement-dir` 指向共享模型服务的记录目录，区分预热、正式查询和重启试测。重启试测可用独立输出文件加 `--smoke-index --max-queries 1 --warmup 0`，重启服务后用 `--resume --max-queries 2` 验证跳过已完成题；该模式最多四题，不能用于正式评分。
-
-`audit_index.py` 可在正式采集前核对入库检查点、全部官方 ID、原生正文和向量覆盖，导出内部 ID 映射。ContextBase 从环境变量 `AUDIT_POSTGRES_URL` 读取数据库连接；WeKnora 从只读的 `--weknora-db` 读取 SQLite。示例：
-
-```bash
-python miracl_zh/audit_index.py --data "$DATA" --product contextbase \
-  --checkpoint "$DATA/contextbase.sqlite" --output "$DATA/results/contextbase-index-audit.json"
-python miracl_zh/audit_index.py --data "$DATA" --product weknora \
-  --checkpoint "$DATA/weknora.sqlite" --weknora-db /path/to/weknora.db \
-  --output "$DATA/results/weknora-index-audit.json"
-```
-
-在 ContextBase 服务端通过 `CONTEXTBASE_API_RERANKER_MAX_CANDIDATES_HIGH` 设置 60 或 40，并重启服务使配置生效。40 档可复用同一份索引。
-
-```bash
-python miracl_zh/bench.py --data "$DATA" capture contextbase "$DATA/results/contextbase-40.jsonl" --passage-map "$DATA/contextbase.sqlite"
-python miracl_zh/bench.py --data "$DATA" score "$DATA/results/contextbase-40.jsonl"
-```
-
-按原生排名保留每个来源段落的首次出现位置，统计官方 nDCG@10、Recall@100，以及补充的 Hit@5 和串行 p95。评分同时输出实际返回深度。60 或 40 候选档的 Recall@100 会受各产品配置及实际返回深度限制。和公开基线比较深召回时，需披露请求深度和返回深度。
-
-评分器也输出 Hit@1、Hit@10 和串行 p50、p99；耗时分位数使用 nearest-rank。正式评分仍要求全部 393 题，不完整文件会报错。入库脚本在检查点旁追加 `.timing.jsonl`，记录每批耗时、此前已索引数量和累计索引数量。
-
-MIRACL 的相关性标注以整个段落为单位。这份评分器使用官方段落 ID 计分，2,000 Token 原文证据召回沿用独立的 TaurusDB 业务试测。模型 Token 由实际部署的模型服务记录。
-
-数据已完成全量核验，评分公式已用全部 393 个查询和构造排名与 `pytrec_eval` 逐题核对。两款产品的全库索引和实测结果仍待准备。
-
-## 当前环境的向量化实测
-
-在 6 个推理线程和每批 8 条的设置下，用与上一轮相同版本的 BGE-M3 ONNX 模型处理从 10 个分片固定抽取的 640 个段落。模型推理与分词合计 37.11 秒，约 17.25 段/秒。按这一速度线性估算，单遍完整向量化约需 79.5 小时，产品写入、索引构建和查询另计。测量明细见 [embedding-probe.json](embedding-probe.json)。
+  ```bash
+  git worktree add --detach ../miracl-zh-history fc48ea1051e75af7dd3be596d48dcfe3d6ebf024
+  ```

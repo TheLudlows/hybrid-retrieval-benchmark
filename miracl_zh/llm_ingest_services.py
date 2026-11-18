@@ -9,7 +9,7 @@ import socket
 import subprocess
 from urllib.parse import urlsplit, urlunsplit
 
-from run_scale import save
+from run_support import save
 
 REPO = Path(__file__).resolve().parents[1]
 DEPLOYMENT = REPO / "deployment"

@@ -28,8 +28,7 @@ from llm_ingest_services import (
     WEKNORA_CONFIG,
     services,
 )
-from run_metrics_suite import Sampler
-from run_scale import save
+from run_support import Sampler, save
 
 CONCURRENCY = (1, 4, 8)
 PRODUCTS = ("contextbase", "weknora")
