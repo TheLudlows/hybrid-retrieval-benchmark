@@ -76,3 +76,43 @@ jobs:
               append_row(journal, payload)
               assert b"\r\n" not in journal.read_bytes()
               assert read_json(journal) == payload
+      - name: Check ContextBase configuration readback
+        shell: python
+        run: |
+          import sys
+          from types import SimpleNamespace
+          from unittest.mock import Mock, patch
+
+          sys.path.insert(0, "miracl_zh")
+          import run_existing_services as client
+
+          run = object.__new__(client.ExistingRun)
+          args = SimpleNamespace(weknora_reranker_id="")
+          contextbase = Mock(base="http://contextbase", scope="test")
+          weknora = Mock(base="http://weknora", scope="test")
+          weknora.request.return_value = {"data": {"question_generation_config": {"enabled": True}}}
+          config = {
+              "retain_extraction_mode": "concise", "enable_reranking": True,
+              "enable_text_search": True, "enable_graph_retrieval": False,
+              "enable_temporal_retrieval": False,
+          }
+
+          for response, expected in (
+              ({"config": {}}, "administrator API key"),
+              ({"config": {"enable_text_search": True}}, "retain_extraction_mode"),
+              ({"config": {**config, "retain_extraction_mode": "chunks"}}, "Enable LLM fact extraction"),
+              ({}, "did not return a Bank configuration object"),
+          ):
+              contextbase.request.return_value = response
+              with patch.object(client.bench, "prior_api", return_value=contextbase) as prior_api:
+                  try:
+                      run.service_plan(args)
+                  except ValueError as error:
+                      assert expected in str(error), str(error)
+                  else:
+                      raise AssertionError(f"Preflight accepted invalid response: {response}")
+                  prior_api.assert_called_once_with("contextbase")
+
+          contextbase.request.return_value = {"config": config}
+          with patch.object(client.bench, "prior_api", side_effect=[contextbase, weknora]):
+              assert run.service_plan(args)["contextbase_readback"] == config

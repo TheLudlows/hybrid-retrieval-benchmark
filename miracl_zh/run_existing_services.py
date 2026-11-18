@@ -23,12 +23,15 @@ from run_llm_ingest_rerank import (
 from run_support import run_lock, save
 
 DATA = Path(__file__).resolve().parent / "data/miracl-zh-100k"
-MIRACL_SOURCE_FIELDS = (
+CONTEXTBASE_REQUIRED_FIELDS = (
     "retain_extraction_mode",
     "enable_reranking",
     "enable_text_search",
     "enable_graph_retrieval",
     "enable_temporal_retrieval",
+)
+MIRACL_SOURCE_FIELDS = (
+    *CONTEXTBASE_REQUIRED_FIELDS,
     "recall_rrf_semantic_weight",
     "recall_rrf_bm25_weight",
     "recall_budget_fixed_high",
@@ -60,8 +63,21 @@ def records(api, product):
 class ExistingRun(Run):
     def service_plan(self, args):
         c = bench.prior_api("contextbase")
-        w = bench.prior_api("weknora")
-        config = c.request("/config")["config"]
+        config = c.request("/config").get("config")
+        if not isinstance(config, dict):
+            raise ValueError(
+                "ContextBase GET /config did not return a Bank configuration object. "
+                "Check contextbase.base_url, bank_id, and the server version."
+            )
+        missing = [field for field in CONTEXTBASE_REQUIRED_FIELDS if field not in config]
+        if missing:
+            raise ValueError(
+                "ContextBase GET /config omitted required Bank settings: "
+                f"{', '.join(missing)}. "
+                "Set contextbase.api_key to a key that can read resolved Bank settings "
+                "(the administrator API key on managed ContextBase). "
+                "If these settings are still absent, check that the service version exposes them."
+            )
         if config["retain_extraction_mode"] not in {
             "concise",
             "verbose",
@@ -83,6 +99,7 @@ class ExistingRun(Run):
             raise ValueError(
                 "Disable graph and temporal branches on the ContextBase benchmark Bank"
             )
+        w = bench.prior_api("weknora")
         kb = w.request(f"/knowledge-bases/{quote(w.scope, safe='')}")["data"]
         questions = kb.get("question_generation_config") or {}
         if questions.get("enabled") is not True:
@@ -515,7 +532,10 @@ def main():
     args.work = args.results / "checkpoints"
     args.work.mkdir(mode=0o700, exist_ok=True)
     with run_lock(args.work / "run.lock"):
-        run = ExistingRun(args)
+        try:
+            run = ExistingRun(args)
+        except ValueError as error:
+            parser.error(str(error))
         try:
             run.run()
         except BaseException as error:

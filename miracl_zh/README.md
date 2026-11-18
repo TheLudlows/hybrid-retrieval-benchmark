@@ -25,6 +25,8 @@ python3 miracl_zh/run_existing_services.py --config miracl-services.local.json
 
 本地配置文件已加入 Git 忽略规则。`api_key` 也可留空，由脚本读入 `CONTEXTBASE_API_KEY` 或 `WEKNORA_API_KEY`。如果使用位置参数直接传两个地址，同时设置这两个变量和 `CONTEXTBASE_BANK_ID`、`WEKNORA_KB_ID`。WeKnora 重排模型的选择顺序为 `--weknora-reranker-id`、配置文件的 `reranker_id`、`WEKNORA_RERANKER_ID`、服务默认模型。
 
+ContextBase 的 Key 还需要能读取测试 Bank 的生效配置。托管版的普通成员 Key 可能能读写数据，但 `GET /config` 会隐藏配置字段。如果预检提示缺少 `retain_extraction_mode` 等字段，请在 `contextbase.api_key` 中使用该部署的管理员 API Key。若管理员 Key 仍缺字段，请核对版本，并确认 API 地址指向 ContextBase 服务。
+
 默认导入 8 段并查询 8 道题。结果和进度分别写入 `~/miracl-api-benchmark/api_smoke/REPORT.md` 和 `status.json`。
 
 ## 正式运行
