@@ -27,7 +27,7 @@ python3 miracl_zh/run_existing_services.py --config miracl-services.local.json
 
 ContextBase 的 Key 还需要能读取测试 Bank 的生效配置。托管版的普通成员 Key 可能能读写数据，但 `GET /config` 会隐藏配置字段。如果预检提示缺少 `retain_extraction_mode` 等字段，请在 `contextbase.api_key` 中使用该部署的管理员 API Key。若管理员 Key 仍缺字段，请核对版本，并确认 API 地址指向 ContextBase 服务。
 
-默认导入 8 段并查询 8 道题。结果和进度分别写入 `~/miracl-api-benchmark/api_smoke/REPORT.md` 和 `status.json`。
+默认导入 8 段并查询 8 道题。报告和进度保存在 `~/miracl-api-benchmark/api_smoke/`。用浏览器打开该目录下的 `REPORT.html` 可以查看图表，`REPORT.md` 是文本报告，`status.json` 记录运行进度。
 
 ## 正式运行
 
@@ -38,9 +38,25 @@ python3 miracl_zh/run_existing_services.py --config miracl-services.local.json -
 ```
 
 - 默认数据目录为 `miracl_zh/data/miracl-zh-100k/`。使用 `python3 miracl_zh/bench.py --data miracl_zh/data/miracl-zh-100k verify` 可单独核验语料。评测其他用 `build_subset.py` 生成的 MIRACL 中文子集时，传 `--data <目录>`。
-- 正式报告在 `~/miracl-api-benchmark/api_full/REPORT.md`。`--output <目录>` 可指定结果路径。中断后保留测试库和输出目录，用相同模式、地址、库 ID 和输出目录续跑。WeKnora 创建请求中断时，按脚本提示用 `--recover-weknora` 恢复官方段落 ID 与已创建的知识 ID 的映射。
+- 正式报告默认写入 `~/miracl-api-benchmark/api_full/`。`--output <目录>` 可指定结果路径。中断后保留测试库和输出目录，用相同模式、地址、库 ID 和输出目录续跑。WeKnora 创建请求中断时，按脚本提示用 `--recover-weknora` 恢复官方段落 ID 与已创建的知识 ID 的映射。
 - 报告包含导入耗时、查询成功率、QPS、p95、nDCG@10、Recall@10、MRR@10、Hit@1 和 Precision@5／10。逐题排名和 p50、p99、返回深度等写在各并发档的 JSON 中。查询耗时包含客户端到服务的网络。
 - ContextBase 同步导入返回完整的事实抽取用量时，报告会列出 LLM 输入和输出 Token。其他实际模型用量与服务端资源消耗依赖部署方监控。直连模式拿不到的数据会在报告中标为 `N/A`。
+
+## 查看或重建图表
+
+评测完成后自动生成 `REPORT.html`。打开文件可切换并发 1／4／8，查看检索质量、延迟、成功 QPS、返回深度、入库耗时和已记录的模型用量。HTML 可以离线打开。
+
+从已有结果生成图表时，把评测结果目录传给下面的命令。也可以用已有的部分结果生成报告，页面会显示各并发档已记录的产品数。
+
+```bash
+python miracl_zh/render_report.py "$HOME/miracl-api-benchmark/api_smoke"
+```
+
+也可以先用仓库里归档的 8 题预检结果查看效果。
+
+```bash
+python miracl_zh/render_report.py results/miracl-zh-llm-ingest-rerank-20261118/smoke --output miracl-preview.html
+```
 
 ## 其他复现入口
 

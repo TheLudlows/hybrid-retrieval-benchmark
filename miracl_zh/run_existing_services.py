@@ -11,6 +11,7 @@ from urllib.parse import quote
 
 import bench
 import ingest
+from render_report import render_report
 from run_llm_ingest_rerank import (
     CAP,
     CONCURRENCY,
@@ -417,6 +418,7 @@ class ExistingRun(Run):
             "",
         ]
         (root / "REPORT.md").write_text("\n".join(lines), encoding="utf-8")
+        render_report(root)
 
 
 def configure_connection(parser, args):

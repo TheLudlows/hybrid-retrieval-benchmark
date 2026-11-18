@@ -27,6 +27,7 @@ from llm_ingest_services import (
     WEKNORA_CONFIG,
     services,
 )
+from render_report import render_report
 from run_support import Sampler, run_lock, save
 
 CONCURRENCY = (1, 4, 8)
@@ -707,6 +708,7 @@ class Run:
             "",
         ]
         (root / "REPORT.md").write_text("\n".join(lines), encoding="utf-8")
+        render_report(root)
 
 
 def main():

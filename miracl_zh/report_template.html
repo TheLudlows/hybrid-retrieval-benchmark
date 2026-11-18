@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MIRACL 中文检索评测</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4f7fa;
+      --ink: #1a2639;
+      --muted: #4d5d72;
+      --line: #dbe3eb;
+      --contextbase: #156d6a;
+      --weknora: #4759a7;
+      font: 15px/1.5 "Segoe UI", system-ui, "Microsoft YaHei", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+    }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body { margin: 0; }
+    main { width: min(1280px, 100% - 48px); margin: 40px auto; }
+    header {
+      padding: clamp(20px, 4vw, 36px);
+      background: #132b3a;
+      color: white;
+      border-radius: 16px;
+    }
+    h1, h2, h3, p { margin: 0; }
+    h1 { font-size: clamp(1.55rem, 4vw, 2.2rem); line-height: 1.25; }
+    h2 { font-size: 1.4rem; }
+    h3 { font-size: 1.06rem; }
+    .scope { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 10px; color: #d5e3e9; }
+    .scope span { overflow-wrap: anywhere; }
+    .scope span + span { border-inline-start: 1px solid #68808c; padding-inline-start: 16px; }
+    .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 22px 0 14px; }
+    .controls label { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+    select {
+      padding: 7px 10px;
+      min-width: 110px;
+      border: 1px solid #8092a8;
+      border-radius: 7px;
+      font: inherit;
+      background: white;
+      color: var(--ink);
+    }
+    :focus-visible { outline: 3px solid var(--weknora); outline-offset: 2px; }
+    .section-header { margin: 18px 0 12px; }
+    .section-header p, footer { color: var(--muted); font-size: 0.92rem; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; }
+    .panel { min-width: 0; background: white; border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+    .panel h3 { margin-bottom: 10px; }
+    table { width: 100%; border-collapse: collapse; table-layout: fixed; font-variant-numeric: tabular-nums; }
+    th, td { text-align: left; padding: 7px 5px; vertical-align: top; overflow-wrap: anywhere; }
+    thead th { font-size: 0.86rem; color: var(--muted); border-bottom: 1px solid var(--line); }
+    thead th:first-child { width: 34%; }
+    thead th:nth-child(2) { color: var(--contextbase); }
+    thead th:nth-child(3) { color: var(--weknora); }
+    tbody th { font-weight: 500; }
+    tbody tr + tr { border-top: 1px solid #edf1f5; }
+    .track { height: 5px; border-radius: 3px; overflow: hidden; background: #e8edf2; margin-top: 5px; }
+    .track i { display: block; height: 100%; border-radius: inherit; }
+    .contextbase i { background: var(--contextbase); }
+    .weknora i { background: var(--weknora); }
+    .missing { color: var(--muted); }
+    footer { margin: 20px 0 0; }
+    footer p + p { margin-top: 6px; }
+    @media (max-width: 860px) {
+      main { width: calc(100% - 24px); margin: 20px auto; }
+      .grid { grid-template-columns: minmax(0, 1fr); }
+    }
+    @media print {
+      main { width: 100%; margin: 0; }
+      header { background: white; color: var(--ink); padding: 0; }
+      .scope { color: var(--muted); }
+      .controls { display: none; }
+      .panel { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>MIRACL 中文检索评测</h1>
+      <div class="scope">$scope</div>
+    </header>
+    <div class="controls">$selector</div>
+    $windows
+    <section>
+      <div class="section-header"><h2>资料入库</h2></div>
+      $imports
+    </section>
+    <footer>
+      <p>每项指标的条形图共用同一尺度。检索质量和成功率的满刻度为 1 或 100%。</p>
+      <p>延迟包含客户端到服务的网络耗时。Recall@100 按实际返回的排名计算，请结合返回深度解读。N/A 表示结果或完整用量缺失。</p>
+    </footer>
+  </main>
+  <script>
+    const control = document.getElementById("window-control");
+    if (control) {
+      const select = document.getElementById("window");
+      const sections = document.querySelectorAll("[data-window]");
+      function showWindow() {
+        for (const section of sections) {
+          section.hidden = select.value !== "all" && section.dataset.window !== select.value;
+        }
+      }
+      select.addEventListener("change", showWindow);
+      showWindow();
+      control.hidden = false;
+    }
+  </script>
+</body>
+</html>

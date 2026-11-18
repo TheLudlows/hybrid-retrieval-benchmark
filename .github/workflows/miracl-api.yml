@@ -35,6 +35,7 @@ jobs:
           python-version: "3.11"
       - run: python miracl_zh/run_existing_services.py --help
       - run: python miracl_zh/bench.py --data miracl_zh/data/miracl-zh-100k verify
+      - run: python miracl_zh/render_report.py results/miracl-zh-llm-ingest-rerank-20261118/smoke --output "${{ runner.temp }}/miracl-report.html"
       - name: Check locking and UTF-8 checkpoints
         shell: python
         run: |
