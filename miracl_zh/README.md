@@ -52,6 +52,23 @@ python3 miracl_zh/run_existing_services.py --config miracl-services.local.json -
 - 报告包含导入耗时、查询成功率、QPS、p95、nDCG@10、Recall@10、MRR@10、Hit@1 和 Precision@5／10。逐题排名和 p50、p99、返回深度等写在各并发档的 JSON 中。查询耗时包含客户端到服务的网络。
 - ContextBase 同步导入返回完整的事实抽取用量时，报告会列出 LLM 输入和输出 Token。其他实际模型用量与服务端资源消耗依赖部署方监控。直连模式拿不到的数据会在报告中标为 `N/A`。
 
+## 用较少段落跑正式评测
+
+可以直接从仓库自带的 10 万段抽取更小的子集。例如下面生成 10,000 段并核验语料。抽样会保留 393 道官方查询、3,928 条相关性标注及其对应的 3,786 个段落。用 `--count` 调整段落数，最少需要 3,786 段才能保留全部标注。
+
+```bash
+python miracl_zh/build_subset.py --data miracl_zh/data/miracl-zh-100k --output miracl-zh-10k-local --unit passages --count 10000 --seed 20261112
+python miracl_zh/bench.py --data miracl-zh-10k-local verify
+```
+
+把配置里的测试库 ID 换成一对空库，使用独立的结果目录运行。此时 `--full` 会导入所选子集的全部段落，并在每档并发下跑 393 道题。
+
+```bash
+python miracl_zh/run_existing_services.py --config miracl-services.local.json --data miracl-zh-10k-local --full --output "$HOME/miracl-api-benchmark/api_10k"
+```
+
+生成的 `subset.json` 会记录抽样种子、子集和抽样来源的指纹。分数仅适用于该子集。从归档的 10 万段再次抽样会得到一份新的 10,000 段子集，复现[早期 10,000 段报告](../results/miracl-zh-10k-20261112/README.md)需要该报告使用的语料指纹。
+
 ## 查看或重建图表
 
 评测完成后自动生成 `REPORT.html`。打开文件可切换并发 1／4／8，查看检索质量、延迟、成功 QPS、返回深度、入库耗时和已记录的模型用量。HTML 可以离线打开。

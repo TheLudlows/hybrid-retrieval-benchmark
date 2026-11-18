@@ -592,7 +592,7 @@ def main():
     parser.add_argument(
         "--full",
         action="store_true",
-        help="Run 100,000 documents and 393 queries; default is smoke",
+        help="Run all passages and 393 queries from the selected data directory; default is smoke",
     )
     parser.add_argument("--data", type=Path, default=DATA)
     parser.add_argument(
