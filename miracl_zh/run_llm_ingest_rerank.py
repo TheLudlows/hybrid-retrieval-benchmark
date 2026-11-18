@@ -101,12 +101,6 @@ class Run:
         self.expected = (
             len(self.rows) if self.rows is not None else self.source["passages"]
         )
-        model_files = Path(__file__).resolve().parents[1] / "deployment/models"
-        model_digests = {
-            f"{folder}/{name}": sha256(model_files / folder / name)
-            for folder in ("full-embedding", "full-reranker")
-            for name in ("model_quantized.onnx", "tokenizer.json")
-        }
         self.plan = {
             "run_name": args.run_name,
             "dataset": self.source["dataset"],
@@ -116,18 +110,7 @@ class Run:
             "smoke_ids": [row["docid"] for row in self.rows]
             if self.rows is not None
             else None,
-            "contextbase_commit": self.revision(args.contextbase_source),
-            "weknora_commit": self.revision(args.weknora_source),
-            "weknora_binary_sha256": sha256(args.weknora_binary),
-            "contextbase": CONTEXTBASE_CONFIG,
-            "weknora_retrieval": WEKNORA_CONFIG,
-            "weknora_question_generation": QUESTION_CONFIG,
-            "weknora_summary": False,
-            "llm_model": args.llm_model,
-            "llm_artifact_sha256": args.llm_sha256,
-            "bge_artifact_sha256": model_digests,
-            "onnx_threads": args.onnx_threads,
-            "embedding_http_batch_ms": 0,
+            **self.service_plan(args),
             "query_timeout_s": args.query_timeout,
             "concurrency": list(CONCURRENCY),
             "warmups_per_window": 1 if args.smoke else 4,
@@ -161,6 +144,27 @@ class Run:
         self.run_id = identity["run_id"]
         save(plan_path, self.plan)
         self.status(state="starting")
+
+    def service_plan(self, args):
+        model_files = Path(__file__).resolve().parents[1] / "deployment/models"
+        return {
+            "contextbase_commit": self.revision(args.contextbase_source),
+            "weknora_commit": self.revision(args.weknora_source),
+            "weknora_binary_sha256": sha256(args.weknora_binary),
+            "contextbase": CONTEXTBASE_CONFIG,
+            "weknora_retrieval": WEKNORA_CONFIG,
+            "weknora_question_generation": QUESTION_CONFIG,
+            "weknora_summary": False,
+            "llm_model": args.llm_model,
+            "llm_artifact_sha256": args.llm_sha256,
+            "bge_artifact_sha256": {
+                f"{folder}/{name}": sha256(model_files / folder / name)
+                for folder in ("full-embedding", "full-reranker")
+                for name in ("model_quantized.onnx", "tokenizer.json")
+            },
+            "onnx_threads": args.onnx_threads,
+            "embedding_http_batch_ms": 0,
+        }
 
     @staticmethod
     def revision(source):
@@ -521,10 +525,11 @@ class Run:
         attempt.mkdir()
         self.phase(product, "warmup", f"c{concurrency}-{number}-warmup")
         for query in list(self.topics.values())[: self.plan["warmups_per_window"]]:
-            bench.fetch_ranked(bench.prior_api(product), product, query, CAP, RERANKER)
+            self.fetch_query(bench.prior_api(product), product, query)
         run_id = self.phase(product, "query", f"c{concurrency}-{number}")
         lock_ranks = attempt / "rankings.jsonl"
-        sampler = Sampler(runtime["roots"], attempt / "resources.jsonl")
+        roots = runtime.get("roots")
+        sampler = Sampler(roots, attempt / "resources.jsonl") if roots else None
         self.status(
             state="querying",
             product=product,
@@ -536,7 +541,7 @@ class Run:
             api = bench.prior_api(product)
             started = time.perf_counter()
             try:
-                ranked = bench.fetch_ranked(api, product, text, CAP, RERANKER)
+                ranked = self.fetch_query(api, product, text)
                 latency = time.perf_counter() - started
                 passages = list(dict.fromkeys(mapping[remote] for remote in ranked))
                 return {
@@ -558,7 +563,8 @@ class Run:
                     "dataset": self.source["dataset"],
                 }
 
-        sampler.start()
+        if sampler:
+            sampler.start()
         started = time.perf_counter()
         records = []
         try:
@@ -580,18 +586,12 @@ class Run:
                         )
         finally:
             wall = time.perf_counter() - started
-            resource = sampler.finish()
-        usage = self.usage(run_id, attempt / "query-model-calls.jsonl.gz")
+            resource = sampler.finish() if sampler else None
+        usage = self.query_usage(run_id, attempt)
         success = sum(row["success"] for row in records)
         nonempty = sum(row["success"] and bool(row["passages"]) for row in records)
-        rerank = usage.get("rerank", {})
         result = evaluate(lock_ranks, self.qrels, self.source)
-        verified = (
-            "chat" not in usage
-            and nonempty > 0
-            and rerank.get("observed_calls", 0) >= nonempty
-            and 0 < rerank.get("max_pairs_per_call", 0) <= CAP
-        )
+        verified = self.verify_query_rerank(product, usage, nonempty)
         result.update(
             attempt=attempt.name,
             concurrency=concurrency,
@@ -610,6 +610,21 @@ class Run:
                 "Rerank calls or the zero-query-generation requirement could not be verified"
             )
         save(folder / "metrics.json", result)
+
+    def fetch_query(self, api, product, query):
+        return bench.fetch_ranked(api, product, query, CAP, RERANKER)
+
+    def query_usage(self, run_id, attempt):
+        return self.usage(run_id, attempt / "query-model-calls.jsonl.gz")
+
+    def verify_query_rerank(self, product, usage, nonempty):
+        rerank = usage.get("rerank", {})
+        return (
+            "chat" not in usage
+            and nonempty > 0
+            and rerank.get("observed_calls", 0) >= nonempty
+            and 0 < rerank.get("max_pairs_per_call", 0) <= CAP
+        )
 
     def run(self):
         save(self.args.work / "measurement-context.json", {})

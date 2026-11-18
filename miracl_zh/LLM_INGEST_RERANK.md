@@ -1,5 +1,7 @@
 # MIRACL 中文评测：LLM 入库与模型重排
 
+如果两端服务和模型均已部署，使用 [API 直连入口](EXISTING_SERVICES.md)，从本机连接两个地址即可发起预检。
+
 ## 快速开始
 
 在 Linux x86_64 上准备 Python 3.11+、Git、Docker、uv、Go、make、C 编译器和 curl。用下面的入口运行。首次执行会准备固定版本的 ContextBase、WeKnora Lite 和独立的 PostgreSQL，以及共享的 **BGE-M3 Embedding** 和 **BGE-reranker-v2-m3**。两端的 Embedding 与重排由脚本统一配置。

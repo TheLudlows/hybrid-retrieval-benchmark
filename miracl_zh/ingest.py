@@ -31,10 +31,11 @@ def passage_content(row):
 def contextbase_batch(db, api, batch):
     items = [{"document_id": row["docid"], "content": passage_content(row), "update_mode": "replace",
               "timestamp": "unset"} for row in batch]
-    api.request("/memories", {"items": items, "async": False})
+    response = api.request("/memories", {"items": items, "async": False})
     with db:
         db.executemany("INSERT INTO passage_map VALUES (?, ?, 1)",
                        ((row["docid"], row["docid"]) for row in batch))
+    return response
 
 
 def channel(passage):
