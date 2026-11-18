@@ -1,0 +1,316 @@
+{
+  "dataset": "miracl/zh/dev/subset-d51e1fe9ec6ec92d/selected-smoke",
+  "queries": 8,
+  "hit_at_1": 0.875,
+  "hit_at_5": 0.875,
+  "hit_at_10": 0.875,
+  "ndcg_at_10": 0.43465281962004065,
+  "recall_at_10": 0.3345238095238095,
+  "recall_at_100": 0.3345238095238095,
+  "returned_depth": {
+    "mean": 7,
+    "min": 0,
+    "max": 8,
+    "queries_at_least_100": 0
+  },
+  "serial_p50_ms": 6459.810678999929,
+  "serial_p95_ms": 8408.003603999987,
+  "serial_p99_ms": 8408.003603999987,
+  "per_topic": {
+    "1719936#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.3391602052736161,
+      "recall_at_10": 0.2,
+      "recall_at_100": 0.2,
+      "depth": 8,
+      "latency_ms": 2486.5091930000744,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.8,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 0,
+        "unjudged": 4,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.875,
+      "missing_slots_at_10": 0.2,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 0,
+        "unjudged": 7,
+        "returned": 8
+      },
+      "mrr_at_10": 1.0
+    },
+    "6530715#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.3903800499921017,
+      "recall_at_10": 0.25,
+      "recall_at_100": 0.25,
+      "depth": 8,
+      "latency_ms": 4484.900300999925,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.8,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 0,
+        "unjudged": 4,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.875,
+      "missing_slots_at_10": 0.2,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 0,
+        "unjudged": 7,
+        "returned": 8
+      },
+      "mrr_at_10": 1.0
+    },
+    "3965848#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.27487633291429087,
+      "recall_at_10": 0.14285714285714285,
+      "recall_at_100": 0.14285714285714285,
+      "depth": 8,
+      "latency_ms": 6459.810678999929,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.8,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 0,
+        "unjudged": 4,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.875,
+      "missing_slots_at_10": 0.2,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 0,
+        "unjudged": 7,
+        "returned": 8
+      },
+      "mrr_at_10": 1.0
+    },
+    "86616#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.46927872602275644,
+      "recall_at_10": 0.3333333333333333,
+      "recall_at_100": 0.3333333333333333,
+      "depth": 8,
+      "latency_ms": 8408.003603999987,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.8,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 0,
+        "unjudged": 4,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.875,
+      "missing_slots_at_10": 0.2,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 0,
+        "unjudged": 7,
+        "returned": 8
+      },
+      "mrr_at_10": 1.0
+    },
+    "872847#0": {
+      "hit_at_1": 0,
+      "hit_at_10": 0,
+      "hit_at_5": 0,
+      "ndcg_at_10": 0.0,
+      "recall_at_10": 0.0,
+      "recall_at_100": 0.0,
+      "depth": 0,
+      "latency_ms": 6268.706419999944,
+      "precision_at_5": 0.0,
+      "unjudged_at_5": null,
+      "missing_slots_at_5": 1.0,
+      "top5_counts": {
+        "positive": 0,
+        "judged_zero": 0,
+        "unjudged": 0,
+        "returned": 0
+      },
+      "precision_at_10": 0.0,
+      "unjudged_at_10": null,
+      "missing_slots_at_10": 1.0,
+      "top10_counts": {
+        "positive": 0,
+        "judged_zero": 0,
+        "unjudged": 0,
+        "returned": 0
+      },
+      "mrr_at_10": 0.0
+    },
+    "3575034#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 1.0,
+      "recall_at_10": 1.0,
+      "recall_at_100": 1.0,
+      "depth": 8,
+      "latency_ms": 8265.102859999843,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.8,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 0,
+        "unjudged": 4,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.875,
+      "missing_slots_at_10": 0.2,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 0,
+        "unjudged": 7,
+        "returned": 8
+      },
+      "mrr_at_10": 1.0
+    },
+    "6911039#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.3903800499921017,
+      "recall_at_10": 0.25,
+      "recall_at_100": 0.25,
+      "depth": 8,
+      "latency_ms": 6651.780049000081,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.8,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 0,
+        "unjudged": 4,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.875,
+      "missing_slots_at_10": 0.2,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 0,
+        "unjudged": 7,
+        "returned": 8
+      },
+      "mrr_at_10": 1.0
+    },
+    "6930896#0": {
+      "hit_at_1": 1,
+      "hit_at_10": 1,
+      "hit_at_5": 1,
+      "ndcg_at_10": 0.6131471927654584,
+      "recall_at_10": 0.5,
+      "recall_at_100": 0.5,
+      "depth": 8,
+      "latency_ms": 6855.595781999909,
+      "precision_at_5": 0.2,
+      "unjudged_at_5": 0.8,
+      "missing_slots_at_5": 0.0,
+      "top5_counts": {
+        "positive": 1,
+        "judged_zero": 0,
+        "unjudged": 4,
+        "returned": 5
+      },
+      "precision_at_10": 0.1,
+      "unjudged_at_10": 0.875,
+      "missing_slots_at_10": 0.2,
+      "top10_counts": {
+        "positive": 1,
+        "judged_zero": 0,
+        "unjudged": 7,
+        "returned": 8
+      },
+      "mrr_at_10": 1.0
+    }
+  },
+  "precision_at_5": 0.17500000000000002,
+  "precision_at_10": 0.08750000000000001,
+  "mrr_at_10": 0.875,
+  "unjudged_at_5": 0.8,
+  "unjudged_at_10": 0.875,
+  "missing_slots_at_5": 0.125,
+  "missing_slots_at_10": 0.3,
+  "rankings_sha256": "adacc296848b7c91bf7725e62ac0871caa409f29e13db4b43ec6ade16130caaf",
+  "attempt": "attempt-001",
+  "concurrency": 4,
+  "wall_s": 15.269250117999945,
+  "successful_queries": 7,
+  "success_rate": 0.875,
+  "timeout_queries": 0,
+  "successful_qps": 0.45843770623340213,
+  "usage": {
+    "embedding": {
+      "calls": 8,
+      "observed_calls": 8,
+      "unmetered_calls": 0,
+      "input_tokens": 74,
+      "output_tokens": 0,
+      "pairs": 0,
+      "max_pairs_per_call": 0
+    },
+    "rerank": {
+      "calls": 7,
+      "observed_calls": 7,
+      "unmetered_calls": 0,
+      "input_tokens": 8134,
+      "output_tokens": 0,
+      "pairs": 56,
+      "max_pairs_per_call": 8
+    }
+  },
+  "resources": {
+    "sample_interval_s": 0.5,
+    "components": {
+      "shared_bge": {
+        "baseline_rss_bytes_sum": 2391023616,
+        "peak_sampled_rss_bytes_sum": 2391154688,
+        "cpu_seconds": 45.96
+      },
+      "contextbase_api": {
+        "baseline_rss_bytes_sum": 395710464,
+        "peak_sampled_rss_bytes_sum": 395710464,
+        "cpu_seconds": 0.21
+      },
+      "postgres_instance": {
+        "baseline_rss_bytes_sum": 619577344,
+        "peak_sampled_rss_bytes_sum": 622465024,
+        "cpu_seconds": 0.2
+      },
+      "weknora_api": {
+        "baseline_rss_bytes_sum": 436408320,
+        "peak_sampled_rss_bytes_sum": 436670464,
+        "cpu_seconds": 0.19
+      }
+    },
+    "peak_host_cgroup_memory_bytes": 8115339264,
+    "limitations": "RSS sums may count shared pages more than once; PostgreSQL is instance-wide, not single-bank attribution. Shared model and idle peer API are reported separately. Peaks are sampled."
+  },
+  "rerank_observed": true
+}

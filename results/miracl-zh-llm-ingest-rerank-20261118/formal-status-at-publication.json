@@ -1,0 +1,27 @@
+{
+  "run_id": "17fec69627e3444298cb4453458c4a3d",
+  "updated_unix": 1794971005.504536,
+  "state": "importing",
+  "product": "contextbase",
+  "indexed": 16,
+  "target": 100000,
+  "archived_at_utc": "2026-11-18T03:04:12.742338+00:00",
+  "background_process_alive_at_archive": true,
+  "contextbase_verified_checkpoint_at_least": 16,
+  "first_batch_duration_s": 124.77286839485168,
+  "first_batch_observed_usage": {
+    "chat": {
+      "calls": 16,
+      "input_tokens": 56152,
+      "output_tokens": 1759
+    },
+    "embedding": {
+      "calls": 16,
+      "input_tokens": 639,
+      "output_tokens": 0
+    }
+  },
+  "weknora_formal_import_started": false,
+  "formal_query_windows_completed": 0,
+  "benchmark_script_commit": "bbf28a64d5e39dafef471ce41cbecf87cefb684c"
+}

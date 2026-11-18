@@ -1,0 +1,62 @@
+{
+  "models": {
+    "onnxruntime": "1.31.1",
+    "embedding_intra_op_threads": 3,
+    "reranker_intra_op_threads": 3,
+    "inter_op_threads": 1,
+    "embedding_providers": [
+      "CPUExecutionProvider"
+    ],
+    "reranker_providers": [
+      "CPUExecutionProvider"
+    ],
+    "embedding_batch_window_ms": 0.0,
+    "embedding_truncation": {
+      "max_length": 512,
+      "stride": 0,
+      "strategy": "longest_first",
+      "direction": "right"
+    },
+    "reranker_truncation": {
+      "max_length": 512,
+      "stride": 0,
+      "strategy": "longest_first",
+      "direction": "right"
+    }
+  },
+  "readback": {
+    "contextbase": {
+      "retain_extraction_mode": "concise",
+      "enable_text_search": true,
+      "enable_reranking": true,
+      "enable_graph_retrieval": false,
+      "enable_temporal_retrieval": false,
+      "recall_budget_function": "fixed",
+      "recall_budget_fixed_high": 300,
+      "recall_rrf_semantic_weight": 0.985,
+      "recall_rrf_bm25_weight": 0.015
+    },
+    "weknora": {
+      "question_generation": {
+        "enabled": true,
+        "model_id": "benchmark-import-llm",
+        "question_count": 1
+      },
+      "retrieval": {
+        "embedding_top_k": 60,
+        "vector_threshold": 0,
+        "keyword_threshold": 0,
+        "rerank_top_k": 60,
+        "rerank_threshold": 0,
+        "rerank_model_id": "benchmark-bge-reranker",
+        "rrf_k": 30,
+        "rrf_vector_weight": 0.7,
+        "rrf_keyword_weight": 0.3
+      }
+    }
+  },
+  "machine": "x86_64",
+  "kernel": "6.18.57",
+  "cpu_quota": "400000 100000",
+  "model_http_keepalive_s": 180
+}

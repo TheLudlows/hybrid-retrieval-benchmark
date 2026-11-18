@@ -1,0 +1,8 @@
+{"qid": "86616#0", "passages": ["2799973#4", "7728216#0", "39129#0"], "latency_ms": 559.7290079999766, "success": true, "dataset": "miracl/zh/dev/subset-d51e1fe9ec6ec92d/selected-smoke"}
+{"qid": "3965848#0", "passages": ["39129#0", "2799973#4", "7728216#0", "4880#12"], "latency_ms": 1124.9879169999986, "success": true, "dataset": "miracl/zh/dev/subset-d51e1fe9ec6ec92d/selected-smoke"}
+{"qid": "1719936#0", "passages": ["305#4", "2799973#4", "16421#0", "7728216#0", "39129#0", "4880#12"], "latency_ms": 1986.8885269997918, "success": true, "dataset": "miracl/zh/dev/subset-d51e1fe9ec6ec92d/selected-smoke"}
+{"qid": "6530715#0", "passages": ["7728216#0", "2799973#4", "39129#0"], "latency_ms": 2428.872986999977, "success": true, "dataset": "miracl/zh/dev/subset-d51e1fe9ec6ec92d/selected-smoke"}
+{"qid": "3575034#0", "passages": ["16421#0", "2799973#4", "7728216#0", "39129#0", "4880#12"], "latency_ms": 2408.222537000256, "success": true, "dataset": "miracl/zh/dev/subset-d51e1fe9ec6ec92d/selected-smoke"}
+{"qid": "872847#0", "passages": ["111327#6", "4880#12", "39129#0", "7728216#0", "2799973#4"], "latency_ms": 2387.97756699978, "success": true, "dataset": "miracl/zh/dev/subset-d51e1fe9ec6ec92d/selected-smoke"}
+{"qid": "6911039#0", "passages": ["35297#2", "2799973#4", "305#4", "16421#0", "39129#0", "4880#12"], "latency_ms": 2166.244237999763, "success": true, "dataset": "miracl/zh/dev/subset-d51e1fe9ec6ec92d/selected-smoke"}
+{"qid": "6930896#0", "passages": ["4880#12", "39129#0", "2799973#4", "7728216#0"], "latency_ms": 2187.2605140001724, "success": true, "dataset": "miracl/zh/dev/subset-d51e1fe9ec6ec92d/selected-smoke"}

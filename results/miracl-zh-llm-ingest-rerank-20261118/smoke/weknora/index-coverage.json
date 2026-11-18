@@ -1,0 +1,13 @@
+{
+  "documents": 8,
+  "documents_with_vectors": 8,
+  "documents_with_indexed_generated_questions": 8,
+  "missing_vector_passages": [],
+  "missing_question_passages": [],
+  "question_index_rows": 8,
+  "vector_rows": 16,
+  "storage": {
+    "sqlite_main_bytes": 6078464,
+    "sqlite_wal_bytes": 5792752
+  }
+}

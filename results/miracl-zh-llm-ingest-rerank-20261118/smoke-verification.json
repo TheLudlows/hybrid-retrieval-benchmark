@@ -1,0 +1,57 @@
+{
+  "smoke_only": true,
+  "segments_per_product": 8,
+  "verified_query_windows": [
+    {
+      "product": "contextbase",
+      "concurrency": 1,
+      "successful_queries": 8,
+      "rerank_calls": 8,
+      "query_generation_calls": 0
+    },
+    {
+      "product": "contextbase",
+      "concurrency": 4,
+      "successful_queries": 8,
+      "rerank_calls": 8,
+      "query_generation_calls": 0
+    },
+    {
+      "product": "contextbase",
+      "concurrency": 8,
+      "successful_queries": 8,
+      "rerank_calls": 8,
+      "query_generation_calls": 0
+    },
+    {
+      "product": "weknora",
+      "concurrency": 1,
+      "successful_queries": 8,
+      "rerank_calls": 8,
+      "query_generation_calls": 0
+    },
+    {
+      "product": "weknora",
+      "concurrency": 4,
+      "successful_queries": 8,
+      "rerank_calls": 8,
+      "query_generation_calls": 0
+    },
+    {
+      "product": "weknora",
+      "concurrency": 8,
+      "successful_queries": 8,
+      "rerank_calls": 8,
+      "query_generation_calls": 0
+    }
+  ],
+  "initial_transport_observation": {
+    "product": "weknora",
+    "concurrency": 4,
+    "successful_queries": 7,
+    "attempted_queries": 8,
+    "failure": "native rerank connection reset; native fallback counted as a failed request",
+    "retest": "repeated all six smoke windows with 180 second model service keepalive; results preserved separately"
+  },
+  "benchmark_script_commit": "bbf28a64d5e39dafef471ce41cbecf87cefb684c"
+}

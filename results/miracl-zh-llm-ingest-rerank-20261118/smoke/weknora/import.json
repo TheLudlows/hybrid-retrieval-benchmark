@@ -1,0 +1,40 @@
+{
+  "indexed_documents": 8,
+  "first_submit_to_last_completion_s": 35.36415433883667,
+  "active_batch_s": 35.36251378059387,
+  "last_invocation_elapsed_s": 35.372814893722534,
+  "usage": {
+    "embedding": {
+      "calls": 16,
+      "observed_calls": 16,
+      "unmetered_calls": 0,
+      "input_tokens": 1133,
+      "output_tokens": 0,
+      "pairs": 0,
+      "max_pairs_per_call": 0
+    },
+    "chat": {
+      "calls": 8,
+      "observed_calls": 8,
+      "unmetered_calls": 0,
+      "input_tokens": 4210,
+      "output_tokens": 139,
+      "pairs": 0,
+      "max_pairs_per_call": 0
+    }
+  },
+  "index": {
+    "documents": 8,
+    "documents_with_vectors": 8,
+    "documents_with_indexed_generated_questions": 8,
+    "missing_vector_passages": [],
+    "missing_question_passages": [],
+    "question_index_rows": 8,
+    "vector_rows": 16,
+    "storage": {
+      "sqlite_main_bytes": 6078464,
+      "sqlite_wal_bytes": 5792752
+    }
+  },
+  "observed_full_llm_usage": true
+}

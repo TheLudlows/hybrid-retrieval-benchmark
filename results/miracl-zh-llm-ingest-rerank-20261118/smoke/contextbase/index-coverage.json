@@ -1,0 +1,12 @@
+{
+  "documents": 8,
+  "documents_with_vectors": 8,
+  "documents_with_indexed_generated_questions": null,
+  "missing_vector_passages": [],
+  "missing_question_passages": [],
+  "vector_rows": 8,
+  "storage": {
+    "database_bytes": 29783743,
+    "bank_index_bytes": 7143424
+  }
+}
