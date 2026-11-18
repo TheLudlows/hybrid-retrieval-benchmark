@@ -27,7 +27,17 @@ python3 miracl_zh/run_existing_services.py --config miracl-services.local.json
 
 ContextBase 的 Key 还需要能读取测试 Bank 的生效配置。托管版的普通成员 Key 可能能读写数据，但 `GET /config` 会隐藏配置字段。如果预检提示缺少 `retain_extraction_mode` 等字段，请在 `contextbase.api_key` 中使用该部署的管理员 API Key。若管理员 Key 仍缺字段，请核对版本，并确认 API 地址指向 ContextBase 服务。
 
-默认导入 8 段并查询 8 道题。报告和进度保存在 `~/miracl-api-benchmark/api_smoke/`。用浏览器打开该目录下的 `REPORT.html` 可以查看图表，`REPORT.md` 是文本报告，`status.json` 记录运行进度。
+默认导入 8 段并查询 8 道题。报告和进度保存在 `~/miracl-api-benchmark/api_smoke/`。用浏览器打开该目录下的 `REPORT.html` 可以查看图表，`REPORT.md` 是文本报告。
+
+终端会实时显示配置检查、入库段落数、索引核验、各并发档的预热及查询进度、成功和失败数，以及报告生成状态。相同日志会追加到结果目录的 `progress.log`，`status.json` 保存最近一次状态。耗时较长的单个请求返回后，段落数或查询数才会更新。续跑时会标明复用的入库检查点和已完成的查询档。
+
+在 Git Bash 中可以另开终端跟踪日志：
+
+```bash
+tail -f "$HOME/miracl-api-benchmark/api_smoke/progress.log"
+```
+
+正式评测目录改为 `api_full`，使用 `--output` 时查看你指定的目录。
 
 ## 正式运行
 

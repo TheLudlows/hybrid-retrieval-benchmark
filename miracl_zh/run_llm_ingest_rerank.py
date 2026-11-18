@@ -142,7 +142,10 @@ class Run:
             save(owner, identity)
         self.run_id = identity["run_id"]
         save(plan_path, self.plan)
-        self.status(state="starting")
+        self.status(
+            state="starting",
+            message=f"Run plan ready ({self.expected:,} passages, {len(self.topics):,} queries)",
+        )
 
     def service_plan(self, args):
         model_files = Path(__file__).resolve().parents[1] / "deployment/models"
@@ -176,6 +179,9 @@ class Run:
             self.args.results / "status.json",
             {"run_id": self.run_id, "updated_unix": time.time(), **fields},
         )
+        self.log_status(fields)
+
+    def log_status(self, fields):
         print(json.dumps(fields), flush=True)
 
     def corpus_rows(self):
@@ -517,13 +523,30 @@ class Run:
 
     def retrieve(self, product, mapping, concurrency, runtime, folder):
         folder.mkdir(exist_ok=True, parents=True)
+        target = len(self.topics)
         if (folder / "metrics.json").exists():
+            self.status(
+                state="query_cached",
+                product=product,
+                concurrency=concurrency,
+                completed=target,
+                target=target,
+                message="Using completed query window",
+            )
             return
         number = len(list(folder.glob("attempt-*"))) + 1
         attempt = folder / f"attempt-{number:03d}"
         attempt.mkdir()
+        warmups = list(self.topics.values())[: self.plan["warmups_per_window"]]
+        self.status(
+            state="warming_up",
+            product=product,
+            concurrency=concurrency,
+            target=len(warmups),
+            message=f"Warming up ({len(warmups)} queries, excluded from metrics)",
+        )
         self.phase(product, "warmup", f"c{concurrency}-{number}-warmup")
-        for query in list(self.topics.values())[: self.plan["warmups_per_window"]]:
+        for query in warmups:
             self.fetch_query(bench.prior_api(product), product, query)
         run_id = self.phase(product, "query", f"c{concurrency}-{number}")
         lock_ranks = attempt / "rankings.jsonl"
@@ -533,7 +556,8 @@ class Run:
             state="querying",
             product=product,
             concurrency=concurrency,
-            target=len(self.topics),
+            completed=0,
+            target=target,
         )
 
         def query(qid, text):
@@ -564,8 +588,11 @@ class Run:
 
         if sampler:
             sampler.start()
+        progress_every = min(25, max(1, target // 2))
         started = time.perf_counter()
+        last_update = started
         records = []
+        success = 0
         try:
             with ThreadPoolExecutor(max_workers=concurrency) as pool:
                 futures = [
@@ -575,19 +602,34 @@ class Run:
                     record = future.result()
                     append_row(lock_ranks, record)
                     records.append(record)
-                    if len(records) % 25 == 0:
+                    success += record["success"]
+                    completed = len(records)
+                    now = time.perf_counter()
+                    if completed < target and (
+                        completed % progress_every == 0 or now - last_update >= 15
+                    ):
                         self.status(
                             state="querying",
                             product=product,
                             concurrency=concurrency,
-                            completed=len(records),
-                            target=len(self.topics),
+                            completed=completed,
+                            target=target,
+                            successful=success,
                         )
+                        last_update = now
         finally:
             wall = time.perf_counter() - started
             resource = sampler.finish() if sampler else None
         usage = self.query_usage(run_id, attempt)
-        success = sum(row["success"] for row in records)
+        self.status(
+            state="scoring",
+            product=product,
+            concurrency=concurrency,
+            completed=len(records),
+            target=target,
+            successful=success,
+            message="Scoring saved query rankings",
+        )
         nonempty = sum(row["success"] and bool(row["passages"]) for row in records)
         result = evaluate(lock_ranks, self.qrels, self.source)
         verified = self.verify_query_rerank(product, usage, nonempty)
@@ -609,6 +651,15 @@ class Run:
                 "Rerank calls or the zero-query-generation requirement could not be verified"
             )
         save(folder / "metrics.json", result)
+        self.status(
+            state="query_complete",
+            product=product,
+            concurrency=concurrency,
+            completed=len(records),
+            target=target,
+            successful=success,
+            message="Query results saved",
+        )
 
     def fetch_query(self, api, product, query):
         return bench.fetch_ranked(api, product, query, CAP, RERANKER)

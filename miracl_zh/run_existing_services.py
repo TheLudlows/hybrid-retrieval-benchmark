@@ -2,6 +2,7 @@
 
 import argparse
 from contextlib import closing
+from datetime import datetime
 import json
 import os
 from pathlib import Path
@@ -24,6 +25,7 @@ from run_llm_ingest_rerank import (
 from run_support import run_lock, save
 
 DATA = Path(__file__).resolve().parent / "data/miracl-zh-100k"
+PRODUCT_LABELS = {"contextbase": "ContextBase", "weknora": "WeKnora Lite"}
 CONTEXTBASE_REQUIRED_FIELDS = (
     "retain_extraction_mode",
     "enable_reranking",
@@ -39,6 +41,14 @@ MIRACL_SOURCE_FIELDS = (
     "reranker_max_candidates",
     "reranker_max_candidates_high",
 )
+
+
+def append_progress(root, message):
+    timestamp = datetime.now().astimezone().isoformat(timespec="seconds")
+    line = f"[{timestamp}] {message}"
+    with (root / "progress.log").open("a", encoding="utf-8", newline="\n") as stream:
+        stream.write(line + "\n")
+    print(line, flush=True)
 
 
 def records(api, product):
@@ -63,6 +73,7 @@ def records(api, product):
 
 class ExistingRun(Run):
     def service_plan(self, args):
+        append_progress(args.results, "ContextBase | Checking Bank configuration")
         c = bench.prior_api("contextbase")
         config = c.request("/config").get("config")
         if not isinstance(config, dict):
@@ -100,6 +111,7 @@ class ExistingRun(Run):
             raise ValueError(
                 "Disable graph and temporal branches on the ContextBase benchmark Bank"
             )
+        append_progress(args.results, "WeKnora Lite | Checking knowledge base configuration")
         w = bench.prior_api("weknora")
         kb = w.request(f"/knowledge-bases/{quote(w.scope, safe='')}")["data"]
         questions = kb.get("question_generation_config") or {}
@@ -127,6 +139,24 @@ class ExistingRun(Run):
             },
             "model_weights_verified": False,
         }
+
+    def log_status(self, fields):
+        parts = []
+        if product := fields.get("product"):
+            parts.append(PRODUCT_LABELS[product])
+        if concurrency := fields.get("concurrency"):
+            parts.append(f"Concurrency {concurrency}")
+        message = fields.get("message") or fields["state"].replace("_", " ").capitalize()
+        completed = fields.get("completed", fields.get("indexed"))
+        target = fields.get("target")
+        if completed is not None and target:
+            message += f" {completed:,}/{target:,} ({completed / target:.1%})"
+        successful = fields.get("successful")
+        if completed is not None and successful is not None:
+            message += f" | {successful:,} successful, {completed - successful:,} failed"
+        if error := fields.get("error_type"):
+            message += f" ({error})"
+        append_progress(self.args.results, " | ".join([*parts, message]))
 
     def phase(self, product, phase, stage):
         return f"{self.run_id}/{product}/{stage}"
@@ -171,7 +201,17 @@ class ExistingRun(Run):
             indexed = db.execute(
                 "SELECT count(*) FROM passage_map WHERE indexed=1"
             ).fetchone()[0]
-            if not summary.exists():
+            reuse = summary.exists()
+            self.status(
+                state="importing",
+                product=product,
+                indexed=indexed,
+                target=self.expected,
+                message="Using import checkpoint" if reuse or indexed else "Starting import",
+            )
+            if not reuse:
+                first_batch = True
+                last_update = time.monotonic()
                 for batch in self.batches(self.corpus_rows(), self.args.batch_size):
                     todo = []
                     for row in batch:
@@ -183,6 +223,14 @@ class ExistingRun(Run):
                             todo.append((row, entry[0] if entry else None))
                     if not todo:
                         continue
+                    if first_batch:
+                        self.status(
+                            state="importing",
+                            product=product,
+                            indexed=indexed,
+                            target=self.expected,
+                            message=f"Submitting batch of {len(todo)} passages",
+                        )
                     start = time.time()
                     if not first.exists():
                         save(first, {"started_unix": start})
@@ -203,6 +251,11 @@ class ExistingRun(Run):
                             remote or ingest.weknora_create(db, ImportAPI(api), row)
                             for row, remote in todo
                         ]
+                        if first_batch:
+                            append_progress(
+                                self.args.results,
+                                f"WeKnora Lite | Waiting for indexing on {len(ids)} submitted passages",
+                            )
                         ingest.wait_for_index(
                             db, api, ids, self.args.index_timeout, 0.5
                         )
@@ -217,17 +270,22 @@ class ExistingRun(Run):
                             "llm_usage": tokens,
                         },
                     )
+                    now = time.monotonic()
                     if (
-                        indexed == len(todo)
+                        first_batch
                         or indexed == self.expected
                         or indexed // 128 != (indexed - len(todo)) // 128
+                        or now - last_update >= 15
                     ):
                         self.status(
                             state="importing",
                             product=product,
                             indexed=indexed,
                             target=self.expected,
+                            message="Indexed passages",
                         )
+                        last_update = now
+                    first_batch = False
             mapping = dict(
                 db.execute(
                     "SELECT remote_id,passage_id FROM passage_map WHERE indexed=1"
@@ -238,6 +296,11 @@ class ExistingRun(Run):
             with db:
                 db.execute("UPDATE miracl_ingest_run SET complete=1")
 
+        self.status(
+            state="auditing_index",
+            product=product,
+            message="Checking native document coverage and LLM enrichment",
+        )
         native = list(records(api, product))
         if len(native) != self.expected or {row["id"] for row in native} != set(
             mapping
@@ -318,6 +381,13 @@ class ExistingRun(Run):
                     "index": coverage,
                 },
             )
+        self.status(
+            state="import_complete",
+            product=product,
+            indexed=indexed,
+            target=self.expected,
+            message="Import verified",
+        )
         return mapping
 
     def probe_contextbase(self):
@@ -353,6 +423,11 @@ class ExistingRun(Run):
 
     def run(self):
         for product in PRODUCTS:
+            self.status(
+                state="checking_index",
+                product=product,
+                message="Checking the test library or its checkpoint",
+            )
             api = bench.prior_api(product)
             if not (self.args.work / f"{product}.sqlite").exists() and next(
                 records(api, product), None
@@ -362,10 +437,14 @@ class ExistingRun(Run):
         for product in PRODUCTS:
             folder = self.args.results / product
             folder.mkdir(exist_ok=True)
-            self.status(state="importing", product=product, target=self.expected)
             mappings[product] = self.import_corpus(
                 product, bench.prior_api(product), {}, folder
             )
+        self.status(
+            state="checking_rerank",
+            product="contextbase",
+            message="Verifying model reranking with a recall trace",
+        )
         self.probe_contextbase()
         for concurrency in CONCURRENCY:
             for product in PRODUCTS if concurrency != 4 else reversed(PRODUCTS):
@@ -376,8 +455,13 @@ class ExistingRun(Run):
                     {},
                     self.args.results / product / f"c{concurrency}",
                 )
+        self.status(state="reporting", message="Writing REPORT.md and REPORT.html")
         self.report()
-        self.status(state="complete", smoke=self.args.smoke)
+        self.status(
+            state="complete",
+            smoke=self.args.smoke,
+            message="Benchmark complete. See REPORT.html or REPORT.md in the results directory.",
+        )
 
     def report(self):
         root = self.args.results
@@ -534,10 +618,16 @@ def main():
     args.work = args.results / "checkpoints"
     args.work.mkdir(mode=0o700, exist_ok=True)
     with run_lock(args.work / "run.lock"):
+        mode = "Smoke test" if args.smoke else "Full benchmark"
+        append_progress(args.results, f"{mode} | Reading MIRACL data and preparing preflight")
         try:
             run = ExistingRun(args)
         except ValueError as error:
+            append_progress(args.results, "Preflight failed. See the terminal error.")
             parser.error(str(error))
+        except (OSError, KeyboardInterrupt) as error:
+            append_progress(args.results, f"Preflight stopped ({type(error).__name__}).")
+            raise
         try:
             run.run()
         except BaseException as error:

@@ -80,15 +80,18 @@ jobs:
       - name: Check ContextBase configuration readback
         shell: python
         run: |
+          from pathlib import Path
           import sys
+          from tempfile import TemporaryDirectory
           from types import SimpleNamespace
           from unittest.mock import Mock, patch
 
           sys.path.insert(0, "miracl_zh")
           import run_existing_services as client
 
+          output = TemporaryDirectory()
           run = object.__new__(client.ExistingRun)
-          args = SimpleNamespace(weknora_reranker_id="")
+          args = SimpleNamespace(weknora_reranker_id="", results=Path(output.name))
           contextbase = Mock(base="http://contextbase", scope="test")
           weknora = Mock(base="http://weknora", scope="test")
           weknora.request.return_value = {"data": {"question_generation_config": {"enabled": True}}}
@@ -117,3 +120,13 @@ jobs:
           contextbase.request.return_value = {"config": config}
           with patch.object(client.bench, "prior_api", side_effect=[contextbase, weknora]):
               assert run.service_plan(args)["contextbase_readback"] == config
+
+          run.args = args
+          run.run_id = "test"
+          run.status(state="querying", product="weknora", concurrency=4,
+                     completed=25, target=393, successful=24)
+          log = (args.results / "progress.log").read_text(encoding="utf-8")
+          assert "ContextBase | Checking Bank configuration" in log
+          assert "WeKnora Lite | Concurrency 4 | Querying 25/393 (6.4%) | 24 successful, 1 failed" in log
+          assert client.read_json(args.results / "status.json")["completed"] == 25
+          output.cleanup()
