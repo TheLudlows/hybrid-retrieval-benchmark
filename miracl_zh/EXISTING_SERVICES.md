@@ -6,20 +6,29 @@
 
 - 在两端各准备一个专用空测试库。ContextBase Bank 开启生成式事实抽取、全文检索和模型重排，关闭图与时间检索，重排上限设为 60。WeKnora 文档知识库开启问题生成，并配好默认重排模型。WeKnora 的导入请求关闭文档摘要，知识库画像在测试库中关闭。想对齐此前的权重和候选配置，可参考 [正式配置](../results/miracl-zh-llm-ingest-rerank-20261118/formal-runtime.json)。
 - 两端配置相同的 LLM、Embedding 和重排模型。脚本会读取可见的库设置并验证原生重排证据。模型权重与实际版本由服务方核对。
-- 使用可读写测试库的 ContextBase Bearer API key 和 WeKnora API key，在本机将四个变量设为对应值。脚本会拒绝对首次运行中已经有文档的测试库写入。
+- 使用可读写测试库的 ContextBase Bearer API key 和 WeKnora API key。首次运行时，脚本会检查两端测试库是否为空。
+
+复制配置模板，把两端的 API 根地址、API Key 和测试库 ID 填入本地文件。地址不带 `/v1` 或 `/api/v1` 后缀。WeKnora 的 `reranker_id` 留空时使用现有服务的默认重排模型。
 
 ```bash
-export CONTEXTBASE_BANK_ID='your-empty-bank-id'
-export WEKNORA_KB_ID='your-empty-kb-id'
-# 在本机秘密管理器或终端注入 CONTEXTBASE_API_KEY 和 WEKNORA_API_KEY
+cp miracl_zh/services.example.json miracl-services.local.json
+chmod 600 miracl-services.local.json
+# 编辑 miracl-services.local.json 后执行
+python3 miracl_zh/run_existing_services.py --config miracl-services.local.json
+```
 
+`miracl-services*.local.json` 已加入 Git 忽略规则。配置里的 `api_key` 也可以留空，由脚本读取对应的 `CONTEXTBASE_API_KEY` 或 `WEKNORA_API_KEY`。
+
+已有环境变量和命令也可以继续使用。设置 `CONTEXTBASE_API_KEY`、`CONTEXTBASE_BANK_ID`、`WEKNORA_API_KEY` 和 `WEKNORA_KB_ID` 后，直接传两个地址。
+
+```bash
 python3 miracl_zh/run_existing_services.py \
   http://localhost:18888 http://localhost:18080
 ```
 
-地址不带原生 API 的 `/v1` 或 `/api/v1` 后缀。WeKnora 默认使用该租户已配置的重排模型。如需指定已有模型的 ID，可设置 `WEKNORA_RERANKER_ID`。测试期间专用库应由该任务独占。
+也可以用 `--weknora-reranker-id` 指定现有模型 ID。选项优先于配置文件中的非空 `reranker_id`，其次使用 `WEKNORA_RERANKER_ID`，最后由服务选择默认模型。测试期间专用库应由该任务独占。
 
-默认使用 8 段和 8 道题预检，结果保存在 `~/miracl-api-benchmark/api_smoke`。正式跑用**另一对空库**更新环境变量，然后增加 `--full`。正式模式使用归档的 100,000 段、393 道题及官方标注，两端分别跑并发 1／4／8。指定 `--output <独立目录>` 可改路径。同一模式、地址、库和输出目录可续跑已保存的批次。如果 WeKnora 的创建响应中断，按错误提示用官方段落 ID 和已创建的知识 ID 恢复映射。
+默认使用 8 段和 8 道题预检，结果保存在 `~/miracl-api-benchmark/api_smoke`。正式跑时，用**另一对空库**更新测试库 ID，然后增加 `--full`。正式模式使用归档的 100,000 段、393 道题及官方标注，两端分别跑并发 1／4／8。指定 `--output <独立目录>` 可改路径。同一模式、地址、库和输出目录可续跑已保存的批次。如果 WeKnora 的创建响应中断，按错误提示用官方段落 ID 和已创建的知识 ID 恢复映射。
 
 ## 指标与输出
 

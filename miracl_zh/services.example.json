@@ -1,0 +1,13 @@
+{
+  "contextbase": {
+    "base_url": "http://localhost:18888",
+    "api_key": "",
+    "bank_id": ""
+  },
+  "weknora": {
+    "base_url": "http://localhost:18080",
+    "api_key": "",
+    "kb_id": "",
+    "reranker_id": ""
+  }
+}

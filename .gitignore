@@ -3,6 +3,7 @@ __pycache__/
 .venv/
 .env
 .env.*
+miracl-services*.local.json
 deployment/api-venv/
 deployment/model-venv/
 deployment/contextbase/

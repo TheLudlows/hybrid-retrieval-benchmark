@@ -400,10 +400,90 @@ class ExistingRun(Run):
         (root / "REPORT.md").write_text("\n".join(lines), encoding="utf-8")
 
 
+def configure_connection(parser, args):
+    environment_fields = {
+        "contextbase": {
+            "base_url": "CONTEXTBASE_URL",
+            "api_key": "CONTEXTBASE_API_KEY",
+            "bank_id": "CONTEXTBASE_BANK_ID",
+        },
+        "weknora": {
+            "base_url": "WEKNORA_URL",
+            "api_key": "WEKNORA_API_KEY",
+            "kb_id": "WEKNORA_KB_ID",
+        },
+    }
+    file_reranker = ""
+    if args.config is not None:
+        if args.contextbase_url is not None or args.weknora_url is not None:
+            parser.error("Use --config or the two positional service URLs")
+        try:
+            config = json.loads(args.config.expanduser().read_text(encoding="utf-8"))
+        except OSError as error:
+            parser.error(f"Cannot read the config file ({error.strerror})")
+        except UnicodeError:
+            parser.error("The config file must use UTF-8")
+        except json.JSONDecodeError as error:
+            parser.error(
+                f"Invalid JSON in the config file at line {error.lineno}, column {error.colno}"
+            )
+        if not isinstance(config, dict) or set(config) != set(environment_fields):
+            parser.error("The config file must contain contextbase and weknora objects")
+        connection = {}
+        for product, fields in environment_fields.items():
+            values = config[product]
+            allowed = set(fields) | ({"reranker_id"} if product == "weknora" else set())
+            if not isinstance(values, dict) or values.keys() - allowed:
+                parser.error(f"Invalid fields in the {product} config object")
+            for field in allowed:
+                if field in values and not isinstance(values[field], str):
+                    parser.error(f"{product}.{field} must be a string")
+            for field, env in fields.items():
+                value = values.get(field, "").strip()
+                if field == "api_key" and not value:
+                    value = os.environ.get(env, "").strip()
+                if not value:
+                    parser.error(f"Set {product}.{field} in the config file")
+                connection[env] = value
+        file_reranker = config["weknora"].get("reranker_id", "").strip()
+    else:
+        if args.contextbase_url is None or args.weknora_url is None:
+            parser.error("Supply --config or both service URLs")
+        required = (
+            "CONTEXTBASE_API_KEY",
+            "CONTEXTBASE_BANK_ID",
+            "WEKNORA_API_KEY",
+            "WEKNORA_KB_ID",
+        )
+        if missing := [
+            name for name in required if not os.environ.get(name, "").strip()
+        ]:
+            parser.error(
+                "Set benchmark credentials and scopes in the environment: "
+                + ", ".join(missing)
+            )
+        connection = {
+            "CONTEXTBASE_URL": args.contextbase_url,
+            "WEKNORA_URL": args.weknora_url,
+        }
+    os.environ.update(connection, BENCH_HTTP_TIMEOUT_SECONDS="600")
+    if args.weknora_reranker_id is None:
+        args.weknora_reranker_id = file_reranker or os.environ.get(
+            "WEKNORA_RERANKER_ID", ""
+        )
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("contextbase_url", help="ContextBase native API base URL")
-    parser.add_argument("weknora_url", help="WeKnora native API base URL")
+    parser.add_argument(
+        "contextbase_url", nargs="?", help="ContextBase native API base URL"
+    )
+    parser.add_argument("weknora_url", nargs="?", help="WeKnora native API base URL")
+    parser.add_argument(
+        "--config",
+        type=Path,
+        help="Local JSON file with service URLs, API keys and scope IDs",
+    )
     parser.add_argument(
         "--full",
         action="store_true",
@@ -414,28 +494,13 @@ def main():
         "--output", type=Path, help="Use a dedicated path; reuse it to resume"
     )
     parser.add_argument(
-        "--weknora-reranker-id", default=os.environ.get("WEKNORA_RERANKER_ID", "")
+        "--weknora-reranker-id", help="Override the configured WeKnora reranker ID"
     )
     parser.add_argument(
         "--recover-weknora", nargs=2, metavar=("PASSAGE", "KNOWLEDGE_ID")
     )
     args = parser.parse_args()
-    required = (
-        "CONTEXTBASE_API_KEY",
-        "CONTEXTBASE_BANK_ID",
-        "WEKNORA_API_KEY",
-        "WEKNORA_KB_ID",
-    )
-    if missing := [name for name in required if not os.environ.get(name, "").strip()]:
-        parser.error(
-            "Set benchmark credentials and scopes in the environment: "
-            + ", ".join(missing)
-        )
-    os.environ.update(
-        CONTEXTBASE_URL=args.contextbase_url,
-        WEKNORA_URL=args.weknora_url,
-        BENCH_HTTP_TIMEOUT_SECONDS="600",
-    )
+    configure_connection(parser, args)
     args.smoke = not args.full
     args.run_name = "api_smoke" if args.smoke else "api_full"
     args.batch_size = 4 if args.smoke else 16
