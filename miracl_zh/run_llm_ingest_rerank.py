@@ -3,7 +3,6 @@
 import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from contextlib import closing
-import fcntl
 import gzip
 import hashlib
 import json
@@ -28,7 +27,7 @@ from llm_ingest_services import (
     WEKNORA_CONFIG,
     services,
 )
-from run_support import Sampler, save
+from run_support import Sampler, run_lock, save
 
 CONCURRENCY = (1, 4, 8)
 PRODUCTS = ("contextbase", "weknora")
@@ -37,7 +36,7 @@ SMOKE_TOPICS = 8
 
 
 def read_json(path):
-    return json.loads(path.read_text())
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def sha256(path):
@@ -48,7 +47,7 @@ def sha256(path):
 def append_row(path, row):
     import os
 
-    with path.open("a", encoding="utf-8") as stream:
+    with path.open("a", encoding="utf-8", newline="\n") as stream:
         stream.write(json.dumps(row, ensure_ascii=False) + "\n")
         stream.flush()
         os.fsync(stream.fileno())
@@ -176,7 +175,7 @@ class Run:
             self.args.results / "status.json",
             {"run_id": self.run_id, "updated_unix": time.time(), **fields},
         )
-        print(json.dumps(fields, ensure_ascii=False), flush=True)
+        print(json.dumps(fields), flush=True)
 
     def corpus_rows(self):
         if self.rows is not None:
@@ -776,8 +775,7 @@ def main():
         raise KeyboardInterrupt
 
     signal.signal(signal.SIGTERM, interrupt)
-    with (args.work / "run.lock").open("a") as lock:
-        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    with run_lock(args.work / "run.lock"):
         run = Run(args)
         try:
             run.run()

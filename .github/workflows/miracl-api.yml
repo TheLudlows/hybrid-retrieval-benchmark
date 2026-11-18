@@ -1,0 +1,78 @@
+name: MIRACL API client portability
+
+on:
+  push:
+    branches: [miracl-zh-benchmark]
+    paths:
+      - .github/workflows/miracl-api.yml
+      - miracl_zh/**
+      - doc_recall_v1/bench.py
+  pull_request:
+    branches: [miracl-zh-benchmark]
+    paths:
+      - .github/workflows/miracl-api.yml
+      - miracl_zh/**
+      - doc_recall_v1/bench.py
+
+permissions:
+  contents: read
+
+jobs:
+  client:
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 6
+    env:
+      PYTHONUTF8: "0"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python miracl_zh/run_existing_services.py --help
+      - run: python miracl_zh/bench.py --data miracl_zh/data/miracl-zh-100k verify
+      - name: Check locking and UTF-8 checkpoints
+        shell: python
+        run: |
+          from pathlib import Path
+          import subprocess
+          import sys
+          from tempfile import TemporaryDirectory
+
+          sys.path.insert(0, "miracl_zh")
+          from run_llm_ingest_rerank import append_row, read_json
+          from run_support import run_lock, save
+
+          with TemporaryDirectory() as folder:
+              lock = Path(folder, "run.lock")
+              child = [
+                  sys.executable, "-c",
+                  "import sys; sys.path.insert(0, 'miracl_zh'); from pathlib import Path; "
+                  "from run_support import run_lock\nwith run_lock(Path(sys.argv[1])): pass",
+                  str(lock),
+              ]
+              with run_lock(lock):
+                  blocked = subprocess.run(child, capture_output=True, timeout=10)
+                  assert blocked.returncode != 0, blocked
+                  assert b"Another process holds the run lock" in blocked.stderr, blocked
+              subprocess.run(child, check=True, timeout=10)
+              crash = child.copy()
+              crash[2] = crash[2].replace(": pass", ": __import__('os')._exit(9)")
+              assert subprocess.run(crash, timeout=10).returncode == 9
+              with run_lock(lock):
+                  pass
+
+              status = Path(folder, "status.json")
+              payload = {"query": "\u4e8c\u6218"}
+              save(status, payload)
+              assert read_json(status) == payload
+              assert payload["query"].encode("utf-8") in status.read_bytes()
+
+              journal = Path(folder, "progress.jsonl")
+              append_row(journal, payload)
+              assert b"\r\n" not in journal.read_bytes()
+              assert read_json(journal) == payload

@@ -13,7 +13,7 @@ from run_support import save
 def evaluate(run, qrels, source):
     legacy = bench.score(run, qrels, None, source)
     per_query = {}
-    for line in run.read_text().splitlines():
+    for line in run.read_text(encoding="utf-8").splitlines():
         row = json.loads(line)
         qid, passages = row["qid"], row["passages"]
         labels = qrels[qid]

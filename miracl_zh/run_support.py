@@ -1,5 +1,7 @@
-"""Persist MIRACL run state and sample local benchmark resources."""
+"""Lock and persist MIRACL run state and sample local benchmark resources."""
 
+from contextlib import contextmanager
+import errno
 import json
 import os
 from pathlib import Path
@@ -7,10 +9,36 @@ import threading
 import time
 
 
+@contextmanager
+def run_lock(path):
+    """Hold a nonblocking lock until the file handle closes."""
+    with path.open("a+b") as lock:
+        try:
+            if os.name == "nt":
+                import msvcrt
+
+                lock.seek(0)
+                msvcrt.locking(lock.fileno(), msvcrt.LK_NBLCK, 1)
+            else:
+                import fcntl
+
+                fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except OSError as exc:
+            if exc.errno not in (errno.EACCES, errno.EAGAIN):
+                raise
+            raise RuntimeError(f"Another process holds the run lock: {path}") from exc
+        try:
+            yield
+        finally:
+            if os.name == "nt":
+                lock.seek(0)
+                msvcrt.locking(lock.fileno(), msvcrt.LK_UNLCK, 1)
+
+
 def save(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
     pending = path.with_suffix(path.suffix + ".tmp")
-    with pending.open("w") as stream:
+    with pending.open("w", encoding="utf-8", newline="\n") as stream:
         json.dump(value, stream, ensure_ascii=False, indent=2)
         stream.write("\n")
         stream.flush()

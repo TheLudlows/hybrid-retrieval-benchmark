@@ -1,6 +1,6 @@
 # MIRACL 中文检索评测
 
-用已有的 ContextBase 和 WeKnora Lite 服务比较 LLM 入库与开启重排的检索。运行端需要 Linux 和 Python 3.11+，脚本通过两端的原生 API 使用服务已配置的模型。仓库自带 MIRACL v1.0 中文开发集的 [10 万段语料、393 道题和 3,928 条相关性标注](data/miracl-zh-100k/README.md)。
+用已有的 ContextBase 和 WeKnora Lite 服务比较 LLM 入库与开启重排的检索。直连脚本支持 Windows 和 Linux，需使用 Python 3.11+。脚本通过两端的原生 API 使用服务已配置的模型。仓库自带 MIRACL v1.0 中文开发集的 [10 万段语料、393 道题和 3,928 条相关性标注](data/miracl-zh-100k/README.md)。
 
 ## 准备测试库
 
@@ -20,6 +20,8 @@ chmod 600 miracl-services.local.json
 # 填好配置后执行
 python3 miracl_zh/run_existing_services.py --config miracl-services.local.json
 ```
+
+在 Windows Git Bash 中可用 `python` 替代 `python3`。
 
 本地配置文件已加入 Git 忽略规则。`api_key` 也可留空，由脚本读入 `CONTEXTBASE_API_KEY` 或 `WEKNORA_API_KEY`。如果使用位置参数直接传两个地址，同时设置这两个变量和 `CONTEXTBASE_BANK_ID`、`WEKNORA_KB_ID`。WeKnora 重排模型的选择顺序为 `--weknora-reranker-id`、配置文件的 `reranker_id`、`WEKNORA_RERANKER_ID`、服务默认模型。
 

@@ -2,7 +2,6 @@
 
 import argparse
 from contextlib import closing
-import fcntl
 import json
 import os
 from pathlib import Path
@@ -21,7 +20,7 @@ from run_llm_ingest_rerank import (
     append_row,
     read_json,
 )
-from run_support import save
+from run_support import run_lock, save
 
 DATA = Path(__file__).resolve().parent / "data/miracl-zh-100k"
 MIRACL_SOURCE_FIELDS = (
@@ -268,7 +267,10 @@ class ExistingRun(Run):
                 )
         save(folder / "index-coverage.json", coverage)
         if not summary.exists():
-            batches = [json.loads(line) for line in journal.read_text().splitlines()]
+            batches = [
+                json.loads(line)
+                for line in journal.read_text(encoding="utf-8").splitlines()
+            ]
             if sum(row["documents"] for row in batches) != self.expected:
                 raise ValueError("Import timing journal is incomplete")
             observed = [
@@ -512,8 +514,7 @@ def main():
     args.results.mkdir(mode=0o700, parents=True, exist_ok=True)
     args.work = args.results / "checkpoints"
     args.work.mkdir(mode=0o700, exist_ok=True)
-    with (args.work / "run.lock").open("a") as lock:
-        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    with run_lock(args.work / "run.lock"):
         run = ExistingRun(args)
         try:
             run.run()
