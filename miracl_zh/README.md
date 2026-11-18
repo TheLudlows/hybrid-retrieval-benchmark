@@ -1,6 +1,6 @@
 # MIRACL 中文检索评测
 
-[LLM 入库与模型重排](LLM_INGEST_RERANK.md)提供两端独立建库、同一生成模型、原生重排和并发 1／4／8 的本地复现脚本。该实验使用独立结果和索引。
+[LLM 入库与模型重排](LLM_INGEST_RERANK.md)提供两端独立建库、同一生成模型、原生重排和并发 1／4／8 的本地复现脚本。仓库含正式跑的 [MIRACL 中文 10 万段、393 题及标注](data/miracl-zh-100k/README.md)，可直接用 `local_llm_ingest_rerank.sh smoke` 预检。
 
 当前主实验按用户要求改为[关闭产品内部模型重排](../results/miracl-zh-native-no-rerank-20261113/README.md)。采集新增 `--disable-rerank`，WeKnora请求显式关闭，ContextBase还需原生Bank/服务端 `enable_reranking=false`。该模式必须核验实际重排调用为零，且不能续跑进带重排的文件。评分新增 Recall@10。
 

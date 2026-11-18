@@ -1,0 +1,4 @@
+corpus/subset.jsonl.gz -text
+subset.json -text
+topics.tsv -text
+qrels.tsv -text
