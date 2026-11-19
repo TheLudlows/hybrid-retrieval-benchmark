@@ -60,6 +60,9 @@ class API:
         self.headers = {"Content-Type": "application/json", "Accept": "application/json"}
         if product == "weknora":
             self.headers["X-API-Key"] = key
+            tenant = os.environ.get("WEKNORA_TENANT_ID", "")
+            if tenant.strip():
+                self.headers["X-Tenant-ID"] = tenant.strip()
             self.scope = os.environ["WEKNORA_KB_ID"]
             self.prefix = "/api/v1"
         else:

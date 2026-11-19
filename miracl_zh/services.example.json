@@ -8,6 +8,7 @@
     "base_url": "http://localhost:18080",
     "api_key": "",
     "kb_id": "",
-    "reranker_id": ""
+    "reranker_id": "",
+    "tenant_id": ""
   }
 }

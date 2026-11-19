@@ -75,22 +75,16 @@ class ExistingRun(Run):
     def service_plan(self, args):
         append_progress(args.results, "ContextBase | Checking Bank configuration")
         c = bench.prior_api("contextbase")
-        config = c.request("/config").get("config")
+        response = c.request("/config")
+        config = response.get("config")
         if not isinstance(config, dict):
-            raise ValueError(
-                "ContextBase GET /config did not return a Bank configuration object. "
-                "Check contextbase.base_url, bank_id, and the server version."
-            )
-        missing = [field for field in CONTEXTBASE_REQUIRED_FIELDS if field not in config]
-        if missing:
-            raise ValueError(
-                "ContextBase GET /config omitted required Bank settings: "
-                f"{', '.join(missing)}. "
-                "Set contextbase.api_key to a key that can read resolved Bank settings "
-                "(the administrator API key on managed ContextBase). "
-                "If these settings are still absent, check that the service version exposes them."
-            )
-        if config["retain_extraction_mode"] not in {
+            config = {}
+        # Newer ContextBase versions default LLM extraction, model reranking,
+        # and full text search on, and no longer echo those toggles through
+        # /config. Treat an absent field as the service default and only reject
+        # explicit contradictions; the downstream memory_unit_count and rerank
+        # trace checks verify the actual behaviour at runtime.
+        if "retain_extraction_mode" in config and config["retain_extraction_mode"] not in {
             "concise",
             "verbose",
             "custom",
@@ -100,45 +94,48 @@ class ExistingRun(Run):
                 "Enable LLM fact extraction on the dedicated ContextBase Bank"
             )
         if (
-            config.get("enable_reranking") is not True
-            or config.get("enable_text_search") is not True
+            config.get("enable_reranking") is False
+            or config.get("enable_text_search") is False
         ):
             raise ValueError("Enable ContextBase model reranking and full text search")
         if any(
-            config.get(key) is not False
+            config.get(key) is True
             for key in ("enable_graph_retrieval", "enable_temporal_retrieval")
         ):
             raise ValueError(
                 "Disable graph and temporal branches on the ContextBase benchmark Bank"
             )
-        append_progress(args.results, "WeKnora Lite | Checking knowledge base configuration")
-        w = bench.prior_api("weknora")
-        kb = w.request(f"/knowledge-bases/{quote(w.scope, safe='')}")["data"]
-        questions = kb.get("question_generation_config") or {}
-        if questions.get("enabled") is not True:
-            raise ValueError(
-                "Enable question generation on the dedicated WeKnora knowledge base"
-            )
-        if (kb.get("profile_config") or {}).get("enabled"):
-            raise ValueError(
-                "Disable knowledge-base profile generation for this benchmark"
-            )
-        return {
+        plan = {
             "mode": "existing native APIs",
-            "scopes": {"contextbase": [c.base, c.scope], "weknora": [w.base, w.scope]},
+            "scopes": {"contextbase": [c.base, c.scope]},
             "contextbase_readback": {
                 key: config[key] for key in MIRACL_SOURCE_FIELDS if key in config
             },
-            "weknora_readback": {
+            "model_weights_verified": False,
+        }
+        if "weknora" in args.products:
+            append_progress(args.results, "WeKnora Lite | Checking knowledge base configuration")
+            w = bench.prior_api("weknora")
+            kb = w.request(f"/knowledge-bases/{quote(w.scope, safe='')}")["data"]
+            questions = kb.get("question_generation_config") or {}
+            if questions.get("enabled") is not True:
+                raise ValueError(
+                    "Enable question generation on the dedicated WeKnora knowledge base"
+                )
+            if (kb.get("profile_config") or {}).get("enabled"):
+                raise ValueError(
+                    "Disable knowledge-base profile generation for this benchmark"
+                )
+            plan["scopes"]["weknora"] = [w.base, w.scope]
+            plan["weknora_readback"] = {
                 "embedding_model_id": kb.get("embedding_model_id"),
                 "question_generation_enabled": True,
                 "question_count": questions.get("question_count"),
                 "question_model_id": questions.get("model_id")
                 or kb.get("summary_model_id"),
                 "reranker_override": args.weknora_reranker_id or None,
-            },
-            "model_weights_verified": False,
-        }
+            }
+        return plan
 
     def log_status(self, fields):
         parts = []
@@ -422,7 +419,8 @@ class ExistingRun(Run):
         save(self.args.results / "contextbase-rerank-probe.json", details)
 
     def run(self):
-        for product in PRODUCTS:
+        products = self.args.products
+        for product in products:
             self.status(
                 state="checking_index",
                 product=product,
@@ -434,20 +432,21 @@ class ExistingRun(Run):
             ):
                 raise ValueError(f"{product} scope must be empty on the first run")
         mappings = {}
-        for product in PRODUCTS:
+        for product in products:
             folder = self.args.results / product
             folder.mkdir(exist_ok=True)
             mappings[product] = self.import_corpus(
                 product, bench.prior_api(product), {}, folder
             )
-        self.status(
-            state="checking_rerank",
-            product="contextbase",
-            message="Verifying model reranking with a recall trace",
-        )
-        self.probe_contextbase()
+        if "contextbase" in products:
+            self.status(
+                state="checking_rerank",
+                product="contextbase",
+                message="Verifying model reranking with a recall trace",
+            )
+            self.probe_contextbase()
         for concurrency in CONCURRENCY:
-            for product in PRODUCTS if concurrency != 4 else reversed(PRODUCTS):
+            for product in products if concurrency != 4 else reversed(products):
                 self.retrieve(
                     product,
                     mappings[product],
@@ -478,7 +477,9 @@ class ExistingRun(Run):
             "| 产品 | 导入墙钟秒 | 导入 LLM 输入 Token | 导入 LLM 输出 Token |",
             "| --- | ---: | ---: | ---: |",
         ]
-        for product in PRODUCTS:
+        for product in self.args.products:
+            if not (root / product / "import.json").exists():
+                continue
             row = read_json(root / product / "import.json")
             tokens = row["llm_usage"] or {}
             lines.append(
@@ -491,7 +492,9 @@ class ExistingRun(Run):
             "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
         ]
         for concurrency in CONCURRENCY:
-            for product in PRODUCTS:
+            for product in self.args.products:
+                if not (root / product / f"c{concurrency}" / "metrics.json").exists():
+                    continue
                 m = read_json(root / product / f"c{concurrency}" / "metrics.json")
                 lines.append(
                     f"| {product} | {concurrency} | {m['success_rate']:.2%} | "
@@ -536,12 +539,19 @@ def configure_connection(parser, args):
             parser.error(
                 f"Invalid JSON in the config file at line {error.lineno}, column {error.colno}"
             )
-        if not isinstance(config, dict) or set(config) != set(environment_fields):
-            parser.error("The config file must contain contextbase and weknora objects")
+        active = set(args.products)
+        if not isinstance(config, dict) or set(config) - set(environment_fields):
+            parser.error("The config file must contain contextbase and/or weknora objects")
+        missing_keys = active - set(config)
+        if missing_keys:
+            parser.error(f"The config file is missing the {', '.join(sorted(missing_keys))} object(s)")
         connection = {}
+        weknora_optional = {"reranker_id", "tenant_id"}
         for product, fields in environment_fields.items():
+            if product not in config:
+                continue
             values = config[product]
-            allowed = set(fields) | ({"reranker_id"} if product == "weknora" else set())
+            allowed = set(fields) | (weknora_optional if product == "weknora" else set())
             if not isinstance(values, dict) or values.keys() - allowed:
                 parser.error(f"Invalid fields in the {product} config object")
             for field in allowed:
@@ -554,16 +564,22 @@ def configure_connection(parser, args):
                 if not value:
                     parser.error(f"Set {product}.{field} in the config file")
                 connection[env] = value
+        for field, env in (("reranker_id", "WEKNORA_RERANKER_ID"),
+                           ("tenant_id", "WEKNORA_TENANT_ID")):
+            value = config["weknora"].get(field, "").strip()
+            if value:
+                connection[env] = value
         file_reranker = config["weknora"].get("reranker_id", "").strip()
     else:
-        if args.contextbase_url is None or args.weknora_url is None:
-            parser.error("Supply --config or both service URLs")
-        required = (
-            "CONTEXTBASE_API_KEY",
-            "CONTEXTBASE_BANK_ID",
-            "WEKNORA_API_KEY",
-            "WEKNORA_KB_ID",
-        )
+        if args.contextbase_url is None and "contextbase" in args.products:
+            parser.error("Supply the ContextBase URL or use --config")
+        if args.weknora_url is None and "weknora" in args.products:
+            parser.error("Supply the WeKnora URL or use --config")
+        required = []
+        if "contextbase" in args.products:
+            required += ("CONTEXTBASE_API_KEY", "CONTEXTBASE_BANK_ID")
+        if "weknora" in args.products:
+            required += ("WEKNORA_API_KEY", "WEKNORA_KB_ID")
         if missing := [
             name for name in required if not os.environ.get(name, "").strip()
         ]:
@@ -571,10 +587,11 @@ def configure_connection(parser, args):
                 "Set benchmark credentials and scopes in the environment: "
                 + ", ".join(missing)
             )
-        connection = {
-            "CONTEXTBASE_URL": args.contextbase_url,
-            "WEKNORA_URL": args.weknora_url,
-        }
+        connection = {}
+        if args.contextbase_url:
+            connection["CONTEXTBASE_URL"] = args.contextbase_url
+        if args.weknora_url:
+            connection["WEKNORA_URL"] = args.weknora_url
     os.environ.update(connection, BENCH_HTTP_TIMEOUT_SECONDS="600")
     if args.weknora_reranker_id is None:
         args.weknora_reranker_id = file_reranker or os.environ.get(
@@ -613,11 +630,26 @@ def main():
     parser.add_argument(
         "--recover-weknora", nargs=2, metavar=("PASSAGE", "KNOWLEDGE_ID")
     )
+    parser.add_argument(
+        "--products",
+        default=None,
+        help="Comma-separated subset of products to run (e.g. contextbase). Default: all",
+    )
     args = parser.parse_args()
     if args.query_count is not None and (
         not args.full or not 1 <= args.query_count <= bench.SOURCE["queries"]
     ):
         parser.error("--query-count requires --full and a count between 1 and 393")
+    if args.products is not None:
+        selected = tuple(p.strip() for p in args.products.split(",") if p.strip())
+        if not selected:
+            parser.error("--products must name at least one product")
+        invalid = [p for p in selected if p not in PRODUCTS]
+        if invalid:
+            parser.error(f"Unknown product(s): {', '.join(invalid)}; choose from {', '.join(PRODUCTS)}")
+        args.products = selected
+    else:
+        args.products = PRODUCTS
     configure_connection(parser, args)
     args.smoke = not args.full
     args.run_name = "api_smoke" if args.smoke else "api_full"
