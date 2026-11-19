@@ -38,7 +38,7 @@ jobs:
       - run: python miracl_zh/build_subset.py --data miracl_zh/data/miracl-zh-100k --output "${{ runner.temp }}/miracl-10k" --unit passages --count 10000 --seed 20261112
       - run: python miracl_zh/bench.py --data "${{ runner.temp }}/miracl-10k" verify
       - run: python miracl_zh/render_report.py results/miracl-zh-llm-ingest-rerank-20261118/smoke --output "${{ runner.temp }}/miracl-report.html"
-      - name: Verify repeatable query sampling
+      - name: Verify query sampling and concurrency selection
         shell: python
         run: |
           from pathlib import Path
@@ -66,6 +66,12 @@ jobs:
                   plans.append(run.plan)
               assert plans[0] == plans[1] and plans[0]["query_seed"] == 20261112
               assert plans[2] == plans[3] and plans[2]["public_result"] == "formal"
+              args.concurrency = client.parse_concurrency("1,4")
+              resumed = client.ExistingRun(args)
+              assert resumed.plan["concurrency"] == [1, 4]
+              assert resumed.run_id == run.run_id
+              assert client.read_json(args.results / "plan.json") == resumed.plan
+              assert client.read_json(args.work / "run-owner.json")["plan"] == resumed.plan
       - name: Check locking and UTF-8 checkpoints
         shell: python
         run: |
@@ -121,7 +127,7 @@ jobs:
 
           output = TemporaryDirectory()
           run = object.__new__(client.ExistingRun)
-          args = SimpleNamespace(weknora_reranker_id="", results=Path(output.name))
+          args = SimpleNamespace(weknora_reranker_id="", results=Path(output.name), products=client.PRODUCTS)
           contextbase = Mock(base="http://contextbase", scope="test")
           weknora = Mock(base="http://weknora", scope="test")
           weknora.request.return_value = {"data": {"question_generation_config": {"enabled": True}}}
@@ -132,10 +138,9 @@ jobs:
           }
 
           for response, expected in (
-              ({"config": {}}, "administrator API key"),
-              ({"config": {"enable_text_search": True}}, "retain_extraction_mode"),
               ({"config": {**config, "retain_extraction_mode": "chunks"}}, "Enable LLM fact extraction"),
-              ({}, "did not return a Bank configuration object"),
+              ({"config": {"enable_reranking": False}}, "Enable ContextBase model reranking"),
+              ({"config": {"enable_graph_retrieval": True}}, "Disable graph and temporal branches"),
           ):
               contextbase.request.return_value = response
               with patch.object(client.bench, "prior_api", return_value=contextbase) as prior_api:
@@ -147,9 +152,10 @@ jobs:
                       raise AssertionError(f"Preflight accepted invalid response: {response}")
                   prior_api.assert_called_once_with("contextbase")
 
-          contextbase.request.return_value = {"config": config}
-          with patch.object(client.bench, "prior_api", side_effect=[contextbase, weknora]):
-              assert run.service_plan(args)["contextbase_readback"] == config
+          for readback in ({}, config):
+              contextbase.request.return_value = {"config": readback}
+              with patch.object(client.bench, "prior_api", side_effect=[contextbase, weknora]):
+                  assert run.service_plan(args)["contextbase_readback"] == readback
 
           run.args = args
           run.run_id = "test"

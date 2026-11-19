@@ -49,6 +49,7 @@ python3 miracl_zh/run_existing_services.py --config miracl-services.local.json -
 
 - 默认数据目录为 `miracl_zh/data/miracl-zh-100k/`。使用 `python3 miracl_zh/bench.py --data miracl_zh/data/miracl-zh-100k verify` 可单独核验语料。评测其他用 `build_subset.py` 生成的 MIRACL 中文子集时，传 `--data <目录>`。
 - 正式报告默认写入 `~/miracl-api-benchmark/api_full/`。`--output <目录>` 可指定结果路径。中断后保留测试库和输出目录，用相同模式、地址、库 ID 和输出目录续跑。WeKnora 创建请求中断时，按脚本提示用 `--recover-weknora` 恢复官方段落 ID 与已创建的知识 ID 的映射。
+- 加 `--concurrency 1,4` 可只跑并发 1 和 4。已按 1／4／8 开始的同一轮评测，可以中断后在原命令追加该参数。其余配置一致时，脚本会复用入库检查点及已完成的并发 1、4 结果。
 - 报告包含导入耗时、查询成功率、QPS、p95、nDCG@10、Recall@10、MRR@10、Hit@1 和 Precision@5／10。逐题排名和 p50、p99、返回深度等写在各并发档的 JSON 中。查询耗时包含客户端到服务的网络。
 - ContextBase 同步导入返回完整的事实抽取用量时，报告会列出 LLM 输入和输出 Token。其他实际模型用量与服务端资源消耗依赖部署方监控。直连模式拿不到的数据会在报告中标为 `N/A`。
 

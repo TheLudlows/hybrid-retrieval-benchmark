@@ -42,6 +42,19 @@ def read_json(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def compatible_plan(saved, current, allow_narrowing):
+    if saved == current:
+        return True
+    requested = current["concurrency"]
+    previous = saved.get("concurrency") if isinstance(saved, dict) else None
+    return (
+        allow_narrowing
+        and isinstance(previous, list)
+        and [value for value in previous if value in requested] == requested
+        and {**saved, "concurrency": requested} == current
+    )
+
+
 def sha256(path):
     with path.open("rb") as stream:
         return hashlib.file_digest(stream, "sha256").hexdigest()
@@ -108,6 +121,7 @@ class Run:
         self.expected = (
             len(self.rows) if self.rows is not None else self.source["passages"]
         )
+        concurrency = getattr(args, "concurrency", None)
         self.plan = {
             "run_name": args.run_name,
             "dataset": self.source["dataset"],
@@ -119,7 +133,7 @@ class Run:
             else None,
             **self.service_plan(args),
             "query_timeout_s": args.query_timeout,
-            "concurrency": list(CONCURRENCY),
+            "concurrency": list(concurrency or CONCURRENCY),
             "warmups_per_window": 1 if args.smoke else 4,
             "candidate_limit": CAP,
             "ingest_batch_size": args.batch_size,
@@ -128,19 +142,24 @@ class Run:
         if sampled:
             self.plan.update(public_result="query sample", query_seed=QUERY_SAMPLE_SEED)
         plan_path = args.results / "plan.json"
-        if plan_path.exists() and read_json(plan_path) != self.plan:
+        if plan_path.exists() and not compatible_plan(
+            read_json(plan_path), self.plan, concurrency is not None
+        ):
             raise ValueError(
                 "The existing results belong to a different experiment plan"
             )
         owner = args.work / "run-owner.json"
         if owner.exists():
             identity = read_json(owner)
-            if identity["plan"] != self.plan or identity["results"] != str(
-                args.results
+            if identity["results"] != str(args.results) or not compatible_plan(
+                identity["plan"], self.plan, concurrency is not None
             ):
                 raise ValueError(
                     "Use the original work and result directories for this experiment"
                 )
+            if identity["plan"] != self.plan:
+                identity["plan"] = self.plan
+                save(owner, identity)
         else:
             if plan_path.exists():
                 raise ValueError("The work directory for these results is missing")
@@ -708,7 +727,7 @@ class Run:
                 mappings[product] = self.import_corpus(
                     product, bench.prior_api(product), runtime, folder
                 )
-            for concurrency in CONCURRENCY:
+            for concurrency in self.plan["concurrency"]:
                 for product in PRODUCTS if concurrency != 4 else reversed(PRODUCTS):
                     self.retrieve(
                         product,
@@ -753,7 +772,7 @@ class Run:
             "| 产品 | 并发 | 成功数 | 成功 QPS | p95 ms | nDCG@10 | Recall@10 | MRR@10 | Hit@1 | P@5 | P@10 | 重排输入 Token |",
             "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
         ]
-        for concurrency in CONCURRENCY:
+        for concurrency in self.plan["concurrency"]:
             for product in PRODUCTS:
                 m = read_json(root / product / f"c{concurrency}" / "metrics.json")
                 lines.append(

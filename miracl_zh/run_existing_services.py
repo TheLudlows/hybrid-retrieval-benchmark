@@ -445,7 +445,7 @@ class ExistingRun(Run):
                 message="Verifying model reranking with a recall trace",
             )
             self.probe_contextbase()
-        for concurrency in CONCURRENCY:
+        for concurrency in self.plan["concurrency"]:
             for product in products if concurrency != 4 else reversed(products):
                 self.retrieve(
                     product,
@@ -491,7 +491,7 @@ class ExistingRun(Run):
             "| 产品 | 并发 | 请求成功率 | 成功 QPS | p95 ms | nDCG@10 | Recall@10 | MRR@10 | Hit@1 | P@5 | P@10 |",
             "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
         ]
-        for concurrency in CONCURRENCY:
+        for concurrency in self.plan["concurrency"]:
             for product in self.args.products:
                 if not (root / product / f"c{concurrency}" / "metrics.json").exists():
                     continue
@@ -599,6 +599,14 @@ def configure_connection(parser, args):
         )
 
 
+def parse_concurrency(value):
+    selected = [part.strip() for part in value.split(",")]
+    supported = {str(concurrency) for concurrency in CONCURRENCY}
+    if len(set(selected)) != len(selected) or not set(selected) <= supported:
+        raise argparse.ArgumentTypeError("Use distinct values from 1,4,8, for example 1,4")
+    return tuple(concurrency for concurrency in CONCURRENCY if str(concurrency) in selected)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -619,6 +627,12 @@ def main():
         "--query-count",
         type=int,
         help="With --full, sample this many official queries; defaults to all 393",
+    )
+    parser.add_argument(
+        "--concurrency",
+        type=parse_concurrency,
+        metavar="N[,N...]",
+        help="Query concurrency levels to run, for example 1,4; defaults to 1,4,8",
     )
     parser.add_argument("--data", type=Path, default=DATA)
     parser.add_argument(

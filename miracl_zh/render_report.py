@@ -121,6 +121,9 @@ def comparison_table(title, metrics, records, scale_rows, *, fractional=False):
 
 def render_report(root, output=None):
     plan = read_object(root / "plan.json")
+    configured = plan.get("concurrency", [])
+    if not isinstance(configured, list) or any(type(n) is not int or n < 1 for n in configured):
+        raise ValueError(f"Invalid concurrency list in {root / 'plan.json'}")
     imports = {}
     windows = {}
     for product in PRODUCTS:
@@ -130,17 +133,18 @@ def render_report(root, output=None):
             imports[product] = import_values(row)
         for path in folder.glob("c*/metrics.json"):
             suffix = path.parent.name[1:]
-            if suffix.isascii() and suffix.isdecimal() and int(suffix) > 0:
-                row = read_object(path)
-                if row:
-                    windows.setdefault(int(suffix), {})[product] = query_values(row)
+            if not suffix.isascii() or not suffix.isdecimal():
+                continue
+            level = int(suffix)
+            if level < 1 or (configured and level not in configured):
+                continue
+            row = read_object(path)
+            if row:
+                windows.setdefault(level, {})[product] = query_values(row)
     if not imports and not windows:
         raise ValueError(f"No MIRACL import.json or concurrency metrics.json found in {root}")
 
-    configured = plan.get("concurrency", [])
-    if not isinstance(configured, list) or any(type(n) is not int or n < 1 for n in configured):
-        raise ValueError(f"Invalid concurrency list in {root / 'plan.json'}")
-    concurrency = sorted(set(configured) | windows.keys())
+    concurrency = configured or sorted(windows)
     scale_rows = [row for group in windows.values() for row in group.values()]
     default = next(
         (n for n in concurrency if len(windows.get(n, {})) == len(PRODUCTS)), None
