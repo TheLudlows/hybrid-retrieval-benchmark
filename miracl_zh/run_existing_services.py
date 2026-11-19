@@ -465,11 +465,15 @@ class ExistingRun(Run):
 
     def report(self):
         root = self.args.results
+        scope = f"{self.expected:,} 段和 {len(self.topics)} 道查询。"
+        if self.args.smoke:
+            scope += "本次为预检。"
+        elif self.plan["public_result"] == "query sample":
+            scope += "指标基于抽样查询。题目 ID 和抽样种子见 plan.json。"
         lines = [
             "# MIRACL 中文 API 直连对比",
             "",
-            f"{self.expected:,} 段和 {len(self.topics)} 道查询。"
-            + ("本次为预检。" if self.args.smoke else ""),
+            scope,
             "",
             "| 产品 | 导入墙钟秒 | 导入 LLM 输入 Token | 导入 LLM 输出 Token |",
             "| --- | ---: | ---: | ---: |",
@@ -592,7 +596,12 @@ def main():
     parser.add_argument(
         "--full",
         action="store_true",
-        help="Run all passages and 393 queries from the selected data directory; default is smoke",
+        help="Run all passages from the selected data directory; default is smoke",
+    )
+    parser.add_argument(
+        "--query-count",
+        type=int,
+        help="With --full, sample this many official queries; defaults to all 393",
     )
     parser.add_argument("--data", type=Path, default=DATA)
     parser.add_argument(
@@ -605,6 +614,10 @@ def main():
         "--recover-weknora", nargs=2, metavar=("PASSAGE", "KNOWLEDGE_ID")
     )
     args = parser.parse_args()
+    if args.query_count is not None and (
+        not args.full or not 1 <= args.query_count <= bench.SOURCE["queries"]
+    ):
+        parser.error("--query-count requires --full and a count between 1 and 393")
     configure_connection(parser, args)
     args.smoke = not args.full
     args.run_name = "api_smoke" if args.smoke else "api_full"
@@ -618,7 +631,7 @@ def main():
     args.work = args.results / "checkpoints"
     args.work.mkdir(mode=0o700, exist_ok=True)
     with run_lock(args.work / "run.lock"):
-        mode = "Smoke test" if args.smoke else "Full benchmark"
+        mode = "Smoke test" if args.smoke else "Benchmark"
         append_progress(args.results, f"{mode} | Reading MIRACL data and preparing preflight")
         try:
             run = ExistingRun(args)

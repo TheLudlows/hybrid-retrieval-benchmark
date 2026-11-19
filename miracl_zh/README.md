@@ -69,6 +69,16 @@ python miracl_zh/run_existing_services.py --config miracl-services.local.json --
 
 生成的 `subset.json` 会记录抽样种子、子集和抽样来源的指纹。分数仅适用于该子集。从归档的 10 万段再次抽样会得到一份新的 10,000 段子集，复现[早期 10,000 段报告](../results/miracl-zh-10k-20261112/README.md)需要该报告使用的语料指纹。
 
+## 减少查询题数
+
+`--full --query-count N` 可从 393 道官方题中抽取 1 到 393 道。下面的命令导入已生成的 10,000 段，并在两端的每档并发下跑同样的 50 道题，计分使用这 50 道题的官方标注。请使用专用空测试库和独立的输出目录。
+
+```bash
+python miracl_zh/run_existing_services.py --config miracl-services.local.json --data miracl-zh-10k-local --full --query-count 50 --output "$HOME/miracl-api-benchmark/api_10k_q50"
+```
+
+抽样种子固定为 `20261112`，选中的题目 ID 写入 `plan.json`。报告会标注实际题数和抽样范围。这个参数只缩短查询阶段，入库段落由 `--data` 决定。题数低于并发档位时，在途请求数最多等于题数。
+
 ## 查看或重建图表
 
 评测完成后自动生成 `REPORT.html`。打开文件可切换并发 1／4／8，查看检索质量、延迟、成功 QPS、返回深度、入库耗时和已记录的模型用量。HTML 可以离线打开。

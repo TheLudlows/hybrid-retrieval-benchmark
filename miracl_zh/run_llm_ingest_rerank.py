@@ -8,6 +8,7 @@ import hashlib
 import json
 from pathlib import Path
 import platform
+import random
 import re
 import signal
 import sqlite3
@@ -34,6 +35,7 @@ CONCURRENCY = (1, 4, 8)
 PRODUCTS = ("contextbase", "weknora")
 CAP = 60
 SMOKE_TOPICS = 8
+QUERY_SAMPLE_SEED = 20261112
 
 
 def read_json(path):
@@ -72,6 +74,8 @@ class Run:
         self.args = args
         self.source = bench.dataset_source(args.data)
         self.topics, self.qrels = bench.topics_and_qrels(args.data)
+        query_count = getattr(args, "query_count", None)
+        sampled = not args.smoke and query_count is not None and query_count < len(self.topics)
         files = self.source["files"]
         self.corpus = {
             name: row["sha256"]
@@ -96,6 +100,10 @@ class Run:
                 **self.source,
                 "dataset": self.source["dataset"] + "/selected-smoke",
             }
+        elif sampled:
+            rng = random.Random(QUERY_SAMPLE_SEED)
+            selected = set(rng.sample(list(self.topics), query_count))
+            self.topics = {qid: text for qid, text in self.topics.items() if qid in selected}
         self.qrels = {qid: self.qrels[qid] for qid in self.topics}
         self.expected = (
             len(self.rows) if self.rows is not None else self.source["passages"]
@@ -117,6 +125,8 @@ class Run:
             "ingest_batch_size": args.batch_size,
             "public_result": "smoke only" if args.smoke else "formal",
         }
+        if sampled:
+            self.plan.update(public_result="query sample", query_seed=QUERY_SAMPLE_SEED)
         plan_path = args.results / "plan.json"
         if plan_path.exists() and read_json(plan_path) != self.plan:
             raise ValueError(

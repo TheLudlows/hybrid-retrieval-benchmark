@@ -38,6 +38,34 @@ jobs:
       - run: python miracl_zh/build_subset.py --data miracl_zh/data/miracl-zh-100k --output "${{ runner.temp }}/miracl-10k" --unit passages --count 10000 --seed 20261112
       - run: python miracl_zh/bench.py --data "${{ runner.temp }}/miracl-10k" verify
       - run: python miracl_zh/render_report.py results/miracl-zh-llm-ingest-rerank-20261118/smoke --output "${{ runner.temp }}/miracl-report.html"
+      - name: Verify repeatable query sampling
+        shell: python
+        run: |
+          from pathlib import Path
+          import sys
+          from tempfile import TemporaryDirectory
+          from types import SimpleNamespace
+          from unittest.mock import patch
+
+          sys.path.insert(0, "miracl_zh")
+          import run_existing_services as client
+
+          with TemporaryDirectory() as folder, patch.object(client.ExistingRun, "service_plan", return_value={}):
+              plans = []
+              for name, count in (("sample", 50), ("repeat", 50), ("all", 393), ("default", None)):
+                  results = Path(folder, name)
+                  work = results / "checkpoints"
+                  work.mkdir(parents=True)
+                  args = SimpleNamespace(data=client.DATA, results=results, work=work,
+                                         smoke=False, query_count=count, run_name="api_full",
+                                         query_timeout=600, batch_size=16)
+                  run = client.ExistingRun(args)
+                  assert len(run.topics) == (count or 393)
+                  assert run.qrels.keys() == run.topics.keys()
+                  assert run.expected == 100_000
+                  plans.append(run.plan)
+              assert plans[0] == plans[1] and plans[0]["query_seed"] == 20261112
+              assert plans[2] == plans[3] and plans[2]["public_result"] == "formal"
       - name: Check locking and UTF-8 checkpoints
         shell: python
         run: |

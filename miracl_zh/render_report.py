@@ -173,6 +173,8 @@ def render_report(root, output=None):
         scope.append(f"{len(query_ids):,} 道查询")
     if plan.get("public_result") == "smoke only":
         scope.append("预检 · 用于验证流程")
+    elif plan.get("public_result") == "query sample":
+        scope.append("抽样查询")
     scope.append(
         f"查询结果 {len(scale_rows)}/{len(concurrency) * len(PRODUCTS)} 组"
         if concurrency
